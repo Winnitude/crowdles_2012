@@ -6,8 +6,8 @@ class User
   accepts_nested_attributes_for :profile
   #  before_create :build_profile
   # embeds_many :ideas
-  has_many :ideas
-  accepts_nested_attributes_for :idea
+
+
 
   attr_accessible :profile_attributes, :email, :password, :password_confirmation,
                   :remember_me ,:country, :terms_of_service,:is_provider,

@@ -1,5 +1,26 @@
 Winnitude::Application.routes.draw do
-  devise_for :users
+  as :user do
+    match '/user/confirmation' => 'confirmations#update', :via => :put, :as => :update_user_confirmation
+    match '/user/management'   =>'users#user_management',:via => :get
+    match '/user/information/:id'   =>'users#show_user_to_local_admin',:via => :get ,:as=>:show_user_to_local_admin
+    match '/user/edit/:id'   =>'users#edit_user_info',:via => :get ,:as=>:edit_user_info
+    match '/user/update/:id'   =>'users#update_user_info',:via => :post ,:as=>:update_user_info
+    match '/user/suspend/:id'   =>'users#suspend_user',:via => :get    ,:as=>:suspend_user
+
+  end
+
+
+  devise_for :users, :scope => "user",
+             :controllers => {:omniauth_callbacks => "omniauth_callbacks" ,
+                              :sessions => "sessions" ,
+                              :confirmations => 'confirmations',
+                              :passwords => 'passwords',
+                              :registrations => 'registrations'
+             }   do
+    get "/login", :to => "sessions#new"
+    get "/logout", :to => "sessions#destroy"
+
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
