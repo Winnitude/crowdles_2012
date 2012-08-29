@@ -1,0 +1,9 @@
+development:
+  host: localhost
+  database: winnitude_development
+staging:
+    host: localhost
+    database: winnitude_staging
+test:
+  host: localhost
+  database: winnitude_test
