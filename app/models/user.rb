@@ -2,8 +2,9 @@ class User
   include Mongoid::Document
   #  embeds_one :profile
   #  accepts_nested_attributes_for :profile
-  has_one :profile,:dependent => :destroy,:autosave=> true# it should be first
-  accepts_nested_attributes_for :profile
+  has_one :profile,:dependent => :destroy
+  #accepts_nested_attributes_for :profile
+
   #  before_create :build_profile
   # embeds_many :ideas
 
