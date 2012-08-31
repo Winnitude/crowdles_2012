@@ -1,5 +1,5 @@
 class SessionsController <  Devise::SessionsController
-
+  before_filter :redirect_to_initial_page_if_platform_is_not_configured_yet ,:only => [:new]
   prepend_before_filter :require_no_authentication, :only => [ :new, :create ]
   prepend_before_filter :allow_params_authentication!, :only => :create
 

@@ -1,4 +1,16 @@
 Winnitude::Application.routes.draw do
+
+  constraints(:subdomain => ADMIN_SUBDOMAIN) do
+    scope :module => "admin" do
+      resources :global_admins do
+        collection do
+          get "set_platform_page"
+          post "set_platform"
+        end
+
+      end
+    end
+  end
   as :user do
     match '/user/confirmation' => 'confirmations#update', :via => :put, :as => :update_user_confirmation
     match '/user/management'   =>'users#user_management',:via => :get
@@ -19,6 +31,12 @@ Winnitude::Application.routes.draw do
              }   do
     get "/login", :to => "sessions#new"
     get "/logout", :to => "sessions#destroy"
+
+  end
+  resource :homes do
+    collection do
+      get "platform_not_configured"
+    end
 
   end
 

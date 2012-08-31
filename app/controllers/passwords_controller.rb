@@ -1,5 +1,6 @@
 class PasswordsController <  Devise::PasswordsController
   prepend_before_filter :require_no_authentication
+  before_filter :redirect_to_initial_page_if_platform_is_not_configured_yet ,:only => [:new]
 #  include Devise::Controllers::InternalHelpers
 
   # GET /resource/password/new
