@@ -49,7 +49,6 @@ gem "pry"
 gem "pry-remote"
 gem "will_paginate"
 gem 'faker'
-gem 'addressable', '2.3.1'
 #gem "bullet", :group => "development"
 #gem "itslog"
 #gem "fastercsv"
