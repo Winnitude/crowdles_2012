@@ -7,7 +7,7 @@ class User
 
   #  before_create :build_profile
   # embeds_many :ideas
-
+  has_one :profile
 
 
   attr_accessible :profile_attributes, :email, :password, :password_confirmation,

@@ -1,6 +1,5 @@
 class GeneralSetting < GlobalAdmin
   include Mongoid::Document
-  belongs_to :user
   field :platform_name,                      :type => String ,:null => false, :default => 'Winnitude'
   field :platform_email   ,  :type => String ,:null => false
   field :platform_default_language,          :type => String ,:null => false, :default => 'English'
@@ -23,10 +22,10 @@ class GeneralSetting < GlobalAdmin
   validates :platform_default_language   , :presence => true
   validates :platform_default_domain   , :presence => true
 
-  def self.initialize_global_admin_general_settings(user,param)
-    settings = user.build_general_setting(:platform_name =>param[:platform_name], :platform_email =>param[:platform_email] ,
+  def self.initialize_global_admin_general_settings(param)
+    settings = GeneralSetting.create(:platform_name =>param[:platform_name], :platform_email =>param[:platform_email] ,
                                           :platform_default_language=> param[:language])
-    settings.save
+    #settings.save
     return settings
   end
 end

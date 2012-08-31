@@ -269,7 +269,6 @@ PLATFORMS
 
 DEPENDENCIES
   activevalidators
-  addressable (= 2.3.1)
   bson_ext (~> 1.5)
   cancan
   capistrano
