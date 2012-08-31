@@ -131,7 +131,12 @@ class User
   def should_not_provider?
     is_provider == false
   end
-
+  def self.create_global_admin_owner param
+    user = User.new(:email => param[:admin_email], :password =>param[:password], :password_confirmation => param[:password], :terms_of_service =>true, :country => param[:country])
+    user.skip_confirmation!
+    user.save!
+    return user
+  end
 
 end
 
