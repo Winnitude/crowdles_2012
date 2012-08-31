@@ -17,4 +17,4 @@ set :password, "RORjI40bU7bF"
 set :ssh_options, {:forward_agent => true}
 
 set :default_run_options ,{:pty => true}
-set :keep_releases, 5
+set :keep_releases, 2

@@ -27,7 +27,7 @@
           <div class="control-group">
             <label class="control-label">Administrator Password</label>
             <div class="controls">
-              <%=text_field_tag :password,"", :placeholder => "Password"%>
+              <%=password_field_tag :password,"", :placeholder => "Password"%>
             </div>
           </div>
           <div class="control-group">
@@ -62,3 +62,22 @@
       </div>
     </div>
 <%end%>
+
+<%= content_for :head do  %>
+    <script type="text/javascript">
+
+        jQuery(function(){
+            var platform_name = new LiveValidation('platform_name',{validMessage:" ",onlyOnSubmit:true});
+            platform_name.add( Validate.Presence,{failureMessage:" Can't be empty"} );
+            var platform_email = new LiveValidation('platform_email',{validMessage:" ",onlyOnSubmit:true});
+            platform_email.add( Validate.Presence,{failureMessage:" Can't be empty"} );
+            platform_email.add( Validate.Email,{failureMessage:"Not a valid email"} );
+            var admin_email = new LiveValidation('admin_email',{validMessage:" ",onlyOnSubmit:true});
+            admin_email.add( Validate.Presence,{failureMessage:" Can't be empty"} );
+            admin_email.add( Validate.Email,{failureMessage:"Not a valid email"} );
+            var password = new LiveValidation('password',{validMessage:" ",onlyOnSubmit:true});
+            password.add( Validate.Presence,{failureMessage:" Can't be empty"} );
+
+        });
+    </script>
+<% end %>
