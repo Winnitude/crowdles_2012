@@ -1,9 +1,9 @@
 class GeneralSetting < GlobalAdmin
   include Mongoid::Document
-  field :platform_name,                      :type => String ,:null => false, :default => 'Winnitude'
-  field :platform_email   ,  :type => String ,:null => false
-  field :platform_default_language,          :type => String ,:null => false, :default => 'English'
-  field :platform_default_domain,            :type => String ,:null => false, :default => 'crowdles.com'
+  field :platform_name,                      :type => String
+  field :platform_email   ,                  :type => String
+  field :platform_default_language,          :type => String
+  field :platform_default_domain,            :type => String
   field :mailchimp_integration_enabled,       :type => Boolean, :default => false
   field :freshbooks_integration_enabled,      :type => Boolean, :default => false
   field :platform_legal_terms_global,         :type => String

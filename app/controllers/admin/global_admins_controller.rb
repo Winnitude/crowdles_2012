@@ -11,6 +11,9 @@ class Admin::GlobalAdminsController < ApplicationController
     def set_platform
       Language.make_language_active(params[:language])
       @user= User.create_global_admin_owner(params)
+      @user.initialize_default_billing_profile params
+      @global_admin = GlobalAdmin.create
+      @global_admin.initialize_billing_profiles params
       @general_settings = GeneralSetting.initialize_global_admin_general_settings(params)
       render :json => @general_settings
     end
