@@ -8,7 +8,7 @@ class User
   #  before_create :build_profile
   # embeds_many :ideas
   has_one :profile
-  has_one :billing_profile,  :dependent => :destroy
+  has_one :default_billing_profile,  :dependent => :destroy
   has_many :platform_user_roles
 
   attr_accessible :profile_attributes, :email, :password, :password_confirmation,
@@ -140,8 +140,7 @@ class User
   end
 
   def initialize_default_billing_profile param
-    billing_profile=self.build_billing_profile(:billing_profile_type => "Default" ,:currency => param[:currency] )
-    billing_profile.save
+    billing_profile=self.build_default_billing_profile(:currency => param[:currency] ).save
   end
 
 end
