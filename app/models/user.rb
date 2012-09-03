@@ -9,6 +9,7 @@ class User
   # embeds_many :ideas
   has_one :profile
   has_one :billing_profile,  :dependent => :destroy
+  has_many :platform_user_roles
 
   attr_accessible :profile_attributes, :email, :password, :password_confirmation,
                   :remember_me ,:country, :terms_of_service,:is_provider,

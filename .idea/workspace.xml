@@ -2,19 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac3fb216-2b56-446e-aa49-0c4f73d01a9c" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/country_detail.rb" afterPath="$PROJECT_DIR$/app/models/service_country.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/currency.rb" afterPath="$PROJECT_DIR$/app/models/service_currency.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/general_setting.rb" afterPath="$PROJECT_DIR$/app/models/ga_general_setting.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/global_admin.rb" afterPath="$PROJECT_DIR$/app/models/platform_ga.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/models/language.rb" afterPath="$PROJECT_DIR$/app/models/service_language.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/tasks/create_roles.rake" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/admin/global_admins_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/admin/global_admins_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/commissions_setting.rb" afterPath="$PROJECT_DIR$/app/models/commissions_setting.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/paas_setting.rb" afterPath="$PROJECT_DIR$/app/models/paas_setting.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/tasks/add_countries.rake" afterPath="$PROJECT_DIR$/lib/tasks/add_countries.rake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/tasks/add_currency.rake" afterPath="$PROJECT_DIR$/lib/tasks/add_currency.rake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/tasks/add_language.rake" afterPath="$PROJECT_DIR$/lib/tasks/add_language.rake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/platform_ga.rb" afterPath="$PROJECT_DIR$/app/models/platform_ga.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
     </list>
     <ignored path="winnitude.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,51 +24,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="global_admins_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/admin/global_admins_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="31" selection-start="862" selection-end="862" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="set_platform_page.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/global_admins/set_platform_page.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1346410215000" expanded="true" signature="111:2553" placeholder="..." />
-                <marker date="1346410215000" expanded="true" signature="135:2542" placeholder="..." />
-                <marker date="1346410215000" expanded="true" signature="163:2529" placeholder="..." />
-                <marker date="1346410215000" expanded="true" signature="268:483" placeholder="..." />
-                <marker date="1346410215000" expanded="true" signature="366:466" placeholder="..." />
-                <marker date="1346410215000" expanded="true" signature="522:747" placeholder="..." />
-                <marker date="1346410215000" expanded="true" signature="621:730" placeholder="..." />
-                <marker date="1346410215000" expanded="true" signature="786:1017" placeholder="..." />
-                <marker date="1346410215000" expanded="true" signature="890:1000" placeholder="..." />
-                <marker date="1346410215000" expanded="true" signature="1055:1277" placeholder="..." />
-                <marker date="1346410215000" expanded="true" signature="1162:1260" placeholder="..." />
-                <marker date="1346410215000" expanded="true" signature="1315:1533" placeholder="..." />
-                <marker date="1346410215000" expanded="true" signature="1425:1516" placeholder="..." />
-                <marker date="1346410215000" expanded="true" signature="1571:1788" placeholder="..." />
-                <marker date="1346410215000" expanded="true" signature="1681:1771" placeholder="..." />
-                <marker date="1346410215000" expanded="true" signature="1826:2062" placeholder="..." />
-                <marker date="1346410215000" expanded="true" signature="1934:2045" placeholder="..." />
-                <marker date="1346410215000" expanded="true" signature="2100:2315" placeholder="..." />
-                <marker date="1346410215000" expanded="true" signature="2203:2298" placeholder="..." />
-                <marker date="1346410215000" expanded="true" signature="2352:2514" placeholder="..." />
-                <marker date="1346410215000" expanded="true" signature="2627:3607" placeholder="..." />
-                <marker date="1346410215000" expanded="true" signature="2655:3592" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="user.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/user.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="119" column="40" selection-start="4517" selection-end="4517" vertical-scroll-proportion="0.0">
+            <state line="11" column="31" selection-start="352" selection-end="352" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -101,10 +51,46 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="commissions_setting.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="commissions_setting.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/commissions_setting.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="65" selection-start="70" selection-end="70" vertical-scroll-proportion="0.064935066">
+            <state line="3" column="75" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create_roles.rake" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/tasks/create_roles.rake">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="106" selection-start="388" selection-end="388" vertical-scroll-proportion="0.22058824">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="billing_profile.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/billing_profile.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="123" selection-start="727" selection-end="727" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="platform_role.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/platform_role.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="83" selection-start="188" selection-end="188" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="platform_user_role.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/platform_user_role.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="42" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -113,16 +99,7 @@
       <file leaf-file-name="platform_ga.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/platform_ga.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="375" selection-end="375" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="service_country.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/service_country.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="43" selection-start="295" selection-end="295" vertical-scroll-proportion="0.0">
+            <state line="10" column="69" selection-start="405" selection-end="405" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -132,15 +109,6 @@
         <entry file="file://$PROJECT_DIR$/lib/tasks/add_countries.rake">
           <provider selected="true" editor-type-id="text-editor">
             <state line="12" column="41" selection-start="436" selection-end="436" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="billing_profile.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/billing_profile.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="14" selection-start="337" selection-end="345" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -159,10 +127,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/config/deploy/production.rb" />
-        <option value="$PROJECT_DIR$/config/deploy/staging.rb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/_main_layout.erb" />
-        <option value="$PROJECT_DIR$/app/views/shared/_main_layout.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/livevalidation.js" />
         <option value="$PROJECT_DIR$/app/views/admin/global_admins/set_platform_page.html.erb" />
@@ -172,9 +136,13 @@
         <option value="$PROJECT_DIR$/app/models/commissions_setting.rb" />
         <option value="$PROJECT_DIR$/app/models/general_setting.rb" />
         <option value="$PROJECT_DIR$/app/models/billing_profile.rb" />
-        <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/app/controllers/admin/global_admins_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/global_admin.rb" />
+        <option value="$PROJECT_DIR$/app/models/platform_user_role.rb" />
+        <option value="$PROJECT_DIR$/app/models/user.rb" />
+        <option value="$PROJECT_DIR$/app/models/platform_ga.rb" />
+        <option value="$PROJECT_DIR$/app/models/platform_role.rb" />
+        <option value="$PROJECT_DIR$/lib/tasks/create_roles.rake" />
       </list>
     </option>
   </component>
@@ -226,6 +194,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="crowdles_2012" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="winnitude" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crowdles_2012" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tasks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="winnitude" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crowdles_2012" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -318,6 +318,9 @@
     <property name="GoToClass.includeJavaFiles" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/tasks" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/views/shared" />
     </key>
@@ -575,7 +578,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="24" width="1602" height="853" extended-state="6" />
+    <frame x="-1" y="24" width="1602" height="853" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -651,21 +654,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/shared/_main_layout.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="78" selection-start="518" selection-end="518" vertical-scroll-proportion="-11.875" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="116" selection-start="1310" selection-end="1310" vertical-scroll-proportion="-12.5" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/livevalidation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="744" column="69" selection-start="33281" selection-end="33281" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/languages.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -689,36 +677,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
           <folding>
-            <marker date="1346410215000" expanded="true" signature="111:2553" placeholder="..." />
-            <marker date="1346410215000" expanded="true" signature="135:2542" placeholder="..." />
-            <marker date="1346410215000" expanded="true" signature="163:2529" placeholder="..." />
-            <marker date="1346410215000" expanded="true" signature="268:483" placeholder="..." />
-            <marker date="1346410215000" expanded="true" signature="366:466" placeholder="..." />
-            <marker date="1346410215000" expanded="true" signature="522:747" placeholder="..." />
-            <marker date="1346410215000" expanded="true" signature="621:730" placeholder="..." />
-            <marker date="1346410215000" expanded="true" signature="786:1017" placeholder="..." />
-            <marker date="1346410215000" expanded="true" signature="890:1000" placeholder="..." />
-            <marker date="1346410215000" expanded="true" signature="1055:1277" placeholder="..." />
-            <marker date="1346410215000" expanded="true" signature="1162:1260" placeholder="..." />
-            <marker date="1346410215000" expanded="true" signature="1315:1533" placeholder="..." />
-            <marker date="1346410215000" expanded="true" signature="1425:1516" placeholder="..." />
-            <marker date="1346410215000" expanded="true" signature="1571:1788" placeholder="..." />
-            <marker date="1346410215000" expanded="true" signature="1681:1771" placeholder="..." />
-            <marker date="1346410215000" expanded="true" signature="1826:2062" placeholder="..." />
-            <marker date="1346410215000" expanded="true" signature="1934:2045" placeholder="..." />
-            <marker date="1346410215000" expanded="true" signature="2100:2315" placeholder="..." />
-            <marker date="1346410215000" expanded="true" signature="2203:2298" placeholder="..." />
-            <marker date="1346410215000" expanded="true" signature="2352:2514" placeholder="..." />
-            <marker date="1346410215000" expanded="true" signature="2627:3607" placeholder="..." />
-            <marker date="1346410215000" expanded="true" signature="2655:3592" placeholder="{...}" />
+            <marker date="1346410215000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346410215000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346410215000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346410215000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346410215000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346410215000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346410215000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346410215000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346410215000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346410215000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346410215000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346410215000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346410215000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346410215000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346410215000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346410215000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346410215000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346410215000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346410215000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346410215000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346410215000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1346410215000" expanded="true" signature="-1:-1" placeholder="{...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/billing_profile.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="14" selection-start="337" selection-end="345" vertical-scroll-proportion="0.0">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -743,20 +724,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="119" column="40" selection-start="4517" selection-end="4517" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/platform_ga.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="375" selection-end="375" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/paas_setting.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="0" selection-start="63" selection-end="63" vertical-scroll-proportion="0.0">
@@ -773,7 +740,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/commissions_setting.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="65" selection-start="70" selection-end="70" vertical-scroll-proportion="0.064935066">
+        <state line="3" column="75" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/platform_ga.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="69" selection-start="405" selection-end="405" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="31" selection-start="352" selection-end="352" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/platform_user_role.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="42" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/platform_role.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="83" selection-start="188" selection-end="188" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/billing_profile.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="123" selection-start="727" selection-end="727" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/tasks/create_roles.rake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="106" selection-start="388" selection-end="388" vertical-scroll-proportion="0.22058824">
           <folding />
         </state>
       </provider>
