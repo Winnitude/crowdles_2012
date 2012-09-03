@@ -1,4 +1,4 @@
-class CountryDetail
+class ServiceCountry
   include Mongoid::Document
   field :is_active, :type => Integer
   field :is_default, :type => Integer

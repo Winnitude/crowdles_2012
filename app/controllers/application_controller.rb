@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_to_initial_page_if_platform_is_not_configured_yet
-    if GlobalAdmin.count == 0
+    if PlatformGa.count == 0
       if request.url.index(LOCAL_HOST).present?
         redirect_to   platform_not_configured_homes_path
       else

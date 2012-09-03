@@ -1,3 +1,3 @@
-class CommissionsSetting < GlobalAdmin
+class CommissionsSetting < PlatformGa
   include Mongoid::Document
 end

@@ -1,3 +1,3 @@
-class PaasSetting < GlobalAdmin
+class PaasSetting < PlatformGa
   include Mongoid::Document
 end

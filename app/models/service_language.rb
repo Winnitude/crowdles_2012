@@ -1,4 +1,4 @@
-class Language
+class ServiceLanguage
   include Mongoid::Document
   field :is_active, :type => Integer
   field :local_name, :type => String

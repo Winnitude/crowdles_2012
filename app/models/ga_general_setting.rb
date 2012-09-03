@@ -1,4 +1,4 @@
-class GeneralSetting < GlobalAdmin
+class GaGeneralSetting < PlatformGa
   include Mongoid::Document
   field :platform_name,                      :type => String
   field :platform_email   ,                  :type => String
@@ -23,7 +23,7 @@ class GeneralSetting < GlobalAdmin
   validates :platform_default_domain   , :presence => true
 
   def self.initialize_global_admin_general_settings(param)
-    settings = GeneralSetting.create(:platform_name =>param[:platform_name], :platform_email =>param[:platform_email] ,
+    settings = GaGeneralSetting.create(:platform_name =>param[:platform_name], :platform_email =>param[:platform_email] ,
                                           :platform_default_language=> param[:language])
     #settings.save
     return settings

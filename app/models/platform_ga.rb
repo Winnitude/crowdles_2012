@@ -1,4 +1,4 @@
-class GlobalAdmin #will act as base class for the GA related things
+class PlatformGa #will act as base class for the GA related things
   include Mongoid::Document
   has_many :billing_profiles
 
