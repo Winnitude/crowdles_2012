@@ -6,6 +6,6 @@ class PlatformGa #will act as base class for the GA related things
 
   def initialize_billing_profiles param
     self.build_billing_profile_default(:currency => param[:currency]).save
-    self.build_billing_profile_paas(:currency => param[:currency]).save
+    self.build_paas_billing_profile(:currency => param[:currency]).save
   end
 end
