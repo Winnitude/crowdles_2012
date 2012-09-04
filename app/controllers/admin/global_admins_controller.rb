@@ -21,6 +21,8 @@ class Admin::GlobalAdminsController < ApplicationController
       @terms = @global_admin.build_ga_term.save
       @projects_setting = @global_admin.build_ga_projects_setting.save
       PlatformRolesManagement.assign_global_admin_role @user , @global_admin
+      #creating the Default Product
+      PlatformProduct.create_platform_default_product
       render :json => @general_settings
     end
   end
