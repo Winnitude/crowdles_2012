@@ -10,6 +10,7 @@ class User
   has_one :profile
   has_one :default_billing_profile,  :dependent => :destroy
   has_many :platform_roles_managements
+  has_many :platform_local_admins
   after_create :assign_role_to_user
   attr_accessible :profile_attributes, :email, :password, :password_confirmation,
                   :remember_me ,:country, :terms_of_service,:is_provider,
