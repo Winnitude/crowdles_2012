@@ -10,12 +10,16 @@ class Admin::GlobalAdminsController < ApplicationController
 
     def set_platform
       ServiceLanguage.make_language_active(params[:language])
-      @user= User.create_global_admin_owner(params)
-      @user.initialize_default_billing_profile params
+      @user= User.create_global_admin_owner(params) #create 1st user
+      @user.initialize_default_billing_profile params #creating default billing profile for user
       @global_admin = PlatformGlobalAdmin.create
       @global_admin.initialize_billing_profiles params
       @general_settings = @global_admin.build_ga_general_setting
       @general_settings.initialize_global_admin_general_settings(params)
+      @integration_setting = @global_admin.build_ga_integration.save
+      @commissions_setting = @global_admin.build_ga_projects_commission.save
+      @terms = @global_admin.build_ga_term.save
+      @projects_setting = @global_admin.build_ga_projects_setting.save
       PlatformRolesManagement.assign_global_admin_role @user , @global_admin
       render :json => @general_settings
     end

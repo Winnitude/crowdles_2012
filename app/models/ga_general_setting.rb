@@ -6,17 +6,8 @@ class GaGeneralSetting
   field :platform_default_language,          :type => String
   field :platform_default_domain,            :type => String
   field :platform_legal_terms_global,         :type => String
-  field :arena_minimum_cap,                   :type => Integer
-  field :arena_maximum_cap,                   :type => Integer
-  field :arena_factor,                        :type => Float
   field :ga_facebook,                         :type => String
   field :ga_twitter,                          :type => String
-  field :user_terms,                          :type => String
-  field :project_terms,                       :type => String
-  field :worker_terms,                        :type => String
-  field :admin_group_terms,                   :type => String
-  field :business_group_terms,                :type => String
-  field :no_profit_terms,                     :type => String
   validates :platform_name   , :presence => true
   validates :platform_default_language   , :presence => true
 

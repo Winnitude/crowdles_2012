@@ -145,7 +145,7 @@ class User
 
   def assign_role_to_user
    role = UserRole.get_role "user"
-   role_management =self.platform_roles_management.new
+   role_management =self.platform_roles_managements.new
    role_management.user_role = role
    role_management.save
   end
