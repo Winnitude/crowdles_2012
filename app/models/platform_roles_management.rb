@@ -5,7 +5,7 @@ class PlatformRolesManagement
   belongs_to :user_role
 
   def self.assign_global_admin_role(user,global_admin)
-    role = UserRole.get_role "Global_admin"
+    role = UserRole.get_role "global_admin"
     role_management =user.platform_roles_management.new
     role_management.user_role = role
     role_management.platform_global_admin = global_admin

@@ -21,9 +21,10 @@ class GaGeneralSetting
   field :no_profit_terms,                     :type => String
   validates :platform_name   , :presence => true
   validates :platform_default_language   , :presence => true
-  validates :platform_default_domain   , :presence => true
+
 
   def initialize_global_admin_general_settings(param)
+
     self.platform_name = param[:platform_name]
     self.platform_email = param[:platform_email]
     self.platform_default_language = param[:language]
