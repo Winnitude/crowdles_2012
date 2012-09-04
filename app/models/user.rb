@@ -8,8 +8,8 @@ class User
   #  before_create :build_profile
   # embeds_many :ideas
   has_one :profile
-  has_one :billing_profile_default,  :dependent => :destroy
-  has_many :platform_user_roles
+  has_one :default_billing_profile,  :dependent => :destroy
+  has_many :platform_roles_management
   after_create :assign_role_to_user
   attr_accessible :profile_attributes, :email, :password, :password_confirmation,
                   :remember_me ,:country, :terms_of_service,:is_provider,
@@ -140,14 +140,14 @@ class User
   end
 
   def initialize_default_billing_profile param
-    billing_profile=self.build_billing_profile_default(:currency => param[:currency] ).save
+    billing_profile=self.build_default_billing_profile(:currency => param[:currency] ).save
   end
 
   def assign_role_to_user
-   role = PlatformRole.get_role "user"
-   user_role =self.platform_user_roles.new
-   user_role.platform_role = role
-   user_role.save
+   role = UserRole.get_role "user"
+   role_management =self.platform_roles_management.new
+   role_management.user_role = role
+   role_management.save
   end
 
 end

@@ -1,3 +1,3 @@
-class PaasSetting < PlatformGa
+class PaasSetting
   include Mongoid::Document
 end

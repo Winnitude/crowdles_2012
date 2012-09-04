@@ -1,3 +1,3 @@
-class CommissionsSetting < PlatformGa
+class CommissionsSetting
   include Mongoid::Document
 end
