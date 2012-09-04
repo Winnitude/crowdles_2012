@@ -4,6 +4,7 @@ class PlatformGlobalAdmin #will act as base class for the GA related things
   has_one :default_billing_profile
   has_one :platform_user_role
   has_one :ga_general_setting
+  has_one :ga_integration
 
 
   def initialize_billing_profiles param

@@ -5,8 +5,6 @@ class GaGeneralSetting
   field :platform_email   ,                  :type => String
   field :platform_default_language,          :type => String
   field :platform_default_domain,            :type => String
-  field :mailchimp_integration_enabled,       :type => Boolean, :default => false
-  field :freshbooks_integration_enabled,      :type => Boolean, :default => false
   field :platform_legal_terms_global,         :type => String
   field :arena_minimum_cap,                   :type => Integer
   field :arena_maximum_cap,                   :type => Integer
