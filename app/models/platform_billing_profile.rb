@@ -1,10 +1,10 @@
-class BillingProfile
+class PlatformBillingProfile
   include Mongoid::Document
   include Mongoid::Document
-  belongs_to :user
-  belongs_to :global_admin
+  #belongs_to :user
+  #belongs_to :global_admin
   before_save :set_creation_date
-  field :billing_profile_type ,        :type => String
+  #field :billing_profile_type ,        :type => String
   field :creation_date                 ,:type => DateTime
   field :last_modification_date         ,:type => DateTime
   field :currency                     ,:type => String
