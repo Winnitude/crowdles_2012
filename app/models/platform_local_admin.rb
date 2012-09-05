@@ -4,6 +4,12 @@ class PlatformLocalAdmin
   belongs_to :platform_global_admin
   belongs_to :user
   has_many :platform_roles_managements
+  has_one :la_contact
+  has_one :la_general_setting
+  has_one :la_paas_setting
+  has_one :la_profile
+  has_one :la_term
+
 
   field :is_master,                        :type => Boolean
   field :creation_date,                    :type => DateTime
