@@ -27,7 +27,7 @@ class Admin::GlobalAdminsController < ApplicationController
       #creating_local_admin_for_platform_master_country also this will act as MLA
       PlatformLocalAdmin.create_main_local_admin @user, params
       #creating_local_admins_for_the_other_countries_other than the platform master country
-      #PlatformLocalAdmin.create_all_local_admins
+      PlatformLocalAdmin.create_all_local_admins params
       render :json => @general_settings
     end
   end
