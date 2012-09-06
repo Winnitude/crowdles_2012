@@ -11,6 +11,7 @@ class Admin::GlobalAdminsController < ApplicationController
     def set_platform
       ServiceLanguage.make_language_active(params[:language])
       @user= User.create_global_admin_owner(params) #create 1st user
+
       @user.initialize_default_billing_profile params #creating default billing profile for user
       #creating GA and his related setting
       @global_admin = PlatformGlobalAdmin.create

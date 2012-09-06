@@ -140,6 +140,7 @@ class User
     user = User.new(:email => param[:admin_email], :password =>param[:password], :password_confirmation => param[:password], :terms_of_service =>true, :country => param[:country])
     user.skip_confirmation!
     user.save!
+    user_profile = user.build_user_profile(:first_name => "Administrator", :country => param[:country] ,:language =>param[:language] )
     return user
   end
 
