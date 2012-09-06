@@ -1,5 +1,6 @@
 class PlatformAdminGroup
   include Mongoid::Document
+  has_one :platform_products_management
   has_one :ag_general_setting
   has_one :ag_profile
   has_one :ga_projects_setting

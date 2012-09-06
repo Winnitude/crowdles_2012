@@ -1,6 +1,6 @@
 class PlatformProduct
   include Mongoid::Document
-  include Mongoid::Document
+  has_many :platform_products_managements
   field :platform_product_name,           :type => String
   field :platform_product_type  ,          :type => String
   field :product_target  ,                 :type => String
