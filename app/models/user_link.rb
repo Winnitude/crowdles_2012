@@ -1,5 +1,6 @@
 class UserLink
   include Mongoid::Document
+  belongs_to :user
   field :web,            :type => String
   field :blog,           :type => String
   field :social_fb,      :type => String

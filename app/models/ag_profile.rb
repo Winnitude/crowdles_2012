@@ -1,5 +1,6 @@
 class AgProfile
   include Mongoid::Document
+  belongs_to :platform_admin_group
   field :admin_group_description ,                  :type => String
   field :admin_group_email ,                        :type => String
   field :first_name ,                               :type => String

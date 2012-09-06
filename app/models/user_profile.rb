@@ -1,5 +1,6 @@
 class UserProfile
   include Mongoid::Document
+  belongs_to :user
   field :privacy , :type => String
   field :first_name , :type => String
   field :last_name , :type => String
