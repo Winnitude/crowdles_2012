@@ -9,8 +9,13 @@ class PlatformAdminGroup
   belongs_to :user
   belongs_to :platform_local_admin
   has_many :platform_roles_managements
+  field :admin_group_type ,:type => String
   field :ag_creation_date ,                         :type => Date
   field :ag_expiration_date ,                       :type => Date
   field :ag_deactivation_date ,                     :type => Date
   field :status ,                                   :type => String
+
+  def create_main_admin_group_for_platform_master_country user, param
+
+  end
 end
