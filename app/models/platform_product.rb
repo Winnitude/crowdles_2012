@@ -1,6 +1,6 @@
 class PlatformProduct
   include Mongoid::Document
-  include Mongoid::Document
+  scope :get_default_product, where(:is_default => true)
   field :platform_product_name,           :type => String
   field :platform_product_type  ,          :type => String
   field :product_target  ,                 :type => String
