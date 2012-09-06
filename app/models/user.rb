@@ -7,7 +7,9 @@ class User
 
   #  before_create :build_profile
   # embeds_many :ideas
-  has_one :profile
+  has_one :user_profile
+  has_one :user_link
+  has_one :user_contact
   has_one :default_billing_profile,  :dependent => :destroy
   has_many :platform_roles_managements
   has_many :platform_local_admins
