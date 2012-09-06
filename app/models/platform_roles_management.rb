@@ -5,6 +5,7 @@ class PlatformRolesManagement
   belongs_to :platform_global_admin
   belongs_to :user_role
   belongs_to :platform_local_admin
+  belongs_to :platform_admin_group
 
   def self.assign_global_admin_role(user,global_admin)
     role = UserRole.get_role "global_admin"
@@ -27,6 +28,14 @@ class PlatformRolesManagement
     role_management =user.platform_roles_managements.new
     role_management.user_role = role
     role_management.save
+  end
+
+  def self.assign_admin_group_owner_role user,admin_group
+   role = admin_group.admin_group_type == "main" ? UserRole.get_role("main_admin_group_owner") : UserRole.get_role("admin_group_owner")
+   role_management =user.platform_roles_managements.new
+   role_management.user_role = role
+   role_management.platform_admin_group = admin_group
+   role_management.save
   end
 
 end

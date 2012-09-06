@@ -24,6 +24,7 @@ class PlatformLocalAdmin
     la_term = local_admin.build_la_term.save
     la_contact = local_admin.build_la_contact.save
     local_admin.build_paas_billing_profile(:currency => param[:currency] ).save
+    return local_admin
   end
 
   def self.create_all_local_admins param
