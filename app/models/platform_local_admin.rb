@@ -9,8 +9,7 @@ class PlatformLocalAdmin
   has_one :la_paas_setting
   has_one :la_profile
   has_one :la_term
-
-
+  has_many :platform_admin_groups
   field :is_master,                        :type => Boolean
   field :creation_date,                    :type => DateTime
   field :deactivation_date,                :type => DateTime
