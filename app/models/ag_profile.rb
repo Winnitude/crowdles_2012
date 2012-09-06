@@ -1,10 +1,10 @@
 class AgProfile
   include Mongoid::Document
-  field :admin_group_description , type => String
-  field :admin_group_email , type => String
-  field :first_name , type => String
-  field :last_name , type => String
-  field :company_name , type => String
+  field :admin_group_description ,                  :type => String
+  field :admin_group_email ,                        :type => String
+  field :first_name ,                               :type => String
+  field :last_name ,                                :type => String
+  field :company_name ,                             :type => String
   field :country ,                                  :type => String
   field :city ,                                     :type => String
   field :zip_code ,                                 :type => String
