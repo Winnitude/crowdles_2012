@@ -23,12 +23,11 @@ class PlatformLocalAdmin
     pass_setting = local_admin.build_la_paas_setting.save
     la_term = local_admin.build_la_term.save
     la_contact = local_admin.build_la_contact.save
-    local_admin.create_mag param
     local_admin.build_paas_billing_profile(:currency => param[:currency] ).save
     return local_admin
   end
 
-  def self.create_all_local_admins param
+  def self.create_all_local_admins_with_their_mag param
      all_countries = ServiceCountry.where(:is_active => 1, :is_default => 0)
      all_countries.each do |i|
        local_admin=self.create(:is_master => false , :creation_date => DateTime.now ,:status =>"suspended")
@@ -38,6 +37,7 @@ class PlatformLocalAdmin
        la_term = local_admin.build_la_term.save
        la_contact = local_admin.build_la_contact.save
        local_admin.build_paas_billing_profile(:currency => param[:currency] ).save
+       local_admin.create_mag param
      end
   end
 
