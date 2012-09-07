@@ -91,6 +91,16 @@ Winnitude::Application.routes.draw do
   # just remember to delete public/index.html.
   root :to => 'homes#index'
 
+  resources :people do
+#    member do
+#
+#    end
+    collection do
+      get 'provider_terms_of_service'
+      put 'update_provider_terms_of_service'
+    end
+  end
+
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

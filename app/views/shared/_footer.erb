@@ -1,0 +1,18 @@
+
+    <%if  current_user.present?%>
+        <%= debug(params) if Rails.env.development?%>
+        <h5>Email</h5>
+        <%= current_user.email.inspect %>
+       ===============================================================================================================================
+       <h5>All Roles</h5>
+        <%=current_user.all_roles %>
+        <%=current_user.platform_local_admins.inspect %>
+        ===============================================================================================================================
+    <% end %>
+
+    <div class="span3">
+      <%= render partial: 'shared/side_bar' %>
+    </div>
+
+
+<p>&copy; Company 2012</p>

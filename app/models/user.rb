@@ -2,7 +2,7 @@ class User
   include Mongoid::Document
   #  embeds_one :profile
   #  accepts_nested_attributes_for :profile
-  has_one :profile,:dependent => :destroy
+  #has_one :profile,:dependent => :destroy
   #accepts_nested_attributes_for :profile
 
   #  before_create :build_profile
@@ -15,6 +15,7 @@ class User
   has_many :platform_local_admins
   has_many :platform_admin_groups
   after_create :assign_role_to_user
+  before_save :accept_terms
   attr_accessible :profile_attributes, :email, :password, :password_confirmation,
                   :remember_me ,:country, :terms_of_service,:is_provider,
                   :is_provider_terms_of_service,:profile
@@ -153,6 +154,18 @@ class User
    role_management =self.platform_roles_managements.new
    role_management.user_role = role
    role_management.save
+  end
+  def accept_terms
+    self.is_provider_terms_of_service = true
+  end
+
+  def all_roles
+    roles = self.platform_roles_managements.includes(:user_role).collect{|i| i.user_role.role_name}
+  end
+
+  def is_from_admin_side
+    roles = self.all_roles
+    return roles.include?("global_admin")  ||  roles.include?("local_admin")
   end
 
 end

@@ -60,30 +60,7 @@
   </div><!--/content-->
 
   <footer>
-    <%if Rails.env.development? %>
-        <%if  current_user.present?%>
-            <%= debug(params) if Rails.env.development?%>
-            <%= Rails.env if Rails.env.development?%>
-            User email:::::::::::
-            <%= current_user.inspect %>
-            </br> </br></br></br></br></br></br>
-            <%= user_session.inspect %>
-            ===============================================================================================================================
-
-            ================================================================================================================================
-            </br> </br></br></br></br></br></br>
-            <%= params.inspect if Rails.env.development? %>
-            </br></br></br></br></br>
-            ================================================================================================================================
-
-        <% end %>
-
-        <div class="span3">
-          <%= render partial: 'shared/side_bar' %>
-        </div>
-    <% end %>
-
-    <p>&copy; Company 2012</p>
+    <%= render :partial => "/shared/footer" if Rails.env.development? %>
   </footer>
 
 </div> <!-- /container -->

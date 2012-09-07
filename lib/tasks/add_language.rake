@@ -5,7 +5,7 @@ namespace :add_language do
     require 'csv'
     CSV.foreach(Rails.root.join("languages.csv"),{:col_sep =>";"} ) do |row|
       @language = ServiceLanguage.create(:iso_code => row[3], :is_active => row[0],:local_name => row[1], :english_name => row[2])
-      puts @language.inspect
+      #puts @language.inspect
     end
   end
 end
