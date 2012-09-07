@@ -29,8 +29,8 @@ class Admin::GlobalAdminsController < ApplicationController
      main_local_admin = PlatformLocalAdmin.create_main_local_admin @user, params
       PlatformAdminGroup.create_main_admin_group_for_platform_master_country @user, params, main_local_admin
       #creating_local_admins_for_the_other_countries_other than the platform master country
-      PlatformLocalAdmin.create_all_local_admins params
-      render :json => @general_settings
+      PlatformLocalAdmin.create_all_local_admins_with_their_mag params
+      redirect_to login_path ,:notice => "The Platform Setup has been successfully executed, please login and start to manage "+ GaGeneralSetting.first.platform_name
     end
   end
 

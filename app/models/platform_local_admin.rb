@@ -23,6 +23,7 @@ class PlatformLocalAdmin
     pass_setting = local_admin.build_la_paas_setting.save
     la_term = local_admin.build_la_term.save
     la_contact = local_admin.build_la_contact.save
+    local_admin.create_mag param
     local_admin.build_paas_billing_profile(:currency => param[:currency] ).save
     return local_admin
   end
@@ -38,5 +39,10 @@ class PlatformLocalAdmin
        la_contact = local_admin.build_la_contact.save
        local_admin.build_paas_billing_profile(:currency => param[:currency] ).save
      end
+  end
+
+  def create_mag param
+    admin_group = self.platform_admin_groups.create(:admin_group_type =>"main" ,:status => "suspended")
+    admin_group.build_all_mag_settings self, param
   end
 end

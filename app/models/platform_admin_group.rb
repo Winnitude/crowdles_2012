@@ -25,12 +25,16 @@ class PlatformAdminGroup
        admin_group.save!
        PlatformProductsManagement.grant_product product, admin_group
        PlatformRolesManagement.assign_admin_group_owner_role user,admin_group
-       admin_group.build_ag_general_setting(:country => local_admin.la_general_setting.la_country, :language => param[:language], :self_management => false, :arena_flag => false).save
-       admin_group.build_ag_projects_setting(:self_management => false, :arena_flag => false).save
-       admin_group.build_ag_commissions_setting(:bg_free_private_commissions_allowed => true ,:bg_free_pro_commissions_allowed => true,:bg_free_standard_commissions_allowed => true).save
-       admin_group.build_ag_paas_setting(:paas_fees_exemption => "permanent").save
-       admin_group.build_paas_billing_profile(:currency => param[:currency] ).save
-       admin_group.build_default_billing_profile(:currency => param[:currency] ).save
+       admin_group.build_all_mag_settings local_admin,param
+  end
+
+  def build_all_mag_settings local_admin, param
+    self.build_ag_general_setting(:country => local_admin.la_general_setting.la_country, :language => param[:language], :self_management => false, :arena_flag => false).save
+    self.build_ag_projects_setting(:self_management => false, :arena_flag => false).save
+    self.build_ag_commissions_setting(:bg_free_private_commissions_allowed => true ,:bg_free_pro_commissions_allowed => true,:bg_free_standard_commissions_allowed => true).save
+    self.build_ag_paas_setting(:paas_fees_exemption => "permanent").save
+    self.build_paas_billing_profile(:currency => param[:currency] ).save
+    self.build_default_billing_profile(:currency => param[:currency] ).save
   end
 
   def set_dates
