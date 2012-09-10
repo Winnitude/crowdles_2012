@@ -165,7 +165,7 @@ class User
 
   def is_from_admin_side
     roles = self.all_roles
-    return roles.include?("global_admin")  ||  roles.include?("local_admin")
+    roles.include?("global_admin")  ||  roles.include?("local_admin")
   end
 
 end
