@@ -16,5 +16,18 @@ class PlatformGlobalAdmin #will act as base class for the GA related things
     self.build_paas_billing_profile(:currency => param[:currency]).save
   end
 
+  def create_all_settings param ,user
+    self.initialize_billing_profiles param
+    general_settings = self.build_ga_general_setting
+    general_settings.initialize_global_admin_general_settings(param)
+    integration_setting = self.build_ga_integration.save
+    commissions_setting = self.build_ga_projects_commission.save
+    terms = self.build_ga_term.save
+    projects_setting = self.build_ga_projects_setting.save
+    PlatformRolesManagement.assign_global_admin_role user , self
+  end
+
+
+
 
 end

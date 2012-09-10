@@ -43,6 +43,8 @@ class PlatformLocalAdmin
 
   def create_mag param
     admin_group = self.platform_admin_groups.create(:admin_group_type =>"main" ,:status => "suspended")
+    product = PlatformProduct.get_default_product.first
+    PlatformProductsManagement.grant_product product, admin_group
     admin_group.build_all_mag_settings self, param
   end
 end

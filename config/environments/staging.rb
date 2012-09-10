@@ -32,4 +32,6 @@ end
 LOCAL_HOST = "stagecrowdles.weboapps.com"
 ADMIN_HOST = "admincrowdles.weboapps.com"
 ADMIN_SUBDOMAIN = "admincrowdles"
-
+#LOCAL_HOST = "local.winnitude.com"
+#ADMIN_HOST = "admin.winnitude.com"
+#ADMIN_SUBDOMAIN = "admin"
