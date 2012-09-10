@@ -1,9 +1,16 @@
-<div class="container main">
-  <div class="row">
-<%= form_tag set_platform_global_admins_path, :class =>"form-horizontal" do %>
+
+<%= form_for @general_setting, :url => update_ga_general_settings_global_admins_path,:html => {:class => "form form-horizontal"} do |form| %>
 
         <div class="span9">
-          <h3 class="heading margin0">Platform Setup Settings</h3>
+          <h3 class="heading margin0">General Settings</h3>
+
+          <div class="control-group">
+            <label class="control-label">Platform Owner</label>
+            <div class="controls">
+
+            <div> <%= current_user.get_full_name %></div>
+            </div>
+          </div>
           <div class="control-group">
             <label class="control-label">Platform Name</label>
             <div class="controls">
@@ -59,8 +66,7 @@
             <button type="button" class="btn">Cancel</button>
           </div>
         </div>
-      </div>
-    </div>
+
 <%end%>
 
 <%= content_for :head do  %>

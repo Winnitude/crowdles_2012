@@ -9,6 +9,7 @@ class PlatformGlobalAdmin #will act as base class for the GA related things
   has_one :ga_projects_setting
   has_one :ga_term
   has_many :platform_local_admins
+  belongs_to :user
 
 
   def initialize_billing_profiles param

@@ -59,7 +59,7 @@ module Winnitude
 
     # Enable the asset pipeline
     config.assets.enabled = true
-    #Mongoid.logger = Logger.new($stdout)
+    Mongoid.logger = Logger.new($stdout)
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     config.action_mailer.delivery_method = :smtp

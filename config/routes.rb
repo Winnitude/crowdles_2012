@@ -6,6 +6,8 @@ Winnitude::Application.routes.draw do
         collection do
           get "set_platform_page"
           post "set_platform"
+          get :edit_ga_general_settings
+          put :update_ga_general_settings
         end
 
       end
