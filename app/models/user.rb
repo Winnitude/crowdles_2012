@@ -86,7 +86,7 @@ class User
   end
 
 
-  ##Devise Confirmation settings
+  #Devise Confirmation settings
   # new function to set the password without knowing the current password used in our confirmation controller.
   def attempt_set_password(params)
     p = {}

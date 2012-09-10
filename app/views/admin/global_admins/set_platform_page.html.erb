@@ -1,7 +1,7 @@
+<div class="container main">
+  <div class="row">
+    <%= form_tag set_platform_global_admins_path, :class =>"form-horizontal" do %>
 
-<%= form_tag set_platform_global_admins_path, :class =>"form-horizontal" do %>
-    <div class="container main">
-      <div class="row">
         <div class="span9">
           <h3 class="heading margin0">Platform Setup Settings</h3>
           <div class="control-group">
@@ -59,33 +59,33 @@
             <button type="button" class="btn">Cancel</button>
           </div>
         </div>
-      </div>
-    </div>
-<%end%>
+        </div>
+        </div>
+    <%end%>
 
-<%= content_for :head do  %>
-    <script type="text/javascript">
+    <%= content_for :head do  %>
+        <script type="text/javascript">
 
-        jQuery(function(){
-            var platform_name = new LiveValidation('platform_name',{validMessage:" ",onlyOnSubmit:true});
-            platform_name.add( Validate.Presence,{failureMessage:" Can't be empty"} );
-            var platform_email = new LiveValidation('platform_email',{validMessage:" ",onlyOnSubmit:true});
-            platform_email.add( Validate.Presence,{failureMessage:" Can't be empty"} );
-            platform_email.add( Validate.Email,{failureMessage:"Not a valid email"} );
-            var admin_email = new LiveValidation('admin_email',{validMessage:" ",onlyOnSubmit:true});
-            admin_email.add( Validate.Presence,{failureMessage:" Can't be empty"} );
-            admin_email.add( Validate.Email,{failureMessage:"Not a valid email"} );
-            var password = new LiveValidation('password',{validMessage:" ",onlyOnSubmit:true});
-            password.add( Validate.Presence,{failureMessage:" Can't be empty"} );
-            var language = new LiveValidation("language",{validMessage:" ",onlyOnSubmit:true});
-            language.add( Validate.Presence,{failureMessage:" Can't be empty"} );
-            var currency = new LiveValidation('currency',{validMessage:" ",onlyOnSubmit:true});
-            currency.add( Validate.Presence,{failureMessage:" Can't be empty"} );
-            var master_country = new LiveValidation('platform_master_country',{validMessage:" ",onlyOnSubmit:true});
-            master_country.add( Validate.Presence,{failureMessage:" Can't be empty"} );
-            var country = new LiveValidation('country',{validMessage:" ",onlyOnSubmit:true});
-            country.add( Validate.Presence,{failureMessage:" Can't be empty"} );
+            jQuery(function(){
+                var platform_name = new LiveValidation('platform_name',{validMessage:" ",onlyOnSubmit:true});
+                platform_name.add( Validate.Presence,{failureMessage:" Can't be empty"} );
+                var platform_email = new LiveValidation('platform_email',{validMessage:" ",onlyOnSubmit:true});
+                platform_email.add( Validate.Presence,{failureMessage:" Can't be empty"} );
+                platform_email.add( Validate.Email,{failureMessage:"Not a valid email"} );
+                var admin_email = new LiveValidation('admin_email',{validMessage:" ",onlyOnSubmit:true});
+                admin_email.add( Validate.Presence,{failureMessage:" Can't be empty"} );
+                admin_email.add( Validate.Email,{failureMessage:"Not a valid email"} );
+                var password = new LiveValidation('password',{validMessage:" ",onlyOnSubmit:true});
+                password.add( Validate.Presence,{failureMessage:" Can't be empty"} );
+                var language = new LiveValidation("language",{validMessage:" ",onlyOnSubmit:true});
+                language.add( Validate.Presence,{failureMessage:" Can't be empty"} );
+                var currency = new LiveValidation('currency',{validMessage:" ",onlyOnSubmit:true});
+                currency.add( Validate.Presence,{failureMessage:" Can't be empty"} );
+                var master_country = new LiveValidation('platform_master_country',{validMessage:" ",onlyOnSubmit:true});
+                master_country.add( Validate.Presence,{failureMessage:" Can't be empty"} );
+                var country = new LiveValidation('country',{validMessage:" ",onlyOnSubmit:true});
+                country.add( Validate.Presence,{failureMessage:" Can't be empty"} );
 
-        });
-    </script>
-<% end %>
+            });
+        </script>
+    <% end %>
