@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def should_be_global_admin
+     logger.info("checking for ga privileges")
      redirect_to root_path ,:alert => "You should have GA privileges to perform this" unless current_user.all_roles.include?("global_admin")
   end
 

@@ -8,6 +8,8 @@ Winnitude::Application.routes.draw do
           post "set_platform"
           get :edit_ga_general_settings
           put :update_ga_general_settings
+          get :edit_ga_links
+          put :update_ga_links
         end
 
       end

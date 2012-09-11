@@ -37,7 +37,19 @@ class Admin::GlobalAdminsController < ApplicationController
   end
 
   def update_ga_general_settings
+    @general_setting= @global_admin.ga_general_setting
+    @general_setting.update_attributes(params[:ga_general_setting])
+    redirect_to root_path, :notice => "Global Admin General Settings Updated Successfully"
+  end
 
+  def edit_ga_links
+    @general_setting = @global_admin.ga_general_setting
+  end
+
+  def update_ga_links
+    @general_setting= @global_admin.ga_general_setting
+    @general_setting.update_attributes(params[:ga_general_setting])
+    redirect_to root_path, :notice => "Global Admin Links Updated Successfully"
   end
   private
 
