@@ -53,19 +53,30 @@ class Admin::GlobalAdminsController < ApplicationController
   end
 
   def edit_ga_default_billing_profile
-
+    countries = ServiceCountry.where.all
+    @countries = countries.select{|i| i.is_active == 1 && i.user_country ==1 }.collect{|i|i.country_english_name}
+    @currency = ServiceCurrency.all.select{|i| i.is_active == 1 }.collect{|i| i.description}
+    @billing_profile = @global_admin.default_billing_profile
+    #render :json => @billing_profile
   end
 
   def update_ga_default_billing_profile
-
+    @billing_profile= @global_admin.default_billing_profile
+    @billing_profile.update_attributes(params[:default_billing_profile])
+    redirect_to root_path, :notice => "Global Admin Default Billing Profile Updated Successfully"
   end
 
   def edit_ga_paas_billing_profile
-
+    countries = ServiceCountry.where.all
+    @countries = countries.select{|i| i.is_active == 1 && i.user_country ==1 }.collect{|i|i.country_english_name}
+    @currency = ServiceCurrency.all.select{|i| i.is_active == 1 }.collect{|i| i.description}
+    @billing_profile = @global_admin.paas_billing_profile
   end
 
   def update_ga_paas_billing_profile
-
+    @billing_profile= @global_admin.paas_billing_profile
+    @billing_profile.update_attributes(params[:paas_billing_profile])
+    redirect_to root_path, :notice => "Global Admin Paas Billing Profile Updated Successfully"
   end
 
   private

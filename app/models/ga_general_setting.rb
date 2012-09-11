@@ -21,4 +21,14 @@ class GaGeneralSetting
     self.platform_default_currency = param[:currency]
     self.save
   end
+
+  def self.get_platform_default_language
+    self.first.platform_default_language
+  end
+
+  def self.get_platform_default_currency
+    self.first.platform_default_currency
+  end
+
+
 end
