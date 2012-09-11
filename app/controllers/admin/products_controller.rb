@@ -4,6 +4,12 @@
     # GET /products.json
     def index
       @products = PlatformProduct.all
+      if params[:target] != "All"
+        @products = @products.select{|i| i.product_target.downcase == params[:target].downcase rescue nil}
+      end
+      if params[:status] != "All"
+        @products = @products.select{|i| i.status.downcase == params[:status].downcase rescue nil}
+      end
 
       respond_to do |format|
         format.html # index.html.erb
@@ -13,7 +19,7 @@
 
 
     def new
-      @product = Product.new
+      @product = PlatformProduct.new
 
       respond_to do |format|
         format.html # new.html.erb
@@ -29,7 +35,7 @@
     # POST /products
     # POST /products.json
     def create
-      @product = Product.new(params[:product])
+      @product = PlatformProduct.new(params[:product])
 
       respond_to do |format|
         if @product.save
