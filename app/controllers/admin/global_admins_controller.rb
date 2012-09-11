@@ -79,6 +79,17 @@ class Admin::GlobalAdminsController < ApplicationController
     redirect_to root_path, :notice => "Global Admin Paas Billing Profile Updated Successfully"
   end
 
+  def  edit_platform_terms
+    @terms = @global_admin.ga_term
+  end
+
+  def  update_platform_terms
+    @terms = @global_admin.ga_term
+    @terms.update_attributes(params[:ga_term])
+    redirect_to root_path, :notice => "Platform Terms And Conditions Updated Successfully"
+  end
+
+
   private
 
   def get_global_admin

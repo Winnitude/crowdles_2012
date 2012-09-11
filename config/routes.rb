@@ -14,6 +14,8 @@ Winnitude::Application.routes.draw do
           put :update_ga_default_billing_profile
           get :edit_ga_paas_billing_profile
           put :update_ga_paas_billing_profile
+          get :edit_platform_terms
+          put :update_platform_terms
         end
 
       end
