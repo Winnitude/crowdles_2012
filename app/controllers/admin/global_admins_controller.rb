@@ -51,6 +51,23 @@ class Admin::GlobalAdminsController < ApplicationController
     @general_setting.update_attributes(params[:ga_general_setting])
     redirect_to root_path, :notice => "Global Admin Links Updated Successfully"
   end
+
+  def edit_ga_default_billing_profile
+
+  end
+
+  def update_ga_default_billing_profile
+
+  end
+
+  def edit_ga_paas_billing_profile
+
+  end
+
+  def update_ga_paas_billing_profile
+
+  end
+
   private
 
   def get_global_admin

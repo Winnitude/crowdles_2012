@@ -10,6 +10,10 @@ Winnitude::Application.routes.draw do
           put :update_ga_general_settings
           get :edit_ga_links
           put :update_ga_links
+          get :edit_ga_default_billing_profile
+          put :update_ga_default_billing_profile
+          get :edit_ga_paas_billing_profile
+          put :update_ga_paas_billing_profile
         end
 
       end
