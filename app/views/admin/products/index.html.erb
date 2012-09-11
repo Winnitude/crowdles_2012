@@ -1,0 +1,26 @@
+<h1>Listing products</h1>
+
+<table border="0" class="table">
+  <tr>
+    <th>Platform Product Name</th>
+    <th>Type</th>
+    <th>Target</th>
+    <th>Status</th>
+    <th>Action</th>
+  </tr>
+
+  <% @products.each do |product| %>
+      <tr>
+        <td><%=product.platform_product_name%></td>
+        <td><%=product.platform_product_type%></td>
+        <td><%=product.product_target%></td>
+        <td><%=product.status == true ? "Published" : "Unpublished"%></td>
+        <td>
+          <%= link_to 'Edit', edit_product_path(product) %></td>
+      </tr>
+  <% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Product', new_product_path , :class => "btn primary btn-info" %>

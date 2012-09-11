@@ -17,8 +17,8 @@ Winnitude::Application.routes.draw do
           get :edit_platform_terms
           put :update_platform_terms
         end
-
       end
+      resources :products
     end
   end
   as :user do
