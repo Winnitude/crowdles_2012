@@ -1,28 +1,44 @@
+<%=render :partial => "admin/global_admins/platform_settings_ga"%>
 <div class="span9">
-  <div class="span5">
+
     <h1>Listing products</h1>
     <%=form_tag products_path ,:method => :get, :html => { :class => "form-horizontal"} do  %>
+        <%= hidden_field_tag  :requery ,"true"%>
         <table border="0" class="table">
           <tr>
             <th>Platform Product Name</th>
             <th>Type</th>
             <th>Target</th>
             <th>Status</th>
-
+            <th>Monthly Price</th>
+            <th>Annual Price</th>
+            <th>No. of BG contest allowed</th>
+            <th>No. of BG windows allowed</th>
+            <th>No. of BG active workers allowed</th>
           </tr>
           <tr>
-            <td><%=text_field_tag :name ,params[:name]%> </td>
-            <td><%=select_tag :type ,options_for_select(["All", "AG"],params[:type]),:onchange => "this.form.submit();"%> </td>
-            <td><%=select_tag :target ,options_for_select(["All", "SAG" ,"MAG"]  ,params[:target]),:onchange => "this.form.submit();"%> </td>
-            <td><%=select_tag :status ,options_for_select(["All","Published", "Unpublished"],params[:status]),:onchange => "this.form.submit();"%> </td>
+            <td><%=text_field_tag :name ,params[:name],:class => "span1"%> </td>
+            <td><%=select_tag :type ,options_for_select(["All", "AG"],params[:type]),:onchange => "this.form.submit();",:class => "span2"%> </td>
+            <td><%=select_tag :target ,options_for_select(["All", "SAG" ,"MAG"]  ,params[:target]),:onchange => "this.form.submit();",:class => "span2"%> </td>
+            <td><%=select_tag :status ,options_for_select(["All","Published", "Unpublished"],params[:status]),:onchange => "this.form.submit();",:class => "span2"%> </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
             <td><%=submit_tag "find"%></td>
           </tr>
           <% @products.each do |product| %>
               <tr>
-                <td><%=product.platform_product_name%></td>
+                <td><%=link_to product.platform_product_name,edit_product_path(product) %></td>
                 <td><%=product.platform_product_type%></td>
                 <td><%=product.product_target%></td>
                 <td><%=product.status%></td>
+                <td><%=product.product_monthly_price%></td>
+                <td><%=product.product_annual_price%></td>
+                <td><%=product.bg_contest_number%></td>
+                <td><%=product.bg_window_number%></td>
+                <td><%=product.ag_workers_number%></td>
               </tr>
           <% end %>
         </table>
@@ -31,6 +47,6 @@
 
         <%= link_to 'New Product', new_product_path , :class => "btn primary btn-info" %>
     <%end%>
-  </div>
-  <div class="span4"> </div>
+
+
 </div>

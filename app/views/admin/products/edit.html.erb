@@ -1,9 +1,9 @@
 <%=render :partial => "admin/global_admins/platform_settings_ga"%>
 <div class=span9>
-  <h1>New product</h1>
+  <h1>Edit Product</h1>
 
 
-  <%=form_for @product, :url => products_path  , :html => { :class => "form-horizontal"} do |f| %>
+  <%=form_for @product, :url => product_path(@product)  , :html => { :class => "form-horizontal"} do |f| %>
 
       <% if @product.errors.any? %>
           <div id="error_explanation">

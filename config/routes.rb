@@ -19,6 +19,7 @@ Winnitude::Application.routes.draw do
         end
       end
       resources :products
+
     end
   end
   as :user do
