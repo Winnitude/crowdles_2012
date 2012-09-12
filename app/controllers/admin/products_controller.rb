@@ -16,11 +16,6 @@ class Admin::ProductsController < ApplicationController
       if params[:status] != "All"
         @products = @products.select{|i| i.status.downcase == params[:status].downcase rescue nil}
       end
-
-      respond_to do |format|
-        format.html # index.html.erb
-        format.json { render json: @products }
-      end
     else
       @products = PlatformProduct.all
     end
@@ -29,11 +24,6 @@ class Admin::ProductsController < ApplicationController
 
   def new
     @product = PlatformProduct.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @product }
-    end
   end
 
   # GET /products/1/edit
@@ -49,10 +39,8 @@ class Admin::ProductsController < ApplicationController
     respond_to do |format|
       if @product.save
         format.html { redirect_to products_path, notice: 'Product was successfully created.' }
-        format.json { render json: @product, status: :created, location: @product }
       else
         format.html { render action: "new" }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -65,10 +53,8 @@ class Admin::ProductsController < ApplicationController
     respond_to do |format|
       if @product.update_attributes(params[:platform_product])
         format.html { redirect_to products_path, notice: 'Product was successfully updated.' }
-        format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
   end
