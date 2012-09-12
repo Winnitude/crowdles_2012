@@ -1,5 +1,6 @@
 
 class Admin::ProductsController < ApplicationController
+  before_filter :should_be_global_admin
   # GET /products
   # GET /products.json
   def index
