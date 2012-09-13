@@ -33,6 +33,7 @@ class Admin::CountriesController < ApplicationController
     else
       @countries = ServiceCountry.all
     end
+    @countries = @countries.paginate(:page => params[:page], :per_page => 10)
   end
 end
 
