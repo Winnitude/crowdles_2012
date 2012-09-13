@@ -3,7 +3,7 @@
 
     <h1>Listing products</h1>
     <%=form_tag products_path ,:method => :get, :html => { :class => "form-horizontal"} do  %>
-        <%= hidden_field_tag  :requery ,"true"%>
+        <%= hidden_field_tag  :re_query ,"true"%>
         <table border="0" class="table">
           <tr>
             <th>Platform Product Name</th>

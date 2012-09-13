@@ -4,7 +4,7 @@ class Admin::ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    if(params[:requery])
+    if(params[:re_query])
       @products = PlatformProduct.all
       if params[:name] != ""
         @products = @products.select{|i| i.platform_product_name.downcase == params[:name].downcase rescue nil}
