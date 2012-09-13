@@ -48,4 +48,8 @@ class PlatformProduct
     end
 
   end
+
+  def is_taken_by_ag?
+    self.platform_products_managements.present?
+  end
 end

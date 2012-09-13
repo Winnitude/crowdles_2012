@@ -62,6 +62,15 @@ class Admin::ProductsController < ApplicationController
     end
   end
 
+  def destroy
+    @product = PlatformProduct.find(params[:id])
+    @product.destroy
+
+    respond_to do |format|
+      format.html { redirect_to products_path ,:notice =>"Deleted successfully" }
+    end
+  end
+
   # DELETE /products/1
   # DELETE /products/1.json
 

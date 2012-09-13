@@ -159,6 +159,7 @@
       <div class="form-actions">
         <%= f.submit :class =>"btn btn-primary"  %>
         <%=link_to "Cancel", products_path , :class => "btn"%>
+        <%=link_to "Delete", product_path(@product),:method => "Delete" , :class => "btn btn-danger"  unless @product.is_taken_by_ag?%>
         <!--<input type="text" class="input-xlarge"  id="input01">-->
       </div>
   <% end %>

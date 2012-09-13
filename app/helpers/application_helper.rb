@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def platform_name
-    if GaGeneralSetting.first.platform_name.present?
+    if GaGeneralSetting.first.present?
       GaGeneralSetting.first.platform_name
     else
       "Winnitude"
