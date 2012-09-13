@@ -35,6 +35,8 @@ class Admin::ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = PlatformProduct.new(params[:platform_product])
+    @product.is_default_sag= params[:default] if @product.product_target.downcase == "sag"
+    @product.is_default= params[:default]  if @product.product_target.downcase == "mag"
 
     respond_to do |format|
       if @product.save
@@ -49,7 +51,8 @@ class Admin::ProductsController < ApplicationController
   # PUT /products/1.json
   def update
     @product = PlatformProduct.find(params[:id])
-
+    @product.is_default_sag= params[:default] if @product.product_target.downcase == "sag"
+    @product.is_default= params[:default]  if @product.product_target.downcase == "mag"
     respond_to do |format|
       if @product.update_attributes(params[:platform_product])
         format.html { redirect_to products_path, notice: 'Product was successfully updated.' }
