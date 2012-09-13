@@ -19,6 +19,7 @@ Winnitude::Application.routes.draw do
         end
       end
       resources :products
+      resources :countries
 
     end
   end
