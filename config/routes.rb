@@ -6,9 +6,20 @@ Winnitude::Application.routes.draw do
         collection do
           get "set_platform_page"
           post "set_platform"
+          get :edit_ga_general_settings
+          put :update_ga_general_settings
+          get :edit_ga_links
+          put :update_ga_links
+          get :edit_ga_default_billing_profile
+          put :update_ga_default_billing_profile
+          get :edit_ga_paas_billing_profile
+          put :update_ga_paas_billing_profile
+          get :edit_platform_terms
+          put :update_platform_terms
         end
-
       end
+      resources :products
+
     end
   end
   as :user do

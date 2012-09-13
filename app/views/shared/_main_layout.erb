@@ -1,21 +1,20 @@
-<div class="container nav-collapse">
-  <ul class="nav">
-    <% if user_signed_in? %>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="#" title="Crowdles"><%= platform_name %></a>
+      <div class="nav-collapse collapse">
+        <!--        <ul class="nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+        </ul>-->
+        <div class="pull-right topUserInfo"><%= current_user.get_full_name if current_user%>
 
-        <li>
-          <a href="/public"><%= current_user.user_profile.full_name rescue nil %></a>
-        </li>
-        <li>
-
-
-        </li>
-
-
-    <% end %>
-  </ul>
-</div><!--/.nav-collapse -->
-
-
-<% if user_signed_in? %>
-    <!--<%#= render :partial => "/shared/user_name" %>-->
-<% end %>
+          <%if current_user%>
+              <%=link_to :Logout, logout_path%>
+          <%else%>
+              <%=link_to :Login, login_path%>
+          <%end%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

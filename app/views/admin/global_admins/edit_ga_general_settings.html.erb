@@ -1,0 +1,80 @@
+ <%= render :partial => "platform_settings_ga"  %>
+
+
+ <%= form_for @general_setting, :url => update_ga_general_settings_global_admins_path,:html => {:class => "form form-horizontal"} do |f| %>
+
+        <div class="span9">
+          <h3 class="heading margin0">General Settings</h3>
+
+          <div class="control-group">
+            <label class="control-label">Platform Owner</label>
+            <div class="controls">
+
+            <div> <%= current_user.get_full_name %> <%= current_user.get_email %> </div>
+            </div>
+          </div>
+
+
+          <div class="control-group">
+            <label class="control-label">Platform Default Language</label>
+            <div class="controls">
+              <%=f.select :platform_default_language, options_for_select(@languages,@general_setting.platform_default_language),{ :prompt => 'Select' }%>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">Platform Default Currency</label>
+            <div class="controls">
+              <%=f.select :platform_default_currency, options_for_select(@currency,@general_setting.platform_default_currency) , { :prompt => 'Select' }%>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">Platform Name</label>
+            <div class="controls">
+              <%=f.text_field :platform_name, :placeholder => "Winnitude"%>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">Platform Email</label>
+            <div class="controls">
+              <%=f.text_field :platform_email, :placeholder => "info@crowdels.com"%>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">Platform Default Domain</label>
+            <div class="controls">
+              <%=f.text_field :platform_default_domain%>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="button" class="btn">Cancel</button>
+          </div>
+        </div>
+
+<%end%>
+
+<%= content_for :head do  %>
+    <script type="text/javascript">
+
+        jQuery(function(){
+
+            var platform_name = new LiveValidation('ga_general_setting_platform_name',{validMessage:" ",onlyOnSubmit:true});
+            platform_name.add( Validate.Presence,{failureMessage:" Can't be empty"} );
+            var platform_email = new LiveValidation('ga_general_setting_platform_email',{validMessage:" ",onlyOnSubmit:true});
+            platform_email.add( Validate.Presence,{failureMessage:" Can't be empty"} );
+            platform_email.add( Validate.Email,{failureMessage:"Not a valid email"} );
+            var language = new LiveValidation("ga_general_setting_platform_default_language",{validMessage:" ",onlyOnSubmit:true});
+            language.add( Validate.Presence,{failureMessage:" Can't be empty"} );
+            var currency = new LiveValidation('ga_general_setting_platform_default_currency',{validMessage:" ",onlyOnSubmit:true});
+            currency.add( Validate.Presence,{failureMessage:" Can't be empty"} );
+            var platform_domain = new LiveValidation('ga_general_setting_platform_default_domain',{validMessage:" ",onlyOnSubmit:true});
+            platform_domain.add( Validate.Presence,{failureMessage:" Can't be empty"} );
+
+        });
+    </script>
+<% end %>

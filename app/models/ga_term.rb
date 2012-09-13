@@ -1,6 +1,7 @@
 class GaTerm
   include Mongoid::Document
   belongs_to :platform_global_admin
+  field :platform_legal_terms_global,                          :type => String
   field :user_terms,                          :type => String
   field :project_terms,                       :type => String
   field :worker_terms,                        :type => String

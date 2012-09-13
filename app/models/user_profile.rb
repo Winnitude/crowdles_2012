@@ -16,4 +16,9 @@ class UserProfile
   field :old_main_segment , :type => String
   #field :photo
 
+  def get_full_name
+   self.first_name  + " " + self.last_name rescue nil
+  end
+
+
 end

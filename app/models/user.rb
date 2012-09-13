@@ -14,6 +14,7 @@ class User
   has_many :platform_roles_managements
   has_many :platform_local_admins
   has_many :platform_admin_groups
+  has_one  :platform_global_admin
   after_create :assign_role_to_user
   before_save :accept_terms
   attr_accessible :profile_attributes, :email, :password, :password_confirmation,
@@ -141,7 +142,7 @@ class User
     user = User.new(:email => param[:admin_email], :password =>param[:password], :password_confirmation => param[:password], :terms_of_service =>true, :country => param[:country])
     user.skip_confirmation!
     user.save!
-    user_profile = user.build_user_profile(:first_name => "Administrator", :country => param[:country] ,:language =>param[:language] )
+    user.build_user_profile(:first_name => "Administrator", :country => param[:country] ,:language =>param[:language] ).save
     return user
   end
 
@@ -166,6 +167,14 @@ class User
   def is_from_admin_side
     roles = self.all_roles
     roles.include?("global_admin")  ||  roles.include?("local_admin")
+  end
+
+  def get_email
+    self.email
+  end
+
+  def get_full_name
+    self.user_profile.get_full_name
   end
 
 end

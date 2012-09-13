@@ -7,4 +7,12 @@ module ApplicationHelper
       when :alert then "alert alert-error"
     end
   end
+
+  def platform_name
+    if GaGeneralSetting.first.present?
+      GaGeneralSetting.first.platform_name
+    else
+      "Winnitude"
+    end
+  end
 end

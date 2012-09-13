@@ -1,0 +1,78 @@
+<%= render :partial => "platform_settings_ga"  %>
+
+
+<%= form_for @terms, :url => update_platform_terms_global_admins_path,:html => {:class => "form form-horizontal"} do |f| %>
+
+    <div class="span9">
+      <h1 class="heading margin0">Terms Of Use</h1>
+
+
+
+
+      <div class="control-group">
+        <label class="control-label">Platform Legal Terms</label>
+        <div class="controls">
+          <%=f.text_area :platform_legal_terms_global , :rows => 5%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">User Terms</label>
+        <div class="controls">
+          <%=f.text_area :user_terms, :rows => 5%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Project Terms</label>
+        <div class="controls">
+          <%=f.text_area :project_terms, :rows => 5%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Worker Terms</label>
+        <div class="controls">
+          <%=f.text_area :worker_terms, :rows => 5%>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Admin Group Terms</label>
+        <div class="controls">
+          <%=f.text_area :admin_group_terms, :rows => 5%>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Business Group Terms</label>
+        <div class="controls">
+          <%=f.text_area :business_group_terms, :rows => 5%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">No Profit Terms</label>
+        <div class="controls">
+          <%=f.text_area :no_profit_terms, :rows => 5%>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="button" class="btn">Cancel</button>
+      </div>
+
+    </div>
+
+
+<%end%>
+                                                q
+<%= content_for :head do  %>
+    <script type="text/javascript">
+
+        jQuery(function(){
+
+            var facebook =   new LiveValidation("ga_general_setting_ga_facebook",{validMessage:" ",onlyOnSubmit:true});
+            facebook.add( Validate.Format , { pattern: /^(ht|f)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/, failureMessage: "Must be a valid URL" });
+            var twitter =   new LiveValidation("ga_general_setting_ga_twitter",{validMessage:" ",onlyOnSubmit:true});
+            twitter.add( Validate.Format , { pattern: /^(ht|f)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/, failureMessage: "Must be a valid URL" });
+
+        });
+    </script>
+<% end %>
