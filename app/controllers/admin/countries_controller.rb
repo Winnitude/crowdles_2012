@@ -36,20 +36,3 @@ class Admin::CountriesController < ApplicationController
     @countries = @countries.paginate(:page => params[:page], :per_page => 10)
   end
 end
-
-
-#if(params[:re_query])
-#  @products = PlatformProduct.all
-#  if params[:name] != ""
-#    @products = @products.select{|i| i.platform_product_name.downcase == params[:name].downcase rescue nil}
-#  end
-#
-#  if params[:target] != "All"
-#    @products = @products.select{|i| i.product_target.downcase == params[:target].downcase rescue nil}
-#  end
-#  if params[:status] != "All"
-#    @products = @products.select{|i| i.status.downcase == params[:status].downcase rescue nil}
-#  end
-#else
-#  @products = PlatformProduct.all
-#end

@@ -20,7 +20,7 @@ Winnitude::Application.routes.draw do
       end
       resources :products
       resources :countries
-
+      resources :currencies
     end
   end
   as :user do
