@@ -52,4 +52,20 @@ class PlatformProduct
   def is_taken_by_ag?
     self.platform_products_managements.present?
   end
+
+  def get_bg_window_number
+    self.bg_window_number.present?  ? self.bg_window_number :  "unlimited"
+  end
+
+  def get_bg_contest_number
+    self.bg_contest_number.present? ?  self.bg_contest_number   :  "unlimited"
+  end
+
+  def get_ag_workers_number
+    self.ag_workers_number.present?    ? self.ag_workers_number :  "unlimited"
+  end
+
+  def get_monthly_price
+    self.product_monthly_price.present?    ? self.product_monthly_price :  "Empty"
+  end
 end
