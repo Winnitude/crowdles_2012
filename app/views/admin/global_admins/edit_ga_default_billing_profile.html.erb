@@ -125,7 +125,7 @@
 
             var profile_telephone_number = new LiveValidation("default_billing_profile_telephone_number",{validMessage:" ",onlyOnSubmit:true});
             profile_telephone_number.add( Validate.Presence ,{failureMessage:" Can't be empty"});
-            profile_telephone_number.add( Validate.Format , { pattern: /[+][0-9]{2} [0-9]{10}/g, failureMessage: "Must be in form +xx xxxxxxxxxx" });
+//            profile_telephone_number.add( Validate.Format , { pattern: /[+][0-9]{2} [0-9]{10}/g, failureMessage: "Must be in form +xx xxxxxxxxxx" });
 
 
 
@@ -145,7 +145,7 @@
             state.add( Validate.Presence ,{failureMessage:" Can't be empty"});
 
             var contact_telephone_number = new LiveValidation("default_billing_profile_contact_telephone_number",{validMessage:" ",onlyOnSubmit:true});
-            contact_telephone_number.add( Validate.Format , { pattern: /[+][0-9]{2} [0-9]{10}/g, failureMessage: "Must be in form +xx xxxxxxxxxx" });
+//            contact_telephone_number.add( Validate.Format , { pattern: /[+][0-9]{2} [0-9]{10}/g, failureMessage: "Must be in form +xx xxxxxxxxxx" });
 
             var paypal= new LiveValidation('default_billing_profile_paypal_id',{validMessage:" ",onlyOnSubmit:true});
             paypal.add( Validate.Presence ,{failureMessage:" Can't be empty"});
