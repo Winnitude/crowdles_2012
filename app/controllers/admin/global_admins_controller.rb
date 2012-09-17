@@ -92,18 +92,23 @@ class Admin::GlobalAdminsController < ApplicationController
     redirect_to root_path, :notice => "Platform Terms And Conditions Updated Successfully"
   end
 
-  def edit_ga_projects_commissions
-
-  end
-
-  def update_ga_projects_commissions
-
-  end
+  #def edit_ga_projects_commissions
+  #  @projects_commissions = @global_admin.ga_projects_commission
+  #end
+  #
+  #def update_ga_projects_commissions
+  #
+  #end
 
   def edit_ga_projects_settings
+    @project_setting = @global_admin.ga_projects_setting
   end
 
   def update_ga_projects_settings
+    @project_setting = @global_admin.ga_projects_setting
+    if @project_setting.update_attributes(params[:ga_projects_setting])
+      redirect_to root_path, :notice => "Projects Settings Updated Successfully"
+    end
   end
 
 
