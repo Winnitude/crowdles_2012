@@ -27,14 +27,14 @@
         </tr>
         <% @countries.each do |c| %>
             <tr>
-              <td><%=link_to c.country_english_name %></td>
+              <td><%= c.country_english_name %></td>
               <td><%=c.iso_code%></td>
               <td><%=c.is_active ==1 ? "True" : :False%></td>
               <td><%=c.country_local_name%></td>
               <td><%=c.user_country==1 ? "True" : :False%></td>
               <td><%=c.is_default==1 ? "True" : :False%></td>
-              <td></td>
-              <td></td>
+
+              <td><td><%=link_to "Edit", edit_country_path(c), :class => "btn-mini btn btn-primary" %></td></td>
             </tr>
         <% end %>
       </table>
@@ -42,7 +42,7 @@
 
       <br />
 
-      <%= link_to 'New Product', new_product_path , :class => "btn primary btn-info" %>
+
   <%end%>
 
 
