@@ -16,11 +16,16 @@ Winnitude::Application.routes.draw do
           put :update_ga_paas_billing_profile
           get :edit_platform_terms
           put :update_platform_terms
+          get :edit_ga_projects_commissions
+          put :update_ga_projects_commissions
+          get :edit_ga_projects_settings
+          put :update_ga_projects_settings
         end
       end
       resources :products
-      resources :countries
-      resources :currencies
+      resources :countries ,:except => [:new, :create, :destroy]
+      resources :currencies ,:except => [:new, :create, :destroy]
+      resources :languages  ,:except => [:new, :create, :destroy]
     end
   end
   as :user do

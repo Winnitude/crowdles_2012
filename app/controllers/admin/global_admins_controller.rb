@@ -19,7 +19,7 @@ class Admin::GlobalAdminsController < ApplicationController
     @global_admin = @user.build_platform_global_admin
     @global_admin.save
 
-                                                  #creating all settings related to GA
+    #creating all settings related to GA
     @global_admin.create_all_settings params ,@user
 
     #creating the Default Product
@@ -91,6 +91,21 @@ class Admin::GlobalAdminsController < ApplicationController
     @terms.update_attributes(params[:ga_term])
     redirect_to root_path, :notice => "Platform Terms And Conditions Updated Successfully"
   end
+
+  def edit_ga_projects_commissions
+
+  end
+
+  def update_ga_projects_commissions
+
+  end
+
+  def edit_ga_projects_settings
+  end
+
+  def update_ga_projects_settings
+  end
+
 
 
   private
