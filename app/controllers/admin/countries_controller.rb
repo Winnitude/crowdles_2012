@@ -35,6 +35,17 @@ class Admin::CountriesController < ApplicationController
     end
     @countries = @countries.paginate(:page => params[:page], :per_page => 10)
   end
+
+  def edit
+   @country = ServiceCountry.find(params[:id])
+  end
+
+  def update
+    @country = ServiceCountry.find(params[:id])
+    if @country.update_attributes(params[:service_country])
+      redirect_to countries_path ,:notice => "Country Updated Successfully"
+    end
+  end
 end
 
 
