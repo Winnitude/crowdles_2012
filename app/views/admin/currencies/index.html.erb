@@ -1,36 +1,34 @@
 <%=render :partial => "admin/global_admins/platform_settings_ga"%>
 <div class="span9">
 
-  <h1>Countries</h1>
-  <%=form_tag currencies_path ,:method => :get, :html => { :class => "form-horizontal"} do  %>
+  <h1>Currencies</h1>
+  <%=currencies_path ,:method => :get, :html => { :class => "form-horizontal"} do  %>
       <%= hidden_field_tag  :re_query ,"true"%>
       <table border="0" class="table">
         <tr>
           <th>Currency Name</th>
           <th>ISO Code</th>
           <th>IsActive</th>
-
           <th></th>
         </tr>
         <tr>
           <td><%=text_field_tag :name ,params[:name],:class => "span1"%> </td>
           <td><%=text_field_tag :iso_code ,params[:iso_code],:class => "span1"%> </td>
           <td><%=select_tag :is_active ,options_for_select(["All", "True" ,"false"]  ,params[:is_active]),:onchange => "this.form.submit();",:class => "span2"%> </td>
-
-          <td></td>
           <td><%=submit_tag "find"%></td>
         </tr>
         <% @currencies.each do |c| %>
             <tr>
-              <td><%=link_to c.description %></td>
+              <td><%=link_to c.description,edit_currency_path(c) %></td>
               <td><%=c.iso_code%></td>
               <td><%=c.is_active ==1 ? "True" : :False%></td>
+              <td><%=link_to "Edit",edit_currency_path(c), :class => "btn btn-mini btn-primary"%></td>
             </tr>
         <% end %>
       </table>
       <%= will_paginate @currencies %>
 
-      <br />
+
 
 
   <%end%>
