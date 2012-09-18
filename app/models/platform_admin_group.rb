@@ -35,13 +35,24 @@ class PlatformAdminGroup
     self.build_ag_paas_setting(:paas_fees_exemption => "permanent").save
     self.build_paas_billing_profile(:currency => param[:currency] ).save
     self.build_default_billing_profile(:currency => param[:currency] ).save
+    self.set_ag_details_from_product
   end
 
   def set_ag_details_from_product
+    product = self.get_product
     ag_commissions = self.ag_commissions_setting
+    ag_commissions.platform_standard_commissions = product.platform_standard_commissions
+    ag_commissions.platform_private_commissions = product.platform_private_commissions
+    ag_commissions.platform_pro_commissions = product.platform_pro_commissions
+    ag_commissions.save
   end
 
   def set_dates
      self.ag_creation_date = DateTime.now
   end
+
+  def get_product
+     self.platform_products_management.platform_product
+  end
+
 end

@@ -8,4 +8,5 @@ class PlatformProductsManagement
     product_grant.platform_product = product
     product_grant.save
   end
+
 end
