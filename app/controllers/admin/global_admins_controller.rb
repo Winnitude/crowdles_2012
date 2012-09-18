@@ -5,7 +5,7 @@ class Admin::GlobalAdminsController < ApplicationController
   def set_platform_page
     countries = ServiceCountry.where.all
     @user_countries = countries.select{|i| i.is_active == 1 && i.user_country ==1 }.collect{|i|i.country_english_name}
-    @master_country = countries.select{|i| i.is_active == 1 && i.is_default ==1 }.collect{|i|i.country_english_name}
+    @master_country = countries.collect{|i|i.country_english_name}
     @currency = ServiceCurrency.all.select{|i| i.is_active == 1 }.collect{|i| i.description}
     @languages = ServiceLanguage.all.collect{|i| i.english_name}
   end
