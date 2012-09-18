@@ -95,6 +95,34 @@
           <p class="help-block"></p>
         </div>
       </div>
+
+      <div class="control-group">
+        <label class="control-label" for="input01">Platform Commissions on Standard Projects: <span style="color:red"> </span></label>
+        <div class="controls">
+          <%=f.text_field :platform_standard_commissions,:class=>"input"%>
+          <!--<input type="text" class="input-xlarge" id="input01">-->
+          <p class="help-block"></p>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label" for="input01">Platform Commissions on Pro Projects: <span style="color:red"> </span></label>
+        <div class="controls">
+          <%=f.text_field :platform_pro_commissions,:class=>"input"%>
+          <!--<input type="text" class="input-xlarge" id="input01">-->
+          <p class="help-block"></p>
+        </div>
+      </div>
+
+    <div class="control-group">
+      <label class="control-label" for="input01">Platform Commissions on Private Projects: <span style="color:red"> </span></label>
+      <div class="controls">
+        <%=f.text_field :platform_private_commissions,:class=>"input"%>
+        <!--<input type="text" class="input-xlarge" id="input01">-->
+        <p class="help-block"></p>
+      </div>
+    </div>
+
       <div class="control-group">
         <label class="control-label" for="input01">BG Private Allowed:<span style="color:red"> </span>*</label>
         <div class="controls">
@@ -136,8 +164,27 @@
         <!--<input type="text" class="input-xlarge" id="input01">-->
         <p class="help-block"></p>
       </div>
+
+    <div class="control-group">
+      <label class="control-label" for="input01">Free subscription: <span style="color:red">*</span></label>
+      <div class="controls">
+        <%=f.select :paas_fees_exemption,options_for_select(["temporary", "permanent"],@product.paas_fees_exemption),:class=>"input"%>
+        <!--<input type="text" class="input-xlarge" id="input01">-->
+        <p class="help-block"></p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="input01">For: <span style="color:red"> </span></label>
+      <div class="controls">
+        <%=f.text_field :fees_exemption_days,:class=>"input"%>
+        <!--<input type="text" class="input-xlarge" id="input01">-->
+        <p class="help-block"></p>
+      </div>
+    </div>
+
       <div class="control-group">
-        <label class="control-label" for="input01">Status<span style="color:red">* </span></label>
+        <label class="control-label" for="input01">Status<span style="color:red"> </span></label>
         <div class="controls">
           <%= f.radio_button :status, "published",:checked => true,:class=>"input"%>  Publish   </div>
         <div class="controls"> <%=f.radio_button :status,"Unpublished",:class=>"input"%> Unpublished  </div>
@@ -174,6 +221,22 @@
 
               var ag = new LiveValidation('platform_product_ag_workers_number',{validMessage:" ",onlyOnSubmit:true});
               ag.add( Validate.Numericality, { onlyInteger: true } );
+
+              var standard = new LiveValidation('platform_product_platform_standard_commissions',{validMessage:" ",onlyOnSubmit:true});
+
+              standard.add( Validate.Numericality );
+
+              var pro = new LiveValidation('platform_product_platform_pro_commissions',{validMessage:" ",onlyOnSubmit:true});
+              pro.add( Validate.Numericality );
+
+              var private = new LiveValidation('platform_product_platform_private_commissions',{validMessage:" ",onlyOnSubmit:true});
+              private.add( Validate.Numericality );
+
+
+
+
+
+
           });
       </script>
   <% end %>
