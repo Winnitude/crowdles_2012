@@ -19,11 +19,17 @@ class PlatformProduct
   field :product_monthly_price,           :type => Float
   field :product_annual_price,            :type => Float
   field :status,                          :type => String
+  field :platform_standard_commissions,     :type => Float
+  field :platform_pro_commissions ,          :type => Float
+  field :platform_private_commissions,      :type => Float
+  field :paas_fees_exemption,               :type => String
+  field :fees_exemption_days,               :type => Integer
+
 
   def self.create_platform_default_product
     self.create(:platform_product_name => "Default" ,:platform_product_type => "AG" ,:product_target => "MAG",:is_default => true,:bg_private => true ,
                     :bg_custom_commissions => true,:bg_recepient_settings => true ,:ag_payment_gateway_commissions_payer_settings => true ,
-                    :ag_equity_based_allowed => true,:product_monthly_price => 0 ,:product_annual_price => 0 ,:status => "unpublished")
+                    :ag_equity_based_allowed => true,:product_monthly_price => 0 ,:product_annual_price => 0 ,:status => "unpublished", :paas_fees_exemption => "permanent")
   end
 
   def change_default

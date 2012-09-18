@@ -31,10 +31,14 @@ class PlatformAdminGroup
   def build_all_mag_settings local_admin, param
     self.build_ag_general_setting(:country => local_admin.la_general_setting.la_country, :language => param[:language], :self_management => false, :arena_flag => false).save
     self.build_ag_projects_setting(:self_management => false, :arena_flag => false).save
-    self.build_ag_commissions_setting(:bg_free_private_commissions_allowed => true ,:bg_free_pro_commissions_allowed => true,:bg_free_standard_commissions_allowed => true).save
+    self.build_ag_commissions_setting().save
     self.build_ag_paas_setting(:paas_fees_exemption => "permanent").save
     self.build_paas_billing_profile(:currency => param[:currency] ).save
     self.build_default_billing_profile(:currency => param[:currency] ).save
+  end
+
+  def set_ag_details_from_product
+    ag_commissions = self.ag_commissions_setting
   end
 
   def set_dates
