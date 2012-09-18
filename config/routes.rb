@@ -26,6 +26,7 @@ Winnitude::Application.routes.draw do
       resources :countries ,:except => [:new, :create, :destroy]
       resources :currencies ,:except => [:new, :create, :destroy]
       resources :languages  ,:except => [:new, :create, :destroy]
+      resources :local_admins ,:except => [:new, :create, :destroy]
     end
   end
   as :user do
