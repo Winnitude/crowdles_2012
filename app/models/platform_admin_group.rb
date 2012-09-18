@@ -41,10 +41,13 @@ class PlatformAdminGroup
   def set_ag_details_from_product
     product = self.get_product
     ag_commissions = self.ag_commissions_setting
+    paas_setting = self.ag_paas_setting
+    paas_setting.paas_fees_exemption = product.paas_fees_exemption
     ag_commissions.platform_standard_commissions = product.platform_standard_commissions
     ag_commissions.platform_private_commissions = product.platform_private_commissions
     ag_commissions.platform_pro_commissions = product.platform_pro_commissions
     ag_commissions.save
+    paas_setting.save
   end
 
   def set_dates
