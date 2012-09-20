@@ -10,21 +10,29 @@
           <th>Type</th>
           <th>Target</th>
           <th>default</th>
+          <th>Standard Commission</th>
+          <th>Pro Commission</th>
+          <th>Private Commission</th>
           <th>Status</th>
           <th>Monthly Price</th>
           <th>Annual Price</th>
-          <th>No. of BG contest allowed</th>
-          <th>No. of BG windows allowed</th>
-          <th>No. of BG active workers allowed</th>
+          <th>Promotions</th>
+          <!--<th>No. of BG contest allowed</th>-->
+          <!--<th>No. of BG windows allowed</th>-->
+          <!--<th>No. of BG active workers allowed</th>-->
         </tr>
         <tr>
           <td><%=text_field_tag :name ,params[:name],:class => "span1"%> </td>
-          <td><%=select_tag :type ,options_for_select(["All", "AG"],params[:type]),:onchange => "this.form.submit();",:class => "span2"%> </td>
-          <td><%=select_tag :target ,options_for_select(["All", "SAG" ,"MAG"]  ,params[:target]),:onchange => "this.form.submit();",:class => "span2"%> </td>
+          <td><%=select_tag :type ,options_for_select(["All", "AG"],params[:type]),:onchange => "this.form.submit();",:class => "span1"%> </td>
+          <td><%=select_tag :target ,options_for_select(["All", "SAG" ,"MAG"]  ,params[:target]),:onchange => "this.form.submit();",:class => "span1"%> </td>
           <td></td>
-          <td><%=select_tag :status ,options_for_select(["All","Published", "Unpublished"],params[:status]),:onchange => "this.form.submit();",:class => "span2"%> </td>
-          <td></td>
-          <td></td>
+          <td><%=select_tag :standard ,options_for_select(["Sort","Ascending", "Descending"]),:onchange => "this.form.submit();",:class => "span1"%> </td>
+          <td><%=select_tag :pro ,options_for_select(["Sort","Ascending", "Descending"]),:onchange => "this.form.submit();",:class => "span1"%> </td>
+          <td><%=select_tag :private ,options_for_select(["Sort","Ascending", "Descending"]),:onchange => "this.form.submit();",:class => "span1"%> </td>
+          <td><%=select_tag :status ,options_for_select(["All","Published", "Unpublished"],params[:status]),:onchange => "this.form.submit();",:class => "span1"%> </td>
+          <td><%=select_tag :monthly_price ,options_for_select(["Sort","Ascending", "Descending"]),:onchange => "this.form.submit();",:class => "span1"%> </td>
+          <td><%=select_tag :annual_price ,options_for_select(["Sort","Ascending", "Descending"]),:onchange => "this.form.submit();",:class => "span1"%> </td>
+          <td><%=select_tag :promotions ,options_for_select(["All","Temporary", "Permanent"] ,params[:promotions]),:onchange => "this.form.submit();",:class => "span1"%> </td>
           <td></td>
           <td></td>
           <td></td>
@@ -42,12 +50,16 @@
                     <%=product.is_default ? "True" :"False" %>
                 <%end%>
               </td>
+              <td><%=product.platform_standard_commissions%></td>
+              <td><%=product.platform_pro_commissions%></td>
+              <td><%=product.platform_private_commissions%></td>
               <td><%=product.status%></td>
               <td><%=product.get_monthly_price%></td>
               <td><%=product.product_annual_price%></td>
-              <td><%=product.get_bg_contest_number%></td>
-              <td><%=product.get_bg_window_number%></td>
-              <td><%=product.get_ag_workers_number%></td>
+              <td><%=product.paas_fees_exemption%></td>
+              <!--<td><%=product.get_bg_contest_number%></td>-->
+              <!--<td><%=product.get_bg_window_number%></td>-->
+              <!--<td><%=product.get_ag_workers_number%></td>-->
             </tr>
         <% end %>
       </table>

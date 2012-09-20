@@ -16,6 +16,35 @@ class Admin::ProductsController < ApplicationController
       if params[:status] != "All"
         @products = @products.select{|i| i.status.downcase == params[:status].downcase rescue nil}
       end
+      if params[:promotions] != "All"
+        @products = @products.select{|i| i.paas_fees_exemption.downcase == params[:promotions].downcase rescue nil}
+      end
+
+      if params[:standard].downcase != "sort"
+        @products = @products.sort_by{|i| i.platform_standard_commissions}
+        @products = @products.reverse if  params[:standard].downcase == "descending"
+      end
+
+      if params[:pro].downcase != "sort"
+        @products = @products.sort_by{|i| i.platform_pro_commissions}
+        @products = @products.reverse if  params[:pro].downcase == "descending"
+      end
+
+      if params[:private].downcase != "sort"
+        @products = @products.sort_by{|i| i.platform_private_commissions}
+        @products = @products.reverse if  params[:private].downcase == "descending"
+      end
+
+      if params[:monthly_price].downcase != "sort"
+        @products = @products.sort_by{|i| i.product_monthly_price}
+        @products = @products.reverse if  params[:monthly_price].downcase == "descending"
+      end
+
+      if params[:annual_price].downcase != "sort"
+        @products = @products.sort_by{|i| i.product_annual_price}
+        @products = @products.reverse if  params[:annual_price].downcase == "descending"
+      end
+
     else
       @products = PlatformProduct.all
     end
