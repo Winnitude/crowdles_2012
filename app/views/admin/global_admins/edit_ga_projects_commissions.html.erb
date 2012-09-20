@@ -1,0 +1,52 @@
+<%= render :partial => "platform_settings_ga"  %>
+
+
+<%= form_for @projects_commissions, :url =>  update_ga_projects_commissions_global_admins_path,:html => {:class => "form form-horizontal"} do |f| %>
+
+    <div class="span9">
+      <h1 class="heading margin0">Global Admin Project Settings</h1>
+
+
+
+
+      <div class="control-group">
+        <label class="control-label">Payment Gateway Commissions Default Payer</label>
+        <div class="controls">
+          <%=f.select :gateway_commissions_payer, options_for_select(["Project Owner", "Account Owner"], @projects_commissions.gateway_commissions_payer) %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Payment Gateway Commissions Default Payer</label>
+        <div class="controls">
+          <%=f.select :gateway_commissions_payer, options_for_select(["draft", "new", "approved", "active ", "succeeded","failed","closed"], @projects_commissions.gateway_commissions_payer) %>
+        </div>
+      </div>
+
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="button" class="btn">Cancel</button>
+      </div>
+
+    </div>
+
+
+<%end%>
+
+<%= content_for :head do  %>
+    <script type="text/javascript">
+
+        jQuery(function(){
+
+            var minimum_cap= new LiveValidation('ga_projects_setting_arena_minimum_cap',{validMessage:" ",onlyOnSubmit:true});
+            minimum_cap.add( Validate.Numericality ,{ onlyInteger: true },{failureMessage:"Should be Integer"});
+
+            var max_cap= new LiveValidation('ga_projects_setting_arena_maximum_cap',{validMessage:" ",onlyOnSubmit:true});
+            max_cap.add( Validate.Numericality ,{ onlyInteger: true },{failureMessage:"Should be Integer"});
+            var factor= new LiveValidation('ga_projects_setting_arena_factor',{validMessage:" ",onlyOnSubmit:true});
+            factor.add( Validate.Numericality ,{ onlyInteger: false },{failureMessage:"Should be Integer"});
+
+        });
+    </script>
+<% end %>
