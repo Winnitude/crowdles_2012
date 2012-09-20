@@ -31,7 +31,7 @@ class PlatformLocalAdmin
      all_countries = ServiceCountry.where(:is_active => 1, :is_default => 0)
      all_countries.each do |i|
        local_admin=self.create(:is_master => false , :creation_date => DateTime.now ,:status =>"suspended")
-       general_setting = local_admin.build_la_general_setting(:la_language => param[:language] ,:la_country => i.country_english_name).save
+       general_setting = local_admin.build_la_general_setting(:la_language => param[:language] ,:la_country => i.country_english_name).save!
        profile = local_admin.build_la_profile().save
        pass_setting = local_admin.build_la_paas_setting.save
        la_term = local_admin.build_la_term.save

@@ -17,7 +17,13 @@ class UserProfile
   #field :photo
 
   def get_full_name
-   self.first_name  + " " + self.last_name rescue nil
+   first_name = self.first_name + " "
+   last_name = self.last_name
+    if last_name
+      first_name + last_name
+    else
+      first_name
+    end
   end
 
 
