@@ -17,13 +17,13 @@
         </tr>
 
         <tr>
-          <td><%=text_field_tag %></td>
-          <td><%=l.user.get_full_name rescue nil %></td>
-          <td><%=l.is_master %></td>
-          <td><%=l.la_general_setting.la_language %></td>
-          <td><%=l.la_general_setting.master_administration_deviation %></td>
-          <td><%=l.la_general_setting.master_worker_deviation %></td>
-          <td><%=l.status %></td>
+          <td><%=text_field_tag :la_country ,params[:la_country],:class=>"span2" %></td>
+          <td><%=text_field_tag :name ,params[:name] ,:class=>"span2"%></td>
+          <td><%=select_tag :master,options_for_select(["All", "True" ,"False"],params[:master]) ,:class=>"span2"%></td>
+          <td><%=text_field_tag :language,params[:language],:class=>"span2" %></td>
+          <td><%=text_field_tag :deviation ,params[:deviation],:class=>"span2"%></td>
+          <td><%=text_field_tag :target,params[:target],:class=>"span2" %></td>
+          <td><%=select_tag :status,options_for_select(["All", "Published" ,"UnPublished","Suspended"],params[:status]),:class=>"span2" %></td>
 
         </tr>
 
