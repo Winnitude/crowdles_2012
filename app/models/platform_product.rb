@@ -1,6 +1,7 @@
 class PlatformProduct
   include Mongoid::Document
   before_save :change_default
+  before_save :initialize_all_commissions
   has_many :platform_products_managements
   scope :get_default_product, where(:is_default => true)
   field :platform_product_name,           :type => String
@@ -73,5 +74,12 @@ class PlatformProduct
 
   def get_monthly_price
     self.product_monthly_price.present?    ? self.product_monthly_price :  "Empty"
+  end
+
+  def initialize_all_commissions
+    logger.info "inside initialization"
+    self.platform_private_commissions = 0.0 unless self.platform_private_commissions
+    self.platform_pro_commissions = 0.0 unless self.platform_pro_commissions
+    self.platform_standard_commissions = 0.0 unless self.platform_standard_commissions
   end
 end
