@@ -177,6 +177,9 @@ class User
     self.user_profile.get_full_name
   end
 
+  def get_profile
+    self.user_profile
+  end
 end
 
 

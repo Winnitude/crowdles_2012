@@ -26,5 +26,4 @@ class UserProfile
     end
   end
 
-
 end
