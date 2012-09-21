@@ -7,7 +7,7 @@ class LaGeneralSetting
             :uniqueness => true
   field :la_language,                                             :type => String
   field :la_platform_home,                                        :type => String
-  field :master_administration_deviation,                      :type => String
+  field :master_administration_deviation,                      :type => Boolean
   field :master_worker_deviation,                              :type => String
   field :master_worker_deviation_comment,                      :type => String
   field :la_facebook,                                          :type=> String

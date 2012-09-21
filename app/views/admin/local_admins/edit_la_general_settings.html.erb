@@ -16,7 +16,7 @@
                         </ul>
                       </div>
                   <% end %>
-                  <h3 class="heading margin0">General Settings</h3>
+                  <h3 class="heading margin0"> LA General Settings</h3>
 
                   <div class="control-group">
                     <label class="control-label">LA Owner</label>
@@ -82,7 +82,47 @@
                     </div>
                   </div>
 
+                  <div class="control-group">
+                    <label class="control-label" for="input01">Master Administration Deviation:</label>
+                    <div class="controls">
+                      <%= f.radio_button :master_administration_deviation, true,:class=>"input"%>  True   </div>
+                    <div class="controls"> <%= f.radio_button :master_administration_deviation, false,:class=>"input"%>  False   </div>
+                    <!--<input type="text" class="input-xlarge" id="input01">-->
+                    <p class="help-block"></p>
+                  </div>
 
+                  <div class="control-group">
+                    <label class="control-label" for="input01">Target Deviation:</label>
+                    <div class="controls">
+                      <%= text_field_tag :local_admin ,"",:class=>"input"%>    </div>
+                    <div class="controls"> <%= text_field_tag :Worker ,"",:class=>"input"%>    </div>
+                    <!--<input type="text" class="input-xlarge" id="input01">-->
+                    <p class="help-block"></p>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label">Deviation Comment</label>
+                    <div class="controls">
+                      <%=f.text_area :master_worker_deviation_comment, :rows => 5%>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label">LA Facebook Page Url</label>
+                    <div class="controls">
+                      <%=f.text_field :la_facebook%>
+                    </div>
+                  </div><div class="control-group">
+                  <label class="control-label">LA Twitter</label>
+                  <div class="controls">
+                    <%=f.text_field :la_twitter%>
+                  </div>
+                </div><div class="control-group">
+                  <label class="control-label">LA LinkedIn Url</label>
+                  <div class="controls">
+                    <%=f.text_field :la_linked_in%>
+                  </div>
+                </div>
 
 
                   <div class="form-actions">
