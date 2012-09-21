@@ -39,13 +39,15 @@ class Admin::LocalAdminsController < ApplicationController
   def edit_la_general_settings
     @languages = ServiceLanguage.all.collect{|i| i.english_name}
     @countries = ServiceCountry.all.collect{|i| i.country_english_name}
-    @general_setting = @local_admin.la_general_setting
+    #@general_setting = @local_admin.la_general_setting
+    #@profile =@local_admin.la_profile
   end
 
   def update_la_general_settings
-    @general_setting= @local_admin.la_general_setting
-    if @general_setting.update_attributes(params[:la_general_setting])
-       @local_admin.update_attributes(params[:platform_local_admin])
+    #@profile =@local_admin.la_profile
+    #@general_setting= @local_admin.la_general_setting
+    if @local_admin.update_attributes(params[:platform_local_admin])
+
       redirect_to local_admins_path, :notice => "Local Admin General Settings Updated Successfully"
     else
       @languages = ServiceLanguage.all.collect{|i| i.english_name}
