@@ -1,0 +1,80 @@
+<%=render :partial => "admin/global_admins/la_management_ga"%>
+
+
+<%= form_for @general_setting, :url => update_la_general_settings_local_admin_path(@local_admin),:html => {:class => "form form-horizontal"} do |f| %>
+
+    <div class="span9">
+      <% if  @general_setting.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@general_setting.errors.count, "error") %> prohibited this Local Admin General Settings from being saved:</h2>
+            <ul>
+              <% @general_setting.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+      <h3 class="heading margin0">General Settings</h3>
+
+      <div class="control-group">
+        <label class="control-label">LA Owner</label>
+        <div class="controls">
+
+          <div> <%= @local_admin.user.get_full_name rescue nil %> <%= @local_admin.user.get_email rescue nil%> </div>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Local Admin Name</label>
+        <div class="controls">
+          <%=f.text_field :local_admin_name%>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">LA Country</label>
+        <div class="controls">
+          <%=f.select :la_country, options_for_select(@countries,@general_setting.la_country),{ :prompt => 'Select' }%>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">LA Language</label>
+        <div class="controls">
+          <%=f.select :la_language, options_for_select(@languages,@general_setting.la_language),{ :prompt => 'Select' }%>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label"> Master</label>
+        <div class="controls">
+          <%=select_tag "platform_local_admin[is_master]", options_for_select([true,false],@local_admin.is_master)%>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="button" class="btn">Cancel</button>
+      </div>
+    </div>
+
+<%end%>
+
+<%= content_for :head do  %>
+    <script type="text/javascript">
+
+        jQuery(function(){
+
+
+
+        });
+    </script>
+<% end %>
