@@ -20,6 +20,7 @@ Winnitude::Application.routes.draw do
           put :update_ga_projects_commissions
           get :edit_ga_projects_settings
           put :update_ga_projects_settings
+          get :edit_la_paas_billing_profile
         end
       end
       resources :products
@@ -30,6 +31,8 @@ Winnitude::Application.routes.draw do
         member do
           get :edit_la_general_settings
           put :update_la_general_settings
+          get :edit_la_paas_billing_profile
+          put :update_la_paas_billing_profile
         end
       end
     end

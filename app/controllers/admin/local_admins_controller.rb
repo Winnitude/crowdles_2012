@@ -37,6 +37,7 @@ class Admin::LocalAdminsController < ApplicationController
   end
 
   def edit_la_general_settings
+    #TODO validations need to be implemented
     @languages = ServiceLanguage.all.collect{|i| i.english_name}
     @countries = ServiceCountry.all.collect{|i| i.country_english_name}
     @general_setting = @local_admin.la_general_setting
@@ -56,6 +57,19 @@ class Admin::LocalAdminsController < ApplicationController
       @countries = ServiceCountry.all.collect{|i| i.country_english_name}
       render :edit_la_general_settings
     end
+  end
+
+  def edit_la_paas_billing_profile
+    countries = ServiceCountry.where.all
+    @countries = countries.select{|i| i.is_active == 1 && i.user_country ==1 }.collect{|i|i.country_english_name}
+    @currency = ServiceCurrency.all.select{|i| i.is_active == 1 }.collect{|i| i.description}
+    @billing_profile = @local_admin.paas_billing_profile
+  end
+
+  def update_la_paas_billing_profile
+    @billing_profile= @local_admin.paas_billing_profile
+    @billing_profile.update_attributes(params[:paas_billing_profile])
+    redirect_to local_admins_path, :notice => "Local Admin Paas Billing Profile Updated Successfully"
   end
 
   def get_local_admin
