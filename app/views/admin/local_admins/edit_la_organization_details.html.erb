@@ -1,0 +1,122 @@
+<%=render :partial => "admin/global_admins/la_management_ga"%>
+
+
+<%= form_for @local_admin, :url => update_la_organization_details_local_admin_path(@local_admin),:html => {:class => "form form-horizontal"} do |la| %>
+    <%= la.fields_for @profile do |profile| %>
+        <%= la.fields_for @contact do |contact| %>
+            <div class="span9">
+
+              <h3 class="heading margin0"> LA Organization</h3>
+              <div class="control-group">
+                <label class="control-label">First Name</label>
+                <div class="controls">
+                  <%=profile.text_field :first_name%>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label">First Name</label>
+                <div class="controls">
+                  <%=profile.text_field :last_name%>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label">Company Name</label>
+                <div class="controls">
+                  <%=profile.text_field :company_name%>
+                </div>
+              </div>
+
+
+              <div class="control-group">
+                <label class="control-label">Country</label>
+                <div class="controls">
+                  <%=profile.select :country, options_for_select(@countries,@profile.country),{ :prompt => 'Select' }%>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label">City</label>
+                <div class="controls">
+                  <%=profile.text_field :city%>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">Zip Code</label>
+                <div class="controls">
+                  <%=profile.text_field :zip_code%>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">Address</label>
+                <div class="controls">
+                  <%=profile.text_field :address%>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">street 2</label>
+                <div class="controls">
+                  <%=profile.text_field :additional_address%>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">Phone Number</label>
+                <div class="controls">
+                  <%=profile.text_field :phone_number%>
+                </div>
+              </div>
+              <h3 class="heading margin0"> Organization Contact person</h3>
+              <div class="control-group">
+                <label class="control-label">Contact First Name</label>
+                <div class="controls">
+                  <%=contact.text_field :contact_last_name%>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label">Contact Last Name</label>
+                <div class="controls">
+                  <%=contact.text_field :contact_last_name%>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label">Contact Email</label>
+                <div class="controls">
+                  <%=contact.text_field :contact_email%>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">Contact Photo</label>
+                <div class="controls">
+                  <%=file_field_tag :contact_photo%>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">Contact Biography</label>
+                <div class="controls">
+                  <%=contact.text_area :contact_biography, :rows => 5%>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="button" class="btn">Cancel</button>
+              </div>
+            </div>
+
+        <%end%>
+    <%end%>
+<%end%>
+
+<%= content_for :head do  %>
+    <script type="text/javascript">
+
+        jQuery(function(){
+
+
+
+        });
+    </script>
+<% end %>

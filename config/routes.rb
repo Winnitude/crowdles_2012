@@ -33,6 +33,10 @@ Winnitude::Application.routes.draw do
           put :update_la_general_settings
           get :edit_la_paas_billing_profile
           put :update_la_paas_billing_profile
+          get :edit_la_terms
+          put :update_la_terms
+          get :edit_la_organization_details
+          put :update_la_organization_details
         end
       end
     end

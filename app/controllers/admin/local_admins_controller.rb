@@ -50,7 +50,7 @@ class Admin::LocalAdminsController < ApplicationController
     @profile =@local_admin.la_profile
     @general_setting= @local_admin.la_general_setting
     if @general_setting.update_attributes(params[:platform_local_admin][:la_general_setting]) and @profile.update_attributes(params[:platform_local_admin][:la_profile]) and @paas_setting.update_attributes(params[:platform_local_admin][:la_paas_setting])
-       @local_admin.update_attributes(params[:platform_local_admin])
+      @local_admin.update_attributes(params[:platform_local_admin])
       redirect_to local_admins_path, :notice => "Local Admin General Settings Updated Successfully"
     else
       @languages = ServiceLanguage.all.collect{|i| i.english_name}
@@ -71,6 +71,37 @@ class Admin::LocalAdminsController < ApplicationController
     @billing_profile.update_attributes(params[:paas_billing_profile])
     redirect_to local_admins_path, :notice => "Local Admin Paas Billing Profile Updated Successfully"
   end
+
+  def edit_la_terms
+    @terms = @local_admin.la_term
+  end
+
+  def update_la_terms
+    @terms = @local_admin.la_term
+    @terms.update_attributes(params[:la_term])
+    redirect_to local_admins_path, :notice => "Local Admin Terms Updated Successfully"
+  end
+
+  def edit_la_organization_details
+   #This Action will update both LA profile as well as LA contact details
+   #TODO validations need to be implemented
+    @countries = ServiceCountry.all.select{|i| i.is_active == 1 && i.user_country ==1 }.collect{|i|i.country_english_name}
+    @profile = @local_admin.la_profile
+    @contact = @local_admin.la_contact
+  end
+
+  def update_la_organization_details
+    @profile =@local_admin.la_profile
+    @contact = @local_admin.la_contact
+    if @contact.update_attributes(params[:platform_local_admin][:la_contact]) and @profile.update_attributes(params[:platform_local_admin][:la_profile])
+
+      redirect_to local_admins_path, :notice => "Local Admin General Settings Updated Successfully"
+    else
+      @countries = ServiceCountry.all.collect{|i| i.country_english_name}
+      render :edit_la_organization_details
+    end
+  end
+
 
   def get_local_admin
     @local_admin = PlatformLocalAdmin.find params[:id]
