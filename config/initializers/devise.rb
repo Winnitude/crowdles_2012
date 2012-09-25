@@ -208,8 +208,13 @@ Devise.setup do |config|
   config.sign_out_via = :delete
 
   require "omniauth-facebook"
-  config.omniauth :facebook, "335487086546514", "a4a95d117b277fc158a895fe0e257b1a" ,{:scope => 'email,user_photos,user_photos,publish_stream,offline_access'}
+  #config.omniauth :facebook, "335487086546514", "a4a95d117b277fc158a895fe0e257b1a" ,{:scope => 'email,user_photos,user_photos,publish_stream,offline_access'}
 
+  if Rails.env.development?
+    config.omniauth :facebook, "335487086546514", "a4a95d117b277fc158a895fe0e257b1a" ,{:scope => 'email,user_photos,user_photos,publish_stream,offline_access'}
+  else
+    config.omniauth :facebook, "413130562068956", "c0585593c05a7a998de48b5f2126a8b5" ,{:scope => 'email,user_photos,user_photos,publish_stream,offline_access'}
+  end
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
