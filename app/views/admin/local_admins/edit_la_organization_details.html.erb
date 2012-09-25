@@ -55,7 +55,7 @@
                 </div>
               </div>
               <div class="control-group">
-                <label class="control-label">street 2</label>
+                <label class="control-label">Additional Address</label>
                 <div class="controls">
                   <%=profile.text_field :additional_address%>
                 </div>
@@ -114,6 +114,10 @@
     <script type="text/javascript">
 
         jQuery(function(){
+
+            var platform_email = new LiveValidation('platform_local_admin_la_contact_contact_email',{validMessage:" ",onlyOnSubmit:true});
+//            platform_email.add( Validate.Presence,{failureMessage:" Can't be empty"} );
+            platform_email.add( Validate.Email,{failureMessage:"Not a valid email"} );
 
 
 

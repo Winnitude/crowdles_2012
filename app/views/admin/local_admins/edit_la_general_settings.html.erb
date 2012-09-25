@@ -136,7 +136,17 @@
 
         jQuery(function(){
 
-
+            var facebook =   new LiveValidation("platform_local_admin_la_general_setting_la_facebook",{validMessage:" ",onlyOnSubmit:true});
+            facebook.add( Validate.Format , { pattern: /^(ht|f)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/, failureMessage: "Must be a valid URL" });
+            var twitter =   new LiveValidation("platform_local_admin_la_general_setting_la_twitter",{validMessage:" ",onlyOnSubmit:true});
+            twitter.add( Validate.Format , { pattern: /^(ht|f)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/, failureMessage: "Must be a valid URL" });
+            var linkedin =   new LiveValidation("platform_local_admin_la_general_setting_la_linked_in",{validMessage:" ",onlyOnSubmit:true});
+            linkedin.add( Validate.Format , { pattern: /^(ht|f)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/, failureMessage: "Must be a valid URL" });
+            var platform_email = new LiveValidation('platform_local_admin_la_profile_la_email',{validMessage:" ",onlyOnSubmit:true});
+//            platform_email.add( Validate.Presence,{failureMessage:" Can't be empty"} );
+            platform_email.add( Validate.Email,{failureMessage:"Not a valid email"} );
+            var factor= new LiveValidation('platform_local_admin_la_paas_setting_paas_la_commissions',{validMessage:" ",onlyOnSubmit:true});
+            factor.add( Validate.Numericality ,{ onlyInteger: false },{failureMessage:"Should be Integer"});
 
         });
     </script>
