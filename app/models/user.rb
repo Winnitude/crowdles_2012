@@ -66,6 +66,7 @@ class User
   #  field :type,   :type => String
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
+    #binding.remote_pry
     data = access_token.extra.raw_info
     logger.info("received from Facebook: #{data.inspect}")
     user = User.where(:email => data.email).first
@@ -76,11 +77,12 @@ class User
       user = User.new({:email => data["email"],
                        :password => Devise.friendly_token[0,20],
                        :is_provider => true,
-                       :profile_attributes => {:first_name => data["first_name"],:last_name => data["last_name"]}
-                      }
-      )
+                       #:profile_attributes => {:first_name => data["first_name"],:last_name => data["last_name"]}
+                      })
+      profile=user.build_user_profile(:first_name => data["first_name"],:last_name => data["last_name"])
       user.confirm!
       user.save!
+      profile.save!
 #      UserMailer.welcome_email(user).deliver if !user.nil?
       User.where(:email => data.email).first
     end

@@ -20,4 +20,8 @@ class ApplicationController < ActionController::Base
      redirect_to root_path ,:alert => "You should have GA privileges to perform this" unless current_user.all_roles.include?("global_admin")
   end
 
+  def start_debugging
+    binding.remote_pry
+  end
+
 end

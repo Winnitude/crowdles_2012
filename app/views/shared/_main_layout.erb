@@ -6,7 +6,7 @@
           <li class="active"><a href="#">Home</a></li>
           <li><a href="#">About Us</a></li>
         </ul>-->
-        <div class="pull-right topUserInfo"><%= current_user.get_full_name if current_user%>
+        <div class="pull-right topUserInfo"><%= current_user.get_full_name if current_user.present?%>
 
           <%if current_user%>
               <%=link_to :Logout, logout_path%>
