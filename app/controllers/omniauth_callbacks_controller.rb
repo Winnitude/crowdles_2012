@@ -1,6 +1,6 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
-#    logger.info request.env["omniauth.auth"]
+   logger.info request.env["omniauth.auth"]
     # You need to implement the method below in your model
     @user = User.find_for_facebook_oauth(request.env["omniauth.auth"],current_user)
     if !@user.nil?
@@ -18,4 +18,12 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to new_user_registration_url
     end
   end
+
+
+
+  #def passthru
+  #  render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false
+  #  # Or alternatively,
+  #  # raise ActionController::RoutingError.new('Not Found')
+  #end
 end

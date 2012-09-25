@@ -61,6 +61,7 @@ Winnitude::Application.routes.draw do
              }   do
     get "/login", :to => "sessions#new"
     get "/logout", :to => "sessions#destroy"
+    #get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
 
   end
   resource :homes do
