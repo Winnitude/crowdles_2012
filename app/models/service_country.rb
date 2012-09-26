@@ -19,4 +19,9 @@ class ServiceCountry
         end
       end
   end
+
+  def self.make_country_default(country)
+    country = where(:country_english_name => country).first
+    country.update_attribute(:is_default, 1)
+  end
 end

@@ -15,7 +15,7 @@ class PlatformLocalAdmin
   field :deactivation_date,                :type => DateTime
   field :status,                           :type => String
   accepts_nested_attributes_for :la_contact, :la_general_setting, :la_paas_setting ,:la_profile ,:la_term
-  attr_accessible :la_general_setting_attributes
+  #attr_accessible :la_general_setting_attributes
   def self.create_main_local_admin user ,param
     local_admin= user.platform_local_admins.create(:is_master => true , :creation_date => DateTime.now ,:status =>"active" )
     PlatformRolesManagement.assign_local_admin_role user, local_admin

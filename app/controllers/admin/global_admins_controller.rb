@@ -12,6 +12,7 @@ class Admin::GlobalAdminsController < ApplicationController
 
   def set_platform
     ServiceLanguage.make_language_active(params[:language])
+    ServiceCountry.make_country_default(params[:platform_master_country])
     @user= User.create_global_admin_owner(params) #create 1st user
 
     @user.initialize_default_billing_profile params #creating default billing profile for user
@@ -22,13 +23,19 @@ class Admin::GlobalAdminsController < ApplicationController
     #creating all settings related to GA
     @global_admin.create_all_settings params ,@user
 
+    logger.info("--------------------------------------------------------------------------------------------GA-------------DONE")
+
     #creating the Default Product
     PlatformProduct.create_platform_default_product
+    logger.info("--------------------------------------------------------------------------------------------ProDuct-------------DONE")
     #creating_local_admin_for_platform_master_country also this will act as MLA
     main_local_admin = PlatformLocalAdmin.create_main_local_admin @user, params
+    logger.info("--------------------------------------------------------------------------------------------MLA-------------DONE")
     PlatformAdminGroup.create_main_admin_group_for_platform_master_country @user, params, main_local_admin
+    logger.info("--------------------------------------------------------------------------------------------MAG-MLA-------------DONE")
     #creating_local_admins_for_the_other_countries_other than the platform master country
     PlatformLocalAdmin.create_all_local_admins_with_their_mag params
+    logger.info("--------------------------------------------------------------------------------------------all MLA MAG-------------DONE")
     redirect_to login_path ,:notice => "The Platform Setup has been successfully executed, please login and start to manage "+ GaGeneralSetting.first.platform_name
 
   end
