@@ -53,7 +53,7 @@ gem "bullet", :group => "development"
 gem "itslog"
 #gem "fastercsv"
 
-#gem "geocoder"
+gem "geocoder"
 #gem "rmagick"
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
