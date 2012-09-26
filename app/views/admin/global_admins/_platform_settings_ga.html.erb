@@ -30,5 +30,23 @@
         </li>
       </ul>
     </li>
+    <li class="active"><a href=<%="#{local_admins_path}"%> ><i class="icon-chevron-right"></i>LocalAdmin Management</a>
+
+      <%if @local_admin.present?%>
+          <ul>
+
+
+            <li><a href="#">Settings</a>
+              <ul>
+                <li><a href=<%="#{edit_la_general_settings_local_admin_path(@local_admin)}"%>>General Setting</a></li>
+                <li><a href=<%="#{edit_la_paas_billing_profile_local_admin_path(@local_admin)}"%>>Billing Profile</a></li>
+                <li><a href=<%="#{edit_la_organization_details_local_admin_path(@local_admin)}"%>>Organization Details</a></li>
+                <li><a href=<%="#{edit_la_terms_local_admin_path(@local_admin)}"%>>Local Terms of Use</a></li>
+              </ul>
+            </li>
+
+          </ul>
+       <%end%>
+    </li>
   </ul>
  </div>

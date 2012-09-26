@@ -1,6 +1,5 @@
 
-<%=render :partial => "admin/global_admins/la_management_ga"%>
-
+<%= render :partial => "/admin/global_admins/platform_settings_ga"  %>
 <div class="span9">
   <h2 class="heading margin0">PaaS Billing Profile</h2>
   <%= form_for @billing_profile ,:url => update_la_paas_billing_profile_local_admin_path(@local_admin),:html => {:class => "form form-horizontal"} do |f|%>
