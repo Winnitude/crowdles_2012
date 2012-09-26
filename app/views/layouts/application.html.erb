@@ -58,7 +58,9 @@
   </div><!--/content-->
 
   <footer>
-    <%= render :partial => "/shared/footer"  %>
+    <%= render :partial => "/shared/footer" if Rails.env.development? %>
+    <p><%=request.ip%></p>
+    <p><%=request.location.country%></p>
   </footer>
 
 </div> <!-- /container -->
