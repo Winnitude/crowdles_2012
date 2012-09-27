@@ -2,7 +2,7 @@ class PlatformGlobalAdmin #will act as base class for the GA related things
   include Mongoid::Document
   has_one :paas_billing_profile
   has_one :default_billing_profile
-  has_one :platform_user_role
+  has_one :platform_roles_management
   has_one :ga_general_setting
   has_one :ga_integration
   has_one :ga_projects_commission

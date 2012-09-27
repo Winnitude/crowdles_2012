@@ -16,10 +16,11 @@ class User
   has_many :platform_admin_groups
   has_one  :platform_global_admin
   after_create :assign_role_to_user
+  after_create :set_time_and_status
   before_save :accept_terms
   attr_accessible :profile_attributes, :email, :password, :password_confirmation,
                   :remember_me ,:country, :terms_of_service,:is_provider,
-                  :is_provider_terms_of_service,:profile,:facebook_id ,:registration_ip
+                  :is_provider_terms_of_service,:profile,:facebook_id ,:registration_ip ,:status ,:created_at
   #######################User Login functionality with devise integration############################
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -42,7 +43,7 @@ class User
   field :current_sign_in_ip,              :type => String
   field :last_sign_in_ip,                 :type => String
   field :suspended,                       :type => Boolean ,:null => false, :default => false
-  field :is_provider_terms_of_service,    :type => Boolean ,:null => false, :default => false
+  field :is_provider_terms_of_service,    :type => Boolean , :default => false
   field :is_provider,                     :type => Boolean ,:null => false, :default => false
   field :role,                            :type=> String
 
@@ -54,8 +55,10 @@ class User
   field :confirmed_at,                    :type => Time
   field :confirmation_sent_at,            :type => Time
   field :unconfirmed_email,               :type => String # Only if using reconfirmable
-  field :facebook_id,                     :type => String # Only if using reconfirmable
-
+  field :facebook_id,                     :type => String
+  field :registration_ip,                 :type => String
+  field :status,                          :type => String
+  field :created_at ,                     :type => DateTime
   ## Lockable
   # field :failed_attempts, :type => Integer, :default => 0 # Only if lock strategy is :failed_attempts
   # field :unlock_token,    :type => String # Only if unlock strategy is :email or :both
@@ -133,10 +136,10 @@ class User
             :if => :should_not_provider?
 
   field :terms_of_service,   :type => Boolean
-  validates :terms_of_service,
-            :acceptance => {:accept => true},
-            :on => :create,
-            :if => :should_not_provider?
+  #validates :terms_of_service,
+  #          :acceptance => {:accept => true},
+  #          :on => :create,
+  #          :if => :should_not_provider?
 
 
 
@@ -191,6 +194,13 @@ class User
     self.registration_ip = request.ip
     self.country = request.location.country
   end
+
+  def set_time_and_status
+    self.created_at = DateTime.now
+    self.status = "new"
+    self.save
+  end
+
 
 end
 

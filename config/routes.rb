@@ -52,7 +52,7 @@ Winnitude::Application.routes.draw do
   end
 
 
-  devise_for :users, :scope => "user",
+  devise_for :users,
              :controllers => {:omniauth_callbacks => "omniauth_callbacks" ,
                               :sessions => "sessions" ,
                               :confirmations => 'confirmations',
