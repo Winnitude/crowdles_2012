@@ -22,10 +22,9 @@ class RegistrationsController <  Devise::RegistrationsController
     #end
 
     resource = User.new(params[:user])
-    if resource.save
+    if resource.save!
       logger.info "++++++++++++++++++++++++++++++++++++++++++++++++++#{resource.inspect}"
       resource.fetch_ip_and_country(request)
-      resource.save
       logger.info "++++++++++++++++++++++++++++++++++++++++++++++++++#{resource.inspect}"
       redirect_to login_path , :notice => "'A message with a confirmation link has been sent to your email address. Please open the link to activate your account.'"
     end

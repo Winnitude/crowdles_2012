@@ -16,6 +16,7 @@ class ConfirmationsController < Devise::PasswordsController
         @confirmable.attempt_set_password(params[:user])
         if @confirmable.valid?
           do_confirm
+          @confirmable.update_attribute(:status , "active")    #to make him active
         else
           do_show
           @confirmable.errors.clear #so that we wont render :new

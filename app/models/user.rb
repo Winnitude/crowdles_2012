@@ -131,9 +131,9 @@ class User
             :email => true
   #
   field :country,            :type => String
-  validates :country,
-            :presence => true,
-            :if => :should_not_provider?
+  #validates :country,
+  #          :presence => true,
+  #          :if => :should_not_provider?
 
   field :terms_of_service,   :type => Boolean
   #validates :terms_of_service,
@@ -193,6 +193,7 @@ class User
   def fetch_ip_and_country(request)
     self.registration_ip = request.ip
     self.country = request.location.country
+    self.save
   end
 
   def set_time_and_status
