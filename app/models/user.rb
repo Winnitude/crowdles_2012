@@ -19,7 +19,7 @@ class User
   before_save :accept_terms
   attr_accessible :profile_attributes, :email, :password, :password_confirmation,
                   :remember_me ,:country, :terms_of_service,:is_provider,
-                  :is_provider_terms_of_service,:profile
+                  :is_provider_terms_of_service,:profile,:facebook_id ,:registration_ip
   #######################User Login functionality with devise integration############################
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -54,6 +54,7 @@ class User
   field :confirmed_at,                    :type => Time
   field :confirmation_sent_at,            :type => Time
   field :unconfirmed_email,               :type => String # Only if using reconfirmable
+  field :facebook_id,                     :type => String # Only if using reconfirmable
 
   ## Lockable
   # field :failed_attempts, :type => Integer, :default => 0 # Only if lock strategy is :failed_attempts
@@ -69,8 +70,10 @@ class User
     #binding.remote_pry
     data = access_token.extra.raw_info
     logger.info("received from Facebook: #{data.inspect}")
-    user = User.where(:email => data.email).first
-
+    user = User.where(:facebook_id => data.id).first
+    logger.info "user mila via id"  if user.present?
+    user = User.where(:email => data.email).first  unless user.present?
+    logger.info "user mila via Email"  if user.present?
     if !user.nil?
       user
     else # Create an user with a stub password.
@@ -78,6 +81,7 @@ class User
                        :password => Devise.friendly_token[0,20],
                        :is_provider => true,
                        #:profile_attributes => {:first_name => data["first_name"],:last_name => data["last_name"]}
+                       :facebook_id => data["id"]
                       })
       profile=user.build_user_profile(:first_name => data["first_name"],:last_name => data["last_name"])
       user.confirm!
@@ -176,12 +180,18 @@ class User
   end
 
   def get_full_name
-    self.user_profile.get_full_name
+    self.user_profile.get_full_name   rescue nil
   end
 
   def has_role role
     self.all_roles.include? role
   end
+
+  def fetch_ip_and_country(request)
+    self.registration_ip = request.ip
+    self.country = request.location.country
+  end
+
 end
 
 
