@@ -67,6 +67,8 @@ Winnitude::Application.routes.draw do
   resource :homes do
     collection do
       get "platform_not_configured"
+      get "user_exists"
+      post "send_verification_mail"
     end
 
   end

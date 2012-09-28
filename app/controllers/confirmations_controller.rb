@@ -19,6 +19,7 @@ class ConfirmationsController < Devise::PasswordsController
           @confirmable.update_attribute(:status , "active")    #to make him active
           #binding.remote_pry
           @profile = (@confirmable.build_user_profile  params[:user_profile]).save
+          @billing_profile = @confirmable.build_default_billing_profile.save
         else
           @countries = ServiceCountry.all.select{|i| i.is_active ==1}.collect{|i| i.country_english_name}
           @language = ServiceLanguage.all.select{|i| i.is_active ==1}.collect{|i| i.english_name}

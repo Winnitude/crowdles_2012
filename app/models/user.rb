@@ -149,7 +149,7 @@ class User
     is_provider == false
   end
   def self.create_global_admin_owner param
-    user = User.new(:email => param[:admin_email], :password =>param[:password], :password_confirmation => param[:password], :terms_of_service =>true, :country => param[:country])
+    user = User.new(:email => param[:admin_email], :password =>param[:password], :password_confirmation => param[:password], :terms_of_service =>true, :country => param[:country], :status => "active")
     user.skip_confirmation!
     user.save!
     user.build_user_profile(:first_name => "Administrator", :country => param[:country] ,:language =>param[:language] ).save
