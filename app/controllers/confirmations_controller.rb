@@ -4,7 +4,6 @@ class ConfirmationsController < Devise::PasswordsController
   # don't want to enable logged users to access the confirmation page.
   skip_before_filter :require_no_authentication
   skip_before_filter :authenticate_user!
-
   def new
 #    super
   end
@@ -12,12 +11,17 @@ class ConfirmationsController < Devise::PasswordsController
   # PUT /resource/confirmation
   def update
     with_unconfirmed_confirmable do
+
       if @confirmable.has_no_password?
         @confirmable.attempt_set_password(params[:user])
         if @confirmable.valid?
           do_confirm
           @confirmable.update_attribute(:status , "active")    #to make him active
+          #binding.remote_pry
+          @profile = (@confirmable.build_user_profile  params[:user_profile]).save
         else
+          @countries = ServiceCountry.all.select{|i| i.is_active ==1}.collect{|i| i.country_english_name}
+          @language = ServiceLanguage.all.select{|i| i.is_active ==1}.collect{|i| i.english_name}
           do_show
           @confirmable.errors.clear #so that we wont render :new
         end
@@ -27,12 +31,16 @@ class ConfirmationsController < Devise::PasswordsController
     end
 
     if !@confirmable.errors.empty?
+      @countries = ServiceCountry.all.select{|i| i.is_active ==1}.collect{|i| i.country_english_name}
+      @language = ServiceLanguage.all.select{|i| i.is_active ==1}.collect{|i| i.english_name}
       render 'devise/confirmations/new' #Change this if you doens't have the views on default path
     end
   end
 
   # GET /resource/confirmation?confirmation_token=abcdef
   def show
+    @countries = ServiceCountry.all.select{|i| i.is_active ==1}.collect{|i| i.country_english_name}
+    @language = ServiceLanguage.all.select{|i| i.is_active ==1}.collect{|i| i.english_name}
     with_unconfirmed_confirmable do
       if @confirmable.has_no_password?
         do_show
@@ -71,4 +79,5 @@ class ConfirmationsController < Devise::PasswordsController
 #  def only_if_unconfirmed
 #    pending_any_confirmation {yield}
 #  end
+
 end

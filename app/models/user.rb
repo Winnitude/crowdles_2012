@@ -16,11 +16,11 @@ class User
   has_many :platform_admin_groups
   has_one  :platform_global_admin
   after_create :assign_role_to_user
-  after_create :set_time_and_status
+  #before_create :set_time_and_status
   before_save :accept_terms
   attr_accessible :profile_attributes, :email, :password, :password_confirmation,
                   :remember_me ,:country, :terms_of_service,:is_provider,
-                  :is_provider_terms_of_service,:profile,:facebook_id ,:registration_ip ,:status ,:created_at
+                  :is_provider_terms_of_service,:profile,:facebook_id ,:registration_ip ,:status ,:created_at,:language
   #######################User Login functionality with devise integration############################
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -59,6 +59,7 @@ class User
   field :registration_ip,                 :type => String
   field :status,                          :type => String
   field :created_at ,                     :type => DateTime
+  field :language ,                     :type => String
   ## Lockable
   # field :failed_attempts, :type => Integer, :default => 0 # Only if lock strategy is :failed_attempts
   # field :unlock_token,    :type => String # Only if unlock strategy is :email or :both
@@ -127,7 +128,7 @@ class User
 
   field :email,              :type => String
   validates :email,
-            #:uniqueness => true,
+            :uniqueness => true,
             :email => true
   #
   field :country,            :type => String
@@ -191,15 +192,16 @@ class User
   end
 
   def fetch_ip_and_country(request)
+    logger.info ("inside model method #######################{self.inspect}")
     self.registration_ip = request.ip
-    self.country = request.location.country
-    self.save
+    self.country = request.location.country.upcase
+    self.country ="INDIA" if self.country.downcase == "reserved" #doing this coz in local(dev environment)  IP is 127.0.0.1 for this country is reserved
+    self.set_time_and_status
   end
 
   def set_time_and_status
     self.created_at = DateTime.now
     self.status = "new"
-    self.save
   end
 
 
