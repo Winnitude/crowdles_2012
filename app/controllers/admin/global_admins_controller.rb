@@ -2,6 +2,7 @@ class Admin::GlobalAdminsController < ApplicationController
 
   before_filter :should_be_global_admin,:except=>[:set_platform_page,:set_platform ]
   before_filter :get_global_admin ,:except=>[:set_platform_page,:set_platform ]
+  before_filter :is_user_exist? ,:only=>[:create_user]
   def set_platform_page
     countries = ServiceCountry.where.all
     @user_countries = countries.select{|i| i.is_active == 1 && i.user_country ==1 }.collect{|i|i.country_english_name}
@@ -120,6 +121,17 @@ class Admin::GlobalAdminsController < ApplicationController
     end
   end
 
+  def new_user
+
+  end
+
+  def create_user
+    @user = User.new(:email => params[:email])
+    if @user.save
+      @user.build_user_profile(:first_name => params[:first_name] , :last_name => params[:last_name]).save
+    end
+    render :json => @user
+  end
 
 
   private
@@ -127,6 +139,19 @@ class Admin::GlobalAdminsController < ApplicationController
   def get_global_admin
     logger.info "get GA"
     @global_admin = current_user.platform_global_admin
+  end
+
+  def is_user_exist?
+    user = User.where(:email=>params[:email]).to_a.first
+    if user.present?
+      if user.status.downcase == "active"
+        redirect_to new_user_global_admins_path ,:notice => "User Already present with this Email Id"
+      end
+
+      if user.status.downcase == "new"
+        redirect_to user_exists_homes_path(:id =>user)
+      end
+    end
   end
 end
 

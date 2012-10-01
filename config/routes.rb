@@ -21,6 +21,8 @@ Winnitude::Application.routes.draw do
           get :edit_ga_projects_settings
           put :update_ga_projects_settings
           get :edit_la_paas_billing_profile
+          get :new_user
+          post :create_user
         end
       end
       resources :products

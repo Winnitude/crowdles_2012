@@ -10,6 +10,7 @@
             <%else%>
                 <%=link_to :Login, login_path%>
                 <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+                <%=link_to "Forget Password", new_user_password_path%>
             <%end%></li>
           <li><a tabindex="-1" href="#anotherAction">Another action</a></li>
           <li><a tabindex="-1" href="#">Something else here</a></li>

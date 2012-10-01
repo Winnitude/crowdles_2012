@@ -1,0 +1,54 @@
+<%= render :partial => "platform_settings_ga"  %>
+
+
+<%= form_tag  create_user_global_admins_path,:html => {:class => "form form-horizontal", :method => "post"} do  %>
+    <h1>Invite New User</h1>
+
+    <div class="span9">
+
+      <div class="control-group">
+        <label class="control-label">Email </label>
+        <div class="controls">
+          <%=text_field_tag :email  %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">First Name</label>
+        <div class="controls">
+          <%=text_field_tag :first_name  %>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Last Name</label>
+        <div class="controls">
+          <%=text_field_tag  :last_name  %>
+        </div>
+      </div>
+
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Invite User</button>
+      </div>
+
+    </div>
+
+
+<%end%>
+
+<%= content_for :head do  %>
+    <script type="text/javascript">
+
+        jQuery(function(){
+
+            var minimum_cap= new LiveValidation('ga_projects_setting_arena_minimum_cap',{validMessage:" ",onlyOnSubmit:true});
+            minimum_cap.add( Validate.Numericality ,{ onlyInteger: true },{failureMessage:"Should be Integer"});
+
+            var max_cap= new LiveValidation('ga_projects_setting_arena_maximum_cap',{validMessage:" ",onlyOnSubmit:true});
+            max_cap.add( Validate.Numericality ,{ onlyInteger: true },{failureMessage:"Should be Integer"});
+            var factor= new LiveValidation('ga_projects_setting_arena_factor',{validMessage:" ",onlyOnSubmit:true});
+            factor.add( Validate.Numericality ,{ onlyInteger: false },{failureMessage:"Should be Integer"});
+
+        });
+    </script>
+<% end %>
