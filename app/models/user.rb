@@ -200,7 +200,7 @@ class User
   end
 
   def set_time_and_status
-    self.created_at = DateTime.now
+    self.created_at = Time.now
     self.status = "new"
   end
 

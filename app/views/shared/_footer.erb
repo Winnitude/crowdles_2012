@@ -3,6 +3,8 @@
     <%= debug(params) if Rails.env.development?%>
     <h5>Email</h5>
     <%= current_user.email.inspect %>
+    <h5>FaceBook</h5>
+    <%= current_user.facebook_id%>
     ===============================================================================================================================
     <h5>All Roles</h5>
     <%=current_user.all_roles %>
