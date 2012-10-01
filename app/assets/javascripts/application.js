@@ -18,5 +18,4 @@ jQuery(document).ready(function(e){
     $(".alert").fadeOut(5000);
     $('.dropdown-toggle').dropdown()
 
-
 });

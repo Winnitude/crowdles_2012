@@ -28,7 +28,8 @@
 
 
       <div class="form-actions">
-        <button type="submit" class="btn btn-primary">Invite User</button>
+        <button type="submit" class="btn btn-primary loading-btn" data-loading-text="Loading...">Invite User</button>
+        <button type="button" >Loading state</button>
       </div>
 
     </div>
@@ -46,8 +47,14 @@
             email.add( Validate.Email);
             var fname= new LiveValidation('first_name',{validMessage:" ",onlyOnSubmit:true});
             fname.add( Validate.Presence);
-            var fname= new LiveValidation('last_name',{validMessage:" ",onlyOnSubmit:true});
-            fname.add( Validate.Presence);
+            var lname= new LiveValidation('last_name',{validMessage:" ",onlyOnSubmit:true});
+            lname.add( Validate.Presence);
+            var areAllValid = LiveValidation.massValidate( [ email,fname,lname ] );
+
+            $('.btn').on('click', function () {
+                if (areAllValid == true )
+                {$(this).button('loading')}
+            })
 
 
 
