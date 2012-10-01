@@ -129,11 +129,13 @@ class Admin::GlobalAdminsController < ApplicationController
     @user = User.new(:email => params[:email])
     if @user.save
       @user.build_user_profile(:first_name => params[:first_name] , :last_name => params[:last_name]).save
+      redirect_to  all_users_global_admins_path ,:notice => "User Invited"
     end
-    render :json => @user
   end
 
+  def all_users
 
+  end
   private
 
   def get_global_admin

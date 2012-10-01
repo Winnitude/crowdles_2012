@@ -23,6 +23,7 @@ Winnitude::Application.routes.draw do
           get :edit_la_paas_billing_profile
           get :new_user
           post :create_user
+          get :all_users
         end
       end
       resources :products

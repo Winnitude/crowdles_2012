@@ -41,13 +41,15 @@
 
         jQuery(function(){
 
-            var minimum_cap= new LiveValidation('ga_projects_setting_arena_minimum_cap',{validMessage:" ",onlyOnSubmit:true});
-            minimum_cap.add( Validate.Numericality ,{ onlyInteger: true },{failureMessage:"Should be Integer"});
+            var email= new LiveValidation('email',{validMessage:" ",onlyOnSubmit:true});
+            email.add( Validate.Presence);
+            email.add( Validate.Email);
+            var fname= new LiveValidation('first_name',{validMessage:" ",onlyOnSubmit:true});
+            fname.add( Validate.Presence);
+            var fname= new LiveValidation('last_name',{validMessage:" ",onlyOnSubmit:true});
+            fname.add( Validate.Presence);
 
-            var max_cap= new LiveValidation('ga_projects_setting_arena_maximum_cap',{validMessage:" ",onlyOnSubmit:true});
-            max_cap.add( Validate.Numericality ,{ onlyInteger: true },{failureMessage:"Should be Integer"});
-            var factor= new LiveValidation('ga_projects_setting_arena_factor',{validMessage:" ",onlyOnSubmit:true});
-            factor.add( Validate.Numericality ,{ onlyInteger: false },{failureMessage:"Should be Integer"});
+
 
         });
     </script>
