@@ -11,6 +11,14 @@
           <p class="help-block"></p>
         </div>
       </div>
+      <div class="control-group">
+        <label class="control-label" for="input01"></label>
+        <div class="controls">
+          <%= recaptcha_tags %>
+          <!--<input type="text" class="input-xlarge" id="input01">-->
+          <p class="help-block"></p>
+        </div>
+      </div>
       <%= f.hidden_field :is_provider_terms_of_service, :value => 1%>
       <div class="form-actions">
         <%= f.submit "Sign up",:class =>"btn btn-primary"  %>

@@ -54,6 +54,7 @@ gem "itslog"
 #gem "fastercsv"
 
 gem "geocoder"
+gem "recaptcha", :require => "recaptcha/rails"
 #gem "rmagick"
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
