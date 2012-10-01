@@ -15,4 +15,12 @@ module ApplicationHelper
       "Winnitude"
     end
   end
+
+  def logged_in?
+    if current_user.present?
+      true
+    else
+      false
+    end
+  end
 end

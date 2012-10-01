@@ -57,7 +57,7 @@ class User
   field :unconfirmed_email,               :type => String # Only if using reconfirmable
   field :facebook_id,                     :type => String
   field :registration_ip,                 :type => String
-  field :status,                          :type => String
+  field :status,                          :type => String  , :default => "new"
   field :created_at ,                     :type => DateTime
   field :language ,                     :type => String
   ## Lockable

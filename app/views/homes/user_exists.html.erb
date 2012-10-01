@@ -1,6 +1,14 @@
-<h6>
-  You have already Sign Up but you didn't confirm your account.
-  Please confirm your account from your mail <br >
-  or
-</h6>
+<%if logged_in?%>
+    <h6>
+      This User is already Sign Up but you didn't confirm His account.
+      <br >
+    </h6>
+<% else %>
+    <h6>
+      You have already Sign Up but you didn't confirm your account.
+      Please confirm your account from your mail <br >
+      or
+    </h6>
+<%end%>
+
 <%= button_to "ReSend Verification Mail", send_verification_mail_homes_path(:id => @user), :method => :post %>
