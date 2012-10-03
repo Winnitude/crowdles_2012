@@ -1,7 +1,7 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
-    logger.info "facebook"
-   logger.info request.env["omniauth.auth"]
+   # logger.info "facebook"
+   #logger.info request.env["omniauth.auth"]
     # You need to implement the method below in your model
     @user = User.find_for_facebook_oauth(request.env["omniauth.auth"],current_user)
     if !@user.nil?

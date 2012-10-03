@@ -74,12 +74,13 @@ class User
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     #binding.remote_pry
     data = access_token.extra.raw_info
-    logger.info("received from Facebook: #{data.inspect}")
     user = User.where(:facebook_id => data.id).first
-    logger.info "user mila via id"  if user.present?
     user = User.where(:email => data.email).first  unless user.present?
-    logger.info "user mila via Email"  if user.present?
     if !user.nil?
+      if user.status = "new"
+        user.confirm!
+        user.save!
+      end
       user.update_attributes(:is_provider => true, :facebook_id => data["id"])
       user
     else # Create an user with a stub password.
@@ -90,7 +91,7 @@ class User
                        #:profile_attributes => {:first_name => data["first_name"],:last_name => data["last_name"]}
                        :facebook_id => data["id"],
                        :created_at => Time.now,
-                       :status => "active"
+                       :status => "new"
                       })
       profile=user.build_user_profile(:first_name => data["first_name"],:last_name => data["last_name"])
       user.confirm!

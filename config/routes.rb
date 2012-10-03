@@ -76,6 +76,14 @@ Winnitude::Application.routes.draw do
 
   end
 
+  resources :user_registrations , :only =>[] do
+    post :finalize_register ,:on => :collection
+  end
+
+
+  match 'register'   =>'user_registrations#register',:via => :get    ,:as=>:register
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -35,7 +35,7 @@ Winnitude::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   config.action_mailer.default_url_options = { :host => 'local.winnitude.com' }
-
+  config.quiet_assets = false
   config.after_initialize do
     Bullet.enable = true
     Bullet.alert = true
