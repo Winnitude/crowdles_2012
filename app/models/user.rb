@@ -20,7 +20,7 @@ class User
   before_save :accept_terms
   attr_accessible :profile_attributes, :email, :password, :password_confirmation,
                   :remember_me ,:country, :terms_of_service,:is_provider,
-                  :is_provider_terms_of_service,:profile,:facebook_id ,:registration_ip ,:status ,:created_at,:language
+                  :is_provider_terms_of_service,:profile,:facebook_id ,:registration_ip ,:status ,:created_at,:language,:is_proprietary_user
   #######################User Login functionality with devise integration############################
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -59,7 +59,8 @@ class User
   field :registration_ip,                 :type => String
   field :status,                          :type => String  , :default => "new"
   field :created_at ,                     :type => DateTime
-  field :language ,                     :type => String
+  field :language ,                       :type => String
+  field :is_proprietary_user,             :type => Boolean
   ## Lockable
   # field :failed_attempts, :type => Integer, :default => 0 # Only if lock strategy is :failed_attempts
   # field :unlock_token,    :type => String # Only if unlock strategy is :email or :both
@@ -79,13 +80,17 @@ class User
     user = User.where(:email => data.email).first  unless user.present?
     logger.info "user mila via Email"  if user.present?
     if !user.nil?
+      user.update_attributes(:is_provider => true, :facebook_id => data["id"])
       user
     else # Create an user with a stub password.
       user = User.new({:email => data["email"],
                        :password => Devise.friendly_token[0,20],
                        :is_provider => true,
+                       :is_proprietary_user => false,
                        #:profile_attributes => {:first_name => data["first_name"],:last_name => data["last_name"]}
-                       :facebook_id => data["id"]
+                       :facebook_id => data["id"],
+                       :created_at => Time.now,
+                       :status => "active"
                       })
       profile=user.build_user_profile(:first_name => data["first_name"],:last_name => data["last_name"])
       user.confirm!
@@ -202,6 +207,7 @@ class User
   def set_time_and_status
     self.created_at = Time.now
     self.status = "new"
+    self.is_proprietary_user = true
   end
 
 
