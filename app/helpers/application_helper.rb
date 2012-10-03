@@ -23,4 +23,29 @@ module ApplicationHelper
       false
     end
   end
+
+  def is_platform_ready?
+    if PlatformGlobalAdmin.count == 0
+      false
+    else
+      true
+    end
+  end
+
+  def is_local_host?
+    if request.url.index(LOCAL_HOST).present?
+      true
+    else
+      false
+    end
+  end
+
+  def is_admin_host?
+    if request.url.index(ADMIN_HOST).present?
+      true
+    else
+      false
+    end
+  end
+
 end

@@ -1,33 +1,29 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="#" title=""><%= platform_name %></a>
-      <ul class="pull-right dropdown topUl"><li>
-        <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><%= !logged_in? ? "Login" : "Account Setting"%> <b class="caret"></b></a>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
-          <li>  <%if current_user%>
-              <li><%=link_to "Change My Password",edit_user_registration_path%></li>
-              <li class="divider"></li>
-              <li><%=link_to :Logout, logout_path%></li>
-          <%else%>
-              <%=link_to :Login, login_path%>
-              <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-              <%= link_to "Sign up", new_user_registration_path %>
-              <%=link_to "Forget Password", new_user_password_path%>
-          <%end%></li>
-      </ul>
-      </li></ul>
+      <% if is_platform_ready? %>
+          <ul class="pull-right dropdown topUl">
+            <li>
+
+              <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><%= !logged_in? ? "Login" : "Account Setting"%> <b class="caret"></b></a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                <li>  <%if current_user%>
+                    <li><%=link_to "Change My Password",edit_user_registration_path%></li>
+                    <li class="divider"></li>
+                    <li><%=link_to :Logout, logout_path%></li>
+                <%else%>
+                    <%=link_to :Login, login_path%>
+                    <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) unless is_admin_host? %>
+                    <%= link_to "Sign up", new_user_registration_path unless is_admin_host?%>
+                    <%=link_to "Forget Password", new_user_password_path%>
+                <%end%></li>
+          </ul>
+          </li></ul>
+      <%end%>
       <div class="nav-collapse collapse">
-        <!--        <ul class="nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About Us</a></li>
-        </ul>-->
         <div class="pull-right topUserInfo"><%= current_user.get_full_name if current_user.present?%>
-
-
         </div>
-
       </div>
-
     </div>
   </div>
 </div>
