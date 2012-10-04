@@ -7,12 +7,12 @@ class UserRegistrationsController < ApplicationController
 
   def finalize_register
     @user = current_user
-    @profile = @user.user_profile
-    @profile ||= @user.build_user_profile
+    #@profile = @user.user_profile
+    #@profile ||= @user.build_user_profile
     @user.update_attributes(params[:user])
-    @user.update_attribute(:status,"active")
-    @profile.update_attributes(params[:user_profile])
-    sign_in(@user)
+    #@profile.update_attributes(params[:user_profile])
+    logger.info @user.inspect
+    sign_in(@user,:bypass => true)
     redirect_to root_path
   end
 end

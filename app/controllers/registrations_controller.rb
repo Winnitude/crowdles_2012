@@ -33,7 +33,7 @@ class RegistrationsController <  Devise::RegistrationsController
   private
 
   def is_user_exist?
-    if verify_recaptcha
+    #if verify_recaptcha
       user = User.where(:email=>params[:user][:email]).to_a.first
       if user.present?
         if user.status.downcase == "active"
@@ -44,9 +44,9 @@ class RegistrationsController <  Devise::RegistrationsController
           redirect_to user_exists_homes_path(:id =>user)
         end
       end
-    else
-      redirect_to new_user_registration_path ,:notice => "ReCapta was not correct"
-    end
+    #else
+    #  redirect_to new_user_registration_path ,:notice => "ReCapta was not correct"
+    #end
   end
 
   def get_ip_and_country

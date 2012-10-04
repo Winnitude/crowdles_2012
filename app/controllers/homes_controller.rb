@@ -20,8 +20,9 @@ class HomesController < ApplicationController
   end
 
   def check_status_for_fb_user
+    logger.info "inside check status"
     logger.info current_user.inspect
-    if current_user.facebook_id.present? and current_user.status.downcase == "new" and  current_user.is_proprietary_user== true
+    if ((current_user.facebook_id.present?) && (current_user.status.downcase =="new") &&  (current_user.is_proprietary_user== true))
       redirect_to register_path ,:notice => "You need To accepts Terms and Conditions"
     end
  end

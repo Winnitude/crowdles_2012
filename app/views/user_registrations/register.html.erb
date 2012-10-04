@@ -77,6 +77,7 @@
       </div>
 
       <%= hidden_field_tag :confirmation_token,@confirmation_token %>
+      <%= hidden_field_tag "user[status]","active" %>
       <div class="form-actions">
         <%= f.submit "Activate",:class =>"btn btn-primary"  %>
         <a class="btn" href="/">Cancel</a>

@@ -77,7 +77,7 @@ class User
     user = User.where(:facebook_id => data.id).first
     user = User.where(:email => data.email).first  unless user.present?
     if !user.nil?
-      if user.status = "new"
+      if user.status == "new"
         user.confirm!
         user.save!
       end
