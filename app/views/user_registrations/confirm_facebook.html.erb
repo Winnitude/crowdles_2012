@@ -1,0 +1,26 @@
+<%if session[:facebook_data].present?%>
+    <h4>Do You already have a Crowdles User profile to be connected to the provided Facebook account?</h4>
+    <%=form_tag validate_account_user_registrations_path ,:class=> "form-horizontal" do%>
+        <div class="control-group">
+          <label class="control-label" for="input01">Email:</label>
+          <div class="controls">
+            <%=text_field_tag :email,"",:class=>"input" %>
+            <p class="help-block"></p>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="input01">Password :</label>
+          <div class="controls">
+            <%= password_field_tag :password,"",:class=>"input" %>
+            <p class="help-block"></p>
+          </div>
+        </div>
+        <div class="form-actions">
+          <%=submit_tag :connect,:class =>"btn btn-primary"  %>
+        </div>
+
+    <%end%>
+
+    <%else%>
+   <h1>We are sorry this page has been expired</h1>
+<%end%>

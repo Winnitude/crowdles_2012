@@ -5,7 +5,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
    #logger.info request.env["omniauth.auth"]
     # You need to implement the method below in your model
     @user = User.find_for_facebook_oauth(request.env["omniauth.auth"],current_user)
-    if !@user.nil?
+    if !@user.new_record?
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Facebook"
       if @user.is_provider_terms_of_service
         sign_in_and_redirect(@user)
@@ -15,9 +15,9 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
         redirect_to provider_terms_of_service_people_path
       end
     else
-      session["devise.facebook_data"] = request.env["omniauth.auth"]
-      sign_in_and_redirect(@user)
-      redirect_to new_user_registration_url
+      facebook_data = {:fb_id =>request.env["omniauth.auth"].extra.raw_info["id"], :fb_first_name => request.env["omniauth.auth"].extra.raw_info["first_name"],:fb_last_name => request.env["omniauth.auth"].extra.raw_info["last_name"], :fb_email =>request.env["omniauth.auth"].extra.raw_info.email }
+      session[:facebook_data] = facebook_data
+      redirect_to confirm_facebook_path
     end
   end
 

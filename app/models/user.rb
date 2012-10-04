@@ -94,12 +94,15 @@ class User
                        :created_at => Time.now,
                        :status => "new"
                       })
-      profile=user.build_user_profile(:first_name => data["first_name"],:last_name => data["last_name"])
-      user.confirm!
-      user.save!
-      profile.save!
-#      UserMailer.welcome_email(user).deliver if !user.nil?
-      User.where(:email => data.email).first
+
+      user
+      #session[:facebook_data] = facebook_data
+#      profile=user.build_user_profile(:first_name => data["first_name"],:last_name => data["last_name"])
+#      user.confirm!
+#      user.save!
+#      profile.save!
+##      UserMailer.welcome_email(user).deliver if !user.nil?
+#      User.where(:email => data.email).first
     end
   end
 
@@ -168,10 +171,10 @@ class User
   end
 
   def assign_role_to_user
-   role = UserRole.get_role "user"
-   role_management =self.platform_roles_managements.new
-   role_management.user_role = role
-   role_management.save
+    role = UserRole.get_role "user"
+    role_management =self.platform_roles_managements.new
+    role_management.user_role = role
+    role_management.save
   end
   def accept_terms
     self.is_provider_terms_of_service = true

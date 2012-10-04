@@ -78,10 +78,12 @@ Winnitude::Application.routes.draw do
 
   resources :user_registrations , :only =>[] do
     post :finalize_register ,:on => :collection
+    post :validate_account , :on => :collection
   end
 
 
   match 'register'   =>'user_registrations#register',:via => :get    ,:as=>:register
+  match 'confirm_facebook'   =>'user_registrations#confirm_facebook',:via => :get   ,:as=>:confirm_facebook
 
 
   # The priority is based upon order of creation:

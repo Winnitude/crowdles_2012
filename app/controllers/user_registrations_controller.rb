@@ -14,4 +14,22 @@ class UserRegistrationsController < ApplicationController
     sign_in(@user,:bypass => true)
     redirect_to root_path
   end
+
+  def confirm_facebook
+    logger.info(session.inspect)
+  end
+
+  def validate_account
+    @user = User.where(:email => params[:email]).first
+    if @user.present?
+      if @user.valid_password?(params[:password])
+        render :text => "aya"
+      else
+        render :text => "wrong crendential"
+      end
+
+    else
+      render :text => "user_not_find"
+    end
+  end
 end
