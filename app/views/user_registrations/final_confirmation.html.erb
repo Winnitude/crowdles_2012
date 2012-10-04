@@ -1,0 +1,13 @@
+<%if session[:facebook_data].present? and session[:temp_crowdles_data].present?%>
+    <h6>
+      <%= "The Facebook account #{session[:facebook_data][:fb_first_name]} #{session[:facebook_data][:fb_last_name]} #{session[:facebook_data][:fb_email]}
+          will be going to Connect with The Crowdles User #{session[:temp_crowdles_data][:first_name]} #{session[:temp_crowdles_data][:last_name]} #{session[:temp_crowdles_data][:email]}" %>
+    </h6>
+
+    <%= link_to "Confirm Connection"%>
+                  or
+    <%= link_to "Abort and create a new User"%>
+
+<%else%>
+    <h1>We are sorry this page has been expired</h1>
+<%end%>
