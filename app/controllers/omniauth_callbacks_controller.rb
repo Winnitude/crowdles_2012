@@ -1,4 +1,5 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  before_filter :redirect_to_initial_page_if_platform_is_not_configured_yet
   def facebook
    # logger.info "facebook"
    #logger.info request.env["omniauth.auth"]

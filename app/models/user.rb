@@ -80,6 +80,7 @@ class User
       if user.status == "new"
         user.confirm!
         user.save!
+        profile=user.build_user_profile(:first_name => data["first_name"],:last_name => data["last_name"]).save
       end
       user.update_attributes(:is_provider => true, :facebook_id => data["id"])
       user
