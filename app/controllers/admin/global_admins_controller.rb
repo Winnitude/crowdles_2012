@@ -134,7 +134,38 @@ class Admin::GlobalAdminsController < ApplicationController
   end
 
   def all_users
+    #TODO all the searching logic needs to be moved to model
 
+    @users =User.all
+    @countries = ServiceCountry.all.collect{|i| i.country_english_name}
+    @languages = ServiceLanguage.all.collect{|i| i.english_name}
+    if params[:country].present?
+
+    if params[:country] != "All"
+      @users = @users.select{|i| i.country == params[:country]}
+    end
+    if params[:language] != "All"
+      @users = @users.select{|i| i.language == params[:language]}
+    end
+    if params[:status] != "All"
+      @users = @users.select{|i| i.status.downcase == params[:status].downcase}
+    end
+    #if params[:registration_date] != ""
+    #  @users = @users.select{|i| i.confirmed_at.to_date == params[:registration_date].to_date rescue nil}
+    #end
+    #if params[:last_access] != ""
+    #  @users = @users.select{|i| i.confirmed_at.to_date == params[:last_access].to_date rescue nil}
+    #end
+    if params[:gender] != "All"
+      @users = @users.select{|i| i.user_profile.gender == params[:gender] rescue nil}
+    end
+    if params[:first_name] != ""
+      @users = @users.select{|i| i.user_profile.first_name.downcase == params[:first_name].downcase rescue nil}
+    end
+    if params[:last_name] != ""
+      @users = @users.select{|i| i.user_profile.last_name.downcase == params[:last_name].downcase rescue nil}
+    end
+    end
   end
   private
 

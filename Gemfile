@@ -55,6 +55,7 @@ gem "itslog"
 
 gem "geocoder"
 gem "recaptcha", :require => "recaptcha/rails"
+gem 'bootstrap-datepicker-rails'
 #gem 'quiet_assets', :group => :development
 #gem "rmagick"
 # To use debugger
