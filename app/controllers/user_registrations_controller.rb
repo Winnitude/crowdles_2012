@@ -6,11 +6,12 @@ class UserRegistrationsController < ApplicationController
   end
 
   def finalize_register # after register
-    #todo need to create BP also
+                        #todo need to create BP also
     @user = current_user
     @profile = @user.user_profile
     @user.update_attributes(params[:user])
     @profile.update_attributes(params[:user_profile])
+    @user.build_default_billing_profile.save
     logger.info @user.inspect
     sign_in(@user,:bypass => true)
     redirect_to root_path
@@ -38,6 +39,32 @@ class UserRegistrationsController < ApplicationController
   end
 
   def final_confirmation
-     logger.info(session.inspect)
+    logger.info(session.inspect)
+  end
+
+  def create_new_user
+    @user = User.new(:email => session[:facebook_data][:fb_email],
+                     :facebook_id =>session[:facebook_data][:fb_id],
+                     :password => Devise.friendly_token[0,20],
+                     :is_provider => true,
+                     :is_proprietary_user => false,
+                     :created_at => Time.now,
+                     :status => "new"
+    )
+    @profile = @user.build_user_profile(:first_name =>session[:facebook_data][:fb_first_name], :last_name =>session[:facebook_data][:fb_last_name])
+    @user.confirm!
+    @user.save!
+    @user.build_default_billing_profile.save
+    @profile.save
+    session[:facebook_data] = nil
+    sign_in_and_redirect(@user)
+  end
+
+  def connect_fb_and_crowdles
+    @user = User.where(:email => session[:temp_crowdles_data][:email]).first
+    @user.update_attributes(:facebook_id => session[:facebook_data][:fb_id],:is_provider => true )
+    session[:facebook_data] = nil
+    session[:temp_crowdles_data] = nil
+    sign_in_and_redirect(@user)
   end
 end

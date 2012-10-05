@@ -1,6 +1,6 @@
 <%= form_for @user, :url => finalize_register_user_registrations_path, :html => {:method => 'post',:class=> "form-horizontal"}, :id => 'activation-form' do |f| %>
     <fieldset>
-
+      <%if @user.is_proprietary_user == true%>
           <div class="control-group">
             <label class="control-label" for="input01">Choose a Password:</label>
             <div class="controls">
@@ -15,6 +15,7 @@
               <p class="help-block"></p>
             </div>
           </div>
+      <%end%>
 
       <div class="control-group">
         <label class="control-label" for="input01">Country:</label>

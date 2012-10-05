@@ -4,9 +4,10 @@
           will be going to Connect with The Crowdles User #{session[:temp_crowdles_data][:first_name]} #{session[:temp_crowdles_data][:last_name]} #{session[:temp_crowdles_data][:email]}" %>
     </h6>
 
-    <%= link_to "Confirm Connection"%>
+    <%= link_to "Confirm Connection",connect_fb_and_crowdles_user_registrations_path,:method =>:POST, :class => "btn  btn-primary"%>
                   or
-    <%= link_to "Abort and create a new User"%>
+    <%= link_to "Abort and create a new User", create_new_user_user_registrations_path,:method =>:POST, :class => "btn  btn-info"%>
+
 
 <%else%>
     <h1>We are sorry this page has been expired</h1>

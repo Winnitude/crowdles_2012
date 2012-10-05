@@ -79,6 +79,8 @@ Winnitude::Application.routes.draw do
   resources :user_registrations , :only =>[] do
     post :finalize_register ,:on => :collection
     post :validate_account , :on => :collection
+    post "create_new_user" , :on => :collection
+    post "connect_fb_and_crowdles" , :on => :collection
   end
 
 

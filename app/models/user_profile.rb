@@ -14,7 +14,7 @@ class UserProfile
   field :country , :type => String
   field :main_segment , :type => String
   field :old_main_segment , :type => String
-  #field :photo
+  mount_uploader :photo, ImageUploader
 
   def get_full_name
    first_name = self.first_name + " "

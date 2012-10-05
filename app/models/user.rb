@@ -7,7 +7,7 @@ class User
 
   #  before_create :build_profile
   # embeds_many :ideas
-  has_one :user_profile
+  has_one :user_profile ,  :dependent => :destroy
   has_one :user_link
   has_one :user_contact
   has_one :default_billing_profile,  :dependent => :destroy
@@ -80,7 +80,7 @@ class User
       if user.status == "new"
         user.confirm!
         user.save!
-        profile=user.build_user_profile(:first_name => data["first_name"],:last_name => data["last_name"]).save
+        profile=user.build_user_profile(:first_name => data["first_name"],:last_name => data["last_name"] ,:photo => access_token.info.image ).save
       end
       user.update_attributes(:is_provider => true, :facebook_id => data["id"])
       user

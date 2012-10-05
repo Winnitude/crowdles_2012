@@ -9,7 +9,7 @@
           </div>
         </div>
         <div class="control-group">
-          <label class="control-label" for="input01">Password :</label>
+          <label class="control-label" for="input01">Password:</label>
           <div class="controls">
             <%= password_field_tag :password,"",:class=>"input" %>
             <p class="help-block"></p>
@@ -17,10 +17,29 @@
         </div>
         <div class="form-actions">
           <%=submit_tag :connect,:class =>"btn btn-primary"  %>
+          <%= link_to "No, Create A New USer", create_new_user_user_registrations_path,:method =>:POST, :class => "btn  btn-info"%>
         </div>
 
+
     <%end%>
+
+    <%= content_for :head do  %>
+        <script type="text/javascript">
+
+            jQuery(function(){
+
+
+                var platform_email = new LiveValidation('email',{validMessage:" ",onlyOnSubmit:true});
+                platform_email.add( Validate.Presence,{failureMessage:" Can't be empty"} );
+                platform_email.add( Validate.Email,{failureMessage:"Not a valid email"} );
+                var password= new LiveValidation('password',{validMessage:" ",onlyOnSubmit:true});
+                password.add( Validate.Presence ,{ onlyInteger: false });
+
+            });
+        </script>
+    <% end %>
 
     <%else%>
    <h1>We are sorry this page has been expired</h1>
 <%end%>
+
