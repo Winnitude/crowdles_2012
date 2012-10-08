@@ -61,6 +61,7 @@ class User
   field :created_at ,                     :type => DateTime
   field :language ,                       :type => String
   field :is_proprietary_user,             :type => Boolean
+
   ## Lockable
   # field :failed_attempts, :type => Integer, :default => 0 # Only if lock strategy is :failed_attempts
   # field :unlock_token,    :type => String # Only if unlock strategy is :email or :both
@@ -72,15 +73,15 @@ class User
   #  field :type,   :type => String
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
-    #binding.remote_pry
     data = access_token.extra.raw_info
+    #binding.remote_pry
     user = User.where(:facebook_id => data.id).first
     user = User.where(:email => data.email).first  unless user.present?
     if !user.nil?
       if user.status == "new"
         user.confirm!
         user.save!
-        profile=user.build_user_profile(:first_name => data["first_name"],:last_name => data["last_name"] ,:photo => access_token.info.image ).save
+        profile=user.build_user_profile(:first_name => data["first_name"],:last_name => data["last_name"] ,:gender => data.gender ,:fb_image => access_token.info.image).save
       end
       user.update_attributes(:is_provider => true, :facebook_id => data["id"])
       user
@@ -92,8 +93,8 @@ class User
                        #:profile_attributes => {:first_name => data["first_name"],:last_name => data["last_name"]}
                        :facebook_id => data["id"],
                        :created_at => Time.now,
-                       :status => "new"
-                      })
+                       :gender => data.gender ,
+                       :fb_image => access_token.info.image  })
 
       user
       #session[:facebook_data] = facebook_data

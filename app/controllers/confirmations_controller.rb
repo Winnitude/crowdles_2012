@@ -16,7 +16,11 @@ class ConfirmationsController < Devise::PasswordsController
         @confirmable.attempt_set_password(params[:user])
         if @confirmable.valid?
           do_confirm
-          @confirmable.update_attribute(:status , "active")    #to make him active
+          #@confirmable.update_attribute(:status , "active")    #to make him active
+          @confirmable.status = "active"
+          @confirmable.country = params[:user][:country]
+          @confirmable.language = params[:user][:language]
+          @confirmable.save
           #binding.remote_pry
           @profile = (@confirmable.build_user_profile  params[:user_profile]).save
           @billing_profile = @confirmable.build_default_billing_profile.save

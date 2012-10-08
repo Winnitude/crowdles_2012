@@ -15,7 +15,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
         redirect_to provider_terms_of_service_people_path
       end
     else
-      facebook_data = {:fb_id =>request.env["omniauth.auth"].extra.raw_info["id"], :fb_first_name => request.env["omniauth.auth"].extra.raw_info["first_name"],:fb_last_name => request.env["omniauth.auth"].extra.raw_info["last_name"], :fb_email =>request.env["omniauth.auth"].extra.raw_info.email }
+      facebook_data = {:fb_id =>request.env["omniauth.auth"].extra.raw_info["id"], :fb_first_name => request.env["omniauth.auth"].extra.raw_info["first_name"],:fb_last_name => request.env["omniauth.auth"].extra.raw_info["last_name"], :fb_email =>request.env["omniauth.auth"].extra.raw_info.email, :fb_image => request.env["omniauth.auth"].info.image ,:gender =>request.env["omniauth.auth"].extra.raw_info.gender }
       session[:facebook_data] = facebook_data
       redirect_to confirm_facebook_path
     end

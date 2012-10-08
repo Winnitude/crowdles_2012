@@ -17,9 +17,9 @@
       </div>
 
       <div class="control-group">
-        <label class="control-label">Payment Gateway Commissions Default Payer</label>
+        <label class="control-label">Commissions and payment processing For standard Projects to be applied in status</label>
         <div class="controls">
-          <%=f.select :gateway_commissions_payer, options_for_select(["draft", "new", "approved", "active ", "succeeded","failed","closed"], @projects_commissions.gateway_commissions_payer) %>
+          <%=f.select :standard_commission_status, options_for_select(["draft", "new", "approved", "active ", "succeeded","failed","closed"], @projects_commissions.standard_commission_status) %>
         </div>
       </div>
 

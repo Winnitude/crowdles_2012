@@ -51,7 +51,7 @@ class UserRegistrationsController < ApplicationController
                      :created_at => Time.now,
                      :status => "new"
     )
-    @profile = @user.build_user_profile(:first_name =>session[:facebook_data][:fb_first_name], :last_name =>session[:facebook_data][:fb_last_name])
+    @profile = @user.build_user_profile(:first_name =>session[:facebook_data][:fb_first_name], :last_name =>session[:facebook_data][:fb_last_name] ,:gender =>session[:facebook_data][:gender] ,:fb_image => session[:facebook_data][:fb_image] )
     @user.confirm!
     @user.save!
     @user.build_default_billing_profile.save

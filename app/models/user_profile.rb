@@ -14,6 +14,7 @@ class UserProfile
   field :country , :type => String
   field :main_segment , :type => String
   field :old_main_segment , :type => String
+  field :fb_image ,                       :type => String
   mount_uploader :photo, ImageUploader
 
   def get_full_name
