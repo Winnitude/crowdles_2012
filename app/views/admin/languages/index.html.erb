@@ -24,7 +24,7 @@
               <td><%=link_to c.english_name,edit_language_path(c) %></td>
               <td><%=c.iso_code%></td>
               <td><%=c.local_name%></td>
-              <td><%=c.is_active ==1 ? "True" : :False%></td>
+              <td><%=c.is_active ==1 ? "true" : :false%></td>
               <td><%=link_to "Edit",edit_language_path(c), :class => "btn btn-mini btn-primary"%></td>
             </tr>
         <% end %>

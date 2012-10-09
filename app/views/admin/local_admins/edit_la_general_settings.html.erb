@@ -87,10 +87,11 @@
                   </div>
 
                   <div class="control-group">
-                    <label class="control-label" for="input01">Target Deviation:</label>
+                    <label class="control-label" for="input01">Target Administration:</label>
                     <div class="controls">
-                      <%= text_field_tag :local_admin ,"",:class=>"input"%>    </div>
-                    <div class="controls"> <%= text_field_tag :Worker ,"",:class=>"input"%>    </div>
+                      <%= select_tag :local_admin ,options_for_select(@local_admins),:prompt => "Select Local Admin",:class=>"input"%>  </div>
+
+                    <div class="controls"><%= select_tag :Worker ,options_for_select([]),:prompt => "Select Worker",:class=>"input"%>  </div>
                     <!--<input type="text" class="input-xlarge" id="input01">-->
                     <p class="help-block"></p>
                   </div>

@@ -25,6 +25,7 @@ class PlatformProduct
   field :platform_private_commissions,      :type => Float
   field :paas_fees_exemption,               :type => String
   field :fees_exemption_days,               :type => Integer
+  field :product_external_id,               :type => Integer
 
 
   def self.create_platform_default_product

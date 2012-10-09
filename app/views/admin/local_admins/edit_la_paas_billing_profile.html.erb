@@ -29,7 +29,7 @@
       <div class="control-group">
         <label class="control-label">Currency</label>
         <div class="controls">
-          <%=f.select :currency, options_for_select(@currency), :disabled => true%>
+          <%=f.select :currency, options_for_select(@currency, @billing_profile.currency), :disabled => true%>
         </div>
       </div>
 
@@ -62,7 +62,7 @@
       <div class="control-group">
         <label class="control-label">Country</label>
         <div class="controls">
-          <%=f.select :country, options_for_select(@countries), { :prompt => 'Select' }%>
+          <%=f.select :country, options_for_select(@countries, @billing_profile.country), { :prompt => 'Select' }%>
         </div>
       </div>
       <div class="control-group">

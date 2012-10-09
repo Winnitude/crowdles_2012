@@ -21,15 +21,12 @@
             <tr>
               <td><%=link_to c.description,edit_currency_path(c) %></td>
               <td><%=c.iso_code%></td>
-              <td><%=c.is_active ==1 ? "True" : :False%></td>
+              <td><%=c.is_active ==1 ? "true" : :false%></td>
               <td><%=link_to "Edit",edit_currency_path(c), :class => "btn btn-mini btn-primary"%></td>
             </tr>
         <% end %>
       </table>
       <%= will_paginate @currencies %>
-
-
-
 
   <%end%>
 

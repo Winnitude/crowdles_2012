@@ -49,6 +49,12 @@
                 </div>
               </div>
               <div class="control-group">
+                <label class="control-label">State</label>
+                <div class="controls">
+                  <%=profile.text_field :state%>
+                </div>
+              </div>
+              <div class="control-group">
                 <label class="control-label">Address</label>
                 <div class="controls">
                   <%=profile.text_field :address%>
@@ -70,7 +76,7 @@
               <div class="control-group">
                 <label class="control-label">Contact First Name</label>
                 <div class="controls">
-                  <%=contact.text_field :contact_last_name%>
+                  <%=contact.text_field :contact_first_name%>
                 </div>
               </div>
 
@@ -118,7 +124,14 @@
             var platform_email = new LiveValidation('platform_local_admin_la_contact_contact_email',{validMessage:" ",onlyOnSubmit:true});
 //            platform_email.add( Validate.Presence,{failureMessage:" Can't be empty"} );
             platform_email.add( Validate.Email,{failureMessage:"Not a valid email"} );
-
+            var fname =   new LiveValidation("platform_local_admin_la_contact_contact_first_name",{validMessage:" ",onlyOnSubmit:true});
+            fname.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            var lname =   new LiveValidation("platform_local_admin_la_contact_contact_last_name",{validMessage:" ",onlyOnSubmit:true});
+            lname.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            var state =   new LiveValidation("platform_local_admin_la_profile_state",{validMessage:" ",onlyOnSubmit:true});
+            state.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            var city =   new LiveValidation("platform_local_admin_la_profile_city",{validMessage:" ",onlyOnSubmit:true});
+            city.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
 
 
         });
