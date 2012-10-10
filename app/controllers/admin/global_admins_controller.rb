@@ -12,7 +12,7 @@ class Admin::GlobalAdminsController < ApplicationController
   end
 
   def set_platform
-    ServiceLanguage.make_language_active(params[:language])
+    ServiceLanguage.make_language_active_and_defaut(params[:language])
     ServiceCountry.make_country_default(params[:platform_master_country])
     @user= User.create_global_admin_owner(params) #create 1st user
 
@@ -164,6 +164,10 @@ class Admin::GlobalAdminsController < ApplicationController
     end
     if params[:last_name] != ""
       @users = @users.select{|i| i.user_profile.last_name.downcase == params[:last_name].downcase rescue nil}
+    end
+
+    if params[:email] != ""
+      @users = @users.select{|i| i.email.downcase == params[:email].downcase rescue nil}
     end
     end
   end
