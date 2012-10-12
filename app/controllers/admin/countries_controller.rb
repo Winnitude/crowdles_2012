@@ -43,7 +43,7 @@ class Admin::CountriesController < ApplicationController
   def update
     @country = ServiceCountry.find(params[:id])
     if @country.update_attributes(params[:service_country])
-      redirect_to countries_path ,:notice => "Country Updated Successfully"
+      redirect_to  edit_country_path(@country),:notice => "Country Updated Successfully"
     end
   end
 end

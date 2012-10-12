@@ -38,7 +38,7 @@ class Admin::LanguagesController < ApplicationController
   def update
     @language = ServiceLanguage.find(params[:id])
     if @language.update_attributes(params[:service_language])
-      redirect_to languages_path ,:notice => "Language Updated Successfully"
+      redirect_to edit_language_path(@language) ,:notice => "language Updated Successfully"
     end
   end
 end

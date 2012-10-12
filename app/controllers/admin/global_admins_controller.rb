@@ -50,7 +50,7 @@ class Admin::GlobalAdminsController < ApplicationController
   def update_ga_general_settings
     @general_setting= @global_admin.ga_general_setting
     @general_setting.update_attributes(params[:ga_general_setting])
-    redirect_to root_path, :notice => "Global Admin General Settings Updated Successfully"
+    redirect_to edit_ga_general_settings_global_admins_path, :notice => "Global Admin General Settings Updated Successfully"
   end
 
   def edit_ga_links
@@ -60,7 +60,7 @@ class Admin::GlobalAdminsController < ApplicationController
   def update_ga_links
     @general_setting= @global_admin.ga_general_setting
     @general_setting.update_attributes(params[:ga_general_setting])
-    redirect_to root_path, :notice => "Global Admin Links Updated Successfully"
+    redirect_to edit_ga_links_global_admins_path, :notice => "Global Admin Links Updated Successfully"
   end
 
   def edit_ga_default_billing_profile
@@ -74,7 +74,7 @@ class Admin::GlobalAdminsController < ApplicationController
   def update_ga_default_billing_profile
     @billing_profile= @global_admin.default_billing_profile
     @billing_profile.update_attributes(params[:default_billing_profile])
-    redirect_to root_path, :notice => "Global Admin Default Billing Profile Updated Successfully"
+    redirect_to edit_ga_default_billing_profile_global_admins_path, :notice => "Global Admin Default Billing Profile Updated Successfully"
   end
 
   def edit_ga_paas_billing_profile
@@ -87,7 +87,7 @@ class Admin::GlobalAdminsController < ApplicationController
   def update_ga_paas_billing_profile
     @billing_profile= @global_admin.paas_billing_profile
     @billing_profile.update_attributes(params[:paas_billing_profile])
-    redirect_to root_path, :notice => "Global Admin Paas Billing Profile Updated Successfully"
+    redirect_to  edit_ga_paas_billing_profile_global_admins_path, :notice => "Global Admin Paas Billing Profile Updated Successfully"
   end
 
   def  edit_platform_terms
@@ -97,7 +97,7 @@ class Admin::GlobalAdminsController < ApplicationController
   def  update_platform_terms
     @terms = @global_admin.ga_term
     @terms.update_attributes(params[:ga_term])
-    redirect_to root_path, :notice => "Platform Terms And Conditions Updated Successfully"
+    redirect_to edit_platform_terms_global_admins_path, :notice => "Platform Terms And Conditions Updated Successfully"
   end
 
   def edit_ga_projects_commissions
@@ -107,7 +107,7 @@ class Admin::GlobalAdminsController < ApplicationController
   def update_ga_projects_commissions
     @projects_commissions = @global_admin.ga_projects_commission
     @projects_commissions.update_attributes(params[:ga_projects_commission])
-    redirect_to root_path, :notice => "Platform projects commissions Updated Successfully"
+    redirect_to edit_ga_projects_commissions_global_admins_path, :notice => "Platform projects commissions Updated Successfully"
   end
 
   def edit_ga_projects_settings
@@ -117,7 +117,7 @@ class Admin::GlobalAdminsController < ApplicationController
   def update_ga_projects_settings
     @project_setting = @global_admin.ga_projects_setting
     if @project_setting.update_attributes(params[:ga_projects_setting])
-      redirect_to root_path, :notice => "Projects Settings Updated Successfully"
+      redirect_to edit_ga_projects_settings_global_admins_path, :notice => "Projects Settings Updated Successfully"
     end
   end
 
