@@ -52,4 +52,15 @@ class ApplicationController < ActionController::Base
     end
     response.kind_of?(Net::HTTPSuccess) && url.to_s
   end
+
+  def date_fomatter param
+    date = param.split("/")
+    if date.size== 1
+      date= birthdate.split("-")
+      return date[2] +"-#{date[1]}"+"-#{date[0]}"
+    else
+      return date[1] +"-#{date[0]}"+"-#{date[2]}"
+    end
+
+  end
 end

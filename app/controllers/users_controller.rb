@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def update_settings
+    params[:user][:user_profile][:birth_date] = date
     params[:user][:user_profile][:news_letter_flag] = params[:user][:user_profile][:news_letter_flag] == "1" ? true : false
     @profile = @user.user_profile || @user.build_user_profile
     @user.update_attributes(params[:user])

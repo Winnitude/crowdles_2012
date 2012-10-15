@@ -93,8 +93,7 @@
     <script type="text/javascript">
 
         jQuery(function(){
-            $('#user_user_profile_birth_date').datepicker({autoclose :true,
-                format : "dd-mm-yy"} )
+            $('#user_user_profile_birth_date').datepicker({autoclose :true} )
             var state =   new LiveValidation("user_user_contact_state",{validMessage:" ",onlyOnSubmit:true});
             state.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
             var city =   new LiveValidation("user_user_contact_city",{validMessage:" ",onlyOnSubmit:true});
