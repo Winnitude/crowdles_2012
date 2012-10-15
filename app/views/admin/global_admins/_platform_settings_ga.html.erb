@@ -1,0 +1,58 @@
+<div class="span3">
+  <ul class="nav nav-list">
+
+    <li><a href="#" ><i class="icon-chevron-right"></i> Platform Setting</a>
+      <ul>
+        <li><a href=<%="#{edit_ga_general_settings_global_admins_path}"%>>General Setting</a></li>
+        <li><a href=<%="#{edit_ga_links_global_admins_path}"%>>Links</a></li>
+        <li><a href="#">Integrations</a></li>
+        <li><a href=<%="#{countries_path}"%>>Countries</a></li>
+        <li><a href=<%="#{languages_path}"%>>Languages</a></li>
+        <li><a href=<%="#{currencies_path}"%>>Currencies</a></li>
+        <li><a href="#">Billing Profiles</a>
+          <ul>
+            <li><a href=<%="#{edit_ga_default_billing_profile_global_admins_path}"%>>Default Billing Profile</a></li>
+            <li><a href=<%="#{edit_ga_paas_billing_profile_global_admins_path}"%>>PaaS Billing Profile</a></li>
+          </ul>
+        </li>
+        <li><a href="#">PaaS</a>
+          <ul>
+            <li><a href=<%="#{products_path}"%>>Products</a></li>
+            <li><a href=<%="#{edit_platform_terms_global_admins_path}"%>>Terms ans Conditions</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Projects</a>
+          <ul>
+            <li><a href=<%="#{edit_ga_projects_commissions_global_admins_path}"%>>Commissions</a></li>
+            <li><a href=<%="#{edit_ga_projects_settings_global_admins_path}"%>>Arena</a></li>
+            <li><a href="#">Categories</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li ><a href=<%="#{local_admins_path}"%> ><i class="icon-chevron-right"></i>LocalAdmin Management</a>
+
+      <%if @local_admin.present?%>
+          <ul>
+
+
+            <li><a href="#">Settings</a>
+              <ul>
+                <li><a href=<%="#{edit_la_general_settings_local_admin_path(@local_admin)}"%>>General Setting</a></li>
+                <li><a href=<%="#{edit_la_paas_billing_profile_local_admin_path(@local_admin)}"%>>Billing Profile</a></li>
+                <li><a href=<%="#{edit_la_organization_details_local_admin_path(@local_admin)}"%>>Organization Details</a></li>
+                <li><a href=<%="#{edit_la_terms_local_admin_path(@local_admin)}"%>>Local Terms of Use</a></li>
+              </ul>
+            </li>
+
+          </ul>
+      <%end%>
+    </li>
+    <li><a href="#">Users Management</a>
+      <ul>
+        <li><a href=<%="#{ all_users_global_admins_path}"%>>All Users</a></li>
+        <li><a href=<%="#{new_user_global_admins_path}"%>>New User</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>

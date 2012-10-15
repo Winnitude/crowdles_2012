@@ -1,0 +1,139 @@
+<%= render :partial => "/admin/global_admins/platform_settings_ga"  %>
+
+
+<%= form_for @local_admin, :url => update_la_organization_details_local_admin_path(@local_admin),:html => {:class => "form form-horizontal"} do |la| %>
+    <%= la.fields_for @profile do |profile| %>
+        <%= la.fields_for @contact do |contact| %>
+            <div class="span9">
+
+              <h3 class="heading margin0"> LA Organization</h3>
+              <div class="control-group">
+                <label class="control-label">First Name</label>
+                <div class="controls">
+                  <%=profile.text_field :first_name%>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label">First Name</label>
+                <div class="controls">
+                  <%=profile.text_field :last_name%>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label">Company Name</label>
+                <div class="controls">
+                  <%=profile.text_field :company_name%>
+                </div>
+              </div>
+
+
+              <div class="control-group">
+                <label class="control-label">Country</label>
+                <div class="controls">
+                  <%=profile.select :country, options_for_select(@countries,@profile.country),{ :prompt => 'Select' }%>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label">City</label>
+                <div class="controls">
+                  <%=profile.text_field :city%>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">Zip Code</label>
+                <div class="controls">
+                  <%=profile.text_field :zip_code%>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">State</label>
+                <div class="controls">
+                  <%=profile.text_field :state%>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">Address</label>
+                <div class="controls">
+                  <%=profile.text_field :address%>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">Additional Address</label>
+                <div class="controls">
+                  <%=profile.text_field :additional_address%>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">Phone Number</label>
+                <div class="controls">
+                  <%=profile.text_field :phone_number%>
+                </div>
+              </div>
+              <h3 class="heading margin0"> Organization Contact person</h3>
+              <div class="control-group">
+                <label class="control-label">Contact First Name</label>
+                <div class="controls">
+                  <%=contact.text_field :contact_first_name%>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label">Contact Last Name</label>
+                <div class="controls">
+                  <%=contact.text_field :contact_last_name%>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label">Contact Email</label>
+                <div class="controls">
+                  <%=contact.text_field :contact_email%>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">Contact Photo</label>
+                <div class="controls">
+                  <%=contact.file_field :contact_photo%>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">Contact Biography</label>
+                <div class="controls">
+                  <%=contact.text_area :contact_biography, :rows => 5%>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="button" class="btn">Cancel</button>
+              </div>
+            </div>
+
+        <%end%>
+    <%end%>
+<%end%>
+
+<%= content_for :head do  %>
+    <script type="text/javascript">
+
+        jQuery(function(){
+
+            var platform_email = new LiveValidation('platform_local_admin_la_contact_contact_email',{validMessage:" ",onlyOnSubmit:true});
+//            platform_email.add( Validate.Presence,{failureMessage:" Can't be empty"} );
+            platform_email.add( Validate.Email,{failureMessage:"Not a valid email"} );
+            var fname =   new LiveValidation("platform_local_admin_la_contact_contact_first_name",{validMessage:" ",onlyOnSubmit:true});
+            fname.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            var lname =   new LiveValidation("platform_local_admin_la_contact_contact_last_name",{validMessage:" ",onlyOnSubmit:true});
+            lname.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            var state =   new LiveValidation("platform_local_admin_la_profile_state",{validMessage:" ",onlyOnSubmit:true});
+            state.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            var city =   new LiveValidation("platform_local_admin_la_profile_city",{validMessage:" ",onlyOnSubmit:true});
+            city.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+
+
+        });
+    </script>
+<% end %>

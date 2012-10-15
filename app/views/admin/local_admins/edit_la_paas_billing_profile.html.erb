@@ -1,0 +1,157 @@
+
+<%= render :partial => "/admin/global_admins/platform_settings_ga"  %>
+<div class="span9">
+  <h2 class="heading margin0">PaaS Billing Profile</h2>
+  <%= form_for @billing_profile ,:url => update_la_paas_billing_profile_local_admin_path(@local_admin),:html => {:class => "form form-horizontal"} do |f|%>
+
+      <h6>Platform Company and VAT number</h6>
+      <div class="control-group">
+        <label class="control-label">Company Name</label>
+        <div class="controls">
+          <%=f.text_field :company_name%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">VAT Number</label>
+        <div class="controls">
+          <%=f.text_field :vat_number%>
+        </div>
+      </div>
+      <h6>Platform PayPAl Account For Projects funding and commissions</h6>
+      <div class="control-group">
+        <label class="control-label">Paypal ID</label>
+        <div class="controls">
+          <%=f.text_field :paypal_id%>
+          <button type="button" class="btn alignToField">Set</button>
+        </div>
+      </div>
+      <h6>Currency</h6>
+      <div class="control-group">
+        <label class="control-label">Currency</label>
+        <div class="controls">
+          <%=f.select :currency, options_for_select(@currency, @billing_profile.currency), :disabled => true%>
+        </div>
+      </div>
+
+      <h6>Billing Contact Person</h6>
+      <div class="control-group">
+        <label class="control-label">First Name</label>
+        <div class="controls">
+          <%=f.text_field :contact_first_name%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Last Name</label>
+        <div class="controls">
+          <%=f.text_field :contact_last_name%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Telephone Number</label>
+        <div class="controls">
+          <%=f.text_field :contact_telephone_number%>
+        </div>
+      </div>
+      <h6>Platform Company Address</h6>
+      <div class="control-group">
+        <label class="control-label">Billing Email</label>
+        <div class="controls">
+          <%=f.text_field :email%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Country</label>
+        <div class="controls">
+          <%=f.select :country, options_for_select(@countries, @billing_profile.country), { :prompt => 'Select' }%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">State</label>
+        <div class="controls">
+          <%=f.text_field :state%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">City</label>
+        <div class="controls">
+          <%=f.text_field :city%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Zip Code</label>
+        <div class="controls">
+          <%=f.text_field :zip_code%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Street 1</label>
+        <div class="controls">
+          <%=f.text_field :street1%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">street 2</label>
+        <div class="controls">
+          <%=f.text_field :street2%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Telepnone Number</label>
+        <div class="controls">
+          <%=f.text_field :telephone_number%>
+        </div>
+      </div>
+
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" class="btn">Cancel</button>
+      </div>
+  <%end%>
+</div>
+<%= content_for :head do  %>
+    <script type="text/javascript">
+
+        jQuery(function(){
+
+
+
+            var company= new LiveValidation('paas_billing_profile_company_name',{validMessage:" ",onlyOnSubmit:true});
+            company.add( Validate.Presence ,{failureMessage:" Can't be empty"});
+
+            var email = new LiveValidation('paas_billing_profile_email',{validMessage:" ",onlyOnSubmit:true});
+            email.add( Validate.Presence ,{failureMessage:" Can't be empty"});
+            email.add( Validate.Email);
+
+            var profile_telephone_number = new LiveValidation("paas_billing_profile_telephone_number",{validMessage:" ",onlyOnSubmit:true});
+            profile_telephone_number.add( Validate.Presence ,{failureMessage:" Can't be empty"});
+//            profile_telephone_number.add( Validate.Format , { pattern: /[+][0-9]{2} [0-9]{10}/g, failureMessage: "Must be in form +xx xxxxxxxxxx" });
+
+
+
+            var country= new LiveValidation('paas_billing_profile_country',{validMessage:" ",onlyOnSubmit:true});
+            country.add( Validate.Presence ,{failureMessage:" Can't be empty"});
+
+            var city= new LiveValidation('paas_billing_profile_city',{validMessage:" ",onlyOnSubmit:true});
+            city.add( Validate.Presence ,{failureMessage:" Can't be empty"});
+
+            var zip= new LiveValidation('paas_billing_profile_zip_code',{validMessage:" ",onlyOnSubmit:true});
+            zip.add( Validate.Presence ,{failureMessage:" Can't be empty"});
+
+            var s1= new LiveValidation('paas_billing_profile_street1',{validMessage:" ",onlyOnSubmit:true});
+            s1.add( Validate.Presence ,{failureMessage:" Can't be empty"});
+
+            var state= new LiveValidation('paas_billing_profile_state',{validMessage:" ",onlyOnSubmit:true});
+            state.add( Validate.Presence ,{failureMessage:" Can't be empty"});
+
+            var contact_telephone_number = new LiveValidation("paas_billing_profile_contact_telephone_number",{validMessage:" ",onlyOnSubmit:true});
+//            contact_telephone_number.add( Validate.Format , { pattern: /[+][0-9]{2} [0-9]{10}/g, failureMessage: "Must be in form +xx xxxxxxxxxx" });
+
+            var paypal= new LiveValidation('paas_billing_profile_paypal_id',{validMessage:" ",onlyOnSubmit:true});
+            paypal.add( Validate.Presence ,{failureMessage:" Can't be empty"});
+
+
+        });
+    </script>
+<% end %>
+

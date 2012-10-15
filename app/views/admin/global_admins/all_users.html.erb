@@ -1,0 +1,86 @@
+<%= render :partial => "platform_settings_ga"  %>
+<div class="span9">
+
+<h1>All users</h1>
+<%=form_tag all_users_global_admins_path ,:method => :get, :html => { :class => "form-horizontal"} do  %>
+    <div>
+      <table border="0" class="table" >
+        <thead>
+        <tr width="20">
+          <th><strong>Last Name <strong></th>
+          <th><strong> First Name <strong></th>
+          <th><strong> Gender <strong></th>
+          <th><strong> Country <strong></th>
+          <th><strong> Language<strong></th>
+          <th><strong> Active NL<strong></th>
+          <th><strong> Registration Date<strong></th>
+          <th><strong> Last Access<strong></th>
+          <th><strong> Segment*<strong></th>
+          <th><strong> Status*<strong></th>
+        </tr>
+        </thead>
+
+        <tr>
+          <td><%=text_field_tag :last_name ,params[:last_name],:class => "span1"%> </td>
+          <td><%=text_field_tag :first_name,params[:first_name],:class => "span1"%> </td>
+          <td><%=select_tag :gender ,options_for_select(["All", "Male", "Female"],params[:gender]),:class => "span1"%> </td>
+          <td><%=select_tag :country ,options_for_select(["All"] + @countries ,params[:country]),:class => "span1"%> </td>
+          <td><%=select_tag :language ,options_for_select(["All"] + @languages,params[:language]),:class => "span1"%> </td>
+          <td><%=select_tag :active_nl ,options_for_select(["All","N", "L"]),:class => "span1"%> </td>
+          <td><%=text_field_tag :registration_date ,"",:class => "span1"%> </td>
+          <td><%=text_field_tag :last_access ,"",:class => "span1"%> </td>
+          <td><%=select_tag :segment ,options_for_select(["All","User", "Funder"]),:class => "span1"%> </td>
+          <td><%=select_tag :status ,options_for_select(["All", "New","Active"]),:class => "span1"%> </td>
+          <td><%= submit_tag "Show",:class =>"btn btn-primary"  %></td>
+        </tr>
+        <% @users.each do |user| %>
+            <%profile= user.user_profile%>
+            <tr>
+              <td><%= profile.last_name rescue nil%></td>
+              <td><%= profile.first_name rescue nil%></td>
+              <td><%= profile.gender  rescue nil%></td>
+              <td><%= user.country %></td>
+              <td><%= user.language %></td>
+              <td><%= %></td>
+              <td><%=user.confirmed_at.to_date rescue nil%></td>
+              <td><%=user.last_sign_in_at.to_date rescue nil %></td>
+              <td><%= %></td>
+              <td><%=user.status %></td>
+              <td><%#=link_to "edit" ,edit_settings_user_path(user), :class => "btn btn-info btn-mini"%></td>
+            </tr>
+
+        <% end %>
+
+      </table>
+
+
+    </div>
+
+
+
+    <div class="form-actions">
+      <!--<%= submit_tag "Save",:class =>"btn btn-primary"  %>-->
+      <!--<a class="btn" href="/">Cancel</a>-->
+      <!--&lt;!&ndash;<input type="text" class="input-xlarge"  id="input01">&ndash;&gt;-->
+    </div>
+
+<%end%>
+
+</div>
+<%= content_for :head do  %>
+    <script type="text/javascript">
+
+        jQuery(function(){
+            $('#registration_date').datepicker({autoclose :true,
+                format : "dd-mm-yy"} )
+            $('#last_access').datepicker({autoclose :true,
+                format : "dd-mm-yy"})
+//            var email = new LiveValidation('email',{validMessage:" ",onlyOnSubmit:true});
+//            email.add( Validate.Presence );
+//            email.add( Validate.Email);
+//            var startDate = new Date(2012,1,20);
+//            var endDate = new Date(2012,1,25);
+
+        });
+    </script>
+<% end %>

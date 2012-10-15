@@ -5,6 +5,8 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "active_resource/railtie"
 require "rails/test_unit/railtie"
+require "will_paginate/collection"
+require "will_paginate/array"
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
@@ -41,7 +43,7 @@ module Winnitude
     config.encoding = "utf-8"
 
     # Configure sensitive parameters which will be filtered from the log file.
-    config.filter_parameters += [:password]
+    config.filter_parameters += [:password ,:fb_data]
 
     # Enable escaping HTML in JSON.
     config.active_support.escape_html_entities_in_json = true
@@ -59,8 +61,17 @@ module Winnitude
 
     # Enable the asset pipeline
     config.assets.enabled = true
-    Mongoid.logger = Logger.new($stdout)
+    #Mongoid.logger = Logger.new($stdout)
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+        :address              => "smtp.gmail.com",
+        :port                 => 587,
+        :domain               => 'mail.weboniselab.com',
+        :user_name            => 'pansingh@weboniselab.com',
+        :password             => 'pansingh6186',
+        :authentication       => 'plain',
+        :enable_starttls_auto => true  }
   end
 end

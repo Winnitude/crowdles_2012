@@ -1,0 +1,8 @@
+<div class= span3>
+  <%= render :partial =>"admin/global_admins/platform_settings_ga" if (current_user.has_role "global_admin"  and request.url.index(ADMIN_HOST).present?)%>
+</div>
+ <!--</br></br></br>-->
+<div class= span9><h1>Welcome To Winnitude</h1>
+<!--<div><h1>Welcome To Winnitude</h1></div>-->
+<!--<%#= image_tag current_user.user_profile.fb_image %>-->
+  </div>

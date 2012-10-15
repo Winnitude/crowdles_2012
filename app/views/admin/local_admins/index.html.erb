@@ -1,0 +1,49 @@
+<%= render :partial => "/admin/global_admins/platform_settings_ga"  %>
+
+<div class="span9">
+
+  <h1>Local Admin Management</h1>
+  <%=form_tag local_admins_path ,:method => :get, :html => { :class => "form-horizontal"} do  %>
+      <%= hidden_field_tag  :re_query ,"true"%>
+      <table border="0" class="table">
+        <tr>
+          <th>LA Country</th>
+          <th>Owner Name</th>
+          <th>Master</th>
+          <th>Language</th>
+          <th>LA Deviation</th>
+          <th>Deviation Target</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+
+        <tr>
+          <td><%=text_field_tag :la_country ,params[:la_country],:class=>"span2" %></td>
+          <td><%=text_field_tag :name ,params[:name] ,:class=>"span2"%></td>
+          <td><%=select_tag :master,options_for_select(["All", "True" ,"False"],params[:master]) ,:onchange => "this.form.submit();",:class=>"span2"%></td>
+          <td><%=text_field_tag :language,params[:language],:class=>"span2" %></td>
+          <td><%=text_field_tag :deviation ,params[:deviation],:class=>"span2"%></td>
+          <td><%=text_field_tag :target,params[:target],:class=>"span2" %></td>
+          <td><%=select_tag :status,options_for_select(["All", "New" ,"Active","inactive","Blocked","Suspended"],params[:status]),:onchange => "this.form.submit();",:class=>"span2" %></td>
+          <td><%=submit_tag :find ,:class => "btn btn-mini btn-success"%></td>
+        </tr>
+
+        <% @local_admins.each do |l| %>
+            <tr>
+              <td><%=l.la_general_setting.la_country %></td>
+              <td><%=l.user.get_full_name rescue nil %></td>
+              <td><%=l.is_master %></td>
+              <td><%=l.la_general_setting.la_language %></td>
+              <td><%=l.la_general_setting.master_administration_deviation %></td>
+              <td><%=l.la_general_setting.master_worker_deviation %></td>
+              <td><%=l.status %></td>
+              <td><%=link_to "Edit" ,edit_la_general_settings_local_admin_path(l) ,:class => "btn btn-mini btn-primary" %></td>
+
+            </tr>
+        <% end %>
+      </table>
+      <%= will_paginate @local_admins %>
+  <%end%>
+
+
+</div>

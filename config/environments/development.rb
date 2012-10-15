@@ -34,4 +34,18 @@ Winnitude::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  config.action_mailer.default_url_options = { :host => 'local.winnitude.com' }
+  config.quiet_assets = false
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.alert = true
+    Bullet.bullet_logger = true
+    Bullet.console = true
+#  Bullet.growl = true
+    Bullet.rails_logger = true
+    Bullet.disable_browser_cache = true
+  end
 end
+LOCAL_HOST = "local.winnitude.com"
+ADMIN_HOST = "admin.winnitude.com"
+ADMIN_SUBDOMAIN = "admin"

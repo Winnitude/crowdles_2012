@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  is_active: 1
+  is_default: 1
+  user_country: 1
+  country_local_name: MyString
+  country_english_name: MyString
+  iso_code: MyString
+
+two:
+  is_active: 1
+  is_default: 1
+  user_country: 1
+  country_local_name: MyString
+  country_english_name: MyString
+  iso_code: MyString

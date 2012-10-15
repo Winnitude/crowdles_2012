@@ -1,0 +1,90 @@
+<<%= render :partial => "/admin/global_admins/platform_settings_ga"  %>
+<%= form_for @terms, :url =>  update_la_terms_local_admin_path(@local_admin),:html => {:class => "form form-horizontal"} do |f| %>
+
+    <div class="span9">
+      <h1 class="heading margin0">Terms Of Use</h1>
+      <div class="control-group">
+        <label class="control-label">User Terms</label>
+        <div class="controls">
+          <%=f.text_area :user_terms, :rows => 5%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Project Terms</label>
+        <div class="controls">
+          <%=f.text_area :project_terms, :rows => 5%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Worker Terms</label>
+        <div class="controls">
+          <%=f.text_area :worker_terms, :rows => 5%>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Admin Group Terms</label>
+        <div class="controls">
+          <%=f.text_area :admin_group_terms, :rows => 5%>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Business Group Terms</label>
+        <div class="controls">
+          <%=f.text_area :business_group_terms, :rows => 5%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">No Profit Terms</label>
+        <div class="controls">
+          <%=f.text_area :no_profit_terms, :rows => 5%>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Platform Legal Terms</label>
+        <div class="controls">
+          <%=f.text_area :paas_terms_local , :rows => 5%>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="button" class="btn">Cancel</button>
+      </div>
+
+    </div>
+
+
+<%end%>
+
+<%= content_for :head do  %>
+    <script type="text/javascript">
+
+        jQuery(function(){
+
+            var la_legal_terms= new LiveValidation('la_term_paas_terms_local',{validMessage:" ",onlyOnSubmit:true});
+            la_legal_terms.add( Validate.Presence ,{failureMessage:" Can't be empty"});
+
+            var user_terms= new LiveValidation('la_term_user_terms',{validMessage:" ",onlyOnSubmit:true});
+            user_terms.add( Validate.Presence ,{failureMessage:" Can't be empty"});
+
+            var project_terms= new LiveValidation('la_term_project_terms',{validMessage:" ",onlyOnSubmit:true});
+            project_terms.add( Validate.Presence ,{failureMessage:" Can't be empty"});
+
+            var worker_terms= new LiveValidation('la_term_worker_terms',{validMessage:" ",onlyOnSubmit:true});
+            worker_terms.add( Validate.Presence ,{failureMessage:" Can't be empty"});
+
+            var admin_group_terms= new LiveValidation('la_term_admin_group_terms',{validMessage:" ",onlyOnSubmit:true});
+            admin_group_terms.add( Validate.Presence ,{failureMessage:" Can't be empty"});
+
+            var business_group_terms= new LiveValidation('la_term_business_group_terms',{validMessage:" ",onlyOnSubmit:true});
+            business_group_terms.add( Validate.Presence ,{failureMessage:" Can't be empty"});
+
+            var no_profit_terms= new LiveValidation('la_term_no_profit_terms',{validMessage:" ",onlyOnSubmit:true});
+            no_profit_terms.add( Validate.Presence ,{failureMessage:" Can't be empty"});
+
+
+        });
+    </script>
+<% end %>

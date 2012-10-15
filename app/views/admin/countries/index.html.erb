@@ -1,0 +1,49 @@
+<%=render :partial => "admin/global_admins/platform_settings_ga"%>
+<div class="span9">
+
+  <h1>Countries</h1>
+  <%=form_tag countries_path ,:method => :get, :html => { :class => "form-horizontal"} do  %>
+      <%= hidden_field_tag  :re_query ,"true"%>
+      <table border="0" class="table">
+        <tr>
+          <th>Country Name</th>
+          <th>ISO Code</th>
+          <th>IsActive</th>
+          <th>Local Name</th>
+          <th>User Country</th>
+          <th>IsDefault</th>
+          <th></th>
+        </tr>
+        <tr>
+          <td><%=text_field_tag :name ,params[:name],:class => "span1"%> </td>
+          <td><%=text_field_tag :iso_code ,params[:iso_code],:class => "span1"%> </td>
+          <td><%=select_tag :is_active ,options_for_select(["All", "True" ,"false"]  ,params[:is_active]),:onchange => "this.form.submit();",:class => "span2"%> </td>
+          <td><%=text_field_tag :local_name ,params[:local_name],:class => "span1"%> </td>
+          <td><%=select_tag :user_country ,options_for_select(["All", "True" ,"false"],params[:user_country]),:onchange => "this.form.submit();",:class => "span2"%> </td>
+          <td><%=select_tag :is_default ,options_for_select(["All", "True" ,"false"]  ,params[:is_default]),:onchange => "this.form.submit();",:class => "span2"%> </td>
+
+          <td></td>
+          <td><%=submit_tag "find"%></td>
+        </tr>
+        <% @countries.each do |c| %>
+            <tr>
+              <td><%= c.country_english_name %></td>
+              <td><%=c.iso_code%></td>
+              <td><%=c.is_active ==1 ? "true" : :false%></td>
+              <td><%=c.country_local_name%></td>
+              <td><%=c.user_country==1 ? "true" : :false%></td>
+              <td><%=c.is_default==1 ? "true" : :false%></td>
+
+              <td><td><%=link_to "Edit", edit_country_path(c), :class => "btn-mini btn btn-primary" %></td></td>
+            </tr>
+        <% end %>
+      </table>
+      <%= will_paginate @countries %>
+
+      <br />
+
+
+  <%end%>
+
+
+</div>

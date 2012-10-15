@@ -1,0 +1,248 @@
+<%=render :partial => "admin/global_admins/platform_settings_ga"%>
+<div class=span9>
+<h1>Edit Product</h1>
+
+
+<%=form_for @product, :url => product_path(@product)  , :html => { :class => "form-horizontal"} do |f| %>
+
+    <% if @product.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+          <ul>
+            <% @product.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="control-group">
+      <label class="control-label" for="input01">Product Name: <span style="color:red">*</span></label>
+      <div class="controls">
+        <%=f.text_field :platform_product_name,:class=>"input"%>
+        <!--<input type="text" class="input-xlarge" id="input01">-->
+        <p class="help-block"></p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="input01">Type: <span style="color:red">*</span></label>
+      <div class="controls">
+        <%=f.select :platform_product_type, options_for_select(["AG"]),:disabled => true %>
+        <!--<input type="text" class="input-xlarge" id="input01">-->
+        <p class="help-block"></p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="input01">Target: <span style="color:red">*</span></label>
+      <div class="controls">
+        <%=f.select :product_target,options_for_select(["SAG", "MAG"],@product.product_target),:class=>"input"%>
+        <!--<input type="text" class="input-xlarge" id="input01">-->
+        <p class="help-block"></p>
+      </div>
+    </div>
+    <% if @product.product_target.downcase == "sag" %>
+        <div class="control-group">
+          <label class="control-label" for="input01">Default<span style="color:red"> </span></label>
+          <div class="controls">
+            <%= f.radio_button :is_default_sag, true ,:class=>"input"%>  true   </div>
+          <div class="controls"> <%=f.radio_button :is_default_sag,false,:class=>"input"%> False </div>
+          <!--<input type="text" class="input-xlarge" id="input01">-->
+          <p class="help-block"></p>
+        </div>
+    <%end%>
+    <% if @product.product_target.downcase == "mag" %>
+        <div class="control-group">
+          <label class="control-label" for="input01">Default<span style="color:red"> </span></label>
+          <div class="controls">
+            <%= f.radio_button :is_default, true ,:class=>"input"%>  true   </div>
+          <div class="controls"> <%=f.radio_button :is_default,false,:class=>"input"%> False </div>
+          <!--<input type="text" class="input-xlarge" id="input01">-->
+          <p class="help-block"></p>
+        </div>
+    <%end%>
+
+    <div class="control-group">
+      <label class="control-label" for="input01">External ID <span style="color:red"> </span></label>
+      <div class="controls">
+        <%=f.text_field :product_external_id,:class=>"input"%>
+        <!--<input type="text" class="input-xlarge" id="input01">-->
+        <p class="help-block"></p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="input01">Monthly Price <span style="color:red"> </span></label>
+      <div class="controls">
+        <%=f.text_field :product_monthly_price,:class=>"input"%>
+        <!--<input type="text" class="input-xlarge" id="input01">-->
+        <p class="help-block"></p>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="input01">Annual Price <span style="color:red"> </span></label>
+      <div class="controls">
+        <%=f.text_field :product_annual_price,:class=>"input"%>
+        <!--<input type="text" class="input-xlarge" id="input01">-->
+        <p class="help-block"></p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="input01">Number of BG Window  Allowed: <span style="color:red"> </span></label>
+      <div class="controls">
+        <%=f.text_field :bg_window_number,:class=>"input"%>
+        <!--<input type="text" class="input-xlarge" id="input01">-->
+        <p class="help-block"></p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="input01">Number of BG contest Allowed <span style="color:red"> </span></label>
+      <div class="controls">
+        <%=f.text_field :bg_contest_number,:class=>"input"%>
+        <!--<input type="text" class="input-xlarge" id="input01">-->
+        <p class="help-block"></p>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="input01">Number of active Workers Allowed: <span style="color:red"> </span></label>
+      <div class="controls">
+        <%=f.text_field :ag_workers_number,:class=>"input"%>
+        <!--<input type="text" class="input-xlarge" id="input01">-->
+        <p class="help-block"></p>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="input01">Platform Commissions on Standard Projects: <span style="color:red"> </span></label>
+      <div class="controls">
+        <%=f.text_field :platform_standard_commissions,:class=>"input"%>
+        <!--<input type="text" class="input-xlarge" id="input01">-->
+        <p class="help-block"></p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="input01">Platform Commissions on Pro Projects: <span style="color:red"> </span></label>
+      <div class="controls">
+        <%=f.text_field :platform_pro_commissions,:class=>"input"%>
+        <!--<input type="text" class="input-xlarge" id="input01">-->
+        <p class="help-block"></p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="input01">Platform Commissions on Private Projects: <span style="color:red"> </span></label>
+      <div class="controls">
+        <%=f.text_field :platform_private_commissions,:class=>"input"%>
+        <!--<input type="text" class="input-xlarge" id="input01">-->
+        <p class="help-block"></p>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="input01">BG Private Allowed:<span style="color:red"> </span>*</label>
+      <div class="controls">
+        <%= f.radio_button :bg_private, true,:checked => true,:class=>"input"%>  True   </div>
+      <div class="controls"> <%=f.radio_button :bg_private, false,:class=>"input"%> false  </div>
+      <!--<input type="text" class="input-xlarge" id="input01">-->
+      <p class="help-block"></p>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="input01">BG Custom Commissions Allowed:<span style="color:red">* </span></label>
+      <div class="controls">
+        <%= f.radio_button :bg_custom_commissions, true,:checked => true,:class=>"input"%>  True   </div>
+      <div class="controls"> <%=f.radio_button :bg_custom_commissions, false,:class=>"input"%> false  </div>
+      <!--<input type="text" class="input-xlarge" id="input01">-->
+      <p class="help-block"></p>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="input01">BG Custom Funding Recepient Settings<span style="color:red">* </span></label>
+      <div class="controls">
+        <%= f.radio_button :bg_recepient_settings, true,:checked => true,:class=>"input"%>  True   </div>
+      <div class="controls"> <%=f.radio_button :bg_recepient_settings, false,:class=>"input"%> false  </div>
+      <!--<input type="text" class="input-xlarge" id="input01">-->
+      <p class="help-block"></p>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="input01">Custom PaymentGateway Payer Allowed<span style="color:red">* </span></label>
+      <div class="controls">
+        <%= f.radio_button :ag_payment_gateway_commissions_payer_settings, true,:checked => true,:class=>"input"%>  True   </div>
+      <div class="controls"> <%=f.radio_button :ag_payment_gateway_commissions_payer_settings, false,:class=>"input"%> false  </div>
+      <!--<input type="text" class="input-xlarge" id="input01">-->
+      <p class="help-block"></p>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="input01">Equity Based Projects Groups Allowed<span style="color:red">* </span></label>
+      <div class="controls">
+        <%= f.radio_button :ag_equity_based_allowed, true,:checked => true,:class=>"input"%>  True   </div>
+      <div class="controls"> <%=f.radio_button :ag_equity_based_allowed, false,:class=>"input"%> false  </div>
+      <!--<input type="text" class="input-xlarge" id="input01">-->
+      <p class="help-block"></p>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="input01">Free subscription: <span style="color:red">*</span></label>
+      <div class="controls">
+        <%=f.select :paas_fees_exemption,options_for_select(["temporary", "permanent"],@product.paas_fees_exemption),:class=>"input"%>
+        <!--<input type="text" class="input-xlarge" id="input01">-->
+        <p class="help-block"></p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="input01">For: <span style="color:red"> </span></label>
+      <div class="controls">
+        <%=f.text_field :fees_exemption_days,:class=>"input"%>
+        <!--<input type="text" class="input-xlarge" id="input01">-->
+        <p class="help-block"></p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="input01">Status<span style="color:red">* </span></label>
+      <div class="controls">
+        <%= f.radio_button :status, "published",:checked => true,:class=>"input"%>  Publish   </div>
+      <div class="controls"> <%=f.radio_button :status,"unpublished",:class=>"input"%> Unpublished  </div>
+      <!--<input type="text" class="input-xlarge" id="input01">-->
+      <p class="help-block"></p>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit :class =>"btn btn-primary"  %>
+      <%=link_to "Cancel", products_path , :class => "btn"%>
+      <%=link_to "Delete", product_path(@product),:method => "Delete" , :class => "btn btn-danger"  unless @product.is_taken_by_ag?%>
+      <!--<input type="text" class="input-xlarge"  id="input01">-->
+    </div>
+<% end %>
+
+<%= content_for :head do  %>
+    <script type="text/javascript">
+
+        jQuery(function(){
+
+            var annual_price = new LiveValidation('platform_product_product_annual_price',{validMessage:" ",onlyOnSubmit:true});
+//            annual_price.add( Validate.Presence );
+
+            annual_price.add( Validate.Numericality, { onlyInteger: false } );
+            var name = new LiveValidation('platform_product_platform_product_name',{validMessage:" ",onlyOnSubmit:true});
+            name.add( Validate.Presence );
+            var price = new LiveValidation('platform_product_product_monthly_price',{validMessage:" ",onlyOnSubmit:true});
+            price.add( Validate.Numericality, { onlyInteger: false } );
+
+            var bg_contest = new LiveValidation('platform_product_bg_contest_number',{validMessage:" ",onlyOnSubmit:true});
+            bg_contest.add( Validate.Numericality, { onlyInteger:true } );
+
+            var bg_window = new LiveValidation('platform_product_bg_window_number',{validMessage:" ",onlyOnSubmit:true});
+            bg_window.add( Validate.Numericality, { onlyInteger: true } );
+
+            var ag = new LiveValidation('platform_product_ag_workers_number',{validMessage:" ",onlyOnSubmit:true});
+            ag.add( Validate.Numericality, { onlyInteger: true } );
+        });
+    </script>
+<% end %>
+
+<%= link_to 'Back', products_path %>
+</div>
