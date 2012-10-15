@@ -79,11 +79,15 @@ class User
     user = User.where(:email => data.email).first  unless user.present?
     if !user.nil?
       if user.status == "new"
+        logger.info "got user but status is new"
         user.confirm!
         user.save!
-        profile=user.build_user_profile(:first_name => data["first_name"],:last_name => data["last_name"] ,:gender => data.gender ,:fb_image => access_token.info.image).save
+        profile=user.build_user_profile(:first_name => data["first_name"],:last_name => data["last_name"] ,:gender => data.gender ,:fb_image => access_token.info.image, :fb_page => data.link).save
       end
+      logger.info "got user status is confirmed"
       user.update_attributes(:is_provider => true, :facebook_id => data["id"])
+      @profile = user.user_profile
+      @profile.update_attributes(:fb_page =>data.link )
       user
     else # Create an user with a stub password.
       user = User.new({:email => data["email"],

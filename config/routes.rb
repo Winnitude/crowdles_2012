@@ -98,6 +98,22 @@ Winnitude::Application.routes.draw do
     end
   end
 
+  resources :users , :only =>[] do
+    member do
+      get :edit_address
+      put :update_address
+      get :edit_links
+      put :update_links
+      get :settings
+      put :update_settings
+      get :change_email
+      put :update_email
+    end
+    collection do
+
+    end
+  end
+
 
   match 'register'   =>'user_registrations#register',:via => :get    ,:as=>:register
   match 'confirm_facebook'   =>'user_registrations#confirm_facebook',:via => :get   ,:as=>:confirm_facebook
