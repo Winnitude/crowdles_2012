@@ -114,7 +114,6 @@ Winnitude::Application.routes.draw do
     end
   end
 
-
   match 'register'   =>'user_registrations#register',:via => :get    ,:as=>:register
   match 'confirm_facebook'   =>'user_registrations#confirm_facebook',:via => :get   ,:as=>:confirm_facebook
   match 'confirm'=>'user_registrations#final_confirmation',:via => :get   ,:as=>:confirm
@@ -186,4 +185,11 @@ Winnitude::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
+
+  resources :htmls , :only =>[] do
+    collection do
+      get :user_profile
+      get :user_ideas
+    end
+  end
 end
