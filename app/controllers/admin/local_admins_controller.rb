@@ -52,7 +52,7 @@ class Admin::LocalAdminsController < ApplicationController
     @general_setting= @local_admin.la_general_setting
     if @general_setting.update_attributes(params[:platform_local_admin][:la_general_setting]) and @profile.update_attributes(params[:platform_local_admin][:la_profile]) and @paas_setting.update_attributes(params[:platform_local_admin][:la_paas_setting])
       @local_admin.update_attributes(params[:platform_local_admin])
-      redirect_to local_admins_path, :notice => "Local Admin General Settings Updated Successfully"
+      redirect_to edit_la_general_settings_local_admin_path(@local_admin), :notice => "Local Admin General Settings Updated Successfully"
     else
       @languages = ServiceLanguage.all.collect{|i| i.english_name}
       @countries = ServiceCountry.all.collect{|i| i.country_english_name}
@@ -70,7 +70,7 @@ class Admin::LocalAdminsController < ApplicationController
   def update_la_paas_billing_profile
     @billing_profile= @local_admin.paas_billing_profile
     @billing_profile.update_attributes(params[:paas_billing_profile])
-    redirect_to local_admins_path, :notice => "Local Admin Paas Billing Profile Updated Successfully"
+    redirect_to edit_la_paas_billing_profile_local_admin_path(@local_admin), :notice => "Local Admin Paas Billing Profile Updated Successfully"
   end
 
   def edit_la_terms
@@ -80,7 +80,7 @@ class Admin::LocalAdminsController < ApplicationController
   def update_la_terms
     @terms = @local_admin.la_term
     @terms.update_attributes(params[:la_term])
-    redirect_to local_admins_path, :notice => "Local Admin Terms Updated Successfully"
+    redirect_to edit_la_terms_local_admin_path(@local_admin), :notice => "Local Admin Terms Updated Successfully"
   end
 
   def edit_la_organization_details
@@ -96,7 +96,7 @@ class Admin::LocalAdminsController < ApplicationController
     @contact = @local_admin.la_contact
     if @contact.update_attributes(params[:platform_local_admin][:la_contact]) and @profile.update_attributes(params[:platform_local_admin][:la_profile])
 
-      redirect_to local_admins_path, :notice => "Local Admin General Settings Updated Successfully"
+      redirect_to edit_la_organization_details_local_admin_path(@local_admin), :notice => "Local Admin General Settings Updated Successfully"
     else
       @countries = ServiceCountry.all.collect{|i| i.country_english_name}
       render :edit_la_organization_details

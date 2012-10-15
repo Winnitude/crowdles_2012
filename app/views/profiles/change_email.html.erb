@@ -1,0 +1,50 @@
+<h1>Change Email</h1>
+<%=form_for @user , :url=> update_email_profiles_path(),:html => {:class => "form form-horizontal"} do |f| %>
+
+    <% if  @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this User from being saved:</h2>
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="span9">
+      <div class="control-group">
+        <label class="control-label">Email</label>
+        <div class="controls">
+        <%= f.text_field :email %>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Edit</button>
+        <%=link_to "cancel" , "/" ,:class=>"btn btn-primary" %>
+      </div>
+    </div>
+
+<%end%>
+
+
+<%= content_for :head do  %>
+    <script type="text/javascript">
+
+        jQuery(function(){
+
+            var state =   new LiveValidation("user_user_contact_state",{validMessage:" ",onlyOnSubmit:true});
+            state.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            var city =   new LiveValidation("user_user_contact_city",{validMessage:" ",onlyOnSubmit:true});
+            city.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+        });
+    </script>
+<% end %>
+
+
+
+
+
+
+
+

@@ -117,38 +117,27 @@
 
 
             var company= new LiveValidation('paas_billing_profile_company_name',{validMessage:" ",onlyOnSubmit:true});
-            company.add( Validate.Presence ,{failureMessage:" Can't be empty"});
-
             var email = new LiveValidation('paas_billing_profile_email',{validMessage:" ",onlyOnSubmit:true});
-            email.add( Validate.Presence ,{failureMessage:" Can't be empty"});
+            var profile_telephone_number = new LiveValidation("paas_billing_profile_telephone_number",{validMessage:" ",onlyOnSubmit:true});
+            var country= new LiveValidation('paas_billing_profile_country',{validMessage:" ",onlyOnSubmit:true});
+            var city= new LiveValidation('paas_billing_profile_city',{validMessage:" ",onlyOnSubmit:true});
+            var s1= new LiveValidation('paas_billing_profile_street1',{validMessage:" ",onlyOnSubmit:true});
+            var state= new LiveValidation('paas_billing_profile_state',{validMessage:" ",onlyOnSubmit:true});
+            var contact_telephone_number = new LiveValidation("paas_billing_profile_contact_telephone_number",{validMessage:" ",onlyOnSubmit:true});
+            var paypal= new LiveValidation('paas_billing_profile_paypal_id',{validMessage:" ",onlyOnSubmit:true});
+            var zip= new LiveValidation('paas_billing_profile_zip_code',{validMessage:" ",onlyOnSubmit:true});
+            var fname= new LiveValidation('paas_billing_profile_contact_first_name',{validMessage:" ",onlyOnSubmit:true});
+            var lname= new LiveValidation('paas_billing_profile_contact_last_name',{validMessage:" ",onlyOnSubmit:true});
+
+
+            fname.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            lname.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            city.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            state.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+//            profile_telephone_number.add( Validate.Format , { pattern: /\+\d{1,4}\s(\(0\)){0,1}\d{7,12}"/, failureMessage: "Phone no. not valid" });
             email.add( Validate.Email);
 
-            var profile_telephone_number = new LiveValidation("paas_billing_profile_telephone_number",{validMessage:" ",onlyOnSubmit:true});
-            profile_telephone_number.add( Validate.Presence ,{failureMessage:" Can't be empty"});
-//            profile_telephone_number.add( Validate.Format , { pattern: /[+][0-9]{2} [0-9]{10}/g, failureMessage: "Must be in form +xx xxxxxxxxxx" });
 
-
-
-            var country= new LiveValidation('paas_billing_profile_country',{validMessage:" ",onlyOnSubmit:true});
-            country.add( Validate.Presence ,{failureMessage:" Can't be empty"});
-
-            var city= new LiveValidation('paas_billing_profile_city',{validMessage:" ",onlyOnSubmit:true});
-            city.add( Validate.Presence ,{failureMessage:" Can't be empty"});
-
-            var zip= new LiveValidation('paas_billing_profile_zip_code',{validMessage:" ",onlyOnSubmit:true});
-            zip.add( Validate.Presence ,{failureMessage:" Can't be empty"});
-
-            var s1= new LiveValidation('paas_billing_profile_street1',{validMessage:" ",onlyOnSubmit:true});
-            s1.add( Validate.Presence ,{failureMessage:" Can't be empty"});
-
-            var state= new LiveValidation('paas_billing_profile_state',{validMessage:" ",onlyOnSubmit:true});
-            state.add( Validate.Presence ,{failureMessage:" Can't be empty"});
-
-            var contact_telephone_number = new LiveValidation("paas_billing_profile_contact_telephone_number",{validMessage:" ",onlyOnSubmit:true});
-//            contact_telephone_number.add( Validate.Format , { pattern: /[+][0-9]{2} [0-9]{10}/g, failureMessage: "Must be in form +xx xxxxxxxxxx" });
-
-            var paypal= new LiveValidation('paas_billing_profile_paypal_id',{validMessage:" ",onlyOnSubmit:true});
-            paypal.add( Validate.Presence ,{failureMessage:" Can't be empty"});
 
 
         });

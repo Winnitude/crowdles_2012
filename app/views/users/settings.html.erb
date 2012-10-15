@@ -1,0 +1,111 @@
+<h1>Settings</h1>
+<%=form_for @user , :url=> update_settings_user_path(@user),:html => {:class => "form form-horizontal"} do |f| %>
+    <%= f.fields_for @profile do |p| %>
+
+
+        <div class="span9">
+          <div class="control-group">
+            <label class="control-label">Email</label>
+            <div class="controls">
+              <%=label_tag @user.email %>   <%=link_to "change email" ,change_email_user_path(@user),:class=>"btn btn-danger"  %>  <%=link_to "Change Password" ,edit_user_registration_path,:class=>"btn btn-danger"  %>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">Country</label>
+            <div class="controls">
+              <%= f.select :country ,options_for_select(@countries,@user.country) %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">Language</label>
+            <div class="controls">
+              <%= f.select :language ,options_for_select(@languages,@user.language) %>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">newsLetter</label>
+            <div class="controls">
+              <%=p.check_box("news_letter_flag") %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">First Name</label>
+            <div class="controls">
+              <%= p.text_field :first_name %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">Last Name</label>
+            <div class="controls">
+              <%= p.text_field :last_name %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">Nick Name</label>
+            <div class="controls">
+              <%= p.text_field :nick_name %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">Birth Date</label>
+            <div class="controls">
+              <%= p.text_field :birth_date %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">Gender</label>
+            <div class="controls">
+              <%= p.select :gender ,options_for_select(["male" ,"female"],@profile.gender) %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">Biography</label>
+            <div class="controls">
+              <%= p.text_area :biography ,:rows=> 5 %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">Image</label>
+            <div class="controls">
+              <%=p.file_field :photo%> <%=image_tag(@profile.photo) %>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Edit</button>
+            <%=link_to "cancel" , "/" ,:class=>"btn btn-primary" %>
+          </div>
+        </div>
+
+    <%end%>
+<%end%>
+
+
+<%= content_for :head do  %>
+    <script type="text/javascript">
+
+        jQuery(function(){
+            $('#user_user_profile_birth_date').datepicker({autoclose :true} )
+            var state =   new LiveValidation("user_user_contact_state",{validMessage:" ",onlyOnSubmit:true});
+            state.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            var city =   new LiveValidation("user_user_contact_city",{validMessage:" ",onlyOnSubmit:true});
+            city.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+        });
+    </script>
+<% end %>
+
+
+
+
+
+
+
+

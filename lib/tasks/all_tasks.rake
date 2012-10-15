@@ -14,11 +14,11 @@ namespace :all_tasks do
     end
 
     CSV.foreach(Rails.root.join("languages.csv"),{:col_sep =>";"} ) do |row|
-      @language = ServiceLanguage.create(:iso_code => row[3], :is_active => row[0],:local_name => row[1], :english_name => row[2])
+      @language = ServiceLanguage.create(:iso_code => row[3], :is_active => row[0],:local_name => row[1], :english_name => row[2], :is_default => row[4])
       #puts @language.inspect
     end
 
-    roles_array = ["user","worker","global_admin","local_admin", "main_local_admin", "business_group_owner" ,"admin_group_owner" ,"admin_group_worker" ,"main_admin_group_owner"]
+    roles_array = ["user","worker","global_admin","local_admin", "main_local_admin", "business_group_owner" ,"admin_group_owner" ,"main_admin_group_owner"]
     roles_array.each do |role_name|
       role = UserRole.new(:role_name=> role_name)
       role.save

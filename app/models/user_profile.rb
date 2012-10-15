@@ -7,7 +7,7 @@ class UserProfile
   field :nick_name , :type => String
   field :birth_date , :type => Date
   field :gender , :type => String
-  field :new_letter_flag , :type => Boolean
+  field :news_letter_flag , :type => Boolean
   field :language , :type => String
   field :biography , :type => String
   field :video , :type => String
@@ -15,6 +15,7 @@ class UserProfile
   field :main_segment , :type => String
   field :old_main_segment , :type => String
   field :fb_image ,                       :type => String
+  field :fb_page   ,                       :type => String
   mount_uploader :photo, ImageUploader
 
   def get_full_name

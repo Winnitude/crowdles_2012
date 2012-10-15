@@ -51,7 +51,7 @@ class UserRegistrationsController < ApplicationController
                      :created_at => Time.now,
                      :status => "new"
     )
-    @profile = @user.build_user_profile(:first_name =>session[:facebook_data][:fb_first_name], :last_name =>session[:facebook_data][:fb_last_name] ,:gender =>session[:facebook_data][:gender] ,:fb_image => session[:facebook_data][:fb_image] )
+    @profile = @user.build_user_profile(:first_name =>session[:facebook_data][:fb_first_name], :last_name =>session[:facebook_data][:fb_last_name] ,:gender =>session[:facebook_data][:gender] ,:fb_image => session[:facebook_data][:fb_image],:fb_page => session[:facebook_data][:fb_page]  )
     @user.confirm!
     @user.save!
     @user.build_default_billing_profile.save
@@ -62,7 +62,9 @@ class UserRegistrationsController < ApplicationController
 
   def connect_fb_and_crowdles
     @user = User.where(:email => session[:temp_crowdles_data][:email]).first
-    @user.update_attributes(:facebook_id => session[:facebook_data][:fb_id],:is_provider => true )
+    @user.update_attributes(:facebook_id => session[:facebook_data][:fb_id],:is_provider => true)
+    @profile = @user.user_profile
+    @profile.update_attributes(:fb_page => session[:facebook_data][:fb_page])
     session[:facebook_data] = nil
     session[:temp_crowdles_data] = nil
     sign_in_and_redirect(@user)

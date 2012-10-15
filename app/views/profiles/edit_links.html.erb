@@ -1,0 +1,72 @@
+<h1>Links</h1>
+<%=form_for current_user , :url=>  update_links_profiles_path(),:html => {:class => "form form-horizontal"} do |f| %>
+    <%=f.fields_for @link  do |contact| %>
+        <%=f.fields_for @profile  do |profile| %>
+            <div class="control-group">
+              <label class="control-label">Web Site</label>
+              <div class="controls">
+                <%=contact.text_field :web  %>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label">Blog</label>
+              <div class="controls">
+                <%=contact.text_field :blog  %>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label">LinkedIn</label>
+              <div class="controls">
+                <%=contact.text_field :social_linkedin  %>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label">Myspace</label>
+              <div class="controls">
+                <%=contact.text_field :social_myspace  %>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label">Video biography</label>
+              <div class="controls">
+                <%=profile.text_field :video  %>
+              </div>
+            </div>
+
+
+
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Edit</button>
+              <%=link_to "cancel" , "/" ,:class=>"btn btn-primary" %>
+            </div>
+            </div>
+
+        <%end%>
+    <%end%>
+    <%end%>
+
+    <%= content_for :head do  %>
+        <script type="text/javascript">
+
+            jQuery(function(){
+
+                var state =   new LiveValidation("user_user_contact_state",{validMessage:" ",onlyOnSubmit:true});
+                state.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+                var city =   new LiveValidation("user_user_contact_city",{validMessage:" ",onlyOnSubmit:true});
+                city.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            });
+        </script>
+    <% end %>
+
+
+
+
+
+
+
+
