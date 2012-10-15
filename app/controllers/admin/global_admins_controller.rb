@@ -12,7 +12,7 @@ class Admin::GlobalAdminsController < ApplicationController
   end
 
   def set_platform
-    ServiceLanguage.make_language_active_and_defaut(params[:language])
+    ServiceLanguage.make_language_active_and_default(params[:language])
     ServiceCountry.make_country_default(params[:platform_master_country])
     @user= User.create_global_admin_owner(params) #create 1st user
 

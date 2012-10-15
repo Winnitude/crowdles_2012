@@ -53,7 +53,7 @@ class ApplicationController < ActionController::Base
     response.kind_of?(Net::HTTPSuccess) && url.to_s
   end
 
-  def date_fomatter param
+  def date_formatter param
     date = param.split("/")
     if date.size== 1
       date= birthdate.split("-")
