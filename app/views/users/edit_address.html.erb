@@ -1,0 +1,108 @@
+<h1>Address</h1>
+<%=form_for current_user , :url=> update_address_user_path(@user),:html => {:class => "form form-horizontal"} do |f| %>
+    <%=f.fields_for @contact  do |contact| %>
+
+
+        <div class="span9">
+          <div class="control-group">
+            <label class="control-label">Country</label>
+            <div class="controls">
+              <%=f.text_field :country ,:disabled => true  %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">City</label>
+            <div class="controls">
+              <%=contact.text_field :city  %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">state</label>
+            <div class="controls">
+              <%=contact.text_field :state  %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">Zip Code</label>
+            <div class="controls">
+              <%=contact.text_field :zip_code  %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">Street</label>
+            <div class="controls">
+              <%=contact.text_field :street  %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">Street Number</label>
+            <div class="controls">
+              <%=contact.text_field :street_number  %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">Additional Address info</label>
+            <div class="controls">
+              <%=contact.text_field :additional_address_info  %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">Location GPS</label>
+            <div class="controls">
+              <%=contact.text_field :location_gps  %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">Telephone 1</label>
+            <div class="controls">
+              <%=contact.text_field :main_number  %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">Telephone 2</label>
+            <div class="controls">
+              <%=contact.text_field :secondary_number  %>
+            </div>
+          </div>
+
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Edit</button>
+            <%=link_to "cancel" , "/" ,:class=>"btn btn-primary" %>
+          </div>
+        </div>
+
+    <%end%>
+<%end%>
+
+<%= content_for :head do  %>
+    <script type="text/javascript">
+
+        jQuery(function(){
+
+            var state =   new LiveValidation("user_user_contact_state",{validMessage:" ",onlyOnSubmit:true});
+            state.add( Validate.Presence,{failureMessage:" Can't be empty"} );
+            state.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            var city =   new LiveValidation("user_user_contact_city",{validMessage:" ",onlyOnSubmit:true});
+            city.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            city.add( Validate.Presence,{failureMessage:" Can't be empty"} );
+        });
+    </script>
+<% end %>
+
+
+
+
+
+
+
+

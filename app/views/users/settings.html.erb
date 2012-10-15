@@ -31,6 +31,21 @@
           </div>
 
           <div class="control-group">
+            <label class="control-label">Facebook ID</label>
+            <div class="controls">
+              <%=@user.facebook_id %>
+              <%=link_to "link facebook" ,user_omniauth_authorize_path(:facebook),:class=>"btn btn-info"  %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">Facebook User Page</label>
+            <div class="controls">
+              <%=@profile.fb_page %>
+            </div>
+          </div>
+
+          <div class="control-group">
             <label class="control-label">First Name</label>
             <div class="controls">
               <%= p.text_field :first_name %>
@@ -41,13 +56,6 @@
             <label class="control-label">Last Name</label>
             <div class="controls">
               <%= p.text_field :last_name %>
-            </div>
-          </div>
-
-          <div class="control-group">
-            <label class="control-label">Nick Name</label>
-            <div class="controls">
-              <%= p.text_field :nick_name %>
             </div>
           </div>
 

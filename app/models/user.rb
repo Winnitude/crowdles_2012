@@ -220,6 +220,13 @@ class User
     self.is_proprietary_user = true
   end
 
+  def update_with_fb_data access_token
+    data = access_token.extra.raw_info
+    @profile = self.user_profile || self.build_user_profile
+    self.update_attributes(:facebook_id => data.id)
+    @profile.update_fb_details access_token
+  end
+
 
 end
 

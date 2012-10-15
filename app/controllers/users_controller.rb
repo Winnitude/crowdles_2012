@@ -3,16 +3,29 @@ class UsersController < ApplicationController
   before_filter :get_languages_and_countries  ,:only => [:settings]
 
   def settings
+    #todo date_issue
     @profile = @user.user_profile || @user.build_user_profile
   end
 
   def update_settings
-    params[:user][:user_profile][:birth_date] = date_formatter(params[:user][:user_profile][:birth_date])
+    #params[:user][:user_profile][:birth_date] = date_formatter(params[:user][:user_profile][:birth_date])
     params[:user][:user_profile][:news_letter_flag] = params[:user][:user_profile][:news_letter_flag] == "1" ? true : false
     @profile = @user.user_profile || @user.build_user_profile
     @user.update_attributes(params[:user])
     @profile.update_attributes(params[:user][:user_profile])
     redirect_to settings_user_path(@user) ,:notice => "User settings updated"
+  end
+
+  def edit_address
+    #todo ITU Check
+    @contact = @user.user_contact || @user.build_user_contact
+    logger.info @contact.inspect
+  end
+
+  def update_address
+    @contact = current_user.user_contact || current_user.build_user_contact
+    @contact.update_attributes(params[:user][:user_contact])
+    redirect_to  edit_address_user_path(@user)  , :notice => "address updated"
   end
 
   def change_email
@@ -47,6 +60,5 @@ class UsersController < ApplicationController
 
   def check_authorization
     redirect_to "/" ,:notice => "You are not authorise to perform this action" unless (current_user == @user || current_user.all_roles.include?("global_admin"))
-
   end
 end

@@ -9,4 +9,5 @@
 
 <% if Rails.env.development? %>
    <%= link_to "settings" ,settings_user_path(current_user)%>
+   <%= link_to "edit address" ,edit_address_user_path(current_user)%>
 <%end%>
