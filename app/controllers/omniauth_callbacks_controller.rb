@@ -4,6 +4,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if current_user.present?
       logger.info request.env["omniauth.auth"]
       current_user.update_with_fb_data(request.env["omniauth.auth"])
+      redirect_to settings_user_path(current_user), :notice => "Facebook linked successfully"
     else
       logger.info request.env["omniauth.auth"]
       @user = User.find_for_facebook_oauth(request.env["omniauth.auth"],current_user)

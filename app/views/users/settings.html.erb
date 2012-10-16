@@ -7,7 +7,7 @@
           <div class="control-group">
             <label class="control-label">Email</label>
             <div class="controls">
-              <%=label_tag @user.email %>   <%=link_to "change email" ,change_email_user_path(@user),:class=>"btn btn-danger"  %>  <%=link_to "Change Password" ,edit_user_registration_path,:class=>"btn btn-danger"  %>
+              <%=label_tag @user.email %>   <%=link_to "change email" ,change_email_user_path(@user),:class=>"btn btn-danger" if @user.is_proprietary_user %>  <%=link_to "Change Password" ,edit_user_registration_path,:class=>"btn btn-danger" if @user.is_proprietary_user %>
             </div>
           </div>
           <div class="control-group">
@@ -34,7 +34,7 @@
             <label class="control-label">Facebook ID</label>
             <div class="controls">
               <%=@user.facebook_id %>
-              <%=link_to "link facebook" ,user_omniauth_authorize_path(:facebook),:class=>"btn btn-info"  %>
+              <%=link_to "link facebook" ,user_omniauth_authorize_path(:facebook),:class=>"btn btn-info" unless @user.is_provider %>
             </div>
           </div>
 

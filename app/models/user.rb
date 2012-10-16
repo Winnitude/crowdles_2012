@@ -224,7 +224,7 @@ class User
   def update_with_fb_data access_token
     data = access_token.extra.raw_info
     @profile = self.user_profile || self.build_user_profile
-    self.update_attributes(:facebook_id => data.id)
+    self.update_attributes(:facebook_id => data.id, :is_provider => true)
     @profile.update_fb_details access_token
   end
 
