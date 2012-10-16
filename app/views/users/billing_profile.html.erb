@@ -1,6 +1,6 @@
 
 <div class="span9">
-  <h2 class="heading margin0">PaaS Billing Profile</h2>
+  <h2 class="heading margin0">default Billing Profile</h2>
   <%= form_for @billing_profile ,:url => update_billing_profile_user_path(@user),:html => {:class => "form form-horizontal"} do |f|%>
 
       <h6>Individual Details </h6>
@@ -117,16 +117,16 @@
 
             $('#default_billing_profile_birth_date').datepicker({autoclose :true,
                 format : "dd-mm-yy"} )
-//            var company= new LiveValidation('paas_billing_profile_company_name',{validMessage:" ",onlyOnSubmit:true});
-//            var email = new LiveValidation('paas_billing_profile_email',{validMessage:" ",onlyOnSubmit:true});
-            var profile_telephone_number = new LiveValidation("paas_billing_profile_telephone_number",{validMessage:" ",onlyOnSubmit:true});
-            var country= new LiveValidation('paas_billing_profile_country',{validMessage:" ",onlyOnSubmit:true});
-            var city= new LiveValidation('paas_billing_profile_city',{validMessage:" ",onlyOnSubmit:true});
-            var s1= new LiveValidation('paas_billing_profile_street1',{validMessage:" ",onlyOnSubmit:true});
-            var state= new LiveValidation('paas_billing_profile_state',{validMessage:" ",onlyOnSubmit:true});
-//            var contact_telephone_number = new LiveValidation("paas_billing_profile_contact_telephone_number",{validMessage:" ",onlyOnSubmit:true});
-            var paypal= new LiveValidation('paas_billing_profile_paypal_id',{validMessage:" ",onlyOnSubmit:true});
-            var zip= new LiveValidation('paas_billing_profile_zip_code',{validMessage:" ",onlyOnSubmit:true});
+//            var company= new LiveValidation('default_billing_profile_company_name',{validMessage:" ",onlyOnSubmit:true});
+            var email = new LiveValidation('default_billing_profile_email',{validMessage:" ",onlyOnSubmit:true});
+            var profile_telephone_number = new LiveValidation("default_billing_profile_telephone_number",{validMessage:" ",onlyOnSubmit:true});
+            var country= new LiveValidation('default_billing_profile_country',{validMessage:" ",onlyOnSubmit:true});
+            var city= new LiveValidation('default_billing_profile_city',{validMessage:" ",onlyOnSubmit:true});
+            var s1= new LiveValidation('default_billing_profile_street1',{validMessage:" ",onlyOnSubmit:true});
+            var state= new LiveValidation('default_billing_profile_state',{validMessage:" ",onlyOnSubmit:true});
+//            var contact_telephone_number = new LiveValidation("default_billing_profile_contact_telephone_number",{validMessage:" ",onlyOnSubmit:true});
+//            var paypal= new LiveValidation('default_billing_profile_paypal_id',{validMessage:" ",onlyOnSubmit:true});
+            var zip= new LiveValidation('default_billing_profile_zip_code',{validMessage:" ",onlyOnSubmit:true});
             var fname= new LiveValidation('default_billing_profile_first_name',{validMessage:" ",onlyOnSubmit:true});
             var lname= new LiveValidation('default_billing_profile_last_name',{validMessage:" ",onlyOnSubmit:true});
 

@@ -70,14 +70,9 @@ class UsersController < ApplicationController
   end
 
   def update_billing_profile
-    #status = working_url?(params[:user][:user_profile][:video])
-    #logger.info status.inspect
-    @profile = @user.user_profile || @user.build_user_profile
-    @link = current_user.user_link || current_user.build_user_link
-    @link.update_attributes(params[:user][:user_link])
-    @profile.update_attributes(params[:user][:user_profile])
-    flash[:notice] = "Links updated"
-    redirect_to  edit_links_user_path(@user)
+    @billing_profile = @user.default_billing_profile || @user.build_default_billing_profile
+    @billing_profile.update_attributes(params[:default_billing_profile])
+    redirect_to billing_profile_user_path(@user), :notice => "Billing profile updated"
   end
 
   def terms_of_use
