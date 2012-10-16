@@ -439,7 +439,7 @@ jQuery.extend({
 	isPlainObject: function( obj ) {
 		// Must be an Object.
 		// Because of IE, we also have to check the presence of the constructor property.
-		// Make sure that DOM nodes and window objects don't default through, as well
+		// Make sure that DOM nodes and window objects don't pass through, as well
 		if ( !obj || jQuery.type(obj) !== "object" || obj.nodeType || jQuery.isWindow( obj ) ) {
 			return false;
 		}
@@ -704,7 +704,7 @@ jQuery.extend({
 		inv = !!inv;
 
 		// Go through the array, only saving the items
-		// that default the validator function
+		// that pass the validator function
 		for ( ; i < length; i++ ) {
 			retVal = !!callback( elems[ i ], i );
 			if ( inv !== retVal ) {
@@ -783,7 +783,7 @@ jQuery.extend({
 
 	// Multifunctional method to get and set values of a collection
 	// The value/s can optionally be executed if it's a function
-	access: function( elems, fn, key, value, chainable, emptyGet, default ) {
+	access: function( elems, fn, key, value, chainable, emptyGet, pass ) {
 		var exec,
 			bulk = key == null,
 			i = 0,
@@ -799,7 +799,7 @@ jQuery.extend({
 		// Sets one value
 		} else if ( value !== undefined ) {
 			// Optionally, function values get executed if exec is true
-			exec = default === undefined && jQuery.isFunction( value );
+			exec = pass === undefined && jQuery.isFunction( value );
 
 			if ( bulk ) {
 				// Bulk operations only iterate when executing function values
@@ -818,7 +818,7 @@ jQuery.extend({
 
 			if ( fn ) {
 				for (; i < length; i++ ) {
-					fn( elems[i], key, exec ? value.call( elems[i], i, fn( elems[i], key ) ) : value, default );
+					fn( elems[i], key, exec ? value.call( elems[i], i, fn( elems[i], key ) ) : value, pass );
 				}
 			}
 
@@ -2277,7 +2277,7 @@ jQuery.extend({
 	// Unused in 1.8, left in so attrFn-stabbers won't die; remove in 1.9
 	attrFn: {},
 
-	attr: function( elem, name, value, default ) {
+	attr: function( elem, name, value, pass ) {
 		var ret, hooks, notxml,
 			nType = elem.nodeType;
 
@@ -2286,7 +2286,7 @@ jQuery.extend({
 			return;
 		}
 
-		if ( default && jQuery.isFunction( jQuery.fn[ name ] ) ) {
+		if ( pass && jQuery.isFunction( jQuery.fn[ name ] ) ) {
 			return jQuery( elem )[ name ]( value );
 		}
 
@@ -2655,7 +2655,7 @@ jQuery.event = {
 			return;
 		}
 
-		// Caller can default in an object of custom data in lieu of the handler
+		// Caller can pass in an object of custom data in lieu of the handler
 		if ( handler.handler ) {
 			handleObjIn = handler;
 			handler = handleObjIn.handler;
@@ -2872,7 +2872,7 @@ jQuery.event = {
 			return;
 		}
 
-		// Caller can default in an Event, Object, or just an event type string
+		// Caller can pass in an Event, Object, or just an event type string
 		event = typeof event === "object" ?
 			// jQuery.Event object
 			event[ jQuery.expando ] ? event :
@@ -3854,7 +3854,7 @@ var cachedruns,
 		docElem.insertBefore( div, docElem.firstChild );
 
 		// Test
-		var default = document.getElementsByName &&
+		var pass = document.getElementsByName &&
 			// buggy browsers will return fewer than the correct 2
 			document.getElementsByName( expando ).length === 2 +
 			// buggy browsers will return more than the correct 0
@@ -3864,7 +3864,7 @@ var cachedruns,
 		// Cleanup
 		docElem.removeChild( div );
 
-		return default;
+		return pass;
 	});
 
 // If slice is not available, provide a backup
@@ -4652,7 +4652,7 @@ sortOrder = docElem.compareDocumentPosition ?
 	};
 
 // Always assume the presence of duplicates if sort doesn't
-// default them to our comparison function (as in Google Chrome).
+// pass them to our comparison function (as in Google Chrome).
 [0, 0].sort( sortOrder );
 baseHasDuplicate = !hasDuplicate;
 
@@ -5602,7 +5602,7 @@ jQuery.extend({
 // Implement the identical functionality for filter and not
 function winnow( elements, qualifier, keep ) {
 
-	// Can't default null or undefined to indexOf in Firefox 4
+	// Can't pass null or undefined to indexOf in Firefox 4
 	// Set to 0 to skip string check
 	qualifier = qualifier || 0;
 
@@ -8704,7 +8704,7 @@ function Animation( elem, properties, options ) {
 function propFilter( props, specialEasing ) {
 	var index, name, easing, value, hooks;
 
-	// camelCase, specialEasing and expand cssHook default
+	// camelCase, specialEasing and expand cssHook pass
 	for ( index in props ) {
 		name = jQuery.camelCase( index );
 		easing = specialEasing[ name ];
@@ -8802,7 +8802,7 @@ function defaultPrefilter( elem, props, opts ) {
 		});
 	}
 
-	// height/width overflow default
+	// height/width overflow pass
 	if ( elem.nodeType === 1 && ( "height" in props || "width" in props ) ) {
 		// Make sure that nothing sneaks out
 		// Record all 3 overflow attributes because IE does not
@@ -8838,7 +8838,7 @@ function defaultPrefilter( elem, props, opts ) {
 	}
 
 
-	// show/hide default
+	// show/hide pass
 	for ( index in props ) {
 		value = props[ index ];
 		if ( rfxtypes.exec( value ) ) {
@@ -9878,7 +9878,7 @@ jQuery.extend({
 	isPlainObject: function( obj ) {
 		// Must be an Object.
 		// Because of IE, we also have to check the presence of the constructor property.
-		// Make sure that DOM nodes and window objects don't default through, as well
+		// Make sure that DOM nodes and window objects don't pass through, as well
 		if ( !obj || jQuery.type(obj) !== "object" || obj.nodeType || jQuery.isWindow( obj ) ) {
 			return false;
 		}
@@ -10143,7 +10143,7 @@ jQuery.extend({
 		inv = !!inv;
 
 		// Go through the array, only saving the items
-		// that default the validator function
+		// that pass the validator function
 		for ( ; i < length; i++ ) {
 			retVal = !!callback( elems[ i ], i );
 			if ( inv !== retVal ) {
@@ -10222,7 +10222,7 @@ jQuery.extend({
 
 	// Multifunctional method to get and set values of a collection
 	// The value/s can optionally be executed if it's a function
-	access: function( elems, fn, key, value, chainable, emptyGet, default ) {
+	access: function( elems, fn, key, value, chainable, emptyGet, pass ) {
 		var exec,
 			bulk = key == null,
 			i = 0,
@@ -10238,7 +10238,7 @@ jQuery.extend({
 		// Sets one value
 		} else if ( value !== undefined ) {
 			// Optionally, function values get executed if exec is true
-			exec = default === undefined && jQuery.isFunction( value );
+			exec = pass === undefined && jQuery.isFunction( value );
 
 			if ( bulk ) {
 				// Bulk operations only iterate when executing function values
@@ -10257,7 +10257,7 @@ jQuery.extend({
 
 			if ( fn ) {
 				for (; i < length; i++ ) {
-					fn( elems[i], key, exec ? value.call( elems[i], i, fn( elems[i], key ) ) : value, default );
+					fn( elems[i], key, exec ? value.call( elems[i], i, fn( elems[i], key ) ) : value, pass );
 				}
 			}
 
@@ -11716,7 +11716,7 @@ jQuery.extend({
 	// Unused in 1.8, left in so attrFn-stabbers won't die; remove in 1.9
 	attrFn: {},
 
-	attr: function( elem, name, value, default ) {
+	attr: function( elem, name, value, pass ) {
 		var ret, hooks, notxml,
 			nType = elem.nodeType;
 
@@ -11725,7 +11725,7 @@ jQuery.extend({
 			return;
 		}
 
-		if ( default && jQuery.isFunction( jQuery.fn[ name ] ) ) {
+		if ( pass && jQuery.isFunction( jQuery.fn[ name ] ) ) {
 			return jQuery( elem )[ name ]( value );
 		}
 
@@ -12094,7 +12094,7 @@ jQuery.event = {
 			return;
 		}
 
-		// Caller can default in an object of custom data in lieu of the handler
+		// Caller can pass in an object of custom data in lieu of the handler
 		if ( handler.handler ) {
 			handleObjIn = handler;
 			handler = handleObjIn.handler;
@@ -12311,7 +12311,7 @@ jQuery.event = {
 			return;
 		}
 
-		// Caller can default in an Event, Object, or just an event type string
+		// Caller can pass in an Event, Object, or just an event type string
 		event = typeof event === "object" ?
 			// jQuery.Event object
 			event[ jQuery.expando ] ? event :
@@ -13293,7 +13293,7 @@ var cachedruns,
 		docElem.insertBefore( div, docElem.firstChild );
 
 		// Test
-		var default = document.getElementsByName &&
+		var pass = document.getElementsByName &&
 			// buggy browsers will return fewer than the correct 2
 			document.getElementsByName( expando ).length === 2 +
 			// buggy browsers will return more than the correct 0
@@ -13303,7 +13303,7 @@ var cachedruns,
 		// Cleanup
 		docElem.removeChild( div );
 
-		return default;
+		return pass;
 	});
 
 // If slice is not available, provide a backup
@@ -14091,7 +14091,7 @@ sortOrder = docElem.compareDocumentPosition ?
 	};
 
 // Always assume the presence of duplicates if sort doesn't
-// default them to our comparison function (as in Google Chrome).
+// pass them to our comparison function (as in Google Chrome).
 [0, 0].sort( sortOrder );
 baseHasDuplicate = !hasDuplicate;
 
@@ -15041,7 +15041,7 @@ jQuery.extend({
 // Implement the identical functionality for filter and not
 function winnow( elements, qualifier, keep ) {
 
-	// Can't default null or undefined to indexOf in Firefox 4
+	// Can't pass null or undefined to indexOf in Firefox 4
 	// Set to 0 to skip string check
 	qualifier = qualifier || 0;
 
@@ -18143,7 +18143,7 @@ function Animation( elem, properties, options ) {
 function propFilter( props, specialEasing ) {
 	var index, name, easing, value, hooks;
 
-	// camelCase, specialEasing and expand cssHook default
+	// camelCase, specialEasing and expand cssHook pass
 	for ( index in props ) {
 		name = jQuery.camelCase( index );
 		easing = specialEasing[ name ];
@@ -18241,7 +18241,7 @@ function defaultPrefilter( elem, props, opts ) {
 		});
 	}
 
-	// height/width overflow default
+	// height/width overflow pass
 	if ( elem.nodeType === 1 && ( "height" in props || "width" in props ) ) {
 		// Make sure that nothing sneaks out
 		// Record all 3 overflow attributes because IE does not
@@ -18277,7 +18277,7 @@ function defaultPrefilter( elem, props, opts ) {
 	}
 
 
-	// show/hide default
+	// show/hide pass
 	for ( index in props ) {
 		value = props[ index ];
 		if ( rfxtypes.exec( value ) ) {
