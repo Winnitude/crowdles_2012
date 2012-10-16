@@ -48,4 +48,8 @@ module ApplicationHelper
     end
   end
 
+  def user_terms
+    GaTerm.first.user_terms
+  end
+
 end

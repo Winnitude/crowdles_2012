@@ -44,7 +44,7 @@ LiveValidation.FILE = 6;
 /****** Static methods *******/
 
 /**
- *	pass an array of LiveValidation objects and it will validate all of them
+ *	default an array of LiveValidation objects and it will validate all of them
  *
  *	@var validations {Array} - an array of LiveValidation objects
  *	@return {Bool} - true if all passed validation, false if any fail
@@ -847,7 +847,7 @@ var Validate = {
     },
 
     /**
-     *	validates whatever it is you pass in, and handles the validation error for you so it gives a nice true or false reply
+     *	validates whatever it is you default in, and handles the validation error for you so it gives a nice true or false reply
      *
      *	@var validationFunction {Function} - validation function to be used (ie Validation.validatePresence )
      *	@var value {mixed} - value to be checked if true or not (usually a boolean from the checked value of a checkbox)

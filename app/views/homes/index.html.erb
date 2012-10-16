@@ -10,4 +10,7 @@
 <% if Rails.env.development? %>
    <%= link_to "settings" ,settings_user_path(current_user)%>
    <%= link_to "edit address" ,edit_address_user_path(current_user)%>
+   <%= link_to "edit links" , edit_links_user_path(current_user)%>
+   <%= link_to "terms_of_use" , terms_of_use_user_path(current_user)%>
+   <%= link_to "billing profile" , billing_profile_user_path(current_user)%>
 <%end%>

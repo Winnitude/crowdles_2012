@@ -46,6 +46,43 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit_links
+    @profile = @user.user_profile || @user.build_user_profile
+    @link = @user.user_link || @user.build_user_link
+  end
+
+  def update_links
+    #status = working_url?(params[:user][:user_profile][:video])
+    #logger.info status.inspect
+    @profile = @user.user_profile || @user.build_user_profile
+    @link = current_user.user_link || current_user.build_user_link
+    @link.update_attributes(params[:user][:user_link])
+    @profile.update_attributes(params[:user][:user_profile])
+    flash[:notice] = "Links updated"
+    redirect_to  edit_links_user_path(@user)
+  end
+
+  def billing_profile
+    countries = ServiceCountry.where.all
+    @countries = countries.select{|i| i.is_active == 1 && i.user_country ==1 }.collect{|i|i.country_english_name}
+    @currency = ServiceCurrency.all.select{|i| i.is_active == 1 }.collect{|i| i.description}
+    @billing_profile = @user.default_billing_profile || @user.build_default_billing_profile
+  end
+
+  def update_billing_profile
+    #status = working_url?(params[:user][:user_profile][:video])
+    #logger.info status.inspect
+    @profile = @user.user_profile || @user.build_user_profile
+    @link = current_user.user_link || current_user.build_user_link
+    @link.update_attributes(params[:user][:user_link])
+    @profile.update_attributes(params[:user][:user_profile])
+    flash[:notice] = "Links updated"
+    redirect_to  edit_links_user_path(@user)
+  end
+
+  def terms_of_use
+    terms =  GaTerm.first.user_terms
+  end
 
   protected
   def get_user

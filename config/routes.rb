@@ -108,6 +108,9 @@ Winnitude::Application.routes.draw do
       put :update_settings
       get :change_email
       put :update_email
+      get :terms_of_use
+      get :billing_profile
+      put :update_billing_profile
     end
     collection do
 

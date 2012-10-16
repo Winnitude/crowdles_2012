@@ -20,7 +20,7 @@ class User
   before_save :accept_terms
   attr_accessible :profile_attributes, :email, :password, :password_confirmation,
                   :remember_me ,:country, :terms_of_service,:is_provider,
-                  :is_provider_terms_of_service,:profile,:facebook_id ,:registration_ip ,:status ,:created_at,:language,:is_proprietary_user
+                  :is_provider_terms_of_service,:profile,:facebook_id ,:registration_ip ,:status ,:created_at,:language,:is_proprietary_user,:user_terms_accepted
   #######################User Login functionality with devise integration############################
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -61,6 +61,7 @@ class User
   field :created_at ,                     :type => DateTime
   field :language ,                       :type => String
   field :is_proprietary_user,             :type => Boolean
+  field :user_terms_accepted ,             :type => Boolean , :default => false
 
   ## Lockable
   # field :failed_attempts, :type => Integer, :default => 0 # Only if lock strategy is :failed_attempts
