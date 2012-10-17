@@ -1,4 +1,6 @@
 class UserRegistrationsController < ApplicationController
+  before_filter :allow_user_set_password , :only=>[:set_password]
+
   def register # this action will ask for registration from the Fb user for that case when the User is present in dataBase with the facebook_email_id = app_email_id and user_status is new
     @user = current_user
     @countries = ServiceCountry.all.select{|i| i.is_active == 1 && i.user_country ==1 }.collect{|i|i.country_english_name}
@@ -69,4 +71,20 @@ class UserRegistrationsController < ApplicationController
     session[:temp_crowdles_data] = nil
     sign_in_and_redirect(@user)
   end
+
+  def set_password
+    if current_user.is_proprietary_user?
+      redirect_to :back , :notice => "You are not allowed to perform this "
+    end
+    @user = current_user
+  end
+
+  def allow_user_set_password
+    if current_user.is_proprietary_user?
+      logger.info "checking"
+      redirect_to settings_user_path(current_user) , :notice => "You are not allowed to perform this "
+    end
+  end
+
+
 end

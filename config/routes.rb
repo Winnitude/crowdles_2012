@@ -120,6 +120,7 @@ Winnitude::Application.routes.draw do
   match 'register'   =>'user_registrations#register',:via => :get    ,:as=>:register
   match 'confirm_facebook'   =>'user_registrations#confirm_facebook',:via => :get   ,:as=>:confirm_facebook
   match 'confirm'=>'user_registrations#final_confirmation',:via => :get   ,:as=>:confirm
+  match 'set_password'=>'user_registrations#set_password',:via => :get   ,:as=>:set_password
 
 
   # The priority is based upon order of creation:
