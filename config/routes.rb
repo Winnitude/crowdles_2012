@@ -185,6 +185,13 @@ Winnitude::Application.routes.draw do
     end
   end
 
+  resources :adaptive_payments,:only => [] do
+    collection do
+      get 'getStatus'
+      post 'verified_status'
+    end
+  end
+
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

@@ -1,0 +1,108 @@
+# Logfile created on 2012-10-17 18:19:39 +0530 by logger.rb/31641
+
+
+Wed 10/17/12 18:19 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=platfo@paypal.com&firstName=Bonzop&lastName=Zaius&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Wed 10/17/12 18:19 IST- RECEIVED:
+
+
+Wed 10/17/12 18:25 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=platfo@paypal.com&firstName=Bonzop&lastName=Zaius&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Wed 10/17/12 18:25 IST- RECEIVED:
+
+
+Wed 10/17/12 18:31 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=platfo@paypal.com&firstName=Bonzop&lastName=Zaius&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Wed 10/17/12 18:31 IST- RECEIVED:
+
+
+Wed 10/17/12 19:16 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=platfo@paypal.com&firstName=Bonzop&lastName=Zaius&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Wed 10/17/12 19:16 IST- RECEIVED:
+
+
+Wed 10/17/12 19:29 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=platfo@paypal.com&firstName=Bonzop&lastName=Zaius&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Wed 10/17/12 19:29 IST- RECEIVED:
+
+
+Wed 10/17/12 19:45 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=platfo@paypal.com&firstName=Bonzop&lastName=Zaius&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Wed 10/17/12 19:46 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=platfo@paypal.com&firstName=Bonzop&lastName=Zaius&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Wed 10/17/12 19:46 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=platfo@paypal.com&firstName=Bonzop&lastName=Zaius&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Wed 10/17/12 19:46 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-17T07:16:25.701-07:00&responseEnvelope.ack=Success&responseEnvelope.correlationId=9d52938550b1a&responseEnvelope.build=3861757&accountStatus=UNVERIFIED&userInfo.emailAddress=platfo@paypal.com&userInfo.accountType=BUSINESS&userInfo.accountId=F4CTVNDAHMPAY&userInfo.name.salutation=&userInfo.name.firstName=Bonzop&userInfo.name.middleName=Simore&userInfo.name.lastName=Zaius&userInfo.name.suffix=Dr.&userInfo.businessName=Bonzop
+
+
+Wed 10/17/12 19:47 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=platfo@paypal.com&firstName=Bonzop&lastName=Zaius&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Wed 10/17/12 19:47 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-17T07:17:32.613-07:00&responseEnvelope.ack=Success&responseEnvelope.correlationId=2b77a784613b1&responseEnvelope.build=3861757&accountStatus=UNVERIFIED&userInfo.emailAddress=platfo@paypal.com&userInfo.accountType=BUSINESS&userInfo.accountId=F4CTVNDAHMPAY&userInfo.name.salutation=&userInfo.name.firstName=Bonzop&userInfo.name.middleName=Simore&userInfo.name.lastName=Zaius&userInfo.name.suffix=Dr.&userInfo.businessName=Bonzop
+
+
+Wed 10/17/12 19:49 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=platfo@paypal.com&firstName=Bonzop&lastName=Zaius&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Wed 10/17/12 19:49 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-17T07:19:15.169-07:00&responseEnvelope.ack=Success&responseEnvelope.correlationId=e80d7e4d7a4fb&responseEnvelope.build=3861757&accountStatus=UNVERIFIED&userInfo.emailAddress=platfo@paypal.com&userInfo.accountType=BUSINESS&userInfo.accountId=F4CTVNDAHMPAY&userInfo.name.salutation=&userInfo.name.firstName=Bonzop&userInfo.name.middleName=Simore&userInfo.name.lastName=Zaius&userInfo.name.suffix=Dr.&userInfo.businessName=Bonzop
+
+
+Wed 10/17/12 20:27 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=platfo@paypal.com&firstName=Bonzop&lastName=Zaius&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Wed 10/17/12 20:28 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-17T07:58:02.340-07:00&responseEnvelope.ack=Success&responseEnvelope.correlationId=2de6bda6b2cb2&responseEnvelope.build=3861757&accountStatus=UNVERIFIED&userInfo.emailAddress=platfo@paypal.com&userInfo.accountType=BUSINESS&userInfo.accountId=F4CTVNDAHMPAY&userInfo.name.salutation=&userInfo.name.firstName=Bonzop&userInfo.name.middleName=Simore&userInfo.name.lastName=Zaius&userInfo.name.suffix=Dr.&userInfo.businessName=Bonzop
+
+
+Wed 10/17/12 20:32 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=platfo@paypal.com&firstName=Bonzop&lastName=Zaius&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Wed 10/17/12 20:32 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-17T08:02:47.563-07:00&responseEnvelope.ack=Success&responseEnvelope.correlationId=0aa8de51f86e3&responseEnvelope.build=3861757&accountStatus=UNVERIFIED&userInfo.emailAddress=platfo@paypal.com&userInfo.accountType=BUSINESS&userInfo.accountId=F4CTVNDAHMPAY&userInfo.name.salutation=&userInfo.name.firstName=Bonzop&userInfo.name.middleName=Simore&userInfo.name.lastName=Zaius&userInfo.name.suffix=Dr.&userInfo.businessName=Bonzop
+
+
+Wed 10/17/12 20:43 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=platfo@fffffpaypal.com&firstName=Bonzop&lastName=Zaius&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Wed 10/17/12 20:43 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-17T08:13:58.296-07:00&responseEnvelope.ack=Failure&responseEnvelope.correlationId=d59dc2bf9c86f&responseEnvelope.build=3861757&error(0).errorId=580023&error(0).domain=PLATFORM&error(0).subdomain=Application&error(0).severity=Error&error(0).category=Application&error(0).message=Cannot determine PayPal Account status
+
+
+Wed 10/17/12 20:46 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=platfo@paypal.com&firstName=Bonzop&lastName=Zaius&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Wed 10/17/12 20:46 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-17T08:16:33.347-07:00&responseEnvelope.ack=Success&responseEnvelope.correlationId=6e01e1c3c1f78&responseEnvelope.build=3861757&accountStatus=UNVERIFIED&userInfo.emailAddress=platfo@paypal.com&userInfo.accountType=BUSINESS&userInfo.accountId=F4CTVNDAHMPAY&userInfo.name.salutation=&userInfo.name.firstName=Bonzop&userInfo.name.middleName=Simore&userInfo.name.lastName=Zaius&userInfo.name.suffix=Dr.&userInfo.businessName=Bonzop
+
+
+Wed 10/17/12 20:47 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=kunalb_1349863233_per@weboniselab.com&firstName=Kunal&lastName=Bhatia&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Wed 10/17/12 20:48 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-17T08:18:01.370-07:00&responseEnvelope.ack=Success&responseEnvelope.correlationId=bcbd3ee9d7e48&responseEnvelope.build=3861757&accountStatus=VERIFIED&userInfo.emailAddress=kunalb_1349863233_per@weboniselab.com&userInfo.accountType=PERSONAL&userInfo.accountId=K5G68WXBQTQLC&userInfo.name.salutation=&userInfo.name.firstName=Kunal&userInfo.name.middleName=&userInfo.name.lastName=Bhatia&userInfo.name.suffix=&userInfo.businessName=
