@@ -35,14 +35,18 @@ class UsersController < ApplicationController
   def update_email
     @user_persisted = User.find params[:id]
     @user.email = params[:user][:email]
+    if @user_persisted.email == params[:user][:email]
+      redirect_to settings_user_path(@user) ,:notice => "Email Not changed"
+    else
     if @user.valid?
       EmailChanged.to_older_email(@user_persisted ).deliver
     end
     if @user.save
       EmailChanged.to_new_email(@user).deliver
-      redirect_to settings_profiles_path , :notice => "Email changed successfully"
+      redirect_to settings_user_path(@user) , :notice => "Email changed successfully"
     else
       render :action => :change_email
+    end
     end
   end
 
