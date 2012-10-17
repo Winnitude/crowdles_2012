@@ -81,6 +81,7 @@ Winnitude::Application.routes.draw do
     post :validate_account , :on => :collection
     post "create_new_user" , :on => :collection
     post "connect_fb_and_crowdles" , :on => :collection
+    put "update_password" , :on => :collection
   end
 
   resources :profiles , :only =>[] do

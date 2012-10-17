@@ -73,10 +73,19 @@ class UserRegistrationsController < ApplicationController
   end
 
   def set_password
-    if current_user.is_proprietary_user?
-      redirect_to :back , :notice => "You are not allowed to perform this "
-    end
     @user = current_user
+  end
+
+  def update_password
+    @user = current_user
+    if @user.update_attributes(params[:user])
+      @user.is_proprietary_user = true
+      @user.save
+      sign_in(@user, :bypass=> true)
+      redirect_to settings_user_path(current_user) , :notice => "Password has been set successfully"
+    else
+      render :action => :set_password
+    end
   end
 
   def allow_user_set_password

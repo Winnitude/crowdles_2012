@@ -7,7 +7,8 @@
           <div class="control-group">
             <label class="control-label">Email</label>
             <div class="controls">
-              <%=label_tag @user.email %>   <%=link_to "change email" ,change_email_user_path(@user),:class=>"btn btn-danger" if @user.is_proprietary_user %>  <%=link_to "Change Password" ,edit_user_registration_path,:class=>"btn btn-danger" if @user.is_proprietary_user %>
+              <%=label_tag @user.email %>   <%=link_to "change email" ,change_email_user_path(@user),:class=>"btn btn-danger" if @user.is_proprietary_user %>
+              <%=link_to "Change Password" ,edit_user_registration_path,:class=>"btn btn-danger" if @user.is_proprietary_user %>
               <%=link_to "Set Password" ,set_password_path,:class=>"btn btn-danger" unless @user.is_proprietary_user %>
             </div>
           </div>
