@@ -32,10 +32,22 @@
 
       <h6>PayPAl Account</h6>
       <div class="control-group">
+        <label class="control-label">Paypal First Name</label>
+        <div class="controls">
+          <%=text_field_tag :paypal_first_name%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Paypal Last Name</label>
+        <div class="controls">
+          <%=text_field_tag :paypal_last_name%>
+        </div>
+      </div>
+      <div class="control-group">
         <label class="control-label">Insert Paypal email</label>
         <div class="controls">
           <%=text_field_tag :paypal_email%>
-          <button type="button" class="btn alignToField">Set</button>or
+          <%= f.submit "Set", :name => "Setting Paypal" %>
           <button type="button" class="btn alignToField">Create PayPal account</button>
         </div>
       </div>
@@ -61,7 +73,7 @@
         </div>
       </div>
       <div class="control-group">
-        <label class="control-label">Telepnone Number</label>
+        <label class="control-label">Telephone Number</label>
         <div class="controls">
           <%=f.text_field :telephone_number%>
         </div>

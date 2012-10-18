@@ -1,6 +1,13 @@
+require 'cgi'
+require 'profile'
+require 'caller'
 class UsersController < ApplicationController
+
   before_filter :should_be_user ,:get_user , :check_authorization
   before_filter :get_languages_and_countries  ,:only => [:settings]
+  @@profile = PayPalSDKProfiles::Profile
+  @@ep=@@profile.endpoints
+  @@clientDetails=@@profile.client_details
 
   def settings
     #todo date_issue
@@ -38,15 +45,15 @@ class UsersController < ApplicationController
     if @user_persisted.email == params[:user][:email]
       redirect_to settings_user_path(@user) ,:notice => "Email Not changed"
     else
-    if @user.valid?
-      EmailChanged.to_older_email(@user_persisted ).deliver
-    end
-    if @user.save
-      EmailChanged.to_new_email(@user).deliver
-      redirect_to settings_user_path(@user) , :notice => "Email changed successfully"
-    else
-      render :action => :change_email
-    end
+      if @user.valid?
+        EmailChanged.to_older_email(@user_persisted ).deliver
+      end
+      if @user.save
+        EmailChanged.to_new_email(@user).deliver
+        redirect_to settings_user_path(@user) , :notice => "Email changed successfully"
+      else
+        render :action => :change_email
+      end
     end
   end
 
@@ -74,9 +81,34 @@ class UsersController < ApplicationController
   end
 
   def update_billing_profile
-    @billing_profile = @user.default_billing_profile || @user.build_default_billing_profile
-    @billing_profile.update_attributes(params[:default_billing_profile])
-    redirect_to billing_profile_user_path(@user), :notice => "Billing profile updated"
+    if params["Setting Paypal"] == "Set"
+      @@ep["SERVICE"]="/AdaptiveAccounts/GetVerifiedStatus"
+      @caller =  PayPalSDKCallers::Caller.new(false)
+      req={
+          "requestEnvelope.errorLanguage" => "en_US",
+          "clientDetails.ipAddress"=>@@clientDetails["ipAddress"],
+          "clientDetails.deviceId" =>@@clientDetails["deviceId"],
+          "clientDetails.applicationId" => @@clientDetails["applicationId"],
+          "emailAddress"=>params[:paypal_email],
+          "matchCriteria" =>"NAME",
+          "firstName" =>params[:paypal_first_name],
+          "lastName"=>params[:paypal_last_name]
+      }
+      #Make the call to PayPal to get verified status on behalf of the caller If an error occured, show the resulting errors
+      @transaction = @caller.call(req)
+
+      if (@transaction.success?)
+        session[:verifiedStatus_response]=@transaction.response
+        render :json => session[:verifiedStatus_response]
+      else
+        session[:paypal_error]=@transaction.response
+        render :json => session[:paypal_error]
+      end
+    else
+      @billing_profile = @user.default_billing_profile || @user.build_default_billing_profile
+      @billing_profile.update_attributes(params[:default_billing_profile])
+      redirect_to billing_profile_user_path(@user), :notice => "Billing profile updated"
+    end
   end
 
   def terms_of_use

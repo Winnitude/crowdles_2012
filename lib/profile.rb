@@ -20,7 +20,7 @@ module PayPalSDKProfiles
 #    To generate a Sandbox API Certificate, follow these steps: https://www.paypal.com/IntegrationCenter/ic_certificate.html
 ###############################################################################################################################
 # specify the 3-token values.    
-    @@headers = {"X-PAYPAL-SERVICE-VERSION" => "1.0.0","X-PAYPAL-SECURITY-USERID" => "platfo_1255077030_biz_api1.gmail.com","X-PAYPAL-SECURITY-PASSWORD" =>"1255077037", "X-PAYPAL-SECURITY-SIGNATURE" => "Abg0gYcQyxQvnf2HDJkKtA-p6pqhA1k-KTYE0Gcy1diujFio4io5Vqjf", "X-PAYPAL-APPLICATION-ID" => "APP-80W284485P519543T","X-PAYPAL-DEVICE-IPADDRESS"=>"127.0.0.1" , "X-PAYPAL-REQUEST-DATA-FORMAT" => "NV" , "X-PAYPAL-RESPONSE-DATA-FORMAT" => "NV"}
+    @@headers = {"X-PAYPAL-SERVICE-VERSION" => "1.0.0","X-PAYPAL-SECURITY-USERID" => "kunalb_1349859695_biz_api1.weboniselab.com","X-PAYPAL-SECURITY-PASSWORD" =>"1349859720", "X-PAYPAL-SECURITY-SIGNATURE" => "Alv3ieOQ3EKFTNXoSJBXUxe3zdSVA83NGAOJqg0Mmq0AQuBwz7--O92s", "X-PAYPAL-APPLICATION-ID" => "APP-80W284485P519543T","X-PAYPAL-DEVICE-IPADDRESS"=>"127.0.0.1" , "X-PAYPAL-REQUEST-DATA-FORMAT" => "NV" , "X-PAYPAL-RESPONSE-DATA-FORMAT" => "NV"}
 
 
 
