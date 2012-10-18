@@ -234,3 +234,107 @@ clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevic
 
 Thu 10/18/12 12:25 IST- RECEIVED:
 responseEnvelope.timestamp=2012-10-17T23:55:13.279-07:00&responseEnvelope.ack=Success&responseEnvelope.correlationId=e941e1ff783ad&responseEnvelope.build=3861757&accountStatus=VERIFIED&userInfo.emailAddress=kunalb_1349863233_per@weboniselab.com&userInfo.accountType=PERSONAL&userInfo.accountId=K5G68WXBQTQLC&userInfo.name.salutation=&userInfo.name.firstName=Kunal&userInfo.name.middleName=&userInfo.name.lastName=Bhatia&userInfo.name.suffix=&userInfo.businessName=
+
+
+Thu 10/18/12 12:27 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=kunalb_1349863233_per@weboniselab.com&firstName=kunal&lastName=bhatiaku&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Thu 10/18/12 12:27 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-17T23:57:39.386-07:00&responseEnvelope.ack=Failure&responseEnvelope.correlationId=af1c77e09c78d&responseEnvelope.build=3861757&error(0).errorId=580023&error(0).domain=PLATFORM&error(0).subdomain=Application&error(0).severity=Error&error(0).category=Application&error(0).message=Cannot determine PayPal Account status
+
+
+Thu 10/18/12 12:37 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=bhatia&firstName=kunalb_1349863233_per@weboniselab.com&lastName=kunal&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Thu 10/18/12 12:38 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-18T00:08:03.589-07:00&responseEnvelope.ack=Failure&responseEnvelope.correlationId=fa18bba234fbc&responseEnvelope.build=3861757&error(0).errorId=580022&error(0).domain=PLATFORM&error(0).subdomain=Application&error(0).severity=Error&error(0).category=Application&error(0).message=Invalid request parameter: emailAddress&error(0).parameter(0)=emailAddress
+
+
+Thu 10/18/12 12:38 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=kunalb_1349863233_per@weboniselab.com&firstName=kunal&lastName=bhatia&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Thu 10/18/12 12:39 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-18T00:09:02.366-07:00&responseEnvelope.ack=Success&responseEnvelope.correlationId=ed5e396242d33&responseEnvelope.build=3861757&accountStatus=VERIFIED&userInfo.emailAddress=kunalb_1349863233_per@weboniselab.com&userInfo.accountType=PERSONAL&userInfo.accountId=K5G68WXBQTQLC&userInfo.name.salutation=&userInfo.name.firstName=Kunal&userInfo.name.middleName=&userInfo.name.lastName=Bhatia&userInfo.name.suffix=&userInfo.businessName=
+
+
+Thu 10/18/12 12:45 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=kunalb_1349863233_per@weboniselab.com&firstName=kunal&lastName=bhatia&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Thu 10/18/12 12:46 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-18T00:16:03.975-07:00&responseEnvelope.ack=Success&responseEnvelope.correlationId=74843476a9c7a&responseEnvelope.build=3861757&accountStatus=VERIFIED&userInfo.emailAddress=kunalb_1349863233_per@weboniselab.com&userInfo.accountType=PERSONAL&userInfo.accountId=K5G68WXBQTQLC&userInfo.name.salutation=&userInfo.name.firstName=Kunal&userInfo.name.middleName=&userInfo.name.lastName=Bhatia&userInfo.name.suffix=&userInfo.businessName=
+
+
+Thu 10/18/12 12:49 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=kunalb_1349863233_per@weboniselab.com&firstName=kunal&lastName=bhatia&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Thu 10/18/12 12:49 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-18T00:19:58.825-07:00&responseEnvelope.ack=Success&responseEnvelope.correlationId=d73310a6e36d4&responseEnvelope.build=3861757&accountStatus=VERIFIED&userInfo.emailAddress=kunalb_1349863233_per@weboniselab.com&userInfo.accountType=PERSONAL&userInfo.accountId=K5G68WXBQTQLC&userInfo.name.salutation=&userInfo.name.firstName=Kunal&userInfo.name.middleName=&userInfo.name.lastName=Bhatia&userInfo.name.suffix=&userInfo.businessName=
+
+
+Thu 10/18/12 13:01 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=kunalb_1350452006_per@weboniselab.com&firstName=kunnu&lastName=bhatia&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Thu 10/18/12 13:01 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-18T00:31:44.230-07:00&responseEnvelope.ack=Success&responseEnvelope.correlationId=2cbf7e9d8f43c&responseEnvelope.build=3861757&accountStatus=UNVERIFIED&userInfo.emailAddress=kunalb_1350452006_per@weboniselab.com&userInfo.accountType=PERSONAL&userInfo.accountId=678F7SDTD9EA8&userInfo.name.salutation=&userInfo.name.firstName=kunnu&userInfo.name.middleName=&userInfo.name.lastName=bhatia&userInfo.name.suffix=&userInfo.businessName=
+
+
+Thu 10/18/12 13:06 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=rgr&firstName=rgr&lastName=rg&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Thu 10/18/12 13:06 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-18T00:36:46.685-07:00&responseEnvelope.ack=Failure&responseEnvelope.correlationId=3da74f0ed9286&responseEnvelope.build=3861757&error(0).errorId=580022&error(0).domain=PLATFORM&error(0).subdomain=Application&error(0).severity=Error&error(0).category=Application&error(0).message=Invalid request parameter: emailAddress&error(0).parameter(0)=emailAddress
+
+
+Thu 10/18/12 13:09 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=efefef&firstName=efef&lastName=efe&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Thu 10/18/12 13:09 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-18T00:39:19.100-07:00&responseEnvelope.ack=Failure&responseEnvelope.correlationId=d2cd2289fe178&responseEnvelope.build=3861757&error(0).errorId=580022&error(0).domain=PLATFORM&error(0).subdomain=Application&error(0).severity=Error&error(0).category=Application&error(0).message=Invalid request parameter: emailAddress&error(0).parameter(0)=emailAddress
+
+
+Thu 10/18/12 13:10 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=ecec&firstName=ce&lastName=ec&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Thu 10/18/12 13:10 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-18T00:40:20.127-07:00&responseEnvelope.ack=Failure&responseEnvelope.correlationId=02ffea4c0d5e5&responseEnvelope.build=3861757&error(0).errorId=580022&error(0).domain=PLATFORM&error(0).subdomain=Application&error(0).severity=Error&error(0).category=Application&error(0).message=Invalid request parameter: emailAddress&error(0).parameter(0)=emailAddress
+
+
+Thu 10/18/12 13:12 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=kunalb_1350452006_per@weboniselab.com&firstName=kunnu&lastName=bhatia&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Thu 10/18/12 13:12 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-18T00:42:42.878-07:00&responseEnvelope.ack=Success&responseEnvelope.correlationId=c158614330688&responseEnvelope.build=3861757&accountStatus=UNVERIFIED&userInfo.emailAddress=kunalb_1350452006_per@weboniselab.com&userInfo.accountType=PERSONAL&userInfo.accountId=678F7SDTD9EA8&userInfo.name.salutation=&userInfo.name.firstName=kunnu&userInfo.name.middleName=&userInfo.name.lastName=bhatia&userInfo.name.suffix=&userInfo.businessName=
+
+
+Thu 10/18/12 13:13 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=kunalb_1350452006_per@weboniselab.com&firstName=kunnu&lastName=bhatia&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Thu 10/18/12 13:13 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-18T00:43:31.973-07:00&responseEnvelope.ack=Success&responseEnvelope.correlationId=624f512c3c3e2&responseEnvelope.build=3861757&accountStatus=UNVERIFIED&userInfo.emailAddress=kunalb_1350452006_per@weboniselab.com&userInfo.accountType=PERSONAL&userInfo.accountId=678F7SDTD9EA8&userInfo.name.salutation=&userInfo.name.firstName=kunnu&userInfo.name.middleName=&userInfo.name.lastName=bhatia&userInfo.name.suffix=&userInfo.businessName=
+
+
+Thu 10/18/12 13:17 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=kunalb_1350452006_per@weboniselab.com&firstName=kunnu&lastName=bhatia&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Thu 10/18/12 13:17 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-18T00:47:47.517-07:00&responseEnvelope.ack=Success&responseEnvelope.correlationId=02402d3a7a300&responseEnvelope.build=3861757&accountStatus=UNVERIFIED&userInfo.emailAddress=kunalb_1350452006_per@weboniselab.com&userInfo.accountType=PERSONAL&userInfo.accountId=678F7SDTD9EA8&userInfo.name.salutation=&userInfo.name.firstName=kunnu&userInfo.name.middleName=&userInfo.name.lastName=bhatia&userInfo.name.suffix=&userInfo.businessName=
+
+
+Thu 10/18/12 13:18 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=wdwd&firstName=dwd&lastName=wdwd&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Thu 10/18/12 13:18 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-18T00:48:41.675-07:00&responseEnvelope.ack=Failure&responseEnvelope.correlationId=f0026bee87bcc&responseEnvelope.build=3861757&error(0).errorId=580022&error(0).domain=PLATFORM&error(0).subdomain=Application&error(0).severity=Error&error(0).category=Application&error(0).message=Invalid request parameter: emailAddress&error(0).parameter(0)=emailAddress

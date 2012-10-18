@@ -96,13 +96,12 @@ class UsersController < ApplicationController
       }
       #Make the call to PayPal to get verified status on behalf of the caller If an error occured, show the resulting errors
       @transaction = @caller.call(req)
-
-      if (@transaction.success?)
+      if (@transaction.response["responseEnvelope.ack"].first =="Success")
         session[:verifiedStatus_response]=@transaction.response
-        render :json => session[:verifiedStatus_response]
+        redirect_to details_adaptive_payments_path
       else
         session[:paypal_error]=@transaction.response
-        render :json => session[:paypal_error]
+        redirect_to  error_adaptive_payments_path
       end
     else
       @billing_profile = @user.default_billing_profile || @user.build_default_billing_profile

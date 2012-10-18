@@ -189,6 +189,8 @@ Winnitude::Application.routes.draw do
     collection do
       get 'getStatus'
       post 'verified_status'
+      get "details"
+      get "error"
     end
   end
 

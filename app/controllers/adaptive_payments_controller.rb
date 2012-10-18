@@ -35,4 +35,13 @@ class AdaptivePaymentsController < ApplicationController
   rescue Errno::ENOENT => exception
     flash[:error] = exception
   end
+
+  def details
+    @response = session[:verifiedStatus_response]
+  end
+
+  def error
+    @response = session[:paypal_error]
+  end
+
 end

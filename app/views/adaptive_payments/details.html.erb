@@ -1,0 +1,25 @@
+
+<body>
+<div id="jive-wrapper">
+  <div id="jive-header">
+
+  </div><h1>&nbsp;</h1>
+</div>
+
+
+<div id="request_form">
+  <h3><b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Account Verified Status</b></h3>
+  <table  align="center">
+    <tr>
+      <td><%="Account Status: #{@response["accountStatus"].first }" %></td>
+      <td><%="Account Email : #{@response["userInfo.emailAddress"].first}" %></td>
+      <td><%="Account First Name: #{@response["userInfo.name.firstName"].first}" %></td>
+      <td><%="Account Last Name: #{@response["userInfo.name.lastName"].first}" %></td>
+      <td><%="Account ID: #{@response["userInfo.accountId"].first}" %></td>
+    </tr>
+
+  </table>
+  <%=link_to "Back" , billing_profile_user_path(current_user),:class => "btn"%>
+</div>
+</body>
+</html>
