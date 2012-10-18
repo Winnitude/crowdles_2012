@@ -1,10 +1,8 @@
+
 <h1>Edit Country Details</h1>
 <%=form_for @country , :url=> country_path(@country.id),:html => {:class => "form form-horizontal"} do |f| %>
 
     <div class="span9">
-
-
-
 
 
       <div class="control-group">
@@ -66,8 +64,9 @@
 
 
       <div class="form-actions">
-        <button type="submit" class="btn btn-primary">Edit</button>
-
+        <button type="submit" class="btn">Save</button>
+        <%=link_to "Cancel", edit_country_path(@country), :class => "btn"%>
+        <%=link_to "Close", countries_path, :class => "btn"%>
       </div>
     </div>
 
@@ -78,10 +77,10 @@
 
         jQuery(function(){
 
-            var facebook =   new LiveValidation("ga_general_setting_ga_facebook",{validMessage:" ",onlyOnSubmit:true});
-            facebook.add( Validate.Format , { pattern: /^(ht|f)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/, failureMessage: "Must be a valid URL" });
-            var twitter =   new LiveValidation("ga_general_setting_ga_twitter",{validMessage:" ",onlyOnSubmit:true});
-            twitter.add( Validate.Format , { pattern: /^(ht|f)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/, failureMessage: "Must be a valid URL" });
+//            var facebook =   new LiveValidation("ga_general_setting_ga_facebook",{validMessage:" ",onlyOnSubmit:true});
+//            facebook.add( Validate.Format , { pattern: /^(ht|f)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/, failureMessage: "Must be a valid URL" });
+//            var twitter =   new LiveValidation("ga_general_setting_ga_twitter",{validMessage:" ",onlyOnSubmit:true});
+//            twitter.add( Validate.Format , { pattern: /^(ht|f)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/, failureMessage: "Must be a valid URL" });
 
         });
     </script>

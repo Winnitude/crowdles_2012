@@ -13,20 +13,20 @@
             </div>
           </div>
           <div class="control-group">
-            <label class="control-label">Country</label>
+            <label class="control-label">Country<span style="color:red">* </span></label>
             <div class="controls">
               <%= f.select :country ,options_for_select(@countries,@user.country) %>
             </div>
           </div>
 
           <div class="control-group">
-            <label class="control-label">Language</label>
+            <label class="control-label">Language<span style="color:red">* </span></label>
             <div class="controls">
               <%= f.select :language ,options_for_select(@languages,@user.language) %>
             </div>
           </div>
           <div class="control-group">
-            <label class="control-label">newsLetter</label>
+            <label class="control-label">newsLetter<span style="color:red">* </span></label>
             <div class="controls">
               <%=p.check_box("news_letter_flag") %>
             </div>
@@ -90,8 +90,9 @@
           </div>
 
           <div class="form-actions">
-            <button type="submit" class="btn btn-primary">Edit</button>
-            <%=link_to "cancel" , "/" ,:class=>"btn btn-primary" %>
+            <button type="submit" class="btn">Save</button>
+            <%=link_to "Cancel", settings_user_path(@user), :class => "btn"%>
+            <%=link_to "Close", root_path, :class => "btn"%>
           </div>
         </div>
 
@@ -104,10 +105,11 @@
 
         jQuery(function(){
             $('#user_user_profile_birth_date').datepicker({autoclose :true} )
-            var state =   new LiveValidation("user_user_contact_state",{validMessage:" ",onlyOnSubmit:true});
-            state.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
-            var city =   new LiveValidation("user_user_contact_city",{validMessage:" ",onlyOnSubmit:true});
-            city.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+
+            var fname =   new LiveValidation("user_user_profile_first_name",{validMessage:" ",onlyOnSubmit:true});
+            var lname =   new LiveValidation("user_user_profile_last_name",{validMessage:" ",onlyOnSubmit:true});
+            fname.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            lname.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
         });
     </script>
 <% end %>

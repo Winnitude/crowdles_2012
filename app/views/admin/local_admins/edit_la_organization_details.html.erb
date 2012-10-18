@@ -107,8 +107,9 @@
               </div>
 
               <div class="form-actions">
-                <button type="submit" class="btn btn-primary">Update</button>
-                <button type="button" class="btn">Cancel</button>
+                <button type="submit" class="btn">Save</button>
+                <%=link_to "Cancel", edit_la_organization_details_local_admin_path(@local_admin), :class => "btn"%>
+                <%=link_to "Close", local_admins_path, :class => "btn"%>
               </div>
             </div>
 
@@ -132,6 +133,11 @@
             state.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
             var city =   new LiveValidation("platform_local_admin_la_profile_city",{validMessage:" ",onlyOnSubmit:true});
             city.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            var owner_fname =   new LiveValidation("platform_local_admin_la_profile_first_name",{validMessage:" ",onlyOnSubmit:true});
+            owner_fname.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            var owner_lname =   new LiveValidation("platform_local_admin_la_profile_last_name",{validMessage:" ",onlyOnSubmit:true});
+            owner_lname.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+
 
 
         });

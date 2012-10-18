@@ -21,19 +21,6 @@
     <script type="text/javascript">
 
         jQuery(function(){
-
-            var web =   new LiveValidation("user_user_link_web",{validMessage:" ",onlyOnSubmit:true});
-            web.add( Validate.Format , { pattern: /^(ht|f)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/, failureMessage: "Must be a valid URL" });
-            var video =   new LiveValidation("user_user_profile_video",{validMessage:" ",onlyOnSubmit:true});
-            video.add( Validate.Format , { pattern: /^(ht|f)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/, failureMessage: "Must be a valid URL" });
-            var twitter =   new LiveValidation("user_user_link_social_twitter",{validMessage:" ",onlyOnSubmit:true});
-            twitter.add( Validate.Format , { pattern: /^(ht|f)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/, failureMessage: "Must be a valid URL" });
-            var blog =   new LiveValidation("user_user_link_blog",{validMessage:" ",onlyOnSubmit:true});
-            blog.add( Validate.Format , { pattern: /^(ht|f)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/, failureMessage: "Must be a valid URL" });
-            var linkedin =   new LiveValidation("user_user_link_social_linkedin",{validMessage:" ",onlyOnSubmit:true});
-            linkedin.add( Validate.Format , { pattern: /^(ht|f)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/, failureMessage: "Must be a valid URL" });
-            var myspace =   new LiveValidation("user_user_link_social_myspace",{validMessage:" ",onlyOnSubmit:true});
-            myspace.add( Validate.Format , { pattern: /^(ht|f)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/, failureMessage: "Must be a valid URL" });
         });
     </script>
 <% end %>

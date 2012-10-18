@@ -117,8 +117,9 @@
         </div>
       </div>
       <div class="form-actions">
-        <button type="submit" class="btn btn-primary">Save</button>
-        <button type="button" class="btn">Cancel</button>
+        <button type="submit" class="btn">Save</button>
+        <%=link_to "Cancel", billing_profile_user_path(@user), :class => "btn"%>
+        <%=link_to "Close", root_path, :class => "btn"%>
       </div>
   <%end%>
 </div>
