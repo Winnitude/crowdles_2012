@@ -338,3 +338,43 @@ clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevic
 
 Thu 10/18/12 13:18 IST- RECEIVED:
 responseEnvelope.timestamp=2012-10-18T00:48:41.675-07:00&responseEnvelope.ack=Failure&responseEnvelope.correlationId=f0026bee87bcc&responseEnvelope.build=3861757&error(0).errorId=580022&error(0).domain=PLATFORM&error(0).subdomain=Application&error(0).severity=Error&error(0).category=Application&error(0).message=Invalid request parameter: emailAddress&error(0).parameter(0)=emailAddress
+
+
+Thu 10/18/12 14:32 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=wdwd&firstName=dwd&lastName=wdwd&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Thu 10/18/12 14:33 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-18T02:03:02.506-07:00&responseEnvelope.ack=Failure&responseEnvelope.correlationId=d3c2defac8a5e&responseEnvelope.build=3861757&error(0).errorId=580022&error(0).domain=PLATFORM&error(0).subdomain=Application&error(0).severity=Error&error(0).category=Application&error(0).message=Invalid request parameter: emailAddress&error(0).parameter(0)=emailAddress
+
+
+Thu 10/18/12 14:33 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=kunalb_134963233_per@weboniselab.com&firstName=dwd&lastName=wdwd&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Thu 10/18/12 14:33 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-18T02:03:21.883-07:00&responseEnvelope.ack=Failure&responseEnvelope.correlationId=c84f0594cdf3f&responseEnvelope.build=3861757&error(0).errorId=580023&error(0).domain=PLATFORM&error(0).subdomain=Application&error(0).severity=Error&error(0).category=Application&error(0).message=Cannot determine PayPal Account status
+
+
+Thu 10/18/12 14:33 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=kunalb_134963233_per@weboniselab.com&firstName=Kunal&lastName=Bhatia&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Thu 10/18/12 14:33 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-18T02:03:40.727-07:00&responseEnvelope.ack=Failure&responseEnvelope.correlationId=0ed14600d20ba&responseEnvelope.build=3861757&error(0).errorId=580023&error(0).domain=PLATFORM&error(0).subdomain=Application&error(0).severity=Error&error(0).category=Application&error(0).message=Cannot determine PayPal Account status
+
+
+Thu 10/18/12 14:33 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=kunalb_134963233_per@weboniselab.com&firstName=Kunnu&lastName=Bhatia&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Thu 10/18/12 14:33 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-18T02:03:52.024-07:00&responseEnvelope.ack=Failure&responseEnvelope.correlationId=b318f002d4b76&responseEnvelope.build=3861757&error(0).errorId=580023&error(0).domain=PLATFORM&error(0).subdomain=Application&error(0).severity=Error&error(0).category=Application&error(0).message=Cannot determine PayPal Account status
+
+
+Thu 10/18/12 14:34 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=kunalb_134963233_per@weboniselab.com&firstName=kunnu&lastName=bhatia&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Thu 10/18/12 14:34 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-18T02:04:09.169-07:00&responseEnvelope.ack=Failure&responseEnvelope.correlationId=27d065bdd9193&responseEnvelope.build=3861757&error(0).errorId=580023&error(0).domain=PLATFORM&error(0).subdomain=Application&error(0).severity=Error&error(0).category=Application&error(0).message=Cannot determine PayPal Account status
