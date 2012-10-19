@@ -165,6 +165,8 @@
             factor.add( Validate.Numericality ,{ onlyInteger: false },{failureMessage:"Should be Integer"});
             var la_home= new LiveValidation('platform_local_admin_la_general_setting_la_platform_home',{validMessage:" ",onlyOnSubmit:true});
             la_home.add( Validate.Presence,{failureMessage:" Can't be empty"} );
+            var la_name =   new LiveValidation("platform_local_admin_la_general_setting_local_admin_name",{validMessage:" ",onlyOnSubmit:true});
+            la_name.add( Validate.Presence,{failureMessage:" Can't be empty"} );
 
         });
     </script>
