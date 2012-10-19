@@ -150,12 +150,14 @@ class Admin::GlobalAdminsController < ApplicationController
     if params[:status] != "All"
       @users = @users.select{|i| i.status.downcase == params[:status].downcase}
     end
-    #if params[:registration_date] != ""
-    #  @users = @users.select{|i| i.confirmed_at.to_date == params[:registration_date].to_date rescue nil}
-    #end
-    #if params[:last_access] != ""
-    #  @users = @users.select{|i| i.confirmed_at.to_date == params[:last_access].to_date rescue nil}
-    #end
+    if params[:registration_date] != ""
+      params[:registration_date] = format_date(params[:registration_date])
+      @users = @users.select{|i| i.confirmed_at.to_date == params[:registration_date].to_date rescue nil}
+    end
+    if params[:last_access] != ""
+      params[:last_access] = format_date(params[:last_access])
+      @users = @users.select{|i| i.last_sign_in_at.to_date == params[:last_access].to_date rescue nil}
+    end
     if params[:gender] != "All"
       @users = @users.select{|i| i.user_profile.gender == params[:gender] rescue nil}
     end
