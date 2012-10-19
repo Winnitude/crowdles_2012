@@ -41,7 +41,7 @@
               <td><%= profile.last_name rescue nil%></td>
               <td><%= profile.first_name rescue nil%></td>
               <td><%= user.email%></td>
-              <td><%= profile.gender  rescue nil%></td>
+              <td><%= profile.gender.downcase  rescue nil%></td>
               <td><%= user.country %></td>
               <td><%= user.language %></td>
               <td><%= %></td>

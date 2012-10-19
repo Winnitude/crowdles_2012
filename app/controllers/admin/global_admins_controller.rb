@@ -159,7 +159,7 @@ class Admin::GlobalAdminsController < ApplicationController
       @users = @users.select{|i| i.last_sign_in_at.to_date == params[:last_access].to_date rescue nil}
     end
     if params[:gender] != "All"
-      @users = @users.select{|i| i.user_profile.gender == params[:gender] rescue nil}
+      @users = @users.select{|i| i.user_profile.gender.downcase == params[:gender].downcase rescue nil}
     end
     if params[:first_name] != ""
       @users = @users.select{|i| i.user_profile.first_name.downcase == params[:first_name].downcase rescue nil}
