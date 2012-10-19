@@ -45,7 +45,7 @@
     </div>
 
     <div class="control-group">
-      <label class="control-label" for="input01">Default<span style="color:red"> </span></label>
+      <label class="control-label" for="input01">Default<span style="color:red">* </span></label>
       <div class="controls">
         <%= radio_button_tag :default, true,:checked => true,:class=>"input"%>  true   </div>
       <div class="controls"> <%=radio_button_tag :default,false,:class=>"input"%> False </div>
@@ -71,7 +71,7 @@
       </div>
     </div>
     <div class="control-group">
-      <label class="control-label" for="input01">Annual Price <span style="color:red"> *</span></label>
+      <label class="control-label" for="input01">Annual Price <span style="color:red"> </span></label>
       <div class="controls">
         <%=f.text_field :product_annual_price,:class=>"input"%>
         <!--<input type="text" class="input-xlarge" id="input01">-->
@@ -133,7 +133,7 @@
     </div>
 
     <div class="control-group">
-      <label class="control-label" for="input01">BG Private Allowed:<span style="color:red"> </span>*</label>
+      <label class="control-label" for="input01">BG Private Allowed:<span style="color:red">* </span></label>
       <div class="controls">
         <%= f.radio_button :bg_private, true,:checked => true,:class=>"input"%>  True   </div>
       <div class="controls"> <%=f.radio_button :bg_private, false,:class=>"input"%> false  </div>
@@ -193,7 +193,7 @@
     </div>
 
     <div class="control-group">
-      <label class="control-label" for="input01">Status<span style="color:red"> </span></label>
+      <label class="control-label" for="input01">Status<span style="color:red">* </span></label>
       <div class="controls">
         <%= f.radio_button :status, "published",:checked => true,:class=>"input"%>  Publish   </div>
       <div class="controls"> <%=f.radio_button :status,"unpublished",:class=>"input"%> Unpublished  </div>
@@ -202,9 +202,9 @@
     </div>
 
     <div class="form-actions">
-      <%= f.submit :class =>"btn btn-primary"  %>
-      <%=link_to "Cancel", products_path , :class => "btn"%>
-      <!--<input type="text" class="input-xlarge"  id="input01">-->
+      <button type="submit" class="btn">Save</button>
+      <%=link_to "Cancel",new_product_path , :class => "btn"%>
+      <%=link_to "Close", products_path, :class => "btn"%>
     </div>
 <% end %>
 
