@@ -1,11 +1,14 @@
 <div class="container main">
   <div class="row">
 
-<%= form_tag set_platform_global_admins_path, :class =>"form-horizontal" do %>
 
 
-        <div class="span9">
-          <h3 class="heading margin0">Platform Setup Settings</h3>
+
+
+
+
+          <h2 class="heading margin0 mainHeading">Platform Setup Settings</h2>
+          <%= form_tag set_platform_global_admins_path, :class =>"form-horizontal" do %>
           <div class="control-group">
             <label class="control-label">Platform Name<span style="color:red">* </span></label>
             <div class="controls">
@@ -59,7 +62,6 @@
           <div class="form-actions">
             <button type="submit" class="btn btn-primary">Create Platform</button>
           </div>
-        </div>
         </div>
         </div>
     <%end%>
