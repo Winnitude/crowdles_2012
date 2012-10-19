@@ -85,21 +85,23 @@
                     <!--<input type="text" class="input-xlarge" id="input01">-->
                     <p class="help-block"></p>
                   </div>
+                  <div id="deviation">
+                    <div class="control-group">
+                      <label class="control-label" for="input01">Target Administration:</label>
+                      <div class="controls">
+                        <%= select_tag :local_admin ,options_for_select(@local_admins),:prompt => "Select Local Admin",:class=>"input"%>  </div>
 
-                  <div class="control-group">
-                    <label class="control-label" for="input01">Target Administration:</label>
-                    <div class="controls">
-                      <%= select_tag :local_admin ,options_for_select(@local_admins),:prompt => "Select Local Admin",:class=>"input"%>  </div>
+                      <div class="controls"><%= select_tag :Worker ,options_for_select([]),:prompt => "Select Worker",:class=>"input"%>  </div>
+                      <!--<input type="text" class="input-xlarge" id="input01">-->
+                      <p class="help-block"></p>
+                    </div>
 
-                    <div class="controls"><%= select_tag :Worker ,options_for_select([]),:prompt => "Select Worker",:class=>"input"%>  </div>
-                    <!--<input type="text" class="input-xlarge" id="input01">-->
-                    <p class="help-block"></p>
-                  </div>
 
-                  <div class="control-group">
-                    <label class="control-label">Deviation Comment</label>
-                    <div class="controls">
-                      <%=f.text_area :master_worker_deviation_comment, :rows => 5%>
+                    <div class="control-group">
+                      <label class="control-label">Deviation Comment</label>
+                      <div class="controls">
+                        <%=f.text_area :master_worker_deviation_comment, :rows => 5%>
+                      </div>
                     </div>
                   </div>
 
@@ -137,6 +139,18 @@
     <script type="text/javascript">
 
         jQuery(function(){
+//            $('#target').hide();
+//            $('.platform_local_admin_la_general_setting_master_administration_deviation_true').click(function() {
+//                alert('hello');
+//            });
+            $("#deviation").hide()
+            $("#platform_local_admin_la_general_setting_master_administration_deviation_true").click(function(event){
+                $("#deviation").show()
+            });
+
+            $("#platform_local_admin_la_general_setting_master_administration_deviation_false").click(function(event){
+                $("#deviation").hide()
+            });
 
             var facebook =   new LiveValidation("platform_local_admin_la_general_setting_la_facebook",{validMessage:" ",onlyOnSubmit:true});
             facebook.add( Validate.Format , { pattern: /^(ht|f)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/, failureMessage: "Must be a valid URL" });

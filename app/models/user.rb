@@ -227,8 +227,6 @@ class User
     self.update_attributes(:facebook_id => data.id, :is_provider => true)
     @profile.update_fb_details access_token
   end
-
-
 end
 
 

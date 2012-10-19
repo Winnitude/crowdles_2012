@@ -64,7 +64,7 @@
           <div class="control-group">
             <label class="control-label">Birth Date</label>
             <div class="controls">
-              <%= p.text_field :birth_date %>
+              <%= p.text_field :birth_date ,:value =>reformat_date(@profile.birth_date) rescue nil %>
             </div>
           </div>
 
@@ -104,7 +104,10 @@
     <script type="text/javascript">
 
         jQuery(function(){
-            $('#user_user_profile_birth_date').datepicker({autoclose :true} )
+            $('#user_user_profile_birth_date').datepicker({autoclose :true,
+               format: 'dd-mm-yyyy'} )
+            $('#user_user_profile_birth_date').datepicker('setStartDate', '1970-12-31');
+//            $('#user_user_profile_birth_date').datepicker('setEndDate', '2012-12-31');
 
             var fname =   new LiveValidation("user_user_profile_first_name",{validMessage:" ",onlyOnSubmit:true});
             var lname =   new LiveValidation("user_user_profile_last_name",{validMessage:" ",onlyOnSubmit:true});

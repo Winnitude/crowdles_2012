@@ -39,7 +39,7 @@
 <div class="container">
   <div class="content">
     <div class="row">
-      <div class="span12">
+
         <div id="user_nav">
           <% [:notice, :error, :alert].each do |level| %>
               <% unless flash[level].blank? %>
@@ -50,8 +50,9 @@
               <% end %>
           <% end %>
         </div>
+
         <%= yield %>
-      </div>
+
 <!--/span-->
     </div><!--/row-->
   </div><!--/content-->

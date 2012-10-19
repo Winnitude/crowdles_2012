@@ -26,6 +26,8 @@ class RegistrationsController <  Devise::RegistrationsController
     if @user.save
       logger.info "++++++++++++++++++++++++++++++++++++++++++++++++++#{@user.inspect}"
       redirect_to login_path , :notice => "'A message with a confirmation link has been sent to your email address. Please open the link to activate your account.'"
+    else
+       redirect_to new_user_registration_path , :notice => "Enter Valid Email"
     end
 
   end
