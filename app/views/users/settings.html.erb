@@ -65,7 +65,7 @@
           <div class="control-group">
             <label class="control-label">Birth Date</label>
             <div class="controls">
-              <%= p.text_field :birth_date ,:value =>reformat_date(@profile.birth_date) rescue nil %>
+              <%= p.text_field :birth_date ,:value =>@profile.birth_date.present? ? reformat_date(@profile.birth_date): "" %>
             </div>
           </div>
 

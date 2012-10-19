@@ -44,6 +44,15 @@
       </table>
       <%= will_paginate @local_admins %>
   <%end%>
+  <%= content_for :head do  %>
+      <script type="text/javascript">
 
+              $(this).next("div.menu_body").slideDown();
+
+          jQuery(function(){
+//
+          });
+      </script>
+  <% end %>
 
 </div>

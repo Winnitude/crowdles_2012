@@ -6,8 +6,8 @@
  * To change this template use File | Settings | File Templates.
  */
 jQuery(document).ready(function(e){
-    $(".localAdminEditPannel ,div.menu_body").hide();
-    $(".firstpane p.menu_head").click(function()
+//    $(".localAdminEditPannel ,div.menu_body").hide();
+    $(".firstpane a.menu_head").click(function()
     {
 
         $(this).next("div.menu_body").slideToggle(300).siblings("div.menu_body").slideUp("");
@@ -19,4 +19,5 @@ jQuery(document).ready(function(e){
         $(this).next(".localAdminEditPannel").slideToggle("slow").siblings(".localAdminEditPannel").slideUp();
         $("div.menu_body").slideUp();
     });
+
 });

@@ -1,58 +1,53 @@
-<div class="span3">
-  <ul class="nav nav-list">
-
-    <li><a href="#" ><i class="icon-chevron-right"></i> Platform Setting</a>
-      <ul>
-        <li><a href=<%="#{edit_ga_general_settings_global_admins_path}"%>>General Setting</a></li>
-        <li><a href=<%="#{edit_ga_links_global_admins_path}"%>>Links</a></li>
-        <li><a href="#">Integrations</a></li>
-        <li><a href=<%="#{countries_path}"%>>Countries</a></li>
-        <li><a href=<%="#{languages_path}"%>>Languages</a></li>
-        <li><a href=<%="#{currencies_path}"%>>Currencies</a></li>
-        <li><a href="#">Billing Profiles</a>
-          <ul>
-            <li><a href=<%="#{edit_ga_default_billing_profile_global_admins_path}"%>>Default Billing Profile</a></li>
-            <li><a href=<%="#{edit_ga_paas_billing_profile_global_admins_path}"%>>PaaS Billing Profile</a></li>
-          </ul>
-        </li>
-        <li><a href="#">PaaS</a>
-          <ul>
-            <li><a href=<%="#{products_path}"%>>Products</a></li>
-            <li><a href=<%="#{edit_platform_terms_global_admins_path}"%>>Terms and Conditions</a></li>
-          </ul>
-        </li>
-        <li><a href="#">Projects</a>
-          <ul>
-            <li><a href=<%="#{edit_ga_projects_commissions_global_admins_path}"%>>Commissions</a></li>
-            <li><a href=<%="#{edit_ga_projects_settings_global_admins_path}"%>>Arena</a></li>
-            <li><a href="#">Categories</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li ><a href=<%="#{local_admins_path}"%> ><i class="icon-chevron-right"></i>LocalAdmin Management</a>
-
+<div class="span3 pannelBorder pull-left" xmlns="http://www.w3.org/1999/html">
+  <div class="side_pannel_header">Platform Setting</div>
+  <div class="localAdminEditPannel">
+    <div class="menu_list firstpane">
+      <a class="menu_head" href=<%="#{edit_ga_general_settings_global_admins_path}"%>>General Setting</a>
+      <%= link_to "Links", edit_ga_links_global_admins_path ,:class => "menu_head"  %>
+      <%= link_to "Integrations", "#" ,:class => "menu_head"  %>
+      <%= link_to "Countries", countries_path ,:class => "menu_head"  %>
+      <%= link_to "Languages", languages_path ,:class => "menu_head"  %>
+      <%= link_to "Currencies", currencies_path ,:class => "menu_head"  %>
+      <a href="#" class="menu_head">Billing Profiles</a>
+      <div class="menu_body">
+        <%= link_to "Default Billing Profile", edit_ga_default_billing_profile_global_admins_path ,:class => "menu_head"  %>
+        <%= link_to "PaaS Billing Profile", edit_ga_paas_billing_profile_global_admins_path ,:class => "menu_head"  %>
+      </div>
+      <a href="#" class="menu_head">PaaS</a>
+      <div class="menu_body">
+        <a class="menu_head" href=<%="#{products_path}"%>>Products</a>
+        <%= link_to "Terms and Conditions", edit_platform_terms_global_admins_path ,:class => "menu_head"  %>
+      </div>
+      <a href="#" class="menu_head">Projects</a>
+      <div class="menu_body">
+        <a href=<%="#{edit_ga_projects_commissions_global_admins_path}"%>>Commissions</a>
+        <a href=<%="#{edit_ga_projects_settings_global_admins_path}"%>>Arena</a>
+        <a href="#">Categories</a>
+      </div>
+      <p class="menu_head">Groups</p>
+      <p class="menu_head">Contest</p>
+      <p class="menu_head">Static Content</p>
+    </div>
+  </div>
+  <div class="side_pannel_header ">LocalAdmin Management</div>
+  <div class="localAdminEditPannel firstpane">
+    <a class ="menu_head" id="la_links" href=<%="#{local_admins_path}"%>>Settings</a>
+    <div class="menu_body la_detailed_links">
       <%if @local_admin.present?%>
-          <ul>
 
+                <a href=<%="#{edit_la_general_settings_local_admin_path(@local_admin)}"%>>General Setting</a>
+                <a href=<%="#{edit_la_paas_billing_profile_local_admin_path(@local_admin)}"%>>Billing Profile</a>
+                <a href=<%="#{edit_la_organization_details_local_admin_path(@local_admin)}"%>>Organization Details</a>
+                <a href=<%="#{edit_la_terms_local_admin_path(@local_admin)}"%>>Local Terms of Use</a>
 
-            <li><a href="#">Settings</a>
-              <ul>
-                <li><a href=<%="#{edit_la_general_settings_local_admin_path(@local_admin)}"%>>General Setting</a></li>
-                <li><a href=<%="#{edit_la_paas_billing_profile_local_admin_path(@local_admin)}"%>>Billing Profile</a></li>
-                <li><a href=<%="#{edit_la_organization_details_local_admin_path(@local_admin)}"%>>Organization Details</a></li>
-                <li><a href=<%="#{edit_la_terms_local_admin_path(@local_admin)}"%>>Local Terms of Use</a></li>
-              </ul>
-            </li>
-
-          </ul>
       <%end%>
-    </li>
-    <li><a href="#">Users Management</a>
-      <ul>
-        <li><a href=<%="#{ all_users_global_admins_path}"%>>All Users</a></li>
-        <li><a href=<%="#{new_user_global_admins_path}"%>>New User</a></li>
-      </ul>
-    </li>
-  </ul>
+    </div>
+  </div>
+  <div class="side_pannel_header ">Users Management</div>
+  <div class="localAdminEditPannel firstpane">
+    <p class="menu_head">All Users</p>
+    <p class="menu_head">New Users</p>
+  </div>
+
+
 </div>
