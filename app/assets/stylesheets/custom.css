@@ -1,4 +1,9 @@
+a{
+    color:#1b1b1b;
+}
+a:hover{
 
+}
 body {
 	padding-top: 60px;
 }
@@ -93,6 +98,13 @@ body {
     -moz-box-shadow: 1px 2px 2px #ccc;
     -webkit-box-shadow: 1px 2px 2px #ccc;
     box-shadow: 1px 2px 2px #ccc;
+}
+.subHeading{
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 15px;
+    background-color: #c1c1c1;
+    line-height: 30px;
 }
 .span12 form{
     padding-left: 20px;
