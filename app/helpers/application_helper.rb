@@ -51,5 +51,8 @@ module ApplicationHelper
   def user_terms
     GaTerm.first.user_terms
   end
+  def reformat_date(date)
+    date.strftime('%d-%m-%Y')
+  end
 
 end
