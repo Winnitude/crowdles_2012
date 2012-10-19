@@ -45,8 +45,8 @@
   </div>
   <div class="side_pannel_header ">Users Management</div>
   <div class="localAdminEditPannel firstpane">
-    <p class="menu_head">All Users</p>
-    <p class="menu_head">New Users</p>
+    <%= link_to "All Users", all_users_global_admins_path ,:class => "menu_head"  %>
+    <%= link_to "New User", new_user_global_admins_path ,:class => "menu_head"  %>
   </div>
 
 
