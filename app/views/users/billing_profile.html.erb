@@ -1,6 +1,6 @@
 
 <div class="span9">
-  <h2 class="heading margin0">default Billing Profile</h2>
+  <h2 class="heading margin0 mainHeading">default Billing Profile</h2>
   <%= form_for @billing_profile ,:url => update_billing_profile_user_path(@user),:html => {:class => "form form-horizontal"} do |f|%>
 
       <h6>Individual Details </h6>
@@ -19,7 +19,7 @@
       <div class="control-group">
         <label class="control-label">Date of Birth</label>
         <div class="controls">
-          <%=f.text_field :birth_date,:value =>reformat_date(@billing_profile.birth_date)  %>
+          <%=f.text_field :birth_date,:value =>reformat_date(@billing_profile.birth_date) rescue nil  %>
         </div>
       </div>
 
@@ -110,7 +110,7 @@
           <%=f.text_field :street2%>
         </div>
       </div>
-      <div class="form-actions">
+      <div class="controls">
         <button type="submit" class="btn">Save</button>
         <%=link_to "Cancel", billing_profile_user_path(@user), :class => "btn"%>
         <%=link_to "Close", root_path, :class => "btn"%>

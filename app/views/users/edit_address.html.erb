@@ -1,9 +1,10 @@
-<h1>Address</h1>
-<%=form_for current_user , :url=> update_address_user_path(@user),:html => {:class => "form form-horizontal"} do |f| %>
+<div class="span12">
+<h1 class="mainHeading">Address</h1>
+<%=form_for current_user , :url=> update_address_user_path(@user),:html => {:class => "form form-horizontal clearfix"} do |f| %>
     <%=f.fields_for @contact  do |contact| %>
 
 
-        <div class="span9">
+
           <div class="control-group">
             <label class="control-label">Country</label>
             <div class="controls">
@@ -75,12 +76,12 @@
           </div>
 
 
-          <div class="form-actions">
+          <div class="controls">
             <button type="submit" class="btn">Save</button>
             <%=link_to "Cancel", edit_address_user_path(@user), :class => "btn"%>
             <%=link_to "Close", root_path, :class => "btn"%>
           </div>
-        </div>
+
 
     <%end%>
 <%end%>
@@ -104,7 +105,7 @@
         });
     </script>
 <% end %>
-
+</div>
 
 
 
