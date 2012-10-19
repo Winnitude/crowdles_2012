@@ -6,9 +6,6 @@
     <div class="span9">
       <h1 class="heading margin0">Terms Of Use</h1>
 
-
-
-
       <div class="control-group">
         <label class="control-label">Platform Legal Terms</label>
         <div class="controls">
@@ -34,28 +31,11 @@
         </div>
       </div>
 
-      <div class="control-group">
-        <label class="control-label">Admin Group Terms</label>
-        <div class="controls">
-          <%=f.text_area :admin_group_terms, :rows => 5%>
-        </div>
-      </div>
 
-      <div class="control-group">
-        <label class="control-label">Business Group Terms</label>
-        <div class="controls">
-          <%=f.text_area :business_group_terms, :rows => 5%>
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label">No Profit Terms</label>
-        <div class="controls">
-          <%=f.text_area :no_profit_terms, :rows => 5%>
-        </div>
-      </div>
       <div class="form-actions">
-        <button type="submit" class="btn btn-primary">Update</button>
-        <button type="button" class="btn">Cancel</button>
+        <button type="submit" class="btn">Save</button>
+        <%=link_to "Cancel", edit_platform_terms_global_admins_path, :class => "btn"%>
+        <%=link_to "Close", root_path, :class => "btn"%>
       </div>
 
     </div>
@@ -68,26 +48,19 @@
 
         jQuery(function(){
 
-            var platform_legal_terms= new LiveValidation('ga_term_platform_legal_terms_global',{validMessage:" ",onlyOnSubmit:true});
-            platform_legal_terms.add( Validate.Presence ,{failureMessage:" Can't be empty"});
+//            var platform_legal_terms= new LiveValidation('ga_term_platform_legal_terms_global',{validMessage:" ",onlyOnSubmit:true});
+//            platform_legal_terms.add( Validate.Presence ,{failureMessage:" Can't be empty"});
+//
+//            var user_terms= new LiveValidation('ga_term_user_terms',{validMessage:" ",onlyOnSubmit:true});
+//            user_terms.add( Validate.Presence ,{failureMessage:" Can't be empty"});
+//
+//            var project_terms= new LiveValidation('ga_term_project_terms',{validMessage:" ",onlyOnSubmit:true});
+//            project_terms.add( Validate.Presence ,{failureMessage:" Can't be empty"});
+//
+//            var worker_terms= new LiveValidation('ga_term_worker_terms',{validMessage:" ",onlyOnSubmit:true});
+//            worker_terms.add( Validate.Presence ,{failureMessage:" Can't be empty"});
 
-            var user_terms= new LiveValidation('ga_term_user_terms',{validMessage:" ",onlyOnSubmit:true});
-            user_terms.add( Validate.Presence ,{failureMessage:" Can't be empty"});
 
-            var project_terms= new LiveValidation('ga_term_project_terms',{validMessage:" ",onlyOnSubmit:true});
-            project_terms.add( Validate.Presence ,{failureMessage:" Can't be empty"});
-
-            var worker_terms= new LiveValidation('ga_term_worker_terms',{validMessage:" ",onlyOnSubmit:true});
-            worker_terms.add( Validate.Presence ,{failureMessage:" Can't be empty"});
-
-            var admin_group_terms= new LiveValidation('ga_term_admin_group_terms',{validMessage:" ",onlyOnSubmit:true});
-            admin_group_terms.add( Validate.Presence ,{failureMessage:" Can't be empty"});
-
-            var business_group_terms= new LiveValidation('ga_term_business_group_terms',{validMessage:" ",onlyOnSubmit:true});
-            business_group_terms.add( Validate.Presence ,{failureMessage:" Can't be empty"});
-
-            var no_profit_terms= new LiveValidation('ga_term_no_profit_terms',{validMessage:" ",onlyOnSubmit:true});
-            no_profit_terms.add( Validate.Presence ,{failureMessage:" Can't be empty"});
 
 
         });

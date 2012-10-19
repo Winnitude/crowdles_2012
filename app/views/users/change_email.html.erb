@@ -1,5 +1,5 @@
 <h1>Change Email</h1>
-<%=form_for @user , :url=> update_email_profiles_path(),:html => {:class => "form form-horizontal"} do |f| %>
+<%=form_for @user , :url=> update_email_user_path(@user),:html => {:class => "form form-horizontal"} do |f| %>
 
     <% if  @user.errors.any? %>
         <div id="error_explanation">

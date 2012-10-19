@@ -4,20 +4,20 @@
 <%= form_for @projects_commissions, :url =>  update_ga_projects_commissions_global_admins_path,:html => {:class => "form form-horizontal"} do |f| %>
 
     <div class="span9">
-      <h1 class="heading margin0">Global Admin Project Settings</h1>
+      <h1 class="heading margin0">Global Admin Project Commissions</h1>
 
 
 
 
       <div class="control-group">
-        <label class="control-label">Payment Gateway Commissions Default Payer</label>
+        <label class="control-label">Payment Gateway Commissions Default Payer<span style="color:red">* </span></label>
         <div class="controls">
           <%=f.select :gateway_commissions_payer, options_for_select(["Project Owner", "Account Owner"], @projects_commissions.gateway_commissions_payer) %>
         </div>
       </div>
 
       <div class="control-group">
-        <label class="control-label">Commissions and payment processing For standard Projects to be applied in status</label>
+        <label class="control-label">Commissions and payment processing For standard Projects to be applied in status<span style="color:red">* </span></label>
         <div class="controls">
           <%=f.select :standard_commission_status, options_for_select(["draft", "new", "approved", "active ", "succeeded","failed","closed"], @projects_commissions.standard_commission_status) %>
         </div>
@@ -25,8 +25,9 @@
 
 
       <div class="form-actions">
-        <button type="submit" class="btn btn-primary">Update</button>
-        <button type="button" class="btn">Cancel</button>
+        <button type="submit" class="btn">Save</button>
+        <%=link_to "Cancel", edit_ga_projects_commissions_global_admins_path, :class => "btn"%>
+        <%=link_to "Close", root_path, :class => "btn"%>
       </div>
 
     </div>
@@ -39,13 +40,6 @@
 
         jQuery(function(){
 
-            var minimum_cap= new LiveValidation('ga_projects_setting_arena_minimum_cap',{validMessage:" ",onlyOnSubmit:true});
-            minimum_cap.add( Validate.Numericality ,{ onlyInteger: true },{failureMessage:"Should be Integer"});
-
-            var max_cap= new LiveValidation('ga_projects_setting_arena_maximum_cap',{validMessage:" ",onlyOnSubmit:true});
-            max_cap.add( Validate.Numericality ,{ onlyInteger: true },{failureMessage:"Should be Integer"});
-            var factor= new LiveValidation('ga_projects_setting_arena_factor',{validMessage:" ",onlyOnSubmit:true});
-            factor.add( Validate.Numericality ,{ onlyInteger: false },{failureMessage:"Should be Integer"});
 
         });
     </script>

@@ -81,6 +81,7 @@ Winnitude::Application.routes.draw do
     post :validate_account , :on => :collection
     post "create_new_user" , :on => :collection
     post "connect_fb_and_crowdles" , :on => :collection
+    put "update_password" , :on => :collection
   end
 
   resources :profiles , :only =>[] do
@@ -108,6 +109,9 @@ Winnitude::Application.routes.draw do
       put :update_settings
       get :change_email
       put :update_email
+      get :terms_of_use
+      get :billing_profile
+      put :update_billing_profile
     end
     collection do
 
@@ -117,6 +121,7 @@ Winnitude::Application.routes.draw do
   match 'register'   =>'user_registrations#register',:via => :get    ,:as=>:register
   match 'confirm_facebook'   =>'user_registrations#confirm_facebook',:via => :get   ,:as=>:confirm_facebook
   match 'confirm'=>'user_registrations#final_confirmation',:via => :get   ,:as=>:confirm
+  match 'set_password'=>'user_registrations#set_password',:via => :get   ,:as=>:set_password
 
 
   # The priority is based upon order of creation:
@@ -177,6 +182,15 @@ Winnitude::Application.routes.draw do
     collection do
       get 'provider_terms_of_service'
       put 'update_provider_terms_of_service'
+    end
+  end
+
+  resources :adaptive_payments,:only => [] do
+    collection do
+      get 'getStatus'
+      post 'verified_status'
+      get "details"
+      get "error"
     end
   end
 

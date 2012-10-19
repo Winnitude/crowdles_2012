@@ -64,14 +64,14 @@
       <div class="control-group">
         <label class="control-label" for="input01">Terms Of Use</label>
         <div class="controls">
-          <%= text_area_tag "terms","Terms of Use",:class=>"input",:rows => 5,:disabled => true %>
+          <%= text_area_tag "terms",user_terms,:class=>"input",:rows => 5,:disabled => true %>
           <p class="help-block"></p>
         </div>
       </div>
       <div class="control-group">
         <div class="controls">
           <label class="checkbox inline" >
-            <%=check_box_tag :terms_of_service%>Accept terms
+            <%=f.check_box :user_terms_accepted%>Accept terms
             <!--<input type="text" class="input-xlarge" id="input01">-->
           </label>
         </div>
@@ -94,8 +94,8 @@
 
 
 
-            var state= new LiveValidation('terms_of_service',{validMessage:" ",onlyOnSubmit:true});
-            state.add( Validate.Acceptance);
+            var user_terms= new LiveValidation('user_user_terms_accepted',{validMessage:" ",onlyOnSubmit:true});
+            user_terms.add( Validate.Acceptance);
 
 
 
