@@ -20,7 +20,7 @@ class User
   before_save :accept_terms
   attr_accessible :profile_attributes, :email, :password, :password_confirmation,
                   :remember_me ,:country, :terms_of_service,:is_provider,
-                  :is_provider_terms_of_service,:profile,:facebook_id ,:registration_ip ,:status ,:created_at,:language,:is_proprietary_user
+                  :is_provider_terms_of_service,:profile,:facebook_id ,:registration_ip ,:status ,:created_at,:language,:is_proprietary_user,:user_terms_accepted
   #######################User Login functionality with devise integration############################
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -61,6 +61,7 @@ class User
   field :created_at ,                     :type => DateTime
   field :language ,                       :type => String
   field :is_proprietary_user,             :type => Boolean
+  field :user_terms_accepted ,             :type => Boolean , :default => false
 
   ## Lockable
   # field :failed_attempts, :type => Integer, :default => 0 # Only if lock strategy is :failed_attempts
@@ -79,11 +80,15 @@ class User
     user = User.where(:email => data.email).first  unless user.present?
     if !user.nil?
       if user.status == "new"
+        logger.info "got user but status is new"
         user.confirm!
         user.save!
-        profile=user.build_user_profile(:first_name => data["first_name"],:last_name => data["last_name"] ,:gender => data.gender ,:fb_image => access_token.info.image).save
+        profile=user.build_user_profile(:first_name => data["first_name"],:last_name => data["last_name"] ,:gender => data.gender ,:fb_image => access_token.info.image, :fb_page => data.link).save
       end
+      logger.info "got user status is confirmed"
       user.update_attributes(:is_provider => true, :facebook_id => data["id"])
+      @profile = user.user_profile
+      @profile.update_attributes(:fb_page =>data.link )
       user
     else # Create an user with a stub password.
       user = User.new({:email => data["email"],
@@ -139,7 +144,7 @@ class User
 
   field :email,              :type => String
   validates :email,
-            :uniqueness => true,
+            #:uniqueness => true,
             :email => true
   #
   field :country,            :type => String
@@ -214,6 +219,13 @@ class User
     self.created_at = Time.now
     self.status = "new"
     self.is_proprietary_user = true
+  end
+
+  def update_with_fb_data access_token
+    data = access_token.extra.raw_info
+    @profile = self.user_profile || self.build_user_profile
+    self.update_attributes(:facebook_id => data.id, :is_provider => true)
+    @profile.update_fb_details access_token
   end
 
 

@@ -1,0 +1,151 @@
+
+<div class="span9">
+  <h2 class="heading margin0">default Billing Profile</h2>
+  <%= form_for @billing_profile ,:url => update_billing_profile_user_path(@user),:html => {:class => "form form-horizontal"} do |f|%>
+
+      <h6>Individual Details </h6>
+      <div class="control-group">
+        <label class="control-label">First Name</label>
+        <div class="controls">
+          <%=f.text_field :first_name%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Last Name</label>
+        <div class="controls">
+          <%=f.text_field :last_name%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Date of Birth</label>
+        <div class="controls">
+          <%=f.text_field :birth_date%>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Birth Place</label>
+        <div class="controls">
+          <%=f.text_field :birth_place%>
+        </div>
+      </div>
+
+      <h6>PayPAl Account</h6>
+      <div class="control-group">
+        <label class="control-label">Paypal First Name</label>
+        <div class="controls">
+          <%=text_field_tag :paypal_first_name%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Paypal Last Name</label>
+        <div class="controls">
+          <%=text_field_tag :paypal_last_name%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Insert Paypal email</label>
+        <div class="controls">
+          <%=text_field_tag :paypal_email%>
+          <%= f.submit "Set", :name => "Setting Paypal" %>
+          <button type="button" class="btn alignToField">Create PayPal account</button>
+        </div>
+      </div>
+      <h6>Set default Currency for Billing Profile</h6>
+      <div class="control-group">
+        <label class="control-label">Currency</label>
+        <div class="controls">
+          <%=f.select :currency, options_for_select(@currency, @billing_profile.currency), :disabled => true%>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Billing Email</label>
+        <div class="controls">
+          <%=f.text_field :email%>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Telephone Number</label>
+        <div class="controls">
+          <%=f.text_field :telephone_number%>
+        </div>
+      </div>
+      <h6>Billing Address</h6>
+
+      <div class="control-group">
+        <label class="control-label">Country</label>
+        <div class="controls">
+          <%=f.select :country, options_for_select(@countries, @billing_profile.country), { :prompt => 'Select' }%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">State</label>
+        <div class="controls">
+          <%=f.text_field :state%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">City</label>
+        <div class="controls">
+          <%=f.text_field :city%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Zip Code</label>
+        <div class="controls">
+          <%=f.text_field :zip_code%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Address</label>
+        <div class="controls">
+          <%=f.text_field :street1%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Additional Address</label>
+        <div class="controls">
+          <%=f.text_field :street2%>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn">Save</button>
+        <%=link_to "Cancel", billing_profile_user_path(@user), :class => "btn"%>
+        <%=link_to "Close", root_path, :class => "btn"%>
+      </div>
+  <%end%>
+</div>
+<%= content_for :head do  %>
+    <script type="text/javascript">
+
+        jQuery(function(){
+
+            $('#default_billing_profile_birth_date').datepicker({autoclose :true,
+                format : "dd-mm-yy"} )
+//            var company= new LiveValidation('default_billing_profile_company_name',{validMessage:" ",onlyOnSubmit:true});
+            var email = new LiveValidation('default_billing_profile_email',{validMessage:" ",onlyOnSubmit:true});
+            var profile_telephone_number = new LiveValidation("default_billing_profile_telephone_number",{validMessage:" ",onlyOnSubmit:true});
+            var country= new LiveValidation('default_billing_profile_country',{validMessage:" ",onlyOnSubmit:true});
+            var city= new LiveValidation('default_billing_profile_city',{validMessage:" ",onlyOnSubmit:true});
+            var s1= new LiveValidation('default_billing_profile_street1',{validMessage:" ",onlyOnSubmit:true});
+            var state= new LiveValidation('default_billing_profile_state',{validMessage:" ",onlyOnSubmit:true});
+//            var contact_telephone_number = new LiveValidation("default_billing_profile_contact_telephone_number",{validMessage:" ",onlyOnSubmit:true});
+//            var paypal= new LiveValidation('default_billing_profile_paypal_id',{validMessage:" ",onlyOnSubmit:true});
+            var zip= new LiveValidation('default_billing_profile_zip_code',{validMessage:" ",onlyOnSubmit:true});
+            var fname= new LiveValidation('default_billing_profile_first_name',{validMessage:" ",onlyOnSubmit:true});
+            var lname= new LiveValidation('default_billing_profile_last_name',{validMessage:" ",onlyOnSubmit:true});
+
+
+            fname.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            lname.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            city.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            state.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            email.add( Validate.Email);
+            profile_telephone_number.add( Validate.Format , { pattern: /^\+\d{1,3}\s\d{7,15}$/, failureMessage: "Should Be in ITU Format like +XX XXXXXXXXXX" });
+
+        });
+    </script>
+<% end %>
+

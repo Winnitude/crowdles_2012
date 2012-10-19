@@ -20,6 +20,11 @@ class Admin::LanguagesController < ApplicationController
         @languages = @languages.select{|i| i.is_active == is_active  rescue nil}
       end
 
+      if params[:is_default] != "All"
+        is_default = params[:is_default].downcase == "true" ? 1 : 0
+        @languages = @languages.select{|i| i.is_default == is_default  rescue nil}
+      end
+
     else
       @languages = ServiceLanguage.all
     end
@@ -33,7 +38,7 @@ class Admin::LanguagesController < ApplicationController
   def update
     @language = ServiceLanguage.find(params[:id])
     if @language.update_attributes(params[:service_language])
-      redirect_to languages_path ,:notice => "Language Updated Successfully"
+      redirect_to edit_language_path(@language) ,:notice => "language Updated Successfully"
     end
   end
 end

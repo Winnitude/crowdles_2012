@@ -7,58 +7,57 @@
         <div class="span9">
           <h3 class="heading margin0">Platform Setup Settings</h3>
           <div class="control-group">
-            <label class="control-label">Platform Name</label>
+            <label class="control-label">Platform Name<span style="color:red">* </span></label>
             <div class="controls">
               <%=text_field_tag :platform_name,"", :placeholder => "Winnitude"%>
             </div>
           </div>
 
           <div class="control-group">
-            <label class="control-label">Platform Email</label>
+            <label class="control-label">Platform Email<span style="color:red">* </span></label>
             <div class="controls">
               <%=text_field_tag :platform_email,"", :placeholder => "info@crowdels.com"%>
             </div>
           </div>
 
           <div class="control-group">
-            <label class="control-label">Administrator Email</label>
+            <label class="control-label">Administrator Email<span style="color:red">* </span></label>
             <div class="controls">
               <%=text_field_tag :admin_email,"", :placeholder => "username@crowdels.com"%>
             </div>
           </div>
           <div class="control-group">
-            <label class="control-label">Administrator Password</label>
+            <label class="control-label">Administrator Password<span style="color:red">* </span></label>
             <div class="controls">
               <%=password_field_tag :password,"", :placeholder => "Password"%>
             </div>
           </div>
           <div class="control-group">
-            <label class="control-label">Platform Default Language</label>
+            <label class="control-label">Platform Default Language<span style="color:red">* </span></label>
             <div class="controls">
               <%=select_tag :language, options_for_select(@languages), { :prompt => 'Select' }%>
             </div>
           </div>
           <div class="control-group">
-            <label class="control-label">Platform Default Currency</label>
+            <label class="control-label">Platform Default Currency<span style="color:red">* </span></label>
             <div class="controls">
               <%=select_tag :currency, options_for_select(@currency) , { :prompt => 'Select' }%>
             </div>
           </div>
           <div class="control-group">
-            <label class="control-label">Platform Master Country</label>
+            <label class="control-label">Platform Master Country<span style="color:red">* </span></label>
             <div class="controls">
               <%=select_tag :platform_master_country, options_for_select(@master_country), { :prompt => 'Select' }%>
             </div>
           </div>
           <div class="control-group">
-            <label class="control-label">First User Country</label>
+            <label class="control-label">First User Country<span style="color:red">* </span></label>
             <div class="controls">
               <%=select_tag :country, options_for_select(@user_countries), { :prompt => 'Select' }%>
             </div>
           </div>
           <div class="form-actions">
             <button type="submit" class="btn btn-primary">Create Platform</button>
-            <button type="button" class="btn">Cancel</button>
           </div>
         </div>
         </div>

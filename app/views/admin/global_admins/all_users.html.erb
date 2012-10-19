@@ -9,6 +9,7 @@
         <tr width="20">
           <th><strong>Last Name <strong></th>
           <th><strong> First Name <strong></th>
+          <th><strong> Email <strong></th>
           <th><strong> Gender <strong></th>
           <th><strong> Country <strong></th>
           <th><strong> Language<strong></th>
@@ -23,6 +24,7 @@
         <tr>
           <td><%=text_field_tag :last_name ,params[:last_name],:class => "span1"%> </td>
           <td><%=text_field_tag :first_name,params[:first_name],:class => "span1"%> </td>
+          <td><%=text_field_tag :email,params[:email],:class => "span1"%> </td>
           <td><%=select_tag :gender ,options_for_select(["All", "Male", "Female"],params[:gender]),:class => "span1"%> </td>
           <td><%=select_tag :country ,options_for_select(["All"] + @countries ,params[:country]),:class => "span1"%> </td>
           <td><%=select_tag :language ,options_for_select(["All"] + @languages,params[:language]),:class => "span1"%> </td>
@@ -38,6 +40,7 @@
             <tr>
               <td><%= profile.last_name rescue nil%></td>
               <td><%= profile.first_name rescue nil%></td>
+              <td><%= user.email%></td>
               <td><%= profile.gender  rescue nil%></td>
               <td><%= user.country %></td>
               <td><%= user.language %></td>

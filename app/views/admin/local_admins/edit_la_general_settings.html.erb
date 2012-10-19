@@ -27,21 +27,21 @@
                   </div>
 
                   <div class="control-group">
-                    <label class="control-label">Local Admin Name</label>
+                    <label class="control-label">Local Admin Name<span style="color:red">* </span></label>
                     <div class="controls">
                       <%=f.text_field :local_admin_name%>
                     </div>
                   </div>
 
                   <div class="control-group">
-                    <label class="control-label">LA Country</label>
+                    <label class="control-label">LA Country<span style="color:red">* </span></label>
                     <div class="controls">
                       <%=f.select :la_country, options_for_select(@countries,@general_setting.la_country),{ :prompt => 'Select' }%>
                     </div>
                   </div>
 
                   <div class="control-group">
-                    <label class="control-label">LA Language</label>
+                    <label class="control-label">LA Language<span style="color:red">* </span></label>
                     <div class="controls">
                       <%=f.select :la_language, options_for_select(@languages,@general_setting.la_language),{ :prompt => 'Select' }%>
                     </div>
@@ -50,14 +50,14 @@
 
 
                   <div class="control-group">
-                    <label class="control-label"> Status</label>
+                    <label class="control-label"> Status<span style="color:red">* </span></label>
                     <div class="controls">
                       <%=la.select "status", options_for_select(["new" ,"active","inactive","blocked","suspended"],@local_admin.status)%>
                     </div>
                   </div>
 
                   <div class="control-group">
-                    <label class="control-label">LA Platform Home</label>
+                    <label class="control-label">LA Platform Home<span style="color:red">* </span></label>
                     <div class="controls">
                       <%=f.text_field :la_platform_home%>
                     </div>
@@ -122,8 +122,9 @@
 
 
                   <div class="form-actions">
-                    <button type="submit" class="btn btn-primary">Update</button>
-                    <button type="button" class="btn">Cancel</button>
+                    <button type="submit" class="btn">Save</button>
+                    <%=link_to "Cancel", edit_la_general_settings_local_admin_path(@local_admin), :class => "btn"%>
+                    <%=link_to "Close", local_admins_path, :class => "btn"%>
                   </div>
                 </div>
 
@@ -148,6 +149,8 @@
             platform_email.add( Validate.Email,{failureMessage:"Not a valid email"} );
             var factor= new LiveValidation('platform_local_admin_la_paas_setting_paas_la_commissions',{validMessage:" ",onlyOnSubmit:true});
             factor.add( Validate.Numericality ,{ onlyInteger: false },{failureMessage:"Should be Integer"});
+            var la_home= new LiveValidation('platform_local_admin_la_general_setting_la_platform_home',{validMessage:" ",onlyOnSubmit:true});
+            la_home.add( Validate.Presence,{failureMessage:" Can't be empty"} );
 
         });
     </script>

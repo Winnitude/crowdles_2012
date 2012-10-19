@@ -10,6 +10,7 @@ class ConfirmationsController < Devise::PasswordsController
 
   # PUT /resource/confirmation
   def update
+    params[:user][:user_terms_accepted] = params[:user][:user_terms_accepted] == "1" ? true : false
     with_unconfirmed_confirmable do
 
       if @confirmable.has_no_password?
@@ -20,6 +21,7 @@ class ConfirmationsController < Devise::PasswordsController
           @confirmable.status = "active"
           @confirmable.country = params[:user][:country]
           @confirmable.language = params[:user][:language]
+          @confirmable.user_terms_accepted =  params[:user][:user_terms_accepted]
           @confirmable.save
           #binding.remote_pry
           @profile = (@confirmable.build_user_profile  params[:user_profile]).save

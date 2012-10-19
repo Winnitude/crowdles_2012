@@ -30,7 +30,7 @@ class Admin::CurrenciesController < ApplicationController
   def update
     @currency = ServiceCurrency.find(params[:id])
     if @currency.update_attributes(params[:service_currency])
-      redirect_to currencies_path ,:notice => "Currency Updated Successfully"
+      redirect_to edit_currency_path(@currency) ,:notice => "Currency Updated Successfully"
     end
   end
 end

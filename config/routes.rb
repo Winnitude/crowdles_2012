@@ -81,12 +81,47 @@ Winnitude::Application.routes.draw do
     post :validate_account , :on => :collection
     post "create_new_user" , :on => :collection
     post "connect_fb_and_crowdles" , :on => :collection
+    put "update_password" , :on => :collection
   end
 
+  resources :profiles , :only =>[] do
+    member do
+    end
+    collection do
+      get :edit_address
+      put :update_address
+      get :edit_links
+      put :update_links
+      get :settings
+      put :update_settings
+      get :change_email
+      put :update_email
+    end
+  end
+
+  resources :users , :only =>[] do
+    member do
+      get :edit_address
+      put :update_address
+      get :edit_links
+      put :update_links
+      get :settings
+      put :update_settings
+      get :change_email
+      put :update_email
+      get :terms_of_use
+      get :billing_profile
+      put :update_billing_profile
+    end
+    collection do
+
+    end
+  end
 
   match 'register'   =>'user_registrations#register',:via => :get    ,:as=>:register
   match 'confirm_facebook'   =>'user_registrations#confirm_facebook',:via => :get   ,:as=>:confirm_facebook
   match 'confirm'=>'user_registrations#final_confirmation',:via => :get   ,:as=>:confirm
+  match 'set_password'=>'user_registrations#set_password',:via => :get   ,:as=>:set_password
 
 
   # The priority is based upon order of creation:
@@ -150,9 +185,25 @@ Winnitude::Application.routes.draw do
     end
   end
 
+  resources :adaptive_payments,:only => [] do
+    collection do
+      get 'getStatus'
+      post 'verified_status'
+      get "details"
+      get "error"
+    end
+  end
+
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
+
+  resources :htmls , :only =>[] do
+    collection do
+      get :user_profile
+      get :user_ideas
+    end
+  end
 end

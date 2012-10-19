@@ -1,4 +1,6 @@
 class UserRegistrationsController < ApplicationController
+  before_filter :allow_user_set_password , :only=>[:set_password]
+
   def register # this action will ask for registration from the Fb user for that case when the User is present in dataBase with the facebook_email_id = app_email_id and user_status is new
     @user = current_user
     @countries = ServiceCountry.all.select{|i| i.is_active == 1 && i.user_country ==1 }.collect{|i|i.country_english_name}
@@ -51,7 +53,7 @@ class UserRegistrationsController < ApplicationController
                      :created_at => Time.now,
                      :status => "new"
     )
-    @profile = @user.build_user_profile(:first_name =>session[:facebook_data][:fb_first_name], :last_name =>session[:facebook_data][:fb_last_name] ,:gender =>session[:facebook_data][:gender] ,:fb_image => session[:facebook_data][:fb_image] )
+    @profile = @user.build_user_profile(:first_name =>session[:facebook_data][:fb_first_name], :last_name =>session[:facebook_data][:fb_last_name] ,:gender =>session[:facebook_data][:gender] ,:fb_image => session[:facebook_data][:fb_image],:fb_page => session[:facebook_data][:fb_page]  )
     @user.confirm!
     @user.save!
     @user.build_default_billing_profile.save
@@ -62,9 +64,36 @@ class UserRegistrationsController < ApplicationController
 
   def connect_fb_and_crowdles
     @user = User.where(:email => session[:temp_crowdles_data][:email]).first
-    @user.update_attributes(:facebook_id => session[:facebook_data][:fb_id],:is_provider => true )
+    @user.update_attributes(:facebook_id => session[:facebook_data][:fb_id],:is_provider => true)
+    @profile = @user.user_profile
+    @profile.update_attributes(:fb_page => session[:facebook_data][:fb_page])
     session[:facebook_data] = nil
     session[:temp_crowdles_data] = nil
     sign_in_and_redirect(@user)
   end
+
+  def set_password
+    @user = current_user
+  end
+
+  def update_password
+    @user = current_user
+    if @user.update_attributes(params[:user])
+      @user.is_proprietary_user = true
+      @user.save
+      sign_in(@user, :bypass=> true)
+      redirect_to settings_user_path(current_user) , :notice => "Password has been set successfully"
+    else
+      render :action => :set_password
+    end
+  end
+
+  def allow_user_set_password
+    if current_user.is_proprietary_user?
+      logger.info "checking"
+      redirect_to settings_user_path(current_user) , :notice => "You are not allowed to perform this "
+    end
+  end
+
+
 end

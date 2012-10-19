@@ -1,0 +1,34 @@
+<h1>Terms Of Use</h1>
+<%=form_for @user , :url=>  update_links_user_path(@user),:html => {:class => "form form-horizontal"} do |f| %>
+
+    <div class="control-group">
+      <label class="control-label" for="input01">Terms Of use</label>
+      <div class="controls">
+        <%= text_area_tag "terms",user_terms ,:class => "input",:disabled => true %>
+        <p class="help-block"></p>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="input01"><%= f.check_box :user_terms_accepted ,:class => "input" ,:disabled => true%></label>
+      <div class="controls">
+        <p class="help-block"><%= link_to "cancel User","#",:onclick => 'alert("Cancellation Not allowed")', :class => "btn btn-danger"%></p>
+      </div>
+    </div>
+
+<%end%>
+
+<%= content_for :head do  %>
+    <script type="text/javascript">
+
+        jQuery(function(){
+        });
+    </script>
+<% end %>
+
+
+
+
+
+
+
+

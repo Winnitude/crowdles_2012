@@ -9,4 +9,5 @@ class UserContact
   field :additional_address_info,      :type => String
   field :main_number,                  :type => String
   field :secondary_number,             :type => String
+  field :location_gps,             :type => String
 end
