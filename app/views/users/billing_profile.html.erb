@@ -19,7 +19,7 @@
       <div class="control-group">
         <label class="control-label">Date of Birth</label>
         <div class="controls">
-          <%=f.text_field :birth_date%>
+          <%=f.text_field :birth_date,:value =>reformat_date(@billing_profile.birth_date)  %>
         </div>
       </div>
 
@@ -123,7 +123,8 @@
         jQuery(function(){
 
             $('#default_billing_profile_birth_date').datepicker({autoclose :true,
-                format : "dd-mm-yy"} )
+                format: 'dd-mm-yyyy'} )
+            $('#default_billing_profile_birth_date').datepicker('setStartDate', '1970-12-31');
 //            var company= new LiveValidation('default_billing_profile_company_name',{validMessage:" ",onlyOnSubmit:true});
             var email = new LiveValidation('default_billing_profile_email',{validMessage:" ",onlyOnSubmit:true});
             var profile_telephone_number = new LiveValidation("default_billing_profile_telephone_number",{validMessage:" ",onlyOnSubmit:true});

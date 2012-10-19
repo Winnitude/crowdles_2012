@@ -1,6 +1,6 @@
 class LaGeneralSetting
   include Mongoid::Document
-  before_save :set_settings
+  before_create :set_settings
   belongs_to :platform_local_admin
   field :la_country,                                           :type => String
   validates :la_country,

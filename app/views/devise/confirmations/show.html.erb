@@ -94,6 +94,12 @@
 
             var terms= new LiveValidation('user_user_terms_accepted',{validMessage:" ",onlyOnSubmit:true});
             terms.add( Validate.Acceptance);
+
+            var fname= new LiveValidation('user_profile_first_name',{validMessage:" ",onlyOnSubmit:true});
+            var lname= new LiveValidation('user_profile_last_name',{validMessage:" ",onlyOnSubmit:true});
+
+            fname.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            lname.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
         });
     </script>
 <% end %>
