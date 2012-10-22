@@ -1,0 +1,63 @@
+<%= render :partial => "platform_settings_ga"  %>
+
+
+<%= form_tag  create_user_global_admins_path,:html => {:class => "form form-horizontal", :method => "post"} do  %>
+    <h1>Invite New User</h1>
+
+    <div class="span9">
+
+      <div class="control-group">
+        <label class="control-label">Email </label>
+        <div class="controls">
+          <%=text_field_tag :email  %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">First Name</label>
+        <div class="controls">
+          <%=text_field_tag :first_name  %>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Last Name</label>
+        <div class="controls">
+          <%=text_field_tag  :last_name  %>
+        </div>
+      </div>
+
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary loading-btn" data-loading-text="Loading...">Invite User</button>
+        <!--<button type="button" >Loading state</button>-->
+      </div>
+
+    </div>
+
+
+<%end%>
+
+<%= content_for :head do  %>
+    <script type="text/javascript">
+
+        jQuery(function(){
+
+            var email= new LiveValidation('email',{validMessage:" ",onlyOnSubmit:true});
+            email.add( Validate.Presence);
+            email.add( Validate.Email);
+            var fname= new LiveValidation('first_name',{validMessage:" ",onlyOnSubmit:true});
+            fname.add( Validate.Presence);
+            var lname= new LiveValidation('last_name',{validMessage:" ",onlyOnSubmit:true});
+            lname.add( Validate.Presence);
+//            var areAllValid = LiveValidation.massValidate( [ email,fname,lname ] );
+//
+//            $('.btn').on('click', function () {
+//                if (areAllValid == true )
+//                {$(this).button('loading')}
+//            })
+
+
+
+        });
+    </script>
+<% end %>

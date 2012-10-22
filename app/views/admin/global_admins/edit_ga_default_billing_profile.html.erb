@@ -1,0 +1,146 @@
+
+<%= render :partial => "platform_settings_ga" %>
+<div class="span9">
+  <h2 class="heading margin0">Default Billing Profile</h2>
+<%= form_for @billing_profile ,:url => update_ga_default_billing_profile_global_admins_path,:html => {:class => "form form-horizontal"} do |f|%>
+
+  <h6>Platform Company and VAT number</h6>
+  <div class="control-group">
+    <label class="control-label">Company Name</label>
+    <div class="controls">
+      <%=f.text_field :company_name%>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">VAT Number</label>
+    <div class="controls">
+      <%=f.text_field :vat_number%>
+    </div>
+  </div>
+      <h6>Platform PayPAl Account For Projects funding and commissions</h6>
+      <div class="control-group">
+        <label class="control-label">Paypal ID</label>
+        <div class="controls">
+          <%=f.text_field :paypal_id%>
+          <button type="button" class="btn alignToField">Set</button>
+        </div>
+      </div>
+      <h6>Currency</h6>
+      <div class="control-group">
+        <label class="control-label">Currency</label>
+        <div class="controls">
+          <%=f.select :currency, options_for_select(@currency ,@billing_profile.currency), :disabled => true%>
+        </div>
+      </div>
+
+      <h6>Billing Contact Person</h6>
+      <div class="control-group">
+        <label class="control-label">First Name</label>
+        <div class="controls">
+          <%=f.text_field :contact_first_name%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Last Name</label>
+        <div class="controls">
+          <%=f.text_field :contact_last_name%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Telephone Number</label>
+        <div class="controls">
+          <%=f.text_field :contact_telephone_number%>
+        </div>
+      </div>
+      <h6>Platform Company Address</h6>
+      <div class="control-group">
+        <label class="control-label">Billing Email</label>
+        <div class="controls">
+          <%=f.text_field :email%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Country</label>
+        <div class="controls">
+          <%=f.select :country, options_for_select(@countries, @billing_profile.country), { :prompt => 'Select' }%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">State</label>
+        <div class="controls">
+          <%=f.text_field :state%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">City</label>
+        <div class="controls">
+          <%=f.text_field :city%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Zip Code</label>
+        <div class="controls">
+          <%=f.text_field :zip_code%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Street 1</label>
+        <div class="controls">
+          <%=f.text_field :street1%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">street 2</label>
+        <div class="controls">
+          <%=f.text_field :street2%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Telepnone Number</label>
+        <div class="controls">
+          <%=f.text_field :telephone_number%>
+        </div>
+      </div>
+
+
+      <div class="form-actions">
+        <button type="submit" class="btn">Save</button>
+        <%=link_to "Cancel", edit_ga_default_billing_profile_global_admins_path, :class => "btn"%>
+        <%=link_to "Close", root_path, :class => "btn"%>
+      </div>
+<%end%>
+</div>
+<%= content_for :head do  %>
+    <script type="text/javascript">
+
+        jQuery(function(){
+
+
+
+            var company= new LiveValidation('default_billing_profile_company_name',{validMessage:" ",onlyOnSubmit:true});
+            var email = new LiveValidation('default_billing_profile_email',{validMessage:" ",onlyOnSubmit:true});
+            var profile_telephone_number = new LiveValidation("default_billing_profile_telephone_number",{validMessage:" ",onlyOnSubmit:true});
+            var country= new LiveValidation('default_billing_profile_country',{validMessage:" ",onlyOnSubmit:true});
+            var city= new LiveValidation('default_billing_profile_city',{validMessage:" ",onlyOnSubmit:true});
+            var s1= new LiveValidation('default_billing_profile_street1',{validMessage:" ",onlyOnSubmit:true});
+            var state= new LiveValidation('default_billing_profile_state',{validMessage:" ",onlyOnSubmit:true});
+            var contact_telephone_number = new LiveValidation("default_billing_profile_contact_telephone_number",{validMessage:" ",onlyOnSubmit:true});
+            var paypal= new LiveValidation('default_billing_profile_paypal_id',{validMessage:" ",onlyOnSubmit:true});
+            var zip= new LiveValidation('default_billing_profile_zip_code',{validMessage:" ",onlyOnSubmit:true});
+            var fname= new LiveValidation('default_billing_profile_contact_first_name',{validMessage:" ",onlyOnSubmit:true});
+            var lname= new LiveValidation('default_billing_profile_contact_last_name',{validMessage:" ",onlyOnSubmit:true});
+
+
+            fname.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            lname.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            city.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            state.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            profile_telephone_number.add( Validate.Format , { pattern: /^\+\d{1,3}\s\d{7,15}$/, failureMessage: "Should Be in ITU Format like +XX XXXXXXXXXX" });
+            contact_telephone_number.add( Validate.Format , { pattern: /^\+\d{1,3}\s\d{7,15}$/, failureMessage: "Should Be in ITU Format like +XX XXXXXXXXXX" });
+            email.add( Validate.Email);
+
+
+        });
+    </script>
+<% end %>
+

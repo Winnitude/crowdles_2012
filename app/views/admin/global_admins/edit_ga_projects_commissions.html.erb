@@ -1,0 +1,46 @@
+<%= render :partial => "platform_settings_ga"  %>
+
+
+<%= form_for @projects_commissions, :url =>  update_ga_projects_commissions_global_admins_path,:html => {:class => "form form-horizontal"} do |f| %>
+
+    <div class="span9">
+      <h1 class="heading margin0">Global Admin Project Commissions</h1>
+
+
+
+
+      <div class="control-group">
+        <label class="control-label">Payment Gateway Commissions Default Payer<span style="color:red">* </span></label>
+        <div class="controls">
+          <%=f.select :gateway_commissions_payer, options_for_select(["Project Owner", "Account Owner"], @projects_commissions.gateway_commissions_payer) %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Commissions and payment processing For standard Projects to be applied in status<span style="color:red">* </span></label>
+        <div class="controls">
+          <%=f.select :standard_commission_status, options_for_select(["draft", "new", "approved", "active ", "succeeded","failed","closed"], @projects_commissions.standard_commission_status) %>
+        </div>
+      </div>
+
+
+      <div class="form-actions">
+        <button type="submit" class="btn">Save</button>
+        <%=link_to "Cancel", edit_ga_projects_commissions_global_admins_path, :class => "btn"%>
+        <%=link_to "Close", root_path, :class => "btn"%>
+      </div>
+
+    </div>
+
+
+<%end%>
+
+<%= content_for :head do  %>
+    <script type="text/javascript">
+
+        jQuery(function(){
+
+
+        });
+    </script>
+<% end %>

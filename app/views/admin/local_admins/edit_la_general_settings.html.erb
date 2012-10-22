@@ -1,0 +1,157 @@
+<%= render :partial => "/admin/global_admins/platform_settings_ga"  %>
+
+
+<%= form_for @local_admin, :url => update_la_general_settings_local_admin_path(@local_admin),:html => {:class => "form form-horizontal"} do |la| %>
+    <%= la.fields_for @general_setting do |f| %>
+        <%= la.fields_for @profile do |profile| %>
+            <%= la.fields_for @paas_setting do |paas| %>
+                <div class="span9">
+                  <% if  @general_setting.errors.any? %>
+                      <div id="error_explanation">
+                        <h2><%= pluralize(@general_setting.errors.count, "error") %> prohibited this Local Admin General Settings from being saved:</h2>
+                        <ul>
+                          <% @general_setting.errors.full_messages.each do |msg| %>
+                              <li><%= msg %></li>
+                          <% end %>
+                        </ul>
+                      </div>
+                  <% end %>
+                  <h3 class="heading margin0"> LA General Settings</h3>
+
+                  <div class="control-group">
+                    <label class="control-label">LA Owner</label>
+                    <div class="controls">
+
+                      <div> <%= @local_admin.user.get_full_name rescue nil %> <%= @local_admin.user.get_email rescue nil%> </div>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label">Local Admin Name<span style="color:red">* </span></label>
+                    <div class="controls">
+                      <%=f.text_field :local_admin_name%>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label">LA Country<span style="color:red">* </span></label>
+                    <div class="controls">
+                      <%=f.select :la_country, options_for_select(@countries,@general_setting.la_country),{ :prompt => 'Select' }%>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label">LA Language<span style="color:red">* </span></label>
+                    <div class="controls">
+                      <%=f.select :la_language, options_for_select(@languages,@general_setting.la_language),{ :prompt => 'Select' }%>
+                    </div>
+                  </div>
+
+
+
+                  <div class="control-group">
+                    <label class="control-label"> Status<span style="color:red">* </span></label>
+                    <div class="controls">
+                      <%=la.select "status", options_for_select(["new" ,"active","inactive","blocked","suspended"],@local_admin.status)%>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label">LA Platform Home<span style="color:red">* </span></label>
+                    <div class="controls">
+                      <%=f.text_field :la_platform_home%>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label">LA Email</label>
+                    <div class="controls">
+                      <%=profile.text_field :la_email%>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label">Paas Commissions Settings</label>
+                    <div class="controls">
+                      <%=paas.text_field :paas_la_commissions%>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label" for="input01">Master Administration Deviation:</label>
+                    <div class="controls">
+                      <%= f.radio_button :master_administration_deviation, true,:class=>"input"%>  True   </div>
+                    <div class="controls"> <%= f.radio_button :master_administration_deviation, false,:class=>"input"%>  False   </div>
+                    <!--<input type="text" class="input-xlarge" id="input01">-->
+                    <p class="help-block"></p>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label" for="input01">Target Administration:</label>
+                    <div class="controls">
+                      <%= select_tag :local_admin ,options_for_select(@local_admins),:prompt => "Select Local Admin",:class=>"input"%>  </div>
+
+                    <div class="controls"><%= select_tag :Worker ,options_for_select([]),:prompt => "Select Worker",:class=>"input"%>  </div>
+                    <!--<input type="text" class="input-xlarge" id="input01">-->
+                    <p class="help-block"></p>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label">Deviation Comment</label>
+                    <div class="controls">
+                      <%=f.text_area :master_worker_deviation_comment, :rows => 5%>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label">LA Facebook Page Url</label>
+                    <div class="controls">
+                      <%=f.text_field :la_facebook%>
+                    </div>
+                  </div><div class="control-group">
+                  <label class="control-label">LA Twitter</label>
+                  <div class="controls">
+                    <%=f.text_field :la_twitter%>
+                  </div>
+                </div><div class="control-group">
+                  <label class="control-label">LA LinkedIn Url</label>
+                  <div class="controls">
+                    <%=f.text_field :la_linked_in%>
+                  </div>
+                </div>
+
+
+                  <div class="form-actions">
+                    <button type="submit" class="btn">Save</button>
+                    <%=link_to "Cancel", edit_la_general_settings_local_admin_path(@local_admin), :class => "btn"%>
+                    <%=link_to "Close", local_admins_path, :class => "btn"%>
+                  </div>
+                </div>
+
+            <%end%>
+        <%end%>
+    <%end%>
+<%end%>
+
+<%= content_for :head do  %>
+    <script type="text/javascript">
+
+        jQuery(function(){
+
+            var facebook =   new LiveValidation("platform_local_admin_la_general_setting_la_facebook",{validMessage:" ",onlyOnSubmit:true});
+            facebook.add( Validate.Format , { pattern: /^(ht|f)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/, failureMessage: "Must be a valid URL" });
+            var twitter =   new LiveValidation("platform_local_admin_la_general_setting_la_twitter",{validMessage:" ",onlyOnSubmit:true});
+            twitter.add( Validate.Format , { pattern: /^(ht|f)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/, failureMessage: "Must be a valid URL" });
+            var linkedin =   new LiveValidation("platform_local_admin_la_general_setting_la_linked_in",{validMessage:" ",onlyOnSubmit:true});
+            linkedin.add( Validate.Format , { pattern: /^(ht|f)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/, failureMessage: "Must be a valid URL" });
+            var platform_email = new LiveValidation('platform_local_admin_la_profile_la_email',{validMessage:" ",onlyOnSubmit:true});
+//            platform_email.add( Validate.Presence,{failureMessage:" Can't be empty"} );
+            platform_email.add( Validate.Email,{failureMessage:"Not a valid email"} );
+            var factor= new LiveValidation('platform_local_admin_la_paas_setting_paas_la_commissions',{validMessage:" ",onlyOnSubmit:true});
+            factor.add( Validate.Numericality ,{ onlyInteger: false },{failureMessage:"Should be Integer"});
+            var la_home= new LiveValidation('platform_local_admin_la_general_setting_la_platform_home',{validMessage:" ",onlyOnSubmit:true});
+            la_home.add( Validate.Presence,{failureMessage:" Can't be empty"} );
+
+        });
+    </script>
+<% end %>

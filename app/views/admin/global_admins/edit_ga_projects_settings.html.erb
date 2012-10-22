@@ -1,0 +1,58 @@
+<%= render :partial => "platform_settings_ga"  %>
+
+
+<%= form_for @project_setting, :url => update_ga_projects_settings_global_admins_path,:html => {:class => "form form-horizontal"} do |f| %>
+
+    <div class="span9">
+      <h1 class="heading margin0">Global Admin Project Settings</h1>
+
+
+
+
+      <div class="control-group">
+        <label class="control-label">Arena Minimum Cap</label>
+        <div class="controls">
+          <%=f.text_field :arena_minimum_cap %>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Arena Maximum Cap</label>
+        <div class="controls">
+          <%=f.text_field :arena_maximum_cap , :rows => 5%>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Arena Factor</label>
+        <div class="controls">
+          <%=f.text_field :arena_factor , :rows => 5%>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn">Save</button>
+        <%=link_to "Cancel", edit_ga_projects_settings_global_admins_path, :class => "btn"%>
+        <%=link_to "Close", root_path, :class => "btn"%>
+      </div>
+
+    </div>
+
+
+<%end%>
+
+<%= content_for :head do  %>
+    <script type="text/javascript">
+
+        jQuery(function(){
+
+            var minimum_cap= new LiveValidation('ga_projects_setting_arena_minimum_cap',{validMessage:" ",onlyOnSubmit:true});
+            minimum_cap.add( Validate.Numericality ,{ onlyInteger: true },{failureMessage:"Should be Integer"});
+
+            var max_cap= new LiveValidation('ga_projects_setting_arena_maximum_cap',{validMessage:" ",onlyOnSubmit:true});
+            max_cap.add( Validate.Numericality ,{ onlyInteger: true },{failureMessage:"Should be Integer"});
+            var factor= new LiveValidation('ga_projects_setting_arena_factor',{validMessage:" ",onlyOnSubmit:true});
+            factor.add( Validate.Numericality ,{ onlyInteger: false },{failureMessage:"Should be Integer"});
+
+        });
+    </script>
+<% end %>

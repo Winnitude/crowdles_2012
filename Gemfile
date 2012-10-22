@@ -49,11 +49,14 @@ gem "pry"
 gem "pry-remote"
 gem "will_paginate"
 gem 'faker'
-#gem "bullet", :group => "development"
-#gem "itslog"
+gem "bullet", :group => "development"
+gem "itslog"
 #gem "fastercsv"
 
-#gem "geocoder"
+gem "geocoder"
+gem "recaptcha", :require => "recaptcha/rails"
+gem 'bootstrap-datepicker-rails'
+#gem 'quiet_assets', :group => :development
 #gem "rmagick"
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
