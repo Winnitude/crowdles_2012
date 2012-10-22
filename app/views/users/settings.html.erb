@@ -1,5 +1,6 @@
-<h1>Settings</h1>
-<%=form_for @user , :url=> update_settings_user_path(@user),:html => {:class => "form form-horizontal"} do |f| %>
+<div class="span12">
+<h1 class="mainHeading">Settings</h1>
+<%=form_for @user , :url=> update_settings_user_path(@user),:html => {:class => "form form-horizontal clearfix"} do |f| %>
     <%= f.fields_for @profile do |p| %>
 
 
@@ -64,7 +65,7 @@
           <div class="control-group">
             <label class="control-label">Birth Date</label>
             <div class="controls">
-              <%= p.text_field :birth_date ,:value =>reformat_date(@profile.birth_date) %>
+              <%= p.text_field :birth_date ,:value =>@profile.birth_date.present? ? reformat_date(@profile.birth_date): "" %>
             </div>
           </div>
 
@@ -89,7 +90,7 @@
             </div>
           </div>
 
-          <div class="form-actions">
+          <div class="controls">
             <button type="submit" class="btn">Save</button>
             <%=link_to "Cancel", settings_user_path(@user), :class => "btn"%>
             <%=link_to "Close", root_path, :class => "btn"%>
@@ -117,7 +118,7 @@
     </script>
 <% end %>
 
-
+</div>
 
 
 
