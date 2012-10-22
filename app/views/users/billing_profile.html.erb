@@ -3,17 +3,17 @@
   <h2 class="heading margin0 mainHeading">default Billing Profile</h2>
   <%= form_for @billing_profile ,:url => update_billing_profile_user_path(@user),:html => {:class => "form form-horizontal"} do |f|%>
 
-      <h6>Individual Details </h6>
+      <h6 class="subHeading">Individual Details </h6>
       <div class="control-group">
         <label class="control-label">First Name</label>
         <div class="controls">
-          <%=f.text_field :first_name%>
+          <%=f.text_field :first_name, :placeholder=>"First Name"%>
         </div>
       </div>
       <div class="control-group">
         <label class="control-label">Last Name</label>
         <div class="controls">
-          <%=f.text_field :last_name%>
+          <%=f.text_field :last_name, :placeholder=>"Last Name"%>
         </div>
       </div>
       <div class="control-group">
@@ -26,32 +26,37 @@
       <div class="control-group">
         <label class="control-label">Birth Place</label>
         <div class="controls">
-          <%=f.text_field :birth_place%>
+          <%=f.text_field :birth_place, :placeholder=>"Birth Place"%>
         </div>
       </div>
 
-      <h6>PayPAl Account</h6>
+      <h6 class="subHeading">PayPal Account</h6>
       <div class="control-group">
         <label class="control-label">Paypal First Name</label>
         <div class="controls">
-          <%=text_field_tag :paypal_first_name%>
+          <%=text_field_tag :paypal_first_name,"", :placeholder=>"Paypal First Name"%>
         </div>
       </div>
       <div class="control-group">
         <label class="control-label">Paypal Last Name</label>
         <div class="controls">
-          <%=text_field_tag :paypal_last_name%>
+          <%=text_field_tag :paypal_last_name, "",:placeholder=>"Paypal Last Name"%>
         </div>
       </div>
       <div class="control-group">
         <label class="control-label">Insert Paypal email</label>
         <div class="controls">
-          <%=text_field_tag :paypal_email%>
-          <%= f.submit "Set", :name => "Setting Paypal" %>
-          <button type="button" class="btn alignToField">Create PayPal account</button>
+          <%=text_field_tag :paypal_email,"", :placeholder=>"Paypal Email"%>
         </div>
       </div>
-      <h6>Set default Currency for Billing Profile</h6>
+        <div class="control-group">
+        <div class="controls">
+          <%= f.submit "Set", :class=>"btn btn-primary", :name => "Setting Paypal" %>
+          <a href="#">Create PayPal account</a>
+         </div>
+        </div>
+
+      <h6 class="subHeading">Set default Currency for Billing Profile</h6>
       <div class="control-group">
         <label class="control-label">Currency</label>
         <div class="controls">
@@ -62,17 +67,17 @@
       <div class="control-group">
         <label class="control-label">Billing Email</label>
         <div class="controls">
-          <%=f.text_field :email%>
+          <%=f.text_field :email, :placeholder=>"Billing Email"%>
         </div>
       </div>
 
       <div class="control-group">
         <label class="control-label">Telephone Number</label>
         <div class="controls">
-          <%=f.text_field :telephone_number%>
+          <%=f.text_field :telephone_number, :placeholder=>"Telephone Number"%>
         </div>
       </div>
-      <h6>Billing Address</h6>
+      <h6 class="subHeading">Billing Address</h6>
 
       <div class="control-group">
         <label class="control-label">Country</label>
@@ -83,37 +88,37 @@
       <div class="control-group">
         <label class="control-label">State</label>
         <div class="controls">
-          <%=f.text_field :state%>
+          <%=f.text_field :state, :placeholder=>"Enter State"%>
         </div>
       </div>
       <div class="control-group">
         <label class="control-label">City</label>
         <div class="controls">
-          <%=f.text_field :city%>
+          <%=f.text_field :city, :placeholder=>"Enter City"%>
         </div>
       </div>
       <div class="control-group">
         <label class="control-label">Zip Code</label>
         <div class="controls">
-          <%=f.text_field :zip_code%>
+          <%=f.text_field :zip_code, :placeholder=>"Enter Zip Code"%>
         </div>
       </div>
       <div class="control-group">
         <label class="control-label">Address</label>
         <div class="controls">
-          <%=f.text_field :street1%>
+          <%=f.text_field :street1, :placeholder=>"Enter Address"%>
         </div>
       </div>
       <div class="control-group">
         <label class="control-label">Additional Address</label>
         <div class="controls">
-          <%=f.text_field :street2%>
+          <%=f.text_field :street2, :placeholder=>"Enter Additional Address"%>
         </div>
       </div>
       <div class="controls">
-        <button type="submit" class="btn">Save</button>
-        <%=link_to "Cancel", billing_profile_user_path(@user), :class => "btn"%>
-        <%=link_to "Close", root_path, :class => "btn"%>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <%=link_to "Cancel", billing_profile_user_path(@user), :class => "btn btn-primary"%>
+        <%=link_to "Close", root_path, :class => "btn btn-primary"%>
       </div>
   <%end%>
 </div>
