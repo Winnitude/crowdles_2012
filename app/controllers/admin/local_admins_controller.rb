@@ -94,13 +94,21 @@ class Admin::LocalAdminsController < ApplicationController
   def update_la_organization_details
     @profile =@local_admin.la_profile
     @contact = @local_admin.la_contact
-    if @contact.update_attributes(params[:platform_local_admin][:la_contact]) and @profile.update_attributes(params[:platform_local_admin][:la_profile])
-
-      redirect_to edit_la_organization_details_local_admin_path(@local_admin), :notice => "Local Admin General Settings Updated Successfully"
+    #binding.remote_pry
+    if !(params[:platform_local_admin][:la_contact]["contact_photo"].present?) or is_image?(params[:platform_local_admin][:la_contact]["contact_photo"].content_type)
+      if @contact.update_attributes(params[:platform_local_admin][:la_contact]) and @profile.update_attributes(params[:platform_local_admin][:la_profile])
+        redirect_to edit_la_organization_details_local_admin_path(@local_admin), :notice => "Local Admin General Settings Updated Successfully"
+      else
+        @countries = ServiceCountry.all.collect{|i| i.country_english_name}
+        render :edit_la_organization_details
+      end
     else
-      @countries = ServiceCountry.all.collect{|i| i.country_english_name}
+      @countries = ServiceCountry.all.select{|i| i.is_active == 1 && i.user_country ==1 }.collect{|i|i.country_english_name}
+      flash[:notice] = "invalid image"
       render :edit_la_organization_details
     end
+
+
   end
 
 

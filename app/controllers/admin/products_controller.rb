@@ -63,15 +63,18 @@ class Admin::ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @product = PlatformProduct.new(params[:platform_product])
-    @product.is_default_sag= params[:default] if @product.product_target.downcase == "sag"
-    @product.is_default= params[:default]  if @product.product_target.downcase == "mag"
-
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to products_path, notice: 'Product was successfully created.' }
-      else
-        format.html { render action: "new" }
+    if params[:platform_product][:product_monthly_price].to_f > params[:platform_product][:product_annual_price].to_f
+      redirect_to new_product_path , :notice => "monthly price should not greater than annual"
+    else
+      @product = PlatformProduct.new(params[:platform_product])
+      @product.is_default_sag= params[:default] if @product.product_target.downcase == "sag"
+      @product.is_default= params[:default]  if @product.product_target.downcase == "mag"
+      respond_to do |format|
+        if @product.save
+          format.html { redirect_to products_path, notice: 'Product was successfully created.' }
+        else
+          format.html { render action: "new" }
+        end
       end
     end
   end

@@ -13,6 +13,7 @@ gem "devise", "2.1.0.rc"
 gem 'omniauth', ">= 0.1.6"
 gem 'rb-readline'
 gem 'geoip'
+#gem 'rails3-jquery-autocomplete'
 gem 'rails3-jquery-autocomplete'
 gem 'ey_config'
 gem 'mongo', '1.6.2'
@@ -56,6 +57,7 @@ gem "itslog"
 gem "geocoder"
 gem "recaptcha", :require => "recaptcha/rails"
 gem 'bootstrap-datepicker-rails'
+gem "jquery-rails"
 #gem 'quiet_assets', :group => :development
 #gem "rmagick"
 # To use debugger

@@ -55,4 +55,8 @@ module ApplicationHelper
     date.strftime('%d-%m-%Y')
   end
 
+  def get_default_currency
+    GaGeneralSetting.first.platform_default_currency
+  end
+
 end
