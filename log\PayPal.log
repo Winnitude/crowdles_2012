@@ -410,3 +410,51 @@ clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevic
 
 Fri 10/19/12 14:01 IST- RECEIVED:
 responseEnvelope.timestamp=2012-10-19T01:31:28.666-07:00&responseEnvelope.ack=Failure&responseEnvelope.correlationId=c9cf7adf60cac&responseEnvelope.build=3861757&error(0).errorId=580022&error(0).domain=PLATFORM&error(0).subdomain=Application&error(0).severity=Error&error(0).category=Application&error(0).message=Invalid request parameter: emailAddress&error(0).parameter(0)=emailAddress&error(1).errorId=580022&error(1).domain=PLATFORM&error(1).subdomain=Application&error(1).severity=Error&error(1).category=Application&error(1).message=Invalid request parameter: emailAddress&error(1).parameter(0)=emailAddress
+
+
+Tue 10/23/12 11:03 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=kunalb_1349863233_per@weboniselab.com&firstName=kunal&lastName=bhatia&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Tue 10/23/12 11:03 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-22T22:33:56.614-07:00&responseEnvelope.ack=Success&responseEnvelope.correlationId=427deefccf133&responseEnvelope.build=3861757&accountStatus=VERIFIED&userInfo.emailAddress=kunalb_1349863233_per@weboniselab.com&userInfo.accountType=PERSONAL&userInfo.accountId=K5G68WXBQTQLC&userInfo.name.salutation=&userInfo.name.firstName=Kunal&userInfo.name.middleName=&userInfo.name.lastName=Bhatia&userInfo.name.suffix=&userInfo.businessName=
+
+
+Tue 10/23/12 11:04 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=kunal.ghijk@gmail.com&firstName=kunnu&lastName=Bhatia&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Tue 10/23/12 11:04 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-22T22:34:18.420-07:00&responseEnvelope.ack=Failure&responseEnvelope.correlationId=b3c87fd1d2a26&responseEnvelope.build=3861757&error(0).errorId=580023&error(0).domain=PLATFORM&error(0).subdomain=Application&error(0).severity=Error&error(0).category=Application&error(0).message=Cannot determine PayPal Account status
+
+
+Tue 10/23/12 11:04 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=kunal.ghijk@gmail.com&firstName=kunal&lastName=Bhatia&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Tue 10/23/12 11:04 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-22T22:34:38.060-07:00&responseEnvelope.ack=Failure&responseEnvelope.correlationId=8df9037fd9960&responseEnvelope.build=3861757&error(0).errorId=580023&error(0).domain=PLATFORM&error(0).subdomain=Application&error(0).severity=Error&error(0).category=Application&error(0).message=Cannot determine PayPal Account status
+
+
+Tue 10/23/12 11:04 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=kunalb_1349863233_per@weboniselab.com&firstName=kunal&lastName=Bhatia&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Tue 10/23/12 11:04 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-22T22:34:54.800-07:00&responseEnvelope.ack=Success&responseEnvelope.correlationId=c2539f18ddd25&responseEnvelope.build=3861757&accountStatus=VERIFIED&userInfo.emailAddress=kunalb_1349863233_per@weboniselab.com&userInfo.accountType=PERSONAL&userInfo.accountId=K5G68WXBQTQLC&userInfo.name.salutation=&userInfo.name.firstName=Kunal&userInfo.name.middleName=&userInfo.name.lastName=Bhatia&userInfo.name.suffix=&userInfo.businessName=
+
+
+Tue 10/23/12 11:05 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=kunalb_1349863233_&firstName=kunal&lastName=Bhatia&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Tue 10/23/12 11:05 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-22T22:35:05.779-07:00&responseEnvelope.ack=Failure&responseEnvelope.correlationId=523b0afbde192&responseEnvelope.build=3861757&error(0).errorId=580022&error(0).domain=PLATFORM&error(0).subdomain=Application&error(0).severity=Error&error(0).category=Application&error(0).message=Invalid request parameter: emailAddress&error(0).parameter(0)=emailAddress
+
+
+Tue 10/23/12 11:05 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=kunalb_1349863233_&firstName=kunal&lastName=Bhatia&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Tue 10/23/12 11:05 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-22T22:35:20.893-07:00&responseEnvelope.ack=Failure&responseEnvelope.correlationId=4d50c17be2231&responseEnvelope.build=3861757&error(0).errorId=580022&error(0).domain=PLATFORM&error(0).subdomain=Application&error(0).severity=Error&error(0).category=Application&error(0).message=Invalid request parameter: emailAddress&error(0).parameter(0)=emailAddress

@@ -18,9 +18,13 @@ class UsersController < ApplicationController
     params[:user][:user_profile][:birth_date] = format_date(params[:user][:user_profile][:birth_date])
     params[:user][:user_profile][:news_letter_flag] = params[:user][:user_profile][:news_letter_flag] == "1" ? true : false
     @profile = @user.user_profile || @user.build_user_profile
+    if !(params[:user][:user_profile]["photo"].present?) or is_image?(params[:user][:user_profile]["photo"].content_type)
     @user.update_attributes(params[:user])
     @profile.update_attributes(params[:user][:user_profile])
     redirect_to settings_user_path(@user) ,:notice => "User settings updated"
+    else
+      redirect_to settings_user_path(@user) ,:notice => "Image not valid"
+    end
   end
 
   def edit_address
