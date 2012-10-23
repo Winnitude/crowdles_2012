@@ -2,7 +2,11 @@ a{
     color:#1b1b1b;
 }
 a:hover{
-
+}
+ul, li{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
 }
 body {
 	padding-top: 60px;
@@ -50,9 +54,12 @@ body {
     color: #ffffff;
     padding-left: 10px;
     font-weight: bold;
-    width: 211px;
+    width: 210px;
     border-bottom: 1px solid #f5f5f5;
     cursor: pointer;
+}
+.side_pannel_header a{
+    color: #ffffff;
 }
 .menu_head {
     padding: 5px 10px;
