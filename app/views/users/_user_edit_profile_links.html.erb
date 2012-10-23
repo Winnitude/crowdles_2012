@@ -1,15 +1,15 @@
-<div class="span3">
-  <ul class="nav nav-list">
 
-    <li><a href="#" ><i class="icon-chevron-right"></i>Setting</a>
-      <ul>
-        <li><%= link_to "Settings" ,settings_user_path(current_user)%></li>
+  <ul>
+
+    <li class="side_pannel_header">Setting  </li>
+        <li class="menu_head"><%= link_to "Settings" ,settings_user_path(current_user)%></li>
         <li><%= link_to "Address" ,edit_address_user_path(current_user)%></li>
         <li><%= link_to "Links" , edit_links_user_path(current_user)%></li>
         <li><%= link_to "Terms of Use" , terms_of_use_user_path(current_user)%></li>
         <li><%= link_to "Billing Profile" , billing_profile_user_path(current_user)%></li>
 
       </ul>
-    </li>
-  </ul>
-</div>
+
+
+
+

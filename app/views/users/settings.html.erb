@@ -1,5 +1,6 @@
 <div class="span12">
 <h1 class="mainHeading">Settings</h1>
+  <div class="">
 <%=form_for @user , :url=> update_settings_user_path(@user),:html => {:class => "form form-horizontal clearfix"} do |f| %>
     <%= f.fields_for @profile do |p| %>
 
@@ -98,7 +99,9 @@
         </div>
 
     <%end%>
+
 <%end%>
+  </div>
 
 
 <%= content_for :head do  %>
