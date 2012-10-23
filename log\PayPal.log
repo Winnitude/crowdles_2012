@@ -490,3 +490,11 @@ clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevic
 
 Tue 10/23/12 15:09 IST- RECEIVED:
 responseEnvelope.timestamp=2012-10-23T02:39:44.176-07:00&responseEnvelope.ack=Success&responseEnvelope.correlationId=81876552df931&responseEnvelope.build=3861757&accountStatus=VERIFIED&userInfo.emailAddress=kunalb_1349863233_per@weboniselab.com&userInfo.accountType=PERSONAL&userInfo.accountId=K5G68WXBQTQLC&userInfo.name.salutation=&userInfo.name.firstName=Kunal&userInfo.name.middleName=&userInfo.name.lastName=Bhatia&userInfo.name.suffix=&userInfo.businessName=
+
+
+Tue 10/23/12 15:42 IST- SENT:
+clientDetails.applicationId=APP-80W284485P519543T&clientDetails.deviceId=mydevice&clientDetails.ipAddress=127.0.0.1&emailAddress=&firstName=&lastName=&matchCriteria=NAME&requestEnvelope.errorLanguage=en_US
+
+
+Tue 10/23/12 15:42 IST- RECEIVED:
+responseEnvelope.timestamp=2012-10-23T03:12:37.074-07:00&responseEnvelope.ack=Failure&responseEnvelope.correlationId=6f23998ac15df&responseEnvelope.build=3861757&error(0).errorId=580022&error(0).domain=PLATFORM&error(0).subdomain=Application&error(0).severity=Error&error(0).category=Application&error(0).message=Invalid request parameter: emailAddress&error(0).parameter(0)=emailAddress&error(1).errorId=580022&error(1).domain=PLATFORM&error(1).subdomain=Application&error(1).severity=Error&error(1).category=Application&error(1).message=Invalid request parameter: emailAddress&error(1).parameter(0)=emailAddress
