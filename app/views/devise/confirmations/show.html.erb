@@ -1,6 +1,6 @@
 
 <%= form_for resource, :as => resource_name, :url => update_user_confirmation_path, :html => {:method => 'put',:class=> "form-horizontal"}, :id => 'activation-form' do |f| %>
-    <%= render "shared/form_errors" , :object=>resource %>
+    <%= render "shared/form_errors" , :object=>resource  %>
     <fieldset>
       <legend>Account Activation<% if resource.email %> for <%= resource.email %><% end %></legend>
       <% if @requires_password %>
