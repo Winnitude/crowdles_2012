@@ -54,7 +54,7 @@ class ApplicationController < ActionController::Base
   end
 
   def format_date date
-    Date.strptime(date, '%d-%m-%Y').to_s
+    Date.strptime(date, '%d-%m-%Y').to_s  rescue nil
   end
 
   def is_image?(params)
