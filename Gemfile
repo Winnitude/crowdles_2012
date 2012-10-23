@@ -51,7 +51,7 @@ gem "pry-remote"
 gem "will_paginate"
 gem 'faker'
 gem "bullet", :group => "development"
-gem "itslog"
+#gem "itslog"
 #gem "fastercsv"
 
 gem "geocoder"
