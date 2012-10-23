@@ -209,6 +209,7 @@ Winnitude::Application.routes.draw do
       get :user_profile
       get :user_ideas
       get :user_sign_in
+      get :user_links
     end
   end
 end
