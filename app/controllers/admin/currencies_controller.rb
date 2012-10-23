@@ -25,6 +25,7 @@ class Admin::CurrenciesController < ApplicationController
 
   def edit
     @currency = ServiceCurrency.find(params[:id])
+    @default_currency = GaGeneralSetting.first.platform_default_currency
   end
 
   def update

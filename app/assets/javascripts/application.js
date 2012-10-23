@@ -12,8 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require bootstrap-datepicker
+//= require autocomplete-rails
 //= require_tree .
+
 
 jQuery(document).ready(function(e){
     $(".alert").fadeOut(5000);

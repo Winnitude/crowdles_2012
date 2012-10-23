@@ -115,9 +115,13 @@ class Admin::GlobalAdminsController < ApplicationController
   end
 
   def update_ga_projects_settings
-    @project_setting = @global_admin.ga_projects_setting
-    if @project_setting.update_attributes(params[:ga_projects_setting])
-      redirect_to edit_ga_projects_settings_global_admins_path, :notice => "Projects Settings Updated Successfully"
+    if (params[:ga_projects_setting][:arena_minimum_cap]).to_i > params[:ga_projects_setting][:arena_maximum_cap].to_i
+      redirect_to edit_ga_projects_settings_global_admins_path, :notice => "Minimum cap value should be smaller that Maximum cap Value"
+    else
+      @project_setting = @global_admin.ga_projects_setting
+      if @project_setting.update_attributes(params[:ga_projects_setting])
+        redirect_to edit_ga_projects_settings_global_admins_path, :notice => "Projects Settings Updated Successfully"
+      end
     end
   end
 

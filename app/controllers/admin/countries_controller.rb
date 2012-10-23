@@ -1,4 +1,5 @@
 class Admin::CountriesController < ApplicationController
+  autocomplete :service_country, :country_english_name
   def index
     #@countries = ServiceCountry.all.paginate(:page => params[:page], :per_page => 10)
     if(params[:re_query])
@@ -33,7 +34,7 @@ class Admin::CountriesController < ApplicationController
     else
       @countries = ServiceCountry.all
     end
-    @countries = @countries.paginate(:page => params[:page], :per_page => 10)
+    @countries = @countries.sort_by {|obj| obj.country_english_name}.paginate(:page => params[:page], :per_page => 10)
   end
 
   def edit

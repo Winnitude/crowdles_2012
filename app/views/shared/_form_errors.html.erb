@@ -1,3 +1,4 @@
+<%if object.present?%>
 <% if object.errors.any? %>
     <div class="alert alert-error">
       <h2>Please fix the following <%= pluralize(object.errors.count, "error") %>:</h2>
@@ -8,4 +9,5 @@
         <% end %>
       </ul>
     </div>
+<% end %>
 <% end %>

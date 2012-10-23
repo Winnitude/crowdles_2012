@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>RailsDependency</ID>
+  <OriginalElement>#crowdles_2012</OriginalElement>
+  <nodes>
+    <node x="959.0" y="1354.1">UserContact</node>
+    <node x="255.0" y="1289.35">User</node>
+    <node x="1940.0" y="231.85000000000002">LaTerm</node>
+    <node x="1940.0" y="442.1">LaProfile</node>
+    <node x="1369.0" y="1178.6094920634919">GaProjectsSetting</node>
+    <node x="1369.0" y="1466.6094920634919">GaProjectsCommission</node>
+    <node x="1940.0" y="538.1">LaGeneralSetting</node>
+    <node x="959.5" y="1656.346158730159">UserLink</node>
+    <node x="2452.0" y="996.1094920634919">PlatformProductsManagement</node>
+    <node x="1888.5" y="39.85000000000002">UserRole</node>
+    <node x="0.0" y="719.0636031746033">BillingProfileDefault</node>
+    <node x="2452.0" y="789.8237777777777">AgCommissionsSetting</node>
+    <node x="1369.0" y="1274.6094920634919">GaGeneralSetting</node>
+    <node x="1940.0" y="135.85000000000002">LaPaasSetting</node>
+    <node x="2451.0" y="73.99615873015898">PlatformRolesManagement</node>
+    <node x="198.0" y="1757.346158730159">ServiceCurrency</node>
+    <node x="2452.0" y="885.8237777777777">AgPaasSetting</node>
+    <node x="1369.0" y="544.5929365079363">GaIntegration</node>
+    <node x="1369.0" y="1370.6094920634919">GaTerm</node>
+    <node x="1326.0" y="232.59293650793632">PlatformLocalAdmin</node>
+    <node x="2452.0" y="679.3467777777773">AgProjectsSetting</node>
+    <node x="1940.0" y="327.85">LaContact</node>
+    <node x="794.0" y="980.85">PlatformGlobalAdmin</node>
+    <node x="0.0" y="1757.346158730159">ServiceLanguage</node>
+    <node x="2451.0" y="1151.8786507936506">DefaultBillingProfile</node>
+    <node x="391.0" y="1757.346158730159">ServiceCountry</node>
+    <node x="2451.0" y="535.3467777777773">PaasBillingProfile</node>
+    <node x="2897.0" y="621.5929365079363">PlatformBillingProfile</node>
+    <node x="959.5" y="1579.346158730159">UserProfile</node>
+    <node x="1861.5" y="713.5604444444447">PlatformAdminGroup</node>
+    <node x="1858.0" y="1028.1094920634919">PlatformProduct</node>
+    <node x="576.0" y="1757.346158730159">PaasSetting</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="PlatformAdminGroup" target="PlatformProductsManagement">
+      <point x="253.0" y="70.8571428571428" />
+      <point x="-182.0" y="-20.0" />
+    </edge>
+    <edge source="BillingProfileDefault" target="PlatformBillingProfile">
+      <point x="87.5" y="-14.0" />
+      <point x="255.0" y="0.0" />
+      <point x="2817.0" y="0.0" />
+      <point x="-91.5" y="-10.666666666666657" />
+    </edge>
+    <edge source="PlatformAdminGroup" target="PlatformRolesManagement">
+      <point x="253.0" y="-106.28571428571429" />
+      <point x="-183.0" y="60.8" />
+    </edge>
+    <edge source="User" target="UserLink">
+      <point x="229.5" y="98.0" />
+      <point x="794.0" y="1684.346158730159" />
+      <point x="-60.5" y="-0.0" />
+    </edge>
+    <edge source="PlatformAdminGroup" target="PaasBillingProfile">
+      <point x="253.0" y="-70.85714285714286" />
+      <point x="-183.0" y="34.666666666666664" />
+    </edge>
+    <edge source="PlatformGlobalAdmin" target="PlatformRolesManagement">
+      <point x="226.0" y="-120.88888888888891" />
+      <point x="1326.0" y="29.350000000000023" />
+      <point x="2371.0" y="29.350000000000023" />
+      <point x="-183.0" y="-30.399999999999977" />
+    </edge>
+    <edge source="PaasBillingProfile" target="PlatformBillingProfile">
+      <point x="183.0" y="-0.0" />
+      <point x="-91.5" y="1.7763568394002505E-15" />
+    </edge>
+    <edge source="PlatformAdminGroup" target="DefaultBillingProfile">
+      <point x="253.0" y="106.28571428571422" />
+      <point x="-183.0" y="-34.66666666666666" />
+    </edge>
+    <edge source="PlatformLocalAdmin" target="LaPaasSetting">
+      <point x="226.0" y="-119.0" />
+      <point x="1858.0" y="163.85000000000002" />
+      <point x="-174.5" y="-0.0" />
+    </edge>
+    <edge source="User" target="UserProfile">
+      <point x="229.5" y="42.0" />
+      <point x="794.0" y="1607.346158730159" />
+      <point x="-60.5" y="-0.0" />
+    </edge>
+    <edge source="BillingProfileDefault" target="User">
+      <point x="87.5" y="14.0" />
+      <point x="-229.5" y="-0.0" />
+    </edge>
+    <edge source="PlatformGlobalAdmin" target="PaasBillingProfile">
+      <point x="226.0" y="-30.22222222222217" />
+      <point x="1326.0" y="637.5929365079363" />
+      <point x="2371.0" y="637.5929365079363" />
+      <point x="-183.0" y="-0.0" />
+    </edge>
+    <edge source="User" target="DefaultBillingProfile">
+      <point x="229.5" y="70.0" />
+      <point x="794.0" y="1645.846158730159" />
+      <point x="2371.0" y="1645.846158730159" />
+      <point x="-183.0" y="34.666666666666686" />
+    </edge>
+    <edge source="PlatformLocalAdmin" target="LaGeneralSetting">
+      <point x="226.0" y="85.0" />
+      <point x="1858.0" y="566.1" />
+      <point x="-174.5" y="-0.0" />
+    </edge>
+    <edge source="DefaultBillingProfile" target="PlatformBillingProfile">
+      <point x="183.0" y="-0.0" />
+      <point x="-91.5" y="10.666666666666666" />
+    </edge>
+    <edge source="User" target="UserContact">
+      <point x="229.5" y="-14.0" />
+      <point x="794.0" y="1382.1" />
+      <point x="-61.0" y="-0.0" />
+    </edge>
+    <edge source="PlatformGlobalAdmin" target="PlatformLocalAdmin">
+      <point x="226.0" y="-90.66666666666666" />
+      <point x="-226.0" y="68.0" />
+    </edge>
+    <edge source="PlatformGlobalAdmin" target="GaGeneralSetting">
+      <point x="226.0" y="60.444444444444485" />
+      <point x="1326.0" y="1302.6094920634919" />
+      <point x="-183.0" y="-0.0" />
+    </edge>
+    <edge source="PlatformAdminGroup" target="AgCommissionsSetting">
+      <point x="253.0" y="-2.8421709430404007E-14" />
+      <point x="-182.0" y="-0.0" />
+    </edge>
+    <edge source="User" target="PlatformLocalAdmin">
+      <point x="229.5" y="-70.0" />
+      <point x="794.0" y="276.8467777777774" />
+      <point x="1246.0" y="276.8467777777774" />
+      <point x="-226.0" y="-68.0" />
+    </edge>
+    <edge source="PlatformLocalAdmin" target="LaTerm">
+      <point x="226.0" y="-85.0" />
+      <point x="1858.0" y="259.85" />
+      <point x="-174.5" y="-0.0" />
+    </edge>
+    <edge source="PlatformLocalAdmin" target="LaContact">
+      <point x="226.0" y="-51.0" />
+      <point x="1858.0" y="355.85" />
+      <point x="-174.5" y="-0.0" />
+    </edge>
+    <edge source="PlatformLocalAdmin" target="LaProfile">
+      <point x="226.0" y="51.0" />
+      <point x="1858.0" y="470.1" />
+      <point x="-174.5" y="-0.0" />
+    </edge>
+    <edge source="PlatformLocalAdmin" target="PlatformAdminGroup">
+      <point x="226.0" y="119.0" />
+      <point x="-253.0" y="-62.0" />
+    </edge>
+    <edge source="PlatformGlobalAdmin" target="GaProjectsSetting">
+      <point x="226.0" y="30.222222222222257" />
+      <point x="1326.0" y="1206.6094920634919" />
+      <point x="-183.0" y="-0.0" />
+    </edge>
+    <edge source="PlatformGlobalAdmin" target="GaProjectsCommission">
+      <point x="226.0" y="120.88888888888891" />
+      <point x="1326.0" y="1494.6094920634919" />
+      <point x="-183.0" y="-0.0" />
+    </edge>
+    <edge source="User" target="PlatformGlobalAdmin">
+      <point x="229.5" y="-42.0" />
+      <point x="-226.0" y="-0.0" />
+    </edge>
+    <edge source="PlatformLocalAdmin" target="PlatformRolesManagement">
+      <point x="226.0" y="-17.0" />
+      <point x="1858.0" y="394.35" />
+      <point x="2371.0" y="394.35" />
+      <point x="-183.0" y="30.399999999999977" />
+    </edge>
+    <edge source="PlatformGlobalAdmin" target="GaTerm">
+      <point x="226.0" y="90.66666666666671" />
+      <point x="1326.0" y="1398.6094920634919" />
+      <point x="-183.0" y="-0.0" />
+    </edge>
+    <edge source="PlatformAdminGroup" target="AgProjectsSetting">
+      <point x="253.0" y="-35.428571428571445" />
+      <point x="-182.0" y="-0.0" />
+    </edge>
+    <edge source="User" target="PlatformAdminGroup">
+      <point x="229.5" y="14.0" />
+      <point x="794.0" y="1568.846158730159" />
+      <point x="1778.0" y="1568.846158730159" />
+      <point x="-253.0" y="62.0" />
+    </edge>
+    <edge source="User" target="PlatformRolesManagement">
+      <point x="229.5" y="-98.0" />
+      <point x="794.0" y="18.350000000000023" />
+      <point x="2371.0" y="18.350000000000023" />
+      <point x="-183.0" y="-60.80000000000007" />
+    </edge>
+    <edge source="PlatformLocalAdmin" target="PaasBillingProfile">
+      <point x="226.0" y="17.0" />
+      <point x="1858.0" y="405.35" />
+      <point x="2371.0" y="405.35" />
+      <point x="-183.0" y="-34.66666666666666" />
+    </edge>
+    <edge source="UserRole" target="PlatformRolesManagement">
+      <point x="226.0" y="-0.0" />
+      <point x="2371.0" y="67.85000000000002" />
+      <point x="-183.0" y="-1.4210854715202004E-14" />
+    </edge>
+    <edge source="PlatformAdminGroup" target="AgPaasSetting">
+      <point x="253.0" y="35.42857142857139" />
+      <point x="-182.0" y="-0.0" />
+    </edge>
+    <edge source="PlatformGlobalAdmin" target="GaIntegration">
+      <point x="226.0" y="-60.44444444444443" />
+      <point x="1326.0" y="572.5929365079363" />
+      <point x="-183.0" y="-0.0" />
+    </edge>
+    <edge source="PlatformGlobalAdmin" target="DefaultBillingProfile">
+      <point x="226.0" y="-0.0" />
+      <point x="1326.0" y="1168.1094920634919" />
+      <point x="2371.0" y="1168.1094920634919" />
+      <point x="-183.0" y="-0.0" />
+    </edge>
+    <edge source="PlatformProduct" target="PlatformProductsManagement">
+      <point x="256.5" y="-0.0" />
+      <point x="-182.0" y="20.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.3406652360515021" x="559.4062992125985" y="775.4503937007875" />
+  <SelectedNodes>
+    <node>LaGeneralSetting</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Association fields</Category>
+    <Category>Migration fields</Category>
+  </Categories>
+</Diagram>
+

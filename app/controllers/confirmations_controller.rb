@@ -46,9 +46,11 @@ class ConfirmationsController < Devise::PasswordsController
 
   # GET /resource/confirmation?confirmation_token=abcdef
   def show
+
     @countries = ServiceCountry.all.select{|i| i.is_active ==1}.collect{|i| i.country_english_name}
     @language = ServiceLanguage.all.select{|i| i.is_active ==1}.collect{|i| i.english_name}
     with_unconfirmed_confirmable do
+      #binding.remote_pry
       if @confirmable.has_no_password?
         do_show
       else
@@ -56,8 +58,13 @@ class ConfirmationsController < Devise::PasswordsController
       end
     end
     if !@confirmable.errors.empty?
-      set_flash_message(:error, :invalid)
-      render 'devise/confirmations/new' #Change this if you doens't have the views on default path
+      #binding.remote_pry
+      if (@confirmable.status == "active")
+        redirect_to root_path ,:notice => "Sorry this page has been expired"
+      else
+        set_flash_message(:error, :invalid)
+        render 'devise/confirmations/new' #Change this if you doens't have the views on default path
+      end
     end
   end
 

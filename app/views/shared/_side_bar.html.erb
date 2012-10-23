@@ -1,27 +1,29 @@
-<div class="well sidebar-nav">
-  <h3>Sidebar</h3>
-  <ul class="nav nav-list">
-    <li class="nav-header">Sidebar</li>
-    <% if user_signed_in? %>
-        <li><%= link_to "Sign out", logout_path %></li>
 
-        <li><%#= link_to "send_news_letter", send_news_letter_page_homes_path %></li>
+    <div class="well sidebar-nav">
+      <h3>Sidebar</h3>
+      <ul class="nav nav-list">
+        <li class="nav-header">Sidebar</li>
+        <% if user_signed_in? %>
+            <li><%= link_to "Sign out", logout_path %></li>
 
-        <% if current_user.is_provider == false %>
-            <li><%= link_to "Account Settings" , edit_user_registration_path  %></li>
+            <li><%#= link_to "send_news_letter", send_news_letter_page_homes_path %></li>
+
+            <% if current_user.is_provider == false %>
+                <li><%= link_to "Account Settings" , edit_user_registration_path  %></li>
+            <% end %>
+        <% else %>
+
+            <li>  <% if request.url.index(ADMIN_HOST).present? == false %>
+                  <%= link_to "Sign up", new_user_registration_path %>
+              <% end %>
+            </li>
+            <li><%= link_to "Sign in", new_user_session_path %></li>
+            <li><% if request.url.index(ADMIN_HOST).present? == false %>
+
+              <% end %>
+            <li><%= link_to "Forgot your password?", new_user_password_path %></li>
+            <!--<li><%#= link_to "Didn't receive confirmation instructions?", new_user_confirmation_path %></li>-->
         <% end %>
-    <% else %>
+      </ul>
+    </div><!--/.well -->
 
-        <li>  <% if request.url.index(ADMIN_HOST).present? == false %>
-              <%= link_to "Sign up", new_user_registration_path %>
-          <% end %>
-        </li>
-        <li><%= link_to "Sign in", new_user_session_path %></li>
-        <li><% if request.url.index(ADMIN_HOST).present? == false %>
-
-          <% end %>
-          <li><%= link_to "Forgot your password?", new_user_password_path %></li>
-          <!--<li><%#= link_to "Didn't receive confirmation instructions?", new_user_confirmation_path %></li>-->
-    <% end %>
-  </ul>
-</div><!--/.well -->

@@ -12,7 +12,7 @@ module ApplicationHelper
     if GaGeneralSetting.first.present?
       GaGeneralSetting.first.platform_name
     else
-      "Winnitude"
+      ""
     end
   end
 
@@ -53,6 +53,10 @@ module ApplicationHelper
   end
   def reformat_date(date)
     date.strftime('%d-%m-%Y')
+  end
+
+  def get_default_currency
+    GaGeneralSetting.first.platform_default_currency
   end
 
 end

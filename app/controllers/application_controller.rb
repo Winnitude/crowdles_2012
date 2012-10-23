@@ -57,4 +57,20 @@ class ApplicationController < ActionController::Base
     Date.strptime(date, '%d-%m-%Y').to_s
   end
 
+  def is_image?(params)
+    content_type = params.split("/")
+    #binding.remote_pry
+    if !content_type.empty?
+      if content_type.include?("image")
+        return true
+      else
+        return false
+      end
+    else
+      return true
+    end
+  end
+
+
+
 end

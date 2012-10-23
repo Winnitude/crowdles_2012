@@ -27,8 +27,12 @@ Winnitude::Application.routes.draw do
         end
       end
       resources :products
-      resources :countries ,:except => [:new, :create, :destroy]
-      resources :currencies ,:except => [:new, :create, :destroy]
+      resources :countries ,:except => [:new, :create, :destroy] do
+        get :autocomplete_service_country_country_english_name, :on => :collection
+      end
+      resources :currencies ,:except => [:new, :create, :destroy] do
+
+      end
       resources :languages  ,:except => [:new, :create, :destroy]
       resources :local_admins ,:except => [:new, :create, :destroy] do
         member do
