@@ -43,6 +43,8 @@ class Admin::LocalAdminsController < ApplicationController
     @general_setting = @local_admin.la_general_setting
     @profile =@local_admin.la_profile
     @paas_setting =@local_admin.la_paas_setting
+    @la_owner = @local_admin.user
+    @ga_owner = PlatformGlobalAdmin.first.user
     @local_admins = PlatformLocalAdmin.all.includes(:la_general_setting).select{|i| i.status == "active"}.collect{|i| i.la_general_setting.local_admin_name}
   end
 

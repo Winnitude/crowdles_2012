@@ -12,7 +12,7 @@ module ApplicationHelper
     if GaGeneralSetting.first.present?
       GaGeneralSetting.first.platform_name
     else
-      "Winnitude"
+      ""
     end
   end
 

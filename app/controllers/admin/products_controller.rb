@@ -82,14 +82,18 @@ class Admin::ProductsController < ApplicationController
   # PUT /products/1
   # PUT /products/1.json
   def update
-    @product = PlatformProduct.find(params[:id])
-    @product.is_default_sag= params[:default] if @product.product_target.downcase == "sag"
-    @product.is_default= params[:default]  if @product.product_target.downcase == "mag"
-    respond_to do |format|
-      if @product.update_attributes(params[:platform_product])
-        format.html { redirect_to products_path, notice: 'Product was successfully updated.' }
-      else
-        format.html { render action: "edit" }
+    if params[:platform_product][:product_monthly_price].to_f > params[:platform_product][:product_annual_price].to_f
+      redirect_to edit_product_path(@product) , :notice => "monthly price should not greater than annual"
+    else
+      @product = PlatformProduct.find(params[:id])
+      @product.is_default_sag= params[:default] if @product.product_target.downcase == "sag"
+      @product.is_default= params[:default]  if @product.product_target.downcase == "mag"
+      respond_to do |format|
+        if @product.update_attributes(params[:platform_product])
+          format.html { redirect_to products_path, notice: 'Product was successfully updated.' }
+        else
+          format.html { render action: "edit" }
+        end
       end
     end
   end
