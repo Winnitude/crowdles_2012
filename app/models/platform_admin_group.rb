@@ -7,6 +7,7 @@ class PlatformAdminGroup
   has_one :ag_projects_setting
   has_one :ag_commissions_setting
   has_one :ag_paas_setting
+  has_one :platform_business_group
   belongs_to :user
   belongs_to :platform_local_admin
   has_many :platform_roles_managements

@@ -1,5 +1,6 @@
 class PlatformBusinessGroup
   include Mongoid::Document
+  belongs_to :platform_admin_group
   has_one :bg_location
   has_one :bg_link
   has_one :bg_profile
