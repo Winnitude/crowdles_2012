@@ -51,6 +51,11 @@ module ApplicationHelper
   def user_terms
     GaTerm.first.user_terms
   end
+
+  def legal_terms
+    GaTerm.first.platform_legal_terms_global
+  end
+
   def reformat_date(date)
     date.strftime('%d-%m-%Y')
   end

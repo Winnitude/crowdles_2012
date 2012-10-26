@@ -198,6 +198,11 @@ Winnitude::Application.routes.draw do
     end
   end
 
+  resources :admin_groups do
+   get :get_product_details, :on => :collection
+  end
+
+
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
