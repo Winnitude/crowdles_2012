@@ -58,6 +58,7 @@ gem "geocoder"
 gem "recaptcha", :require => "recaptcha/rails"
 gem 'bootstrap-datepicker-rails'
 gem "jquery-rails"
+gem 'recurly', '~> 2.1.5'
 #gem 'quiet_assets', :group => :development
 #gem "rmagick"
 # To use debugger
