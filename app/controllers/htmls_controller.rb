@@ -8,7 +8,13 @@ class HtmlsController < ApplicationController
   def user_links
 
   end
-  def step_one
+  def set_account_name_area
+
+  end
+  def completed
+
+    end
+  def billing_payment
 
   end
 end

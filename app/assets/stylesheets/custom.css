@@ -181,3 +181,62 @@ body {
 .contentFooter a{
     color: #2978a6;
 }
+.contentBreadcrumb{
+    display: block;
+    text-align: center;
+    margin-top: -16px;
+}
+.contentBreadcrumb span{
+    border: 1px solid #000;
+    border-radius: 0px 90px 90px 0px;
+    padding: 5px 40px;
+    background-color: #fff;
+    line-height: 33px;
+}
+.contentBreadcrumb1{
+    z-index: 1000;
+    position: relative;
+}
+.contentBreadcrumb2{
+    position: relative;
+    margin-left: -14px;
+}
+.contentBreadcrumb3{
+    z-index: 10;
+    margin-left: -15px;
+}
+.contentBreadcrumb span.activeBreadcrumb{
+    background-color: #616161;
+    color: #ffffff;
+}
+.content{
+    margin-top: 20px;
+}
+.content .control-group .controls {
+    text-align: left;
+}
+.conditions{
+    width:500px;
+    resize: none;
+}
+.termsConditions{
+    margin:20px 50px 20px 0px;
+}
+.alertMessage{
+    padding: 8px 53px 8px 14px;
+    margin-bottom: 20px;
+    color: #C09853;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    background-color: #FCF8E3;
+    border: 1px solid #FBEED5;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.helpText{
+    font-size: 11px;
+    line-height: 20px;
+}
+.btnMargin{
+    margin:20px 20px 20px 0px;
+}
