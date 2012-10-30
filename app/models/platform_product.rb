@@ -89,6 +89,13 @@ class PlatformProduct
     end
   end
 
+  def self.get_products_with_existing_plans
+    plans = Recurly::Plan.all
+    plans_code = plans.collect{|plan| plan.plan_code}
+    products= all.select{|p| plans_code.include? p.id.to_s}
+    all_plans = {:plans => plans , :products => products}
+  end
+
 
 
 

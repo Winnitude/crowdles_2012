@@ -58,5 +58,4 @@ class PlatformAdminGroup
   def get_product
      self.platform_products_management.platform_product
   end
-
 end

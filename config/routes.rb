@@ -202,6 +202,10 @@ Winnitude::Application.routes.draw do
    get :get_product_details, :on => :collection
   end
 
+  resources :plans ,:only => [:index] do
+
+  end
+
 
   # See how all your routes lay out with "rake routes"
 
