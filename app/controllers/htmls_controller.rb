@@ -8,4 +8,7 @@ class HtmlsController < ApplicationController
   def user_links
 
   end
+  def step_one
+
+  end
 end

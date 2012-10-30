@@ -210,6 +210,7 @@ Winnitude::Application.routes.draw do
       get :user_ideas
       get :user_sign_in
       get :user_links
+      get :Set_Account_Name
     end
   end
 end

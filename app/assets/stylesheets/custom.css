@@ -2,6 +2,7 @@ a{
     color:#1b1b1b;
 }
 a:hover{
+    color: #777777;
 }
 ul, li{
     margin: 0px;
@@ -96,6 +97,7 @@ body {
 }
 .span3.pannelBorder.pull-left {
     width: 218px;
+    margin-left: 0px;
 }
 .mainHeading{
     color: #7e7b7b;
@@ -120,4 +122,62 @@ body {
 }
 .center{
     text-align: center;
+}
+.secondHeading{
+    text-align: center;
+}
+.contentBg{
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #7e7b7b;
+}
+.contentBg ul{
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+.contentBg ul li{
+    background-color: #f4f1e8;
+    width: 215px;
+    float: left;
+    text-align: center;
+    margin:5px 10px;
+    border-radius:60px;
+    padding-bottom: 10px;
+}
+.productPrice{
+    font-weight: bold;
+}
+.divider{
+    border-radius: 10px;
+    background-color: #e3e2df;
+    box-shadow: 2px 2px 2px #fcfcfc;
+    height: 2px;
+}
+.contentBg ul li p{
+  width: 205px;
+    margin-left: 5px;
+    margin-top: 7px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: 22px;
+}
+.impText{
+    color: #d40808;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: bolder;
+}
+.blackTxt{
+    color: #000;
+}
+.bold{
+    font-weight: bold;
+}
+.contentFooter{
+    text-align: center;
+    font-family: arial;
+    color: #2e2d2d;
+}
+.contentFooter a{
+    color: #2978a6;
 }
