@@ -52,7 +52,7 @@ class AdminGroupsController < ApplicationController
     plan= Recurly::Plan.find(session[:platform_product_id])
     logger.info p.inspect
     logger.info plan.inspect
-    redirect_to "https://www.gravitydev.com/project/42201/stories/221"
+    redirect_to "https://webonise1.recurly.com/subscribe/#{session[:platform_product_id]}"
   end
 
 

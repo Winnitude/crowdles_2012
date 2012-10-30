@@ -2,7 +2,6 @@ class HomesController < ApplicationController
   before_filter :should_be_user ,:except => [:platform_not_configured,:user_exists,:send_verification_mail]
   before_filter :check_status_for_user, :only => [:index]
   def index
-
   end
   def platform_not_configured
 
@@ -16,7 +15,7 @@ class HomesController < ApplicationController
   def send_verification_mail
     @user = User.find(params[:id])
     @user.send_confirmation_instructions
-    redirect_to login_path, :notice=>"Confirmation message send plz confirm it to proceed."
+    redirect_to login_path, :notice=>"Confirmation message send please confirm it to proceed."
   end
 
 end
