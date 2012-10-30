@@ -14,6 +14,7 @@
       <th>Pro Commission</th>
       <th>Private Commission</th>
       <th>No of Workers</th>
+      <th>Action</th>
       <!--<th>No. of BG contest allowed</th>-->
       <!--<th>No. of BG windows allowed</th>-->
       <!--<th>No. of BG active workers allowed</th>-->
@@ -32,15 +33,12 @@
               <td><%=product.platform_standard_commissions%></td>
               <td><%=product.platform_pro_commissions%></td>
               <td><%=product.platform_private_commissions%></td>
-              <!--<td><%=product.get_bg_contest_number%></td>-->
-              <!--<td><%=product.get_bg_window_number%></td>-->
               <td><%=product.get_ag_workers_number%></td>
+              <td><%=link_to "Apply" ,set_platform_path(product),:class => "btn btn-info"%></td>
             </tr>
         <% end %>
       </table>
 
       <br />
-
-      <%= link_to 'New Product', new_product_path , :class => "btn primary btn-info" %>
 
 </div>

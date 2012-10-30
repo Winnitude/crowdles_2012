@@ -40,4 +40,23 @@ class AdminGroupsController < ApplicationController
     end
   end
 
+  def new_platform
+    @admin_group = PlatformAdminGroup.new
+    session[:platform_product_id] = params[:id]
+    @local_admins = PlatformLocalAdmin.includes(:la_general_setting).where(:status => "active")
+  end
+
+  def create_platform
+    logger.info session[:platform_product_id].inspect
+   p= PlatformProduct.find(session[:platform_product_id])
+    plan= Recurly::Plan.find(session[:platform_product_id])
+    logger.info p.inspect
+    logger.info plan.inspect
+    redirect_to "https://www.gravitydev.com/project/42201/stories/221"
+  end
+
+
+
+
+
 end

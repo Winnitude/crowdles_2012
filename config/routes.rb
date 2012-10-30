@@ -126,6 +126,7 @@ Winnitude::Application.routes.draw do
   match 'confirm_facebook'   =>'user_registrations#confirm_facebook',:via => :get   ,:as=>:confirm_facebook
   match 'confirm'=>'user_registrations#final_confirmation',:via => :get   ,:as=>:confirm
   match 'set_password'=>'user_registrations#set_password',:via => :get   ,:as=>:set_password
+  match 'set_platform/:id'=>'admin_groups#new_platform',:via => :get   ,:as=>:set_platform
 
 
   # The priority is based upon order of creation:
@@ -200,6 +201,8 @@ Winnitude::Application.routes.draw do
 
   resources :admin_groups do
    get :get_product_details, :on => :collection
+   post :create_platform, :on => :collection
+
   end
 
   resources :plans ,:only => [:index] do
