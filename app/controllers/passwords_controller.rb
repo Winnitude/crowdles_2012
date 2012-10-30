@@ -37,7 +37,7 @@ class PasswordsController <  Devise::PasswordsController
 
       end
     else
-      redirect_to new_user_password_path ,:notice => "Account not valid"
+      redirect_to new_user_password_path ,:notice => "Please Enter an Email Id"
     end
 end
 

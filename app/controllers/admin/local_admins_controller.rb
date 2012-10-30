@@ -1,6 +1,7 @@
 class Admin::LocalAdminsController < ApplicationController
   before_filter :should_be_global_admin
-  before_filter :get_local_admin, :except => [:index]
+  before_filter :get_local_admin, :except => [:index,:autocomplete_la_general_setting_la_country]
+  autocomplete :la_general_setting, :la_country
   def index
     @local_admins = PlatformLocalAdmin.all.includes([:la_general_setting,:user])
     if(params[:re_query])

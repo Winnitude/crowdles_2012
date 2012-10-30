@@ -7,7 +7,7 @@ class UserProfile
   field :nick_name , :type => String
   field :birth_date , :type => Date
   field :gender , :type => String
-  field :news_letter_flag , :type => Boolean
+  field :news_letter_flag , :type => Boolean,:default=>true
   field :language , :type => String
   field :biography , :type => String
   field :video , :type => String

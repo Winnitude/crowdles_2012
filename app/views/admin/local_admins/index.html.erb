@@ -18,7 +18,7 @@
         </tr>
 
         <tr>
-          <td><%=text_field_tag :la_country ,params[:la_country],:class=>"span2" %></td>
+          <td><%=autocomplete_field_tag "la_country" ,"", autocomplete_la_general_setting_la_country_local_admins_path,:class=>"input"%> </td>
           <td><%=text_field_tag :name ,params[:name] ,:class=>"span2"%></td>
           <td><%=select_tag :master,options_for_select(["All", "True" ,"False"],params[:master]) ,:onchange => "this.form.submit();",:class=>"span2"%></td>
           <td><%=text_field_tag :language,params[:language],:class=>"span2" %></td>
@@ -47,7 +47,7 @@
   <%= content_for :head do  %>
       <script type="text/javascript">
 
-              $(this).next("div.menu_body").slideDown();
+          $(this).next("div.menu_body").slideDown();
 
           jQuery(function(){
 //

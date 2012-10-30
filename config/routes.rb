@@ -45,6 +45,9 @@ Winnitude::Application.routes.draw do
           get :edit_la_organization_details
           put :update_la_organization_details
         end
+
+          get :autocomplete_la_general_setting_la_country ,:on => :collection
+
       end
     end
   end
