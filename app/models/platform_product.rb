@@ -81,6 +81,14 @@ class PlatformProduct
     self.product_annual_price.present?    ? self.product_annual_price :  "Empty"
   end
 
+  def get_plan
+    begin
+      plan = Recurly::Plan.find(self.id)
+    rescue
+      plan
+    end
+  end
+
 
 
 
