@@ -5,6 +5,11 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
+      <th>Trial Interval Length</th>
+      <th>Trial Interval Unit</th>
+      <th>Pricing</th>
+      <th>Plan Interval Length</th>
+      <th>plan Interval Unit</th>
       <th>Standard Commission</th>
       <th>Pro Commission</th>
       <th>Private Commission</th>
@@ -15,10 +20,15 @@
     </tr>
 
         <% @products.each do |product| %>
-         <% plan = product.get_plan %>
+         <% plan = @plans.select{|plan| plan.plan_code== product.id.to_s}.first %>
             <tr>
               <td><%=product.platform_product_name %></td>
               <td><%=plan.description %></td>
+              <td><%=plan.trial_interval_length %></td>
+              <td><%=plan.trial_interval_unit %></td>
+              <td><%="#{(plan.unit_amount_in_cents.to_hash[:USD])/100} USD" %></td>
+              <td><%=plan.plan_interval_length %></td>
+              <td><%=plan.plan_interval_unit %></td>
               <td><%=product.platform_standard_commissions%></td>
               <td><%=product.platform_pro_commissions%></td>
               <td><%=product.platform_private_commissions%></td>
