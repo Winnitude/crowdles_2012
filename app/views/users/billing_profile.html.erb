@@ -1,4 +1,5 @@
 
+<%= render :partial =>"users/user_edit_profile_links" if (current_user.present?)%>
 <div class="span9">
   <h2 class="heading margin0 mainHeading">default Billing Profile</h2>
   <%= form_for @billing_profile ,:url => update_billing_profile_user_path(@user),:html => {:class => "form form-horizontal"} do |f|%>
@@ -52,7 +53,7 @@
         <div class="control-group">
         <div class="controls">
           <%= f.submit "Set", :class=>"btn btn-primary", :name => "Setting Paypal" %>
-          <a href="#">Create PayPal account</a>
+          <a href="#" class="btn btn-primary">Create PayPal account</a>
          </div>
         </div>
 

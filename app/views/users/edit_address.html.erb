@@ -1,4 +1,5 @@
-<div class="span12">
+<%= render :partial =>"users/user_edit_profile_links" if (current_user.present?)%>
+<div class="span9">
 <h1 class="mainHeading">Address</h1>
 <%=form_for current_user , :url=> update_address_user_path(@user),:html => {:class => "form form-horizontal clearfix"} do |f| %>
     <%=f.fields_for @contact  do |contact| %>
