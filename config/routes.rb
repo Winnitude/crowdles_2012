@@ -213,6 +213,10 @@ Winnitude::Application.routes.draw do
       get :set_account_name_area
       get :completed
       get :billing_payment
+      get :_user_act_as_admin_group_links
+      get :upgrade
+      get :downgrade
+      get :cancelPlan
     end
   end
 end

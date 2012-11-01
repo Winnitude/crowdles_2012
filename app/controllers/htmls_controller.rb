@@ -17,4 +17,16 @@ class HtmlsController < ApplicationController
   def billing_payment
 
   end
+  def _user_act_as_admin_group_links
+
+  end
+  def upgrade
+
+  end
+  def downgrade
+
+  end
+  def cancelPlan
+
+  end
 end
