@@ -141,8 +141,9 @@ body {
     float: left;
     text-align: center;
     margin:5px 10px;
-    border-radius:60px;
+    border-radius:28px;
     padding-bottom: 10px;
+    min-height: 420px;
 }
 .productPrice{
     font-weight: bold;
