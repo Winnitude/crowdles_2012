@@ -115,9 +115,13 @@ class Admin::GlobalAdminsController < ApplicationController
   end
 
   def update_ga_projects_settings
-    @project_setting = @global_admin.ga_projects_setting
-    if @project_setting.update_attributes(params[:ga_projects_setting])
-      redirect_to edit_ga_projects_settings_global_admins_path, :notice => "Projects Settings Updated Successfully"
+    if (params[:ga_projects_setting][:arena_minimum_cap]).to_i > params[:ga_projects_setting][:arena_maximum_cap].to_i
+      redirect_to edit_ga_projects_settings_global_admins_path, :notice => "Minimum cap value should be smaller that Maximum cap Value"
+    else
+      @project_setting = @global_admin.ga_projects_setting
+      if @project_setting.update_attributes(params[:ga_projects_setting])
+        redirect_to edit_ga_projects_settings_global_admins_path, :notice => "Projects Settings Updated Successfully"
+      end
     end
   end
 
@@ -150,14 +154,16 @@ class Admin::GlobalAdminsController < ApplicationController
     if params[:status] != "All"
       @users = @users.select{|i| i.status.downcase == params[:status].downcase}
     end
-    #if params[:registration_date] != ""
-    #  @users = @users.select{|i| i.confirmed_at.to_date == params[:registration_date].to_date rescue nil}
-    #end
-    #if params[:last_access] != ""
-    #  @users = @users.select{|i| i.confirmed_at.to_date == params[:last_access].to_date rescue nil}
-    #end
+    if params[:registration_date] != ""
+      params[:registration_date] = format_date(params[:registration_date])
+      @users = @users.select{|i| i.confirmed_at.to_date == params[:registration_date].to_date rescue nil}
+    end
+    if params[:last_access] != ""
+      params[:last_access] = format_date(params[:last_access])
+      @users = @users.select{|i| i.last_sign_in_at.to_date == params[:last_access].to_date rescue nil}
+    end
     if params[:gender] != "All"
-      @users = @users.select{|i| i.user_profile.gender == params[:gender] rescue nil}
+      @users = @users.select{|i| i.user_profile.gender.downcase == params[:gender].downcase rescue nil}
     end
     if params[:first_name] != ""
       @users = @users.select{|i| i.user_profile.first_name.downcase == params[:first_name].downcase rescue nil}

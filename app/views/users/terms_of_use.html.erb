@@ -1,4 +1,6 @@
-<h1>Terms Of Use</h1>
+<%= render :partial =>"users/user_edit_profile_links" if (current_user.present?)%>
+<div class="span9">
+<h1 class="mainHeading">Terms Of Use</h1>
 <%=form_for @user , :url=>  update_links_user_path(@user),:html => {:class => "form form-horizontal"} do |f| %>
 
     <div class="control-group">
@@ -16,7 +18,7 @@
     </div>
 
 <%end%>
-
+</div>
 <%= content_for :head do  %>
     <script type="text/javascript">
 

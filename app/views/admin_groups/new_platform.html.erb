@@ -1,0 +1,60 @@
+
+<%= form_for @admin_group,:url => create_platform_admin_groups_path,:html => {:class => "form form-horizontal"} do |f| %>
+
+    <div class="span9">
+      <h3 class="heading margin0">Create Platform</h3>
+
+      <div class="control-group">
+        <label class="control-label">Set Account Name</label>
+        <div class="controls">
+          <%=text_field_tag "name" %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Set Account Area</label>
+        <div class="controls">
+          <%=select_tag :local_admin,options_for_select(@local_admins.collect{|i| [i.la_general_setting.la_country, i.id]}),:prompt => "Select.."%>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="input01">Terms Of Use</label>
+        <div class="controls">
+          <%= text_area_tag "terms",legal_terms,:class=>"input",:rows => 5,:disabled => true %>
+          <p class="help-block"></p>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <label class="checkbox inline" >
+            <%=check_box_tag :terms%>Accept terms
+            <!--<input type="text" class="input-xlarge" id="input01">-->
+          </label>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn">Save</button>
+
+      </div>
+    </div>
+
+<%end%>
+
+<%= content_for :head do  %>
+    <script type="text/javascript">
+
+        jQuery(function(){
+
+
+            $("#product").change(function(){
+                var  product = $("#product").val()
+                $.get("/admin_groups/get_product_details",{"product" :product},function(k){}
+                )
+
+            });
+            var terms= new LiveValidation('terms',{validMessage:" ",onlyOnSubmit:true});
+            terms.add( Validate.Acceptance);
+
+        });
+    </script>
+<% end %>

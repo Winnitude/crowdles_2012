@@ -30,8 +30,8 @@ class PlatformProduct
 
   def self.create_platform_default_product
     self.create(:platform_product_name => "Default" ,:platform_product_type => "AG" ,:product_target => "MAG",:is_default => true,:bg_private => true ,
-                    :bg_custom_commissions => true,:bg_recepient_settings => true ,:ag_payment_gateway_commissions_payer_settings => true ,
-                    :ag_equity_based_allowed => true,:product_monthly_price => 0 ,:product_annual_price => 0 ,:status => "unpublished", :paas_fees_exemption => "permanent")
+                :bg_custom_commissions => true,:bg_recepient_settings => true ,:ag_payment_gateway_commissions_payer_settings => true ,
+                :ag_equity_based_allowed => true,:product_monthly_price => 0 ,:product_annual_price => 0 ,:status => "unpublished", :paas_fees_exemption => "permanent")
   end
 
   def change_default
@@ -76,6 +76,47 @@ class PlatformProduct
   def get_monthly_price
     self.product_monthly_price.present?    ? self.product_monthly_price :  "Empty"
   end
+
+  def get_annual_price
+    self.product_annual_price.present?    ? self.product_annual_price :  "Empty"
+  end
+
+  def get_plan
+    begin
+      plan = Recurly::Plan.find(self.id)
+    rescue
+      plan
+    end
+  end
+
+  def self.get_products_with_existing_plans
+    plans = Recurly::Plan.all
+    plans_code = plans.collect{|plan| plan.plan_code}
+    products= all.select{|p| plans_code.include? p.id.to_s}
+    all_plans = {:plans => plans , :products => products}
+  end
+
+
+
+
+
+
+
+  #def get_window_number
+  #  self.bg_window_number.present?  ? self.bg_window_number :  "unlimited"
+  #end
+  #
+  #def get_contest_number
+  #  self.bg_contest_number.present? ?  self.bg_contest_number   :  "unlimited"
+  #end
+  #
+  #def get_ag_workers_number
+  #  self.ag_workers_number.present?    ? self.ag_workers_number :  "unlimited"
+  #end
+  #
+
+
+
 
   def initialize_all_commissions_and_price
     logger.info "inside initialization"

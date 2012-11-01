@@ -165,7 +165,7 @@ class User
     is_provider == false
   end
   def self.create_global_admin_owner param
-    user = User.new(:email => param[:admin_email], :password =>param[:password], :password_confirmation => param[:password], :terms_of_service =>true, :country => param[:country], :status => "active")
+    user = User.new(:email => param[:admin_email], :password =>param[:password], :password_confirmation => param[:password], :terms_of_service =>true, :country => param[:country], :status => "active" ,:is_proprietary_user => true)
     user.skip_confirmation!
     user.save!
     user.build_user_profile(:first_name => "Administrator", :country => param[:country] ,:language =>param[:language] ).save
@@ -227,8 +227,6 @@ class User
     self.update_attributes(:facebook_id => data.id, :is_provider => true)
     @profile.update_fb_details access_token
   end
-
-
 end
 
 

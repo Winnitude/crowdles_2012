@@ -1,18 +1,18 @@
 
 <%= form_for resource, :as => resource_name, :url => update_user_confirmation_path, :html => {:method => 'put',:class=> "form-horizontal"}, :id => 'activation-form' do |f| %>
-    <%= render "shared/form_errors" , :object=>resource %>
+    <%= render "shared/form_errors" , :object=>resource  %>
     <fieldset>
       <legend>Account Activation<% if resource.email %> for <%= resource.email %><% end %></legend>
       <% if @requires_password %>
           <div class="control-group">
-            <label class="control-label" for="input01">Choose a Password:</label>
+            <label class="control-label" for="input01">Choose a Password:<span style="color:red">* </span></label>
             <div class="controls">
               <%= f.password_field :password,:class=>"input" %>
               <p class="help-block"></p>
             </div>
           </div>
           <div class="control-group">
-            <label class="control-label" for="input01">Password Confirmation:</label>
+            <label class="control-label" for="input01">Password Confirmation:<span style="color:red"> *</span></label>
             <div class="controls">
               <%= f.password_field :password_confirmation,:class=>"input" %>
               <p class="help-block"></p>
@@ -94,6 +94,12 @@
 
             var terms= new LiveValidation('user_user_terms_accepted',{validMessage:" ",onlyOnSubmit:true});
             terms.add( Validate.Acceptance);
+
+            var fname= new LiveValidation('user_profile_first_name',{validMessage:" ",onlyOnSubmit:true});
+            var lname= new LiveValidation('user_profile_last_name',{validMessage:" ",onlyOnSubmit:true});
+
+            fname.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            lname.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
         });
     </script>
 <% end %>

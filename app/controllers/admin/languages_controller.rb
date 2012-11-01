@@ -1,6 +1,8 @@
 class Admin::LanguagesController < ApplicationController
   def index
     #@languages = ServiceLanguage.all.paginate(:page => params[:page], :per_page => 10)
+
+    #binding.remote_pry
     if(params[:re_query])
       @languages = ServiceLanguage.all
       if params[:name] != ""
@@ -15,12 +17,12 @@ class Admin::LanguagesController < ApplicationController
         @languages = @languages.select{|i| i.local_name.downcase == params[:local_name].downcase rescue nil}
       end
 
-      if params[:is_active] != "All"
+      if params[:is_active].downcase != "all"
         is_active = params[:is_active].downcase == "true" ? 1 : 0
-        @languages = @languages.select{|i| i.is_active == is_active  rescue nil}
+        @languages = @languages.select{|i| i.is_active == is_active }
       end
 
-      if params[:is_default] != "All"
+      if params[:is_default].downcase != "all"
         is_default = params[:is_default].downcase == "true" ? 1 : 0
         @languages = @languages.select{|i| i.is_default == is_default  rescue nil}
       end

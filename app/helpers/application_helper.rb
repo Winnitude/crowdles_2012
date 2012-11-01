@@ -12,7 +12,7 @@ module ApplicationHelper
     if GaGeneralSetting.first.present?
       GaGeneralSetting.first.platform_name
     else
-      "Winnitude"
+      ""
     end
   end
 
@@ -50,6 +50,18 @@ module ApplicationHelper
 
   def user_terms
     GaTerm.first.user_terms
+  end
+
+  def legal_terms
+    GaTerm.first.platform_legal_terms_global
+  end
+
+  def reformat_date(date)
+    date.strftime('%d-%m-%Y')
+  end
+
+  def get_default_currency
+    GaGeneralSetting.first.platform_default_currency
   end
 
 end

@@ -2,6 +2,7 @@ class RegistrationsController <  Devise::RegistrationsController
   before_filter :is_user_exist? ,:only=>[:create]
   before_filter :redirect_to_initial_page_if_platform_is_not_configured_yet ,:only => [:new]
   #after_filter :get_ip_and_country ,:only=>[:create]
+  before_filter :should_be_proprietary_user, :only => [:edit]
 
 
   def create
@@ -26,6 +27,8 @@ class RegistrationsController <  Devise::RegistrationsController
     if @user.save
       logger.info "++++++++++++++++++++++++++++++++++++++++++++++++++#{@user.inspect}"
       redirect_to login_path , :notice => "'A message with a confirmation link has been sent to your email address. Please open the link to activate your account.'"
+    else
+       redirect_to new_user_registration_path , :notice => "Enter Valid Email"
     end
 
   end
@@ -53,5 +56,9 @@ class RegistrationsController <  Devise::RegistrationsController
     logger.info "++++++++++++++++++++++++++++++++++++++++++++++++++#{resource.inspect}"
     resource.fetch_ip_and_country(request)
     resource.save!
+  end
+
+  def should_be_proprietary_user
+    redirect_to root_path , :notice => "Sorry Facebook Users Dont change their password" unless current_user.is_proprietary_user
   end
 end

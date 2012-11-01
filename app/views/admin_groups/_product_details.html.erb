@@ -1,0 +1,33 @@
+
+<%if @product.present?%>
+    <div style="background-color: #fafafa;">
+     Plan Details
+    <div class="control-group">
+      <label class="control-label" for="input01">Price Monthly:</label>
+      <div class="controls">
+        <%=@product.get_monthly_price%>
+        <!--<input type="text" class="input-xlarge" id="input01">-->
+        <p class="help-block"></p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="input01">Price Annual:</label>
+      <div class="controls">
+        <%=@product.get_annual_price%>
+        <!--<input type="text" class="input-xlarge" id="input01">-->
+        <p class="help-block"></p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="input01">Number of Workers Allowed:</label>
+      <div class="controls">
+        <%=@product.get_ag_workers_number%>
+        <!--<input type="text" class="input-xlarge" id="input01">-->
+        <p class="help-block"></p>
+      </div>
+    </div>
+    </div>
+
+<%end%>

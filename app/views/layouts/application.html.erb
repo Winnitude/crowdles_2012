@@ -14,6 +14,7 @@
 
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "autocomplete-rails.js"%>
   <%= yield :head %>
   <link href="images/favicon.ico" rel="shortcut icon">
   <link href="images/apple-touch-icon.png" rel="apple-touch-icon">
@@ -37,7 +38,6 @@
 </div>
 
 <div class="container">
-  <div class="content">
     <div class="row">
 
         <div id="user_nav">
@@ -55,7 +55,6 @@
 
 <!--/span-->
     </div><!--/row-->
-  </div><!--/content-->
 
   <footer>
     <%= render :partial => "/shared/footer" if Rails.env.development? %>

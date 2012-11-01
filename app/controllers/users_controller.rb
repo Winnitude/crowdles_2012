@@ -15,12 +15,16 @@ class UsersController < ApplicationController
   end
 
   def update_settings
-    #params[:user][:user_profile][:birth_date] = date_formatter(params[:user][:user_profile][:birth_date])
+    params[:user][:user_profile][:birth_date] = format_date(params[:user][:user_profile][:birth_date])
     params[:user][:user_profile][:news_letter_flag] = params[:user][:user_profile][:news_letter_flag] == "1" ? true : false
     @profile = @user.user_profile || @user.build_user_profile
+    if !(params[:user][:user_profile]["photo"].present?) or is_image?(params[:user][:user_profile]["photo"].content_type)
     @user.update_attributes(params[:user])
     @profile.update_attributes(params[:user][:user_profile])
     redirect_to settings_user_path(@user) ,:notice => "User settings updated"
+    else
+      redirect_to settings_user_path(@user) ,:notice => "Image not valid"
+    end
   end
 
   def edit_address
@@ -104,6 +108,7 @@ class UsersController < ApplicationController
         redirect_to  error_adaptive_payments_path
       end
     else
+      params[:default_billing_profile][:birth_date] = format_date(params[:default_billing_profile][:birth_date])
       @billing_profile = @user.default_billing_profile || @user.build_default_billing_profile
       @billing_profile.update_attributes(params[:default_billing_profile])
       redirect_to billing_profile_user_path(@user), :notice => "Billing profile updated"

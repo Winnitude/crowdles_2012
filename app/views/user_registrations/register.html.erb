@@ -34,7 +34,7 @@
       <div class="control-group">
         <label class="control-label" for="input01">Gender</label>
         <div class="controls">
-          <%= select_tag "user_profile[gender]",options_for_select(["Male", "female"]),:class=>"input" %>
+          <%= select_tag "user_profile[gender]",options_for_select(["Male", "Female"]),:class=>"input" %>
           <p class="help-block"></p>
         </div>
       </div>
@@ -97,7 +97,11 @@
             var user_terms= new LiveValidation('user_user_terms_accepted',{validMessage:" ",onlyOnSubmit:true});
             user_terms.add( Validate.Acceptance);
 
+            var fname= new LiveValidation('user_profile_first_name',{validMessage:" ",onlyOnSubmit:true});
+            var lname= new LiveValidation('user_profile_last_name',{validMessage:" ",onlyOnSubmit:true});
 
+            fname.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            lname.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
 
 //            var paypal= new LiveValidation('paas_billing_profile_paypal_id',{validMessage:" ",onlyOnSubmit:true});
 //            paypal.add( Validate.Presence ,{failureMessage:" Can't be empty"});

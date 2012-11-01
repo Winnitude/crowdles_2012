@@ -1,0 +1,44 @@
+
+<div class="span9">
+  <table border="0" class="table">
+  <h1>Listing products</h1>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Trial Interval Length</th>
+      <th>Trial Interval Unit</th>
+      <th>Pricing</th>
+      <th>Plan Interval Length</th>
+      <th>plan Interval Unit</th>
+      <th>Standard Commission</th>
+      <th>Pro Commission</th>
+      <th>Private Commission</th>
+      <th>No of Workers</th>
+      <th>Action</th>
+      <!--<th>No. of BG contest allowed</th>-->
+      <!--<th>No. of BG windows allowed</th>-->
+      <!--<th>No. of BG active workers allowed</th>-->
+    </tr>
+
+        <% @products.each do |product| %>
+         <% plan = @plans.select{|plan| plan.plan_code== product.id.to_s}.first %>
+            <tr>
+              <td><%=product.platform_product_name %></td>
+              <td><%=plan.description %></td>
+              <td><%=plan.trial_interval_length %></td>
+              <td><%=plan.trial_interval_unit %></td>
+              <td><%="#{(plan.unit_amount_in_cents.to_hash[:USD])/100} USD" %></td>
+              <td><%=plan.plan_interval_length %></td>
+              <td><%=plan.plan_interval_unit %></td>
+              <td><%=product.platform_standard_commissions%></td>
+              <td><%=product.platform_pro_commissions%></td>
+              <td><%=product.platform_private_commissions%></td>
+              <td><%=product.get_ag_workers_number%></td>
+              <td><%=link_to "Apply" ,set_platform_path(product),:class => "btn btn-info"%></td>
+            </tr>
+        <% end %>
+      </table>
+
+      <br />
+
+</div>
