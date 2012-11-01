@@ -41,18 +41,30 @@ class AdminGroupsController < ApplicationController
   end
 
   def new_platform
-    @admin_group = PlatformAdminGroup.new
+    @admin_group = current_user.platform_admin_groups.new
     session[:platform_product_id] = params[:id]
     @local_admins = PlatformLocalAdmin.includes(:la_general_setting).where(:status => "active")
   end
 
   def create_platform
     logger.info session[:platform_product_id].inspect
-   p= PlatformProduct.find(session[:platform_product_id])
-    plan= Recurly::Plan.find(session[:platform_product_id])
-    logger.info p.inspect
-    logger.info plan.inspect
-    redirect_to "https://webonise1.recurly.com/subscribe/#{session[:platform_product_id]}"
+    @product= PlatformProduct.find(session[:platform_product_id])
+    @plan = @product.get_plan
+    trial_length = @plan.trial_interval_length
+    trial_unit = @plan.trial_interval_unit
+    now = DateTime.now
+    factor = trial_unit == "days" ? 1 : 30
+
+    trial_ends_at = now  + trial_length * factor
+    @admin_group = current_user.platform_admin_groups.create(:trial_end_at => trial_ends_at)
+    #render :json => {:end =>trial_ends_at, :now => now ,:trial => trial_length , :unit => trial_unit}
+    render :json => @admin_group
+
+
+
+
+
+
   end
 
 
