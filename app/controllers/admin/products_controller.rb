@@ -73,7 +73,7 @@ class Admin::ProductsController < ApplicationController
         plan = Recurly::Plan.create(
             :plan_code            => @product.id,
             :name                 => params[:plan_name],
-            :description          => params[:description],
+            :description          => params[:plan_description],
             :unit_amount_in_cents => { 'USD' => params[:amount]},
             :plan_interval_length => params[:plan_interval_length],
             :plan_interval_unit   => params[:plan_interval_unit],
@@ -102,7 +102,7 @@ class Admin::ProductsController < ApplicationController
           @plan = @product.get_plan
           @plan.update_attributes(
               :name                 => params[:plan_name],
-              :description          => params[:description],
+              :description          => params[:plan_description],
               :unit_amount_in_cents => { 'USD' => params[:amount]},
               :plan_interval_length => params[:plan_interval_length],
               :plan_interval_unit   => params[:plan_interval_unit],
