@@ -58,26 +58,35 @@ class Admin::ProductsController < ApplicationController
   # GET /products/1/edit
   def edit
     @product = PlatformProduct.find(params[:id])
+    @plan = @product.get_plan
   end
 
   # POST /products
   # POST /products.json
   def create
-    if params[:platform_product][:product_monthly_price].to_f > params[:platform_product][:product_annual_price].to_f
-      redirect_to new_product_path , :notice => "monthly price should not greater than annual"
-    else
-      @product = PlatformProduct.new(params[:platform_product])
-      @product.is_default_sag= params[:default] if @product.product_target.downcase == "sag"
-      @product.is_default= params[:default]  if @product.product_target.downcase == "mag"
-      respond_to do |format|
-        if @product.save
-          format.html { redirect_to products_path, notice: 'Product was successfully created.' }
-        else
-          format.html { render action: "new" }
-        end
+
+    @product = PlatformProduct.new(params[:platform_product])
+    @product.is_default_sag= params[:default] if @product.product_target.downcase == "sag"
+    @product.is_default= params[:default]  if @product.product_target.downcase == "mag"
+    respond_to do |format|
+      if @product.save
+        plan = Recurly::Plan.create(
+            :plan_code            => @product.id,
+            :name                 => params[:plan_name],
+            :description          => params[:plan_description],
+            :unit_amount_in_cents => { 'USD' => params[:amount]},
+            :plan_interval_length => params[:plan_interval_length],
+            :plan_interval_unit   => params[:plan_interval_unit],
+            :trial_interval_length   => params[:trial_interval_length],
+            :trial_interval_unit   => params[:trial_interval_unit]
+        )
+        format.html { redirect_to products_path, notice: 'Product was successfully created.' }
+      else
+        format.html { render action: "new" }
       end
     end
   end
+
 
   # PUT /products/1
   # PUT /products/1.json
@@ -90,6 +99,16 @@ class Admin::ProductsController < ApplicationController
       @product.is_default= params[:default]  if @product.product_target.downcase == "mag"
       respond_to do |format|
         if @product.update_attributes(params[:platform_product])
+          @plan = @product.get_plan
+          @plan.update_attributes(
+              :name                 => params[:plan_name],
+              :description          => params[:plan_description],
+              :unit_amount_in_cents => { 'USD' => params[:amount]},
+              :plan_interval_length => params[:plan_interval_length],
+              :plan_interval_unit   => params[:plan_interval_unit],
+              :trial_interval_length   => params[:trial_interval_length],
+              :trial_interval_unit   => params[:trial_interval_unit]
+          )
           format.html { redirect_to products_path, notice: 'Product was successfully updated.' }
         else
           format.html { render action: "edit" }
@@ -100,8 +119,10 @@ class Admin::ProductsController < ApplicationController
 
   def destroy
     @product = PlatformProduct.find(params[:id])
-    @product.destroy
-
+    @plan = @product.get_plan
+    if @product.destroy
+      @plan.destroy
+    end
     respond_to do |format|
       format.html { redirect_to products_path ,:notice =>"Deleted successfully" }
     end

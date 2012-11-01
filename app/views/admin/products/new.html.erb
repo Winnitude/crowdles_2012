@@ -53,49 +53,40 @@
       <p class="help-block"></p>
     </div>
 
-    <div class="control-group">
-      <label class="control-label" for="input01">External ID <span style="color:red"> </span></label>
-      <div class="controls">
-        <%=f.text_field :product_external_id,:class=>"input"%>
-        <!--<input type="text" class="input-xlarge" id="input01">-->
-        <p class="help-block"></p>
-      </div>
-    </div>
+    <!--<div class="control-group">-->
+      <!--<label class="control-label" for="input01">Monthly Price <span style="color:red"> </span></label>-->
+      <!--<div class="controls">-->
+        <!--<%=f.text_field :product_monthly_price,:class=>"input"%>-->
+        <!--&lt;!&ndash;<input type="text" class="input-xlarge" id="input01">&ndash;&gt;-->
+        <!--<p class="help-block"></p>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="control-group">-->
+      <!--<label class="control-label" for="input01">Annual Price <span style="color:red"> </span></label>-->
+      <!--<div class="controls">-->
+        <!--<%=f.text_field :product_annual_price,:class=>"input"%>-->
+        <!--&lt;!&ndash;<input type="text" class="input-xlarge" id="input01">&ndash;&gt;-->
+        <!--<p class="help-block"></p>-->
+      <!--</div>-->
+    <!--</div>-->
 
-    <div class="control-group">
-      <label class="control-label" for="input01">Monthly Price <span style="color:red"> </span></label>
-      <div class="controls">
-        <%=f.text_field :product_monthly_price,:class=>"input"%>
-        <!--<input type="text" class="input-xlarge" id="input01">-->
-        <p class="help-block"></p>
-      </div>
-    </div>
-    <div class="control-group">
-      <label class="control-label" for="input01">Annual Price <span style="color:red"> </span></label>
-      <div class="controls">
-        <%=f.text_field :product_annual_price,:class=>"input"%>
-        <!--<input type="text" class="input-xlarge" id="input01">-->
-        <p class="help-block"></p>
-      </div>
-    </div>
+    <!--<div class="control-group">-->
+      <!--<label class="control-label" for="input01">Number of BG Window  Allowed: <span style="color:red"> </span></label>-->
+      <!--<div class="controls">-->
+        <!--<%=f.text_field :bg_window_number,:class=>"input"%>-->
+        <!--&lt;!&ndash;<input type="text" class="input-xlarge" id="input01">&ndash;&gt;-->
+        <!--<p class="help-block"></p>-->
+      <!--</div>-->
+    <!--</div>-->
 
-    <div class="control-group">
-      <label class="control-label" for="input01">Number of BG Window  Allowed: <span style="color:red"> </span></label>
-      <div class="controls">
-        <%=f.text_field :bg_window_number,:class=>"input"%>
-        <!--<input type="text" class="input-xlarge" id="input01">-->
-        <p class="help-block"></p>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <label class="control-label" for="input01">Number of BG contest Allowed <span style="color:red"> </span></label>
-      <div class="controls">
-        <%=f.text_field :bg_contest_number,:class=>"input"%>
-        <!--<input type="text" class="input-xlarge" id="input01">-->
-        <p class="help-block"></p>
-      </div>
-    </div>
+    <!--<div class="control-group">-->
+      <!--<label class="control-label" for="input01">Number of BG contest Allowed <span style="color:red"> </span></label>-->
+      <!--<div class="controls">-->
+        <!--<%=f.text_field :bg_contest_number,:class=>"input"%>-->
+        <!--&lt;!&ndash;<input type="text" class="input-xlarge" id="input01">&ndash;&gt;-->
+        <!--<p class="help-block"></p>-->
+      <!--</div>-->
+    <!--</div>-->
     <div class="control-group">
       <label class="control-label" for="input01">Number of active Workers Allowed: <span style="color:red"> </span></label>
       <div class="controls">
@@ -174,24 +165,24 @@
       <p class="help-block"></p>
     </div>
 
-    <div class="control-group">
-      <label class="control-label" for="input01">Free subscription: <span style="color:red">*</span></label>
-      <div class="controls">
-        <%=f.select :paas_fees_exemption,options_for_select(["temporary", "permanent"],@product.paas_fees_exemption),:prompt => "Select",:class=>"input"%>
-        <!--<input type="text" class="input-xlarge" id="input01">-->
-        <p class="help-block"></p>
-      </div>
-    </div>
-    <div id="temp_subscription_for" >
-    <div class="control-group">
-      <label class="control-label" for="input01">For: <span style="color:red"> </span></label>
-      <div class="controls">
-        <%=f.text_field :fees_exemption_days,:class=>"input"%>
-        <!--<input type="text" class="input-xlarge" id="input01">-->
-        <p class="help-block"></p>
-      </div>
-    </div>
-    </div>
+    <!--<div class="control-group">-->
+      <!--<label class="control-label" for="input01">Free subscription: <span style="color:red">*</span></label>-->
+      <!--<div class="controls">-->
+        <!--<%=f.select :paas_fees_exemption,options_for_select(["temporary", "permanent"],@product.paas_fees_exemption),:prompt => "Select",:class=>"input"%>-->
+        <!--&lt;!&ndash;<input type="text" class="input-xlarge" id="input01">&ndash;&gt;-->
+        <!--<p class="help-block"></p>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div id="temp_subscription_for" >-->
+      <!--<div class="control-group">-->
+        <!--<label class="control-label" for="input01">For: <span style="color:red"> </span></label>-->
+        <!--<div class="controls">-->
+          <!--<%=f.text_field :fees_exemption_days,:class=>"input"%>-->
+          <!--&lt;!&ndash;<input type="text" class="input-xlarge" id="input01">&ndash;&gt;-->
+          <!--<p class="help-block"></p>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
 
     <div class="control-group">
       <label class="control-label" for="input01">Status<span style="color:red">* </span></label>
@@ -200,6 +191,54 @@
       <div class="controls"> <%=f.radio_button :status,"unpublished",:class=>"input"%> Unpublished  </div>
       <!--<input type="text" class="input-xlarge" id="input01">-->
       <p class="help-block"></p>
+    </div>
+    <h2>Plan Details  </h2>
+
+    <div class="control-group">
+      <label class="control-label" for="input01">Plan Name <span style="color:red"> *</span></label>
+      <div class="controls">
+        <%=text_field_tag :plan_name,"",:class=>"input"%>
+        <!--<input type="text" class="input-xlarge" id="input01">-->
+        <p class="help-block"></p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="input01">Description <span style="color:red"> *</span></label>
+      <div class="controls">
+        <%=text_field_tag :plan_description,"",:class=>"input"%>
+        <!--<input type="text" class="input-xlarge" id="input01">-->
+        <p class="help-block"></p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="input01">Plan Trial Details <span style="color:red"> *</span></label>
+      <div class="controls">
+        <%=text_field_tag :trial_interval_length,"",:class=>"input"%>
+        <%=select_tag :trial_interval_unit,options_for_select(["days","months"]),:class=>"input"%>
+        <!--<input type="text" class="input-xlarge" id="input01">-->
+        <p class="help-block"></p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="input01">Amount in USD(in cents) <span style="color:red"> *</span></label>
+      <div class="controls">
+        <%=text_field_tag :amount,"",:class=>"input"%>
+        <!--<input type="text" class="input-xlarge" id="input01">-->
+        <p class="help-block"></p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="input01">Plan Duration <span style="color:red"> *</span></label>
+      <div class="controls">
+        <%=text_field_tag :plan_interval_length,"",:class=>"input"%>
+        <%=select_tag :plan_interval_unit,options_for_select(["months","days"]),:class=>"input"%>
+        <!--<input type="text" class="input-xlarge" id="input01">-->
+        <p class="help-block"></p>
+      </div>
     </div>
 
     <div class="form-actions">
@@ -216,7 +255,7 @@
 
             $("#temp_subscription_for").hide()
             $("#platform_product_paas_fees_exemption").click(function(event){
-              var val = this.value
+                var val = this.value
                 if (val == "temporary")
                 {
                     $("#temp_subscription_for").show()
@@ -230,22 +269,22 @@
 
 
 
-            var annual_price = new LiveValidation('platform_product_product_annual_price',{validMessage:" ",onlyOnSubmit:true});
-//            annual_price.add( Validate.Presence );
-
-            annual_price.add( Validate.Numericality, { onlyInteger: false } );
+//            var annual_price = new LiveValidation('platform_product_product_annual_price',{validMessage:" ",onlyOnSubmit:true});
+////            annual_price.add( Validate.Presence );
+//
+//            annual_price.add( Validate.Numericality, { onlyInteger: false } );
             var name = new LiveValidation('platform_product_platform_product_name',{validMessage:" ",onlyOnSubmit:true});
             name.add( Validate.Presence );
-            var free_sub = new LiveValidation('platform_product_paas_fees_exemption',{validMessage:" ",onlyOnSubmit:true});
-            free_sub.add( Validate.Presence );
-            var price = new LiveValidation('platform_product_product_monthly_price',{validMessage:" ",onlyOnSubmit:true});
-            price.add( Validate.Numericality, { onlyInteger: false } );
-
-            var bg_contest = new LiveValidation('platform_product_bg_contest_number',{validMessage:" ",onlyOnSubmit:true});
-            bg_contest.add( Validate.Numericality, { onlyInteger:true } );
-
-            var bg_window = new LiveValidation('platform_product_bg_window_number',{validMessage:" ",onlyOnSubmit:true});
-            bg_window.add( Validate.Numericality, { onlyInteger: true } );
+//            var free_sub = new LiveValidation('platform_product_paas_fees_exemption',{validMessage:" ",onlyOnSubmit:true});
+//            free_sub.add( Validate.Presence );
+//            var price = new LiveValidation('platform_product_product_monthly_price',{validMessage:" ",onlyOnSubmit:true});
+//            price.add( Validate.Numericality, { onlyInteger: false } );
+//
+//            var bg_contest = new LiveValidation('platform_product_bg_contest_number',{validMessage:" ",onlyOnSubmit:true});
+//            bg_contest.add( Validate.Numericality, { onlyInteger:true } );
+//
+//            var bg_window = new LiveValidation('platform_product_bg_window_number',{validMessage:" ",onlyOnSubmit:true});
+//            bg_window.add( Validate.Numericality, { onlyInteger: true } );
 
             var ag = new LiveValidation('platform_product_ag_workers_number',{validMessage:" ",onlyOnSubmit:true});
             ag.add( Validate.Numericality, { onlyInteger: true } );
@@ -260,6 +299,20 @@
             var private = new LiveValidation('platform_product_platform_private_commissions',{validMessage:" ",onlyOnSubmit:true});
             private.add( Validate.Numericality );
 
+            var plan_name = new LiveValidation('plan_name',{validMessage:" ",onlyOnSubmit:true});
+            plan_name.add( Validate.Presence );
+
+            var trial_length = new LiveValidation('trial_interval_length',{validMessage:" ",onlyOnSubmit:true});
+            trial_length.add( Validate.Presence );
+            trial_length.add( Validate.Numericality,{ onlyInteger:true }  );
+
+            var plan_length = new LiveValidation('plan_interval_length',{validMessage:" ",onlyOnSubmit:true});
+            plan_length.add( Validate.Presence );
+            plan_length.add( Validate.Numericality,{ onlyInteger:true }  );
+
+            var amount = new LiveValidation('amount',{validMessage:" ",onlyOnSubmit:true});
+            amount.add( Validate.Presence );
+            amount.add( Validate.Numericality,{ onlyInteger:true } );
 
 
 
