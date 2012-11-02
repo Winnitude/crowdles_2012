@@ -41,29 +41,37 @@ class AdminGroupsController < ApplicationController
   end
 
   def new_platform
-    @admin_group = current_user.platform_admin_groups.new
+    @admin_group =current_user.platform_admin_groups.new
     session[:platform_product_id] = params[:id]
     @local_admins = PlatformLocalAdmin.includes(:la_general_setting).where(:status => "active")
   end
 
   def create_platform
-    logger.info session[:platform_product_id].inspect
     @product= PlatformProduct.find(session[:platform_product_id])
     @plan = @product.get_plan
     trial_length = @plan.trial_interval_length
     trial_unit = @plan.trial_interval_unit
-    now = DateTime.now
-    factor = trial_unit == "days" ? 1 : 30
+    if trial_length > 0
+      render :text => "free"
+    else
+      render :text => "paid"
+    end
 
-    trial_ends_at = now  + trial_length * factor
-    @admin_group = current_user.platform_admin_groups.create(:trial_end_at => trial_ends_at)
+    #now = DateTime.now
+    #factor = trial_unit == "days" ? 1 : 30
+    #
+    #trial_ends_at = now  + trial_length * factor
+    #@admin_group = current_user.platform_admin_groups.create(:trial_end_at => trial_ends_at)
+
+
+
     #render :json => {:end =>trial_ends_at, :now => now ,:trial => trial_length , :unit => trial_unit}
-    render :json => @admin_group
-
-
-
-
-
+    #binding.remote_pry
+    #if DateTime.now.to_i < @admin_group.trial_end_at.to_i
+    #  render :text => "not expired "
+    #else
+    #  render :text => "expired "
+    #end
 
   end
 

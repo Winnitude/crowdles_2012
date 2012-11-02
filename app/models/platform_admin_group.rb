@@ -59,4 +59,14 @@ class PlatformAdminGroup
   def get_product
      self.platform_products_management.platform_product
   end
+
+  def create_account(params, user, local_admin, ag_product)
+    product = ag_product
+    admin_group = user.platform_admin_groups.new(:admin_group_type =>"main" ,:status => "active")
+    admin_group.platform_local_admin = local_admin
+    admin_group.save!
+    PlatformProductsManagement.grant_product product, admin_group
+    PlatformRolesManagement.assign_admin_group_owner_role user,admin_group
+    admin_group.build_all_mag_settings local_admin,param
+  end
 end
