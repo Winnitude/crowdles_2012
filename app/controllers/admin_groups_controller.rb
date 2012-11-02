@@ -49,29 +49,29 @@ class AdminGroupsController < ApplicationController
   def create_platform
     @product= PlatformProduct.find(session[:platform_product_id])
     @plan = @product.get_plan
+    @local_admin = PlatformLocalAdmin.find(params[:local_admin])
     trial_length = @plan.trial_interval_length
-    trial_unit = @plan.trial_interval_unit
+    #trial_unit = @plan.trial_interval_unit
     if trial_length > 0
-      render :text => "free"
+      #calculating trial ending
+      factor = @plan.trial_interval_unit == "days" ? 1 : 30
+      trial_ends_at = DateTime.now  + trial_length * factor
+      @admin_group = PlatformAdminGroup.create_account params, current_user, @local_admin, @product , trial_ends_at
+      #render :text => "free"
     else
       render :text => "paid"
     end
-
-    #now = DateTime.now
-    #factor = trial_unit == "days" ? 1 : 30
-    #
-    #trial_ends_at = now  + trial_length * factor
     #@admin_group = current_user.platform_admin_groups.create(:trial_end_at => trial_ends_at)
 
 
 
     #render :json => {:end =>trial_ends_at, :now => now ,:trial => trial_length , :unit => trial_unit}
-    #binding.remote_pry
-    #if DateTime.now.to_i < @admin_group.trial_end_at.to_i
-    #  render :text => "not expired "
-    #else
-    #  render :text => "expired "
-    #end
+
+    if DateTime.now.to_i < @admin_group.trial_end_at.to_i
+      render :text => "not expired "
+    else
+      render :text => "expired "
+    end
 
   end
 
