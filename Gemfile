@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 gem 'rails', '3.2.3'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -15,7 +15,6 @@ gem 'rb-readline'
 gem 'geoip'
 #gem 'rails3-jquery-autocomplete'
 gem 'rails3-jquery-autocomplete'
-#gem 'therubyracer', :platform => :ruby
 gem 'ey_config'
 gem 'mongo', '1.6.2'
 gem 'hirb'
@@ -26,19 +25,19 @@ gem "oauth2","0.5.2"
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'bundle instakbundle
 gem "oa-oauth",'0.3.2'
-
-gem "twitter-bootstrap-rails", :git => "git://github.com/seyhunak/twitter-bootstrap-rails.git", :branch => "static"
+gem "twitter-bootstrap-rails"
 # Use unicorn as the app server
 # gem 'unicorn'
 gem "cancan"
 gem 'hominid'
 gem 'activevalidators'
 gem "heroku"
-#gem "therubyracer"
+gem "therubyracer"
 gem 'debugger'
 gem 'jquery_datepicker'
 group :production do
   gem 'thin'
+#  gem "therubyracer"
 end
 gem "mongo_mapper"
 #gem 'carrierwave', :git => "git://github.com/jnicklas/carrierwave.git"
@@ -57,7 +56,7 @@ gem "bullet", :group => "development"
 
 gem "geocoder"
 gem "recaptcha", :require => "recaptcha/rails"
-#gem 'bootstrap-datepicker-rails'
+gem 'bootstrap-datepicker-rails'
 gem "jquery-rails"
 gem 'recurly', '~> 2.1.5'
 #gem 'quiet_assets', :group => :development
