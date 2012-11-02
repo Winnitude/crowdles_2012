@@ -56,27 +56,19 @@ class AdminGroupsController < ApplicationController
       #calculating trial ending
       factor = @plan.trial_interval_unit == "days" ? 1 : 30
       trial_ends_at = DateTime.now  + trial_length * factor
-      @admin_group = PlatformAdminGroup.create_account params, current_user, @local_admin, @product , trial_ends_at
+      @admin_group = PlatformAdminGroup.create_account(params,current_user,@local_admin, @product,trial_ends_at)
+      redirect_to home_admin_group_path(@admin_group) ,:notice => "Your Platform created successfully now you can manage your own platform"
       #render :text => "free"
     else
       render :text => "paid"
     end
-    #@admin_group = current_user.platform_admin_groups.create(:trial_end_at => trial_ends_at)
-
-
-
-    #render :json => {:end =>trial_ends_at, :now => now ,:trial => trial_length , :unit => trial_unit}
-
-    if DateTime.now.to_i < @admin_group.trial_end_at.to_i
-      render :text => "not expired "
-    else
-      render :text => "expired "
-    end
-
   end
 
+  def home
+   @admin_group = PlatformAdminGroup.find(params[:id])
+  end
 
-
-
-
+  def billing_details
+    account = Recurly::Account.create(:account_code => params[:admin_group])
+  end
 end

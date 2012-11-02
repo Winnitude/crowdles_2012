@@ -62,17 +62,19 @@ class PlatformAdminGroup
 
   def self.create_account(param, user, local_admin, ag_product , ending)
     product = ag_product
-    admin_group = user.platform_admin_groups.new(:admin_group_type =>"main" ,:status => "active", :trial_end_at => ending)
+    admin_group = user.platform_admin_groups.new(:admin_group_type =>"slave" ,:status => "active", :trial_end_at => ending)
     admin_group.platform_local_admin = local_admin
     admin_group.save!
     PlatformProductsManagement.grant_product product, admin_group
     PlatformRolesManagement.assign_admin_group_owner_role user,admin_group
     admin_group.initialize_all_settings local_admin,param
+    business_group = admin_group.create_platform_business_group
+    business_group.set_all_settings
     admin_group
   end
 
   def initialize_all_settings local_admin, param
-    self.build_ag_general_setting(:country => local_admin.la_general_setting.la_country, :language => local_admin.la_general_setting.la_country).save
+    self.build_ag_general_setting(:country => local_admin.la_general_setting.la_country, :language => local_admin.la_general_setting.la_country, :admin_group_name => param[:name]).save
     self.build_ag_projects_setting(:self_management => false, :arena_flag => false).save
     self.build_ag_commissions_setting().save
     self.build_ag_paas_setting.save
