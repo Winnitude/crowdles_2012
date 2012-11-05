@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class BgGeneralSettingTest < ActiveSupport::TestCase
+class BgSocialTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

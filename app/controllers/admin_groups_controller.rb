@@ -41,22 +41,34 @@ class AdminGroupsController < ApplicationController
   end
 
   def new_platform
-    @admin_group = PlatformAdminGroup.new
+    @admin_group =current_user.platform_admin_groups.new
     session[:platform_product_id] = params[:id]
     @local_admins = PlatformLocalAdmin.includes(:la_general_setting).where(:status => "active")
   end
 
   def create_platform
-    logger.info session[:platform_product_id].inspect
-   p= PlatformProduct.find(session[:platform_product_id])
-    plan= Recurly::Plan.find(session[:platform_product_id])
-    logger.info p.inspect
-    logger.info plan.inspect
-    redirect_to "https://webonise1.recurly.com/subscribe/#{session[:platform_product_id]}"
+    @product= PlatformProduct.find(session[:platform_product_id])
+    @plan = @product.get_plan
+    @local_admin = PlatformLocalAdmin.find(params[:local_admin])
+    trial_length = @plan.trial_interval_length
+    #trial_unit = @plan.trial_interval_unit
+    if trial_length > 0
+      #calculating trial ending
+      factor = @plan.trial_interval_unit == "days" ? 1 : 30
+      trial_ends_at = DateTime.now  + trial_length * factor
+      @admin_group = PlatformAdminGroup.create_account(params,current_user,@local_admin, @product,trial_ends_at)
+      redirect_to home_admin_group_path(@admin_group) ,:notice => "Your Platform created successfully now you can manage your own platform"
+      #render :text => "free"
+    else
+      render :text => "paid"
+    end
   end
 
+  def home
+   @admin_group = PlatformAdminGroup.find(params[:id])
+  end
 
-
-
-
+  def billing_details
+    account = Recurly::Account.create(:account_code => params[:admin_group])
+  end
 end

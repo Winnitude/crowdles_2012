@@ -3,20 +3,27 @@
 
     <div class="span9">
       <h3 class="heading margin0">Create Platform</h3>
-
-      <div class="control-group">
-        <label class="control-label">Set Account Name</label>
-        <div class="controls">
-          <%=text_field_tag "name" %>
-        </div>
-      </div>
-
       <div class="control-group">
         <label class="control-label">Set Account Area</label>
         <div class="controls">
           <%=select_tag :local_admin,options_for_select(@local_admins.collect{|i| [i.la_general_setting.la_country, i.id]}),:prompt => "Select.."%>
         </div>
       </div>
+
+      <div class="control-group">
+        <label class="control-label">Set Platform Name</label>
+        <div class="controls">
+          <%=text_field_tag "name" %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Set Platform URL</label>
+        <div class="controls">
+          http://<%=text_field_tag :url%>.winnitude.com
+        </div>
+      </div>
+
       <div class="control-group">
         <label class="control-label" for="input01">Terms Of Use</label>
         <div class="controls">
@@ -33,7 +40,9 @@
         </div>
       </div>
       <div class="form-actions">
-        <button type="submit" class="btn">Save</button>
+        <%= link_to "Change Plan","#", :class => "btn" %>
+        <button type="submit" class="btn">Proceed</button>
+
 
       </div>
     </div>

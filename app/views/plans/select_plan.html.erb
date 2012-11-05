@@ -1,0 +1,38 @@
+<div class=""> <h2 class="secondHeading">Choose the plan that fits your needs and pay as you go</h2></div>
+
+<div class="span12 contentBg">
+  <h5 class="secondHeading">Standard Plans</h5>
+  <ul class="clearfix">
+
+    <% @products.each do |product| %>
+        <li>
+          <% plan = @plans.select{|plan| plan.plan_code== product.id.to_s}.first %>
+          <%= product.platform_product_name %>
+          <div class="productPrice">
+            <%="#{(plan.unit_amount_in_cents.to_hash[:USD])/100} USD" %>
+          </div>
+          <div class="divider"></div>
+          <p class="impText">Your own platform with <br /><span class="blackTxt">Up to</span> 3 active CONTESTS</p>
+          <p><%=plan.description %></p>
+          <div class="divider"></div>
+          <p>Winnitude Commissions :</p>
+          <p class="bold"><%=product.platform_standard_commissions%>%  on Standard Project </p>
+          <p class="bold"><%=product.platform_pro_commissions%>%  on Presale Project </p>
+          <p class="bold"><%=product.platform_private_commissions%>%  on Private Project </p>
+          <p class="impText"><%= plan.trial_interval_length %> <%= plan.trial_interval_unit%> FREE TRIAL</p>
+
+          <%=link_to  @admin_group.get_product == product ? "Your Plan" : "Apply"  ,billing_details_path(:account => @admin_group, :plan => product),:class => "btn btn-inverse" ,:method => "Post"%>
+
+        </li>
+
+        <%#= will_paginate @products%>
+    <%end%>
+  </ul>
+  <div class="pagination">
+    <%= will_paginate @products%>
+  </div>
+  <div class="contentFooter">
+    <p>Enterprises: Need more options? <span><a href="#">Contact Sales</a></span></p>
+    <p>We also offer a basic Free Version (your own platform with Unlimited Projects). Just <span><a href="#">Apply Now</a></span> to get started</p>
+  </div>
+</div>
