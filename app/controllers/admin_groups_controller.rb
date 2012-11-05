@@ -106,9 +106,13 @@ class AdminGroupsController < ApplicationController
         :country            => params[:country],
     }
     if @account.save
-      #@account.email = params[:email]
-      #@account.save
       render :text => "done"
+      subscription = Recurly::Subscription.create(
+          :plan_code => @product.get_plan.plan_code,
+          :currency  => 'USD',
+          :account   => @account,
+          :trial_ends_at => DateTime.now.advance(:minutes => 1)
+      )
     else
       @countries = ServiceCountry.all.select{|i| i.is_active == 1 }.collect{|i|i.country_english_name}
       render :action => :billing_details
