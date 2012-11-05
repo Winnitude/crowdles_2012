@@ -23,6 +23,9 @@ body {
 .topUserInfo a {
 	margin-left: 20px;
 }
+.margin30Top{
+    margin-top: 30px;
+}
 .margin0 {
 	margin: 0;
 }
@@ -284,4 +287,27 @@ table.table48{
 }
 .buttons{
     margin: 15px 0px;
+}
+.radios{
+    margin-left: 10px;
+}
+.form-horizontal .control-group .control-label{
+    background:none;
+    color: #000000;
+}
+.form-horizontal select{
+    margin-top: 13px;
+}
+.creditCard{
+    border: 1px solid #000000;
+    border-radius: 5px;
+    margin-right: 20px;
+    padding: 15px 0px
+}
+.images{
+    background-color: #cccccc;
+    height: 100px;
+}
+.form-horizontal .creditCard select{
+    margin: 0px;
 }
