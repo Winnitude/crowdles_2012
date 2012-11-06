@@ -58,12 +58,16 @@ class AdminGroupsController < ApplicationController
       trial_ends_at = DateTime.now  + trial_length * factor
       @admin_group = PlatformAdminGroup.create_account(params,current_user,@local_admin, @product,trial_ends_at)
       session[:platform_product_id] = nil
-      redirect_to home_admin_group_path(@admin_group) ,:notice => "Your Platform created successfully now you can manage your own platform"
+      redirect_to welcome_admin_group_path(@admin_group)
       #render :text => "free"
     else
       session[:platform_product_id] = nil
       render :text => "paid"
     end
+  end
+
+  def welcome
+    @admin_group = PlatformAdminGroup.find(params[:id])
   end
 
   def home
@@ -111,7 +115,7 @@ class AdminGroupsController < ApplicationController
           :plan_code => @product.get_plan.plan_code,
           :currency  => 'USD',
           :account   => @account,
-          :trial_ends_at => DateTime.now.advance(:minutes => 1)
+          :trial_ends_at => DateTime.now.utc
       )
     else
       @countries = ServiceCountry.all.select{|i| i.is_active == 1 }.collect{|i|i.country_english_name}

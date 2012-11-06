@@ -205,6 +205,7 @@ Winnitude::Application.routes.draw do
    post :create_platform, :on => :collection
    get :home, :on => :member
    post :create_billing_details_and_subscription
+   get  :welcome, :on => :member
 
   end
 
