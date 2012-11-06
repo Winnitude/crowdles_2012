@@ -47,18 +47,26 @@ class AdminGroupsController < ApplicationController
   end
 
   def create_platform
-    @global_admin = current_user.platform_global_admin
+
     @product= PlatformProduct.find(session[:platform_product_id])
     @plan = @product.get_plan
     @local_admin = PlatformLocalAdmin.find(params[:local_admin])
     trial_length = @plan.trial_interval_length
+
     #trial_unit = @plan.trial_interval_unit
     if trial_length > 0
+
       #calculating trial ending
       factor = @plan.trial_interval_unit == "days" ? 1 : 30
       trial_ends_at = DateTime.now  + trial_length * factor
       @admin_group = PlatformAdminGroup.create_account(params,current_user,@local_admin, @product,trial_ends_at)
-      EmailChanged.registration_confirmation(@global_admin).deliver
+
+      global_admin_email = get_global_admin_email
+      local_admin_email= get_local_admin_email(@local_admin)
+
+      AgNotification.registration_confirmation(global_admin_email).deliver
+      AgNotification.registration_confirmation(local_admin_email).deliver
+
       redirect_to home_admin_group_path(@admin_group) ,:notice => "Your Platform created successfully now you can manage your own platform Mail send to GA"
       #render :text => "free"
     else
@@ -67,7 +75,7 @@ class AdminGroupsController < ApplicationController
   end
 
   def home
-   @admin_group = PlatformAdminGroup.find(params[:id])
+    @admin_group = PlatformAdminGroup.find(params[:id])
   end
 
   def billing_details
