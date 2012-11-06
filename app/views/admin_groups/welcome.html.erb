@@ -1,4 +1,12 @@
-<h1>Congratulations!</h1>
-<h4><%="Your new Account #{@admin_group.ag_general_setting.admin_group_name} with free trial period till #{@admin_group.trial_end_at}"  %></h4>
-<h5><%="We are happy you decided to use Winnitude to create your own Crowdfunding Plateform Thank You!"  %></h5>
-<p><%= link_to "Proceed" , home_admin_group_path(@admin_group) ,:class => "btn"%></p>
+<%if @admin_group.trial_end_at.present?%>
+    <h1>Congratulations!</h1>
+    <h4><%="Your new #{@admin_group.ag_general_setting.admin_group_name} Account with free trial period till #{@admin_group.trial_end_at}"  %></h4>
+    <h5><%="We are happy you decided to use Winnitude to create your own Crowdfunding Platform Thank You!"  %></h5>
+    <p><%= link_to "Proceed" , home_admin_group_path(@admin_group) ,:class => "btn"%></p>
+<% else %>
+    <h1>Congratulations!</h1>
+    <h4><%="Your new  #{@admin_group.ag_general_setting.admin_group_name} Account has been successfully created"  %></h4>
+    <h5><%="We are happy you decided to use Winnitude to create your own Crowdfunding Platform Thank You!"  %></h5>
+    <p><%= link_to "Proceed" , home_admin_group_path(@admin_group) ,:class => "btn"%></p>
+
+<%end%>

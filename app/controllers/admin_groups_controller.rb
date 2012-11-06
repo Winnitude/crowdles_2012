@@ -1,5 +1,6 @@
 class AdminGroupsController < ApplicationController
   before_filter :should_be_user
+  before_filter  :checking_access_to_billing_details_page , :only => [:billing_details]
   def new
     @admin_group = PlatformAdminGroup.new
     @products = PlatformProduct.all
@@ -56,13 +57,15 @@ class AdminGroupsController < ApplicationController
       #calculating trial ending
       factor = @plan.trial_interval_unit == "days" ? 1 : 30
       trial_ends_at = DateTime.now  + trial_length * factor
-      @admin_group = PlatformAdminGroup.create_account(params,current_user,@local_admin, @product,trial_ends_at)
+      @admin_group = PlatformAdminGroup.create_account(params,current_user,@local_admin, @product,"active",trial_ends_at)
       session[:platform_product_id] = nil
       redirect_to welcome_admin_group_path(@admin_group)
       #render :text => "free"
     else
+      @admin_group = PlatformAdminGroup.create_account(params,current_user,@local_admin, @product,"new",nil)
+      redirect_to billing_details_path(:account => @admin_group.id, :plan => @product)
+
       session[:platform_product_id] = nil
-      render :text => "paid"
     end
   end
 
@@ -75,6 +78,7 @@ class AdminGroupsController < ApplicationController
   end
 
   def billing_details
+    #this action is taking the billing info at the time of expiration free trial period of ag
     #todo need to check weather ag allow to be on this page or not
     @admin_group = PlatformAdminGroup.find(params[:account])
     @product = PlatformProduct.find params[:plan]
@@ -110,18 +114,27 @@ class AdminGroupsController < ApplicationController
         :country            => params[:country],
     }
     if @account.save
-      render :text => "done"
       subscription = Recurly::Subscription.create(
           :plan_code => @product.get_plan.plan_code,
           :currency  => 'USD',
           :account   => @account,
           :trial_ends_at => DateTime.now.utc
       )
+
+      redirect_to welcome_admin_group_path(@admin_group)
+
     else
       @countries = ServiceCountry.all.select{|i| i.is_active == 1 }.collect{|i|i.country_english_name}
       render :action => :billing_details
     end
+  end
 
-
+  def checking_access_to_billing_details_page
+    begin
+      account= Recurly::Account.find(params[:account])
+    rescue
+      account = nil
+    end
+    redirect_to home_path if account.present?
   end
 end

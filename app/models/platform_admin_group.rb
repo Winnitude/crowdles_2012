@@ -60,9 +60,9 @@ class PlatformAdminGroup
      self.platform_products_management.platform_product
   end
 
-  def self.create_account(param, user, local_admin, ag_product , ending)
+  def self.create_account(param, user, local_admin, ag_product,status , ending)
     product = ag_product
-    admin_group = user.platform_admin_groups.new(:admin_group_type =>"slave" ,:status => "active", :trial_end_at => ending)
+    admin_group = user.platform_admin_groups.new(:admin_group_type =>"slave" ,:status => status, :trial_end_at => ending)
     admin_group.platform_local_admin = local_admin
     admin_group.save!
     PlatformProductsManagement.grant_product product, admin_group
