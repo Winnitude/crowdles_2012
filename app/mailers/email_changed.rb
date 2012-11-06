@@ -10,4 +10,5 @@ class EmailChanged < ActionMailer::Base
     @user= user
     mail(:to => @user.email, :subject => "Winnitude Email Changed")
   end
+
 end

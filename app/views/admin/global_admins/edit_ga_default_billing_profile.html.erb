@@ -29,7 +29,7 @@
       <div class="control-group">
         <label class="control-label">Currency</label>
         <div class="controls">
-          <%=f.select :currency, options_for_select(@currency ,@billing_profile.currency), :disabled => true%>
+          <%=f.select :currency, options_for_select(@currency.sort ,@billing_profile.currency), :disabled => true%>
         </div>
       </div>
 

@@ -1,3 +1,4 @@
+<%=render :partial => "admin/global_admins/platform_settings_ga"%>
 <h1>Edit Language Details</h1>
 <%=form_for @language , :url=> language_path(@language.id),:html => {:class => "form form-horizontal"} do |f| %>
 
@@ -8,69 +9,64 @@
           <%=label_tag @language.english_name  %>
         </div>
       </div>
-
       <div class="control-group">
         <label class="control-label">Language ISO Code</label>
         <div class="controls">
-          <%=label_tag @language.iso_code  %>
+          <%=label_tag @language.iso_code%>
         </div>
       </div>
-
       <div class="control-group">
         <label class="control-label">Language Local Name</label>
         <div class="controls">
           <%=f.text_field :local_name  %>
         </div>
       </div>
-      <div class="control-group">
-        <label class="control-label">Is Default</label>
-        <%if @language.is_default == 1%>
+      <%if @language.is_default == 1%>
+          <div class="control-group">
+            <label class="control-label">Is Default</label>
             <div class="controls">
               true
             </div>
-        <%else%>
-            <div class="controls">
-              <%= f.radio_button :is_default, 1,:class=>"input"%>  True   </div>
-            <div class="controls"> <%=f.radio_button :is_default, 0,:class=>"input"%> False  </div>
-            <!--<input type="text" class="input-xlarge" id="input01">-->
-            <p class="help-block"></p>
-        <%end%>
-
-      </div>
-      <%if @language.is_default != 1%>
+          </div>
           <div class="control-group">
-            <label class="control-label" for="input01">Is Active:<span style="color:red"> </span>*</label>
+            <label class="control-label">Is Active</label>
             <div class="controls">
               <%= f.radio_button :is_active, 1,:class=>"input"%>  True   </div>
-            <div class="controls"> <%=f.radio_button :is_active, 0,:class=>"input"%> False  </div>
-            <!--<input type="text" class="input-xlarge" id="input01">-->
+            <div class="controls">
+              <%=f.radio_button :is_active, 0,:class=>"input"%> False  </div>
             <p class="help-block"></p>
           </div>
+      <%else%>
+          <%if @language.is_active == 1%>
+              <div class="control-group">
+                <label class="control-label">Is Default</label>
+                <div class="controls">
+                  false
+                </div>
+              </div>
+          <%else%>
+              <div class="controls">
+                <%= f.radio_button :is_default, 1,:class=>"input"%>  True   </div>
+              <div class="controls">
+                <%=f.radio_button :is_default, 0,:class=>"input"%> False  </div>
+              <p class="help-block"></p>
+          <%end%>
       <%end%>
-
       <div class="form-actions">
         <button type="submit" class="btn">Save</button>
         <%=link_to "Cancel", edit_language_path(@country), :class => "btn"%>
         <%=link_to "Close", languages_path, :class => "btn"%>
       </div>
     </div>
-
 <%end%>
-
 <%= content_for :head do  %>
     <script type="text/javascript">
-
         jQuery(function(){
-
-//            var facebook =   new LiveValidation("ga_general_setting_ga_facebook",{validMessage:" ",onlyOnSubmit:true});
-//            facebook.add( Validate.Format , { pattern: /^(ht|f)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/, failureMessage: "Must be a valid URL" });
-//            var twitter =   new LiveValidation("ga_general_setting_ga_twitter",{validMessage:" ",onlyOnSubmit:true});
-//            twitter.add( Validate.Format , { pattern: /^(ht|f)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/, failureMessage: "Must be a valid URL" });
-
+            var fname= new LiveValidation('service_language_local_name',{validMessage:" ",onlyOnSubmit:true});
+            fname.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
         });
     </script>
 <% end %>
-
 
 
 

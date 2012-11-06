@@ -43,7 +43,7 @@
                   <div class="control-group">
                     <label class="control-label">LA Language<span style="color:red">* </span></label>
                     <div class="controls">
-                      <%=f.select :la_language, options_for_select(@languages,@general_setting.la_language),{ :prompt => 'Select' }%>
+                      <%=f.select :la_language, options_for_select(@languages.sort,@general_setting.la_language),{ :prompt => 'Select' }%>
                     </div>
                   </div>
 

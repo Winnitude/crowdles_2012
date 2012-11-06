@@ -30,7 +30,8 @@ class Admin::LanguagesController < ApplicationController
     else
       @languages = ServiceLanguage.all
     end
-    @languages = @languages.paginate(:page => params[:page], :per_page => 10)
+    @languages = @languages.sort_by {|obj| obj.english_name}.paginate(:page => params[:page], :per_page => 10)
+    #@countries = @countries.sort_by {|obj| obj.country_english_name}.paginate(:page => params[:page], :per_page => 10)
   end
 
   def edit

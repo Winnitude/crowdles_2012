@@ -71,6 +71,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def get_global_admin_email
+    email = PlatformGlobalAdmin.first.user.email
+  end
+
+  def get_local_admin_email(local_admin)
+    local_admin_email= local_admin.user.email
+  end
 
 
 end

@@ -48,10 +48,12 @@ class AdminGroupsController < ApplicationController
   end
 
   def create_platform
+
     @product= PlatformProduct.find(session[:platform_product_id])
     @plan = @product.get_plan
     @local_admin = PlatformLocalAdmin.find(params[:local_admin])
     trial_length = @plan.trial_interval_length
+
     #trial_unit = @plan.trial_interval_unit
     if trial_length > 0
       #calculating trial ending
@@ -59,13 +61,19 @@ class AdminGroupsController < ApplicationController
       trial_ends_at = DateTime.now  + trial_length * factor
       @admin_group = PlatformAdminGroup.create_account(params,current_user,@local_admin, @product,"active",trial_ends_at)
       session[:platform_product_id] = nil
+      global_admin_email = get_global_admin_email
+      local_admin_email= get_local_admin_email(@local_admin)
+      AgNotification.registration_confirmation(global_admin_email).deliver
+      AgNotification.registration_confirmation(local_admin_email).deliver
       redirect_to welcome_admin_group_path(@admin_group)
-      #render :text => "free"
     else
       @admin_group = PlatformAdminGroup.create_account(params,current_user,@local_admin, @product,"new",nil)
-      redirect_to billing_details_path(:account => @admin_group.id, :plan => @product)
-
+      global_admin_email = get_global_admin_email
+      local_admin_email= get_local_admin_email(@local_admin)
+      AgNotification.registration_confirmation(global_admin_email).deliver
+      AgNotification.registration_confirmation(local_admin_email).deliver
       session[:platform_product_id] = nil
+      redirect_to billing_details_path(:account => @admin_group.id, :plan => @product)
     end
   end
 
