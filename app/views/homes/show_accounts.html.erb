@@ -1,6 +1,9 @@
 <div class= span9>
   <h1><%="Account Details"%></h1>
 
-  <%= image_tag current_user.user_profile.fb_image %>
+  <% @admin_groups.each do |admin_group| %>
 
-</div>
+        <%= admin_group.id %>
+
+<%end%>
+    </div>

@@ -81,4 +81,10 @@ class AdminGroupsController < ApplicationController
   def billing_details
     account = Recurly::Account.create(:account_code => params[:admin_group])
   end
+
+  def show_accounts
+    @admin_groups= current_user.platform_admin_groups.includes(:platform_local_admin)
+
+    #render :json => @admin_groups
+  end
 end

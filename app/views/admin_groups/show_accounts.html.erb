@@ -1,0 +1,26 @@
+
+
+
+        <table border="0" class="table" >
+          <thead>
+          <tr width="20">
+            <th><strong>AG  Name </strong></th>
+            <th><strong> LA Area </strong></th>
+          </tr>
+          </thead>
+          <%@admin_groups.each do|admin|%>
+
+              <tr>
+                <td><%=admin.platform_local_admin.la_general_setting.la_country%></td>
+                <td><%= admin.ag_general_setting.admin_group_name %></td>
+              </tr>
+
+          <% end %>
+
+        </table>
+
+
+
+
+
+

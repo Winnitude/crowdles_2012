@@ -18,10 +18,6 @@ class HomesController < ApplicationController
     @user.send_confirmation_instructions
     redirect_to login_path, :notice=>"Confirmation message send please confirm it to proceed."
   end
-  def show_accounts
-    @admin_groups= current_user.platform_admin_groups
 
-   render :json => @admin_groups
-  end
 
 end

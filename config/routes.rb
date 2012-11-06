@@ -76,7 +76,6 @@ Winnitude::Application.routes.draw do
       get "platform_not_configured"
       get "user_exists"
       post "send_verification_mail"
-      get "show_accounts"
     end
 
   end
@@ -122,6 +121,7 @@ Winnitude::Application.routes.draw do
 
     end
   end
+
 
   match 'register'   =>'user_registrations#register',:via => :get    ,:as=>:register
   match 'confirm_facebook'   =>'user_registrations#confirm_facebook',:via => :get   ,:as=>:confirm_facebook
@@ -205,6 +205,7 @@ Winnitude::Application.routes.draw do
    get :get_product_details, :on => :collection
    post :create_platform, :on => :collection
    get :home, :on => :member
+   get :show_accounts, :on=>:collection
 
   end
 
