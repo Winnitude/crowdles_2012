@@ -19,7 +19,7 @@
 
 
 jQuery(document).ready(function(e){
-    $(".alert").fadeOut(5000);
+    $(".alert").fadeOut(10000);
     $('.dropdown-toggle').dropdown()
 
 });

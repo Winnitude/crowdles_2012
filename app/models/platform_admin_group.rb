@@ -19,6 +19,7 @@ class PlatformAdminGroup
   field :ag_deactivation_date ,                     :type => Date
   field :status ,                                   :type => String
   field :trial_end_at,                              :type => DateTime
+  field :is_subscribed,                             :type => Boolean
 
   def self.create_main_admin_group_for_platform_master_country user, param ,local_admin
        product = PlatformProduct.get_default_product.first
@@ -60,9 +61,9 @@ class PlatformAdminGroup
      self.platform_products_management.platform_product
   end
 
-  def self.create_account(param, user, local_admin, ag_product , ending)
+  def self.create_account(param, user, local_admin, ag_product,status , ending)
     product = ag_product
-    admin_group = user.platform_admin_groups.new(:admin_group_type =>"slave" ,:status => "active", :trial_end_at => ending)
+    admin_group = user.platform_admin_groups.new(:admin_group_type =>"slave" ,:status => status, :trial_end_at => ending)
     admin_group.platform_local_admin = local_admin
     admin_group.save!
     PlatformProductsManagement.grant_product product, admin_group
@@ -81,5 +82,17 @@ class PlatformAdminGroup
     #self.build_paas_billing_profile.save
     self.build_default_billing_profile.save
     self.set_ag_details_from_product
+  end
+
+
+
+  def get_recurly_account
+      account = Recurly::Account.find(self.id)
+  end
+
+  def replace_product product
+     platform_product_management = self.build_platform_products_management
+     platform_product_management.platform_product = product
+     platform_product_management.save
   end
 end

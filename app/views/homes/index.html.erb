@@ -6,8 +6,9 @@
 <div class= span9><h1><%= "Welcome To #{platform_name}"%></h1>
 <!--<div><h1>Welcome To Winnitude</h1></div>-->
 <!--<%#= image_tag current_user.user_profile.fb_image %>-->
-  <%=link_to "Create Platform", plans_path%>
   </br>
+
+  <%=link_to "Show Account", show_accounts_admin_groups_path if (current_user.present?)%>
   </br>
-  <%=link_to "Show Account", show_accounts_admin_groups_path%>
+  <%=link_to "Create Platform", plans_path if (current_user.present?)%>
 </div>

@@ -1,7 +1,9 @@
 <h1>  <%="#{@admin_group.ag_general_setting.admin_group_name} Dashboard"  %></h1>
-<% if @admin_group.trial_end_at.present? and ((@admin_group.trial_end_at.to_i - DateTime.now.to_i) > 0 ) %>
+<%if @admin_group.trial_end_at.present? and @admin_group.is_subscribed != true %>
+<% if  ((@admin_group.trial_end_at.to_i - DateTime.now.to_i) > 0 ) %>
     <h5>You are on trial Period Your trial will expired on <%= @admin_group.trial_end_at %></h5>
     <%else%>
     <h5>Your trial Period  was expired on <%= @admin_group.trial_end_at %></h5>
     <h5><%= link_to "Click here",select_plan_plan_path(@admin_group),:class => "btn-primary"%> to continue with the current plan or you may opt for another one.</h5>
+<%end%>
 <%end%>

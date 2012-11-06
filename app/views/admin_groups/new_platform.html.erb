@@ -11,9 +11,9 @@
       </div>
 
       <div class="control-group">
-        <label class="control-label">Set Platform Name</label>
+        <label class="control-label"> Test Set Platform Name</label>
         <div class="controls">
-          <%=text_field_tag "name" %>
+          <%=text_field_tag "platform_name" %>
         </div>
       </div>
 
@@ -34,14 +34,16 @@
       <div class="control-group">
         <div class="controls">
           <label class="checkbox inline" >
-            <%=check_box_tag :terms%>Accept terms
+            <%=check_box_tag :terms_and_conditions%>Accept terms
             <!--<input type="text" class="input-xlarge" id="input01">-->
           </label>
         </div>
       </div>
       <div class="form-actions">
-        <%= link_to "Change Plan","#", :class => "btn" %>
+
+        <%= link_to "Change Plan",plans_path, :class => "btn" %>
         <button type="submit" class="btn" id="proceed">Proceed</button>
+
 
 
       </div>
@@ -52,32 +54,21 @@
 <%= content_for :head do  %>
     <script type="text/javascript">
         jQuery(function(){
-
-            var fname= new LiveValidation('name',{validMessage:" ",onlyOnSubmit:true});
-            fname.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            var fname= new LiveValidation('platform_name',{validMessage:" ",onlyOnSubmit:true});
+            fname.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not test valid" });
             fname.add(Validate.Presence);
             var url= new LiveValidation('url',{validMessage:" ",onlyOnSubmit:true});
             url.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
             url.add(Validate.Presence);
             var local_admin= new LiveValidation('local_admin',{validMessage:" ",onlyOnSubmit:true});
             local_admin.add(Validate.Presence);
-            var terms= new LiveValidation('terms',{validMessage:" ",onlyOnSubmit:true});
-            terms.add( Validate.Acceptance);
 
-//            $("#terms").click(function(event) {
-//                if(this.value==1)
-//                {
-//                 $("#proceed").removeAttr("disabled");
-//                }
-//                else
-//                {
-//                $("#proceed").attr("disabled",true);
-//                }
-//           });
+            var user_terms= new LiveValidation('terms_and_conditions',{validMessage:" ",onlyOnSubmit:true});
+            user_terms.add( Validate.Acceptance);
 
 
 
 
-});
+        });
     </script>
 <% end %>
