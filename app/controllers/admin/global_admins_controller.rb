@@ -65,7 +65,7 @@ class Admin::GlobalAdminsController < ApplicationController
 
   def edit_ga_default_billing_profile
     countries = ServiceCountry.where.all
-    @countries = countries.select{|i| i.is_active == 1 && i.user_country ==1 }.collect{|i|i.country_english_name}
+    @countries = countries.select{|i| i.is_active == 1 || i.user_country ==1 }.collect{|i|i.country_english_name}
     @currency = ServiceCurrency.all.select{|i| i.is_active == 1 }.collect{|i| i.description}
     @billing_profile = @global_admin.default_billing_profile
     #render :json => @billing_profile

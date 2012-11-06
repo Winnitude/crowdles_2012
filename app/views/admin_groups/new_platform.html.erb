@@ -41,7 +41,7 @@
       </div>
       <div class="form-actions">
         <%= link_to "Change Plan","#", :class => "btn" %>
-        <button type="submit" class="btn">Proceed</button>
+        <button type="submit" class="btn" id="proceed">Proceed</button>
 
 
       </div>
@@ -51,19 +51,33 @@
 
 <%= content_for :head do  %>
     <script type="text/javascript">
-
         jQuery(function(){
 
-
-            $("#product").change(function(){
-                var  product = $("#product").val()
-                $.get("/admin_groups/get_product_details",{"product" :product},function(k){}
-                )
-
-            });
+            var fname= new LiveValidation('name',{validMessage:" ",onlyOnSubmit:true});
+            fname.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            fname.add(Validate.Presence);
+            var url= new LiveValidation('url',{validMessage:" ",onlyOnSubmit:true});
+            url.add( Validate.Format , { pattern: /^[^0-9`!@#\$%\^&*+_=]+$/, failureMessage: "Field not valid" });
+            url.add(Validate.Presence);
+            var local_admin= new LiveValidation('local_admin',{validMessage:" ",onlyOnSubmit:true});
+            local_admin.add(Validate.Presence);
             var terms= new LiveValidation('terms',{validMessage:" ",onlyOnSubmit:true});
             terms.add( Validate.Acceptance);
 
-        });
+//            $("#terms").click(function(event) {
+//                if(this.value==1)
+//                {
+//                 $("#proceed").removeAttr("disabled");
+//                }
+//                else
+//                {
+//                $("#proceed").attr("disabled",true);
+//                }
+//           });
+
+
+
+
+});
     </script>
 <% end %>

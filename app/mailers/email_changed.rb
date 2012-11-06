@@ -10,4 +10,8 @@ class EmailChanged < ActionMailer::Base
     @user= user
     mail(:to => @user.email, :subject => "Winnitude Email Changed")
   end
+  def registration_confirmation(user)
+    mail(:to=>user.email,:subject=>"AG Registered")
+  end
+
 end
