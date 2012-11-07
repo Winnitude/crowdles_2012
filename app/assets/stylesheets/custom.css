@@ -138,7 +138,7 @@ body {
     margin: 0 auto;
     margin-bottom: 20px;
 }
-.contentBg ul li{
+.pricePage ul li{
     background-color: #f4f1e8;
     width: 215px;
     float: left;
@@ -254,7 +254,7 @@ ul.loginProducts li p {
     min-height: 70px;
 }
 .contentFooter p{
-    width: 690px;
+    /*width: 690px;*/
     margin-left: 5px;
 }
 .details{
