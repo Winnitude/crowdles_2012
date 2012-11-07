@@ -122,7 +122,7 @@ class AdminGroupsController < ApplicationController
       )
       @admin_group.update_attributes(:status => "active", :is_subscribed => true)
       redirect_to welcome_admin_group_path(@admin_group) if !@admin_group.trial_end_at.present?
-      redirect_to home_admin_group_path(@admin_group) if @admin_group.trial_end_at.present?
+      redirect_to home_admin_group_path(@admin_group) ,:notice => "you are Successfully subscribed" if @admin_group.trial_end_at.present?
 
     else
       @countries = ServiceCountry.all.select{|i| i.is_active == 1 }.collect{|i|i.country_english_name}
