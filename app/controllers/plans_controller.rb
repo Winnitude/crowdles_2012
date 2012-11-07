@@ -1,4 +1,5 @@
 class PlansController < ApplicationController
+  before_filter  :checking_access_to_reselect_plan_page , :only => [:select_plan]
   def index
     #binding.remote_pry
     session[:platform_product_id] =nil
@@ -15,5 +16,10 @@ class PlansController < ApplicationController
     @products = products[:products]
     @products=@products.paginate(:page => params[:page], :per_page => 4)
     @plans = products[:plans]
+  end
+
+  def checking_access_to_reselect_plan_page
+    @admin_group = PlatformAdminGroup.find params[:id]
+    redirect_to root_path if @admin_group.is_subscribed == true
   end
 end

@@ -19,6 +19,7 @@ class PlatformAdminGroup
   field :ag_deactivation_date ,                     :type => Date
   field :status ,                                   :type => String
   field :trial_end_at,                              :type => DateTime
+  field :is_subscribed,                             :type => Boolean
 
   def self.create_main_admin_group_for_platform_master_country user, param ,local_admin
        product = PlatformProduct.get_default_product.first
