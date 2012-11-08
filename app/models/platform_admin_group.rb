@@ -82,4 +82,16 @@ class PlatformAdminGroup
     self.build_default_billing_profile.save
     self.set_ag_details_from_product
   end
+
+
+
+  def get_recurly_account
+      account = Recurly::Account.find(self.id)
+  end
+
+  def replace_product product
+     platform_product_management = self.build_platform_products_management
+     platform_product_management.platform_product = product
+     platform_product_management.save
+  end
 end

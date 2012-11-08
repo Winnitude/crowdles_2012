@@ -21,7 +21,7 @@
           <p class="bold"><%=product.platform_private_commissions%>%  on Private Project </p>
           <p class="impText"><%= plan.trial_interval_length %> <%= plan.trial_interval_unit%> FREE TRIAL</p>
 
-          <%=link_to  @admin_group.get_product == product ? "Your Plan" : "Apply"  ,billing_details_path(:account => @admin_group, :plan => product),:class => "btn btn-inverse" ,:method => "Post"%>
+          <%=link_to  @admin_group.get_product == product ? "Your Plan" : "Apply"  ,billing_details_path(:account => @admin_group.id, :plan => product),:class => "btn btn-inverse" %>
 
         </li>
 

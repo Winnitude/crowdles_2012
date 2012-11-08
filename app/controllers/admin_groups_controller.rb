@@ -57,18 +57,63 @@ class AdminGroupsController < ApplicationController
       factor = @plan.trial_interval_unit == "days" ? 1 : 30
       trial_ends_at = DateTime.now  + trial_length * factor
       @admin_group = PlatformAdminGroup.create_account(params,current_user,@local_admin, @product,trial_ends_at)
+      session[:platform_product_id] = nil
       redirect_to home_admin_group_path(@admin_group) ,:notice => "Your Platform created successfully now you can manage your own platform"
       #render :text => "free"
     else
+      session[:platform_product_id] = nil
       render :text => "paid"
     end
   end
 
   def home
-   @admin_group = PlatformAdminGroup.find(params[:id])
+    @admin_group = PlatformAdminGroup.find(params[:id])
   end
 
   def billing_details
-    account = Recurly::Account.create(:account_code => params[:admin_group])
+    #todo need to check weather ag allow to be on this page or not
+    @admin_group = PlatformAdminGroup.find(params[:account])
+    @product = PlatformProduct.find params[:plan]
+    #replace plan with new
+    @admin_group.replace_product(@product)
+    #craeate account on recurly
+    #binding.remote_pry
+    @account = Recurly::Account.new(:account_code => @admin_group.id)
+    @countries = ServiceCountry.all.select{|i| i.is_active == 1 }.collect{|i|i.country_english_name}
+  end
+
+  def create_billing_details_and_subscription
+    #binding.remote_pry
+    @product = PlatformProduct.find(params[:product_id])
+    @admin_group = PlatformAdminGroup.find params[:admin_group_id]
+    @account = Recurly::Account.new(:account_code => @admin_group.id)
+    @account.email = params[:email]
+
+    @account.billing_info = {
+        :first_name         => params[:company_or_individual] == "individual" ? params[:first_name] : params[:company],
+        :last_name          => params[:company_or_individual] == "individual" ? params[:first_name] : params[:legal_form],
+        :number             => params[:card_number],
+        :verification_value => params[:cvv],
+        :month              => params[:expire_month],
+        :year               => params[:year],
+        :vat_number         => params[:vat],
+        :phone              => params[:phone],
+        :address1           => params[:address],
+        :address2           => params[:additional_address],
+        :city               => params[:city],
+        :state              => params[:state],
+        :zip                => params[:zip_code],
+        :country            => params[:country],
+    }
+    if @account.save
+      #@account.email = params[:email]
+      #@account.save
+      render :text => "done"
+    else
+      @countries = ServiceCountry.all.select{|i| i.is_active == 1 }.collect{|i|i.country_english_name}
+      render :action => :billing_details
+    end
+
+
   end
 end
